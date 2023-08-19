@@ -138,7 +138,9 @@
 				<a href="#" class="text-gray-200 hover:text-white transition">About us</a>
 				<a href="#" class="text-gray-200 hover:text-white transition">Contact us</a>
 			</div>
-			<a href="pages/login.html" class="text-gray-200 hover:text-white transition">Entrar</a>
+			<a href="pages/login.html" class="text-gray-200 hover:text-white transition font-medium"
+				>Entrar</a
+			>
 		</div>
 	</div>
 </nav>
