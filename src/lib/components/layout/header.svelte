@@ -4,7 +4,7 @@
 
 <header class="py-4 shadow-sm bg-white">
 	<div class="container mx-auto flex items-center justify-between">
-		<a href="index.html">
+		<a href="/">
 			<img src={logo} alt="Logo" class="w-44 mb-1" />
 		</a>
 
@@ -32,7 +32,7 @@
 
 		<div class="flex items-center space-x-6">
 			<a
-				href="#"
+				href="/wishlist"
 				class="text-center text-gray-700 hover:text-primary transition relative flex flex-col items-center"
 			>
 				<div class="text-2xl">
@@ -50,7 +50,7 @@
 				</div>
 			</a>
 			<a
-				href="#"
+				href="/carrinho"
 				class="text-center text-gray-700 hover:text-primary transition relative flex flex-col items-center"
 			>
 				<div class="text-2xl">
@@ -68,7 +68,7 @@
 				</div>
 			</a>
 			<a
-				href="#"
+				href="/conta"
 				class="text-center text-gray-700 hover:text-primary transition relative flex flex-col items-center"
 			>
 				<div class="text-2xl">
@@ -114,7 +114,7 @@
 				</a>
 				<a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
 					<img src="assets/images/icons/office.svg" alt="office" class="w-5 h-5 object-contain" />
-					<span class="ml-6 text-gray-600 text-sm">office</span>
+					<span class="ml-6 text-gray-600 text-sm">Office</span>
 				</a>
 				<a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
 					<img
@@ -133,10 +133,10 @@
 
 		<div class="flex items-center justify-between flex-grow md:pl-12 py-5">
 			<div class="flex items-center space-x-6 capitalize">
-				<a href="index.html" class="text-gray-200 hover:text-white transition">Home</a>
-				<a href="pages/shop.html" class="text-gray-200 hover:text-white transition">Shop</a>
-				<a href="#" class="text-gray-200 hover:text-white transition">About us</a>
-				<a href="#" class="text-gray-200 hover:text-white transition">Contact us</a>
+				<a href="/" class="text-gray-200 hover:text-white transition">Início</a>
+				<a href="/loja" class="text-gray-200 hover:text-white transition">Loja</a>
+				<a href="/sobre-nos" class="text-gray-200 hover:text-white transition">Sobre Nós</a>
+				<a href="/contato" class="text-gray-200 hover:text-white transition">Contato</a>
 			</div>
 			<a href="pages/login.html" class="text-gray-200 hover:text-white transition font-medium"
 				>Entrar</a
