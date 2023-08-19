@@ -16,8 +16,8 @@
 				</p>
 				<div class="mt-12">
 					<button
-						class="btn btn-primary btn-md text-base border border-primary text-white px-8 font-medium
-							rounded-md hover:bg-transparent hover:text-primary">Comprar Agora</button
+						class="btn btn-primary btn-md glass bg-primary-focus text-base border border-primary text-white px-8 font-medium
+							rounded-md hover:shadow-lg">Comprar Agora</button
 					>
 				</div>
 			</div>
@@ -359,11 +359,16 @@
 	<a href="#">
 		<img src={banner} alt="ads" class="w-full h-full object-cover" />
 		<div
-			class="absolute -top-10 left-0 w-4/12 h-[560px] bg-white rounded-r-full flex items-center justify-center"
+			class="absolute -top-10 left-0 w-4/12 h-[560px] bg-slate-50 rounded-r-full flex items-center justify-center"
 		>
-			<div class="text-center">
-				<p class="mb-4">Your Text Here</p>
-				<button class="px-4 py-2 btn btn-primary text-white rounded">Comprar Agora</button>
+			<div class="text-left -mt-28 -ml-6">
+				<p class="mb-4 font-medium text-3xl tracking-wider">EXCLUSIVO</p>
+				<p class="mb-4 font-bold text-primary text-5xl">15% DESCONTO</p>
+				<p class="mb-4 uppercase font-semibold text-2xl tracking-tight">Em Apostilas e Simulados</p>
+				<button
+					class="px-4 py-2 btn btn-primary glass bg-primary-focus text-white rounded hover:shadow-md"
+					>Comprar Agora</button
+				>
 			</div>
 		</div>
 	</a>
