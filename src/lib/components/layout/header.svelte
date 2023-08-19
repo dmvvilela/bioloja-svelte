@@ -5,27 +5,28 @@
 <header class="py-4 shadow-sm bg-white">
 	<div class="container mx-auto flex items-center justify-between">
 		<a href="index.html">
-			<img src={logo} alt="Logo" class="w-44" />
+			<img src={logo} alt="Logo" class="w-44 mb-1" />
 		</a>
 
-		<div class="w-full max-w-xl relative flex">
-			<span class="absolute left-4 top-3 text-lg text-gray-400">
-				<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
-					><path
+		<div class="w-full max-w-xl relative flex items-center">
+			<span class="absolute left-4 text-lg text-gray-400">
+				<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+					<path
 						d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
-					/></svg
-				>
+					/>
+				</svg>
 			</span>
 			<input
 				type="text"
 				name="search"
 				id="search"
 				class="w-full border border-primary border-r-0 pl-12 py-3 pr-3 rounded-l-md focus:outline-none hidden md:flex"
-				placeholder="search"
+				placeholder="Pesquise em toda a Bioloja"
+				autocomplete="off"
 			/>
 			<button
-				class="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition hidden md:flex"
-				>Search</button
+				class="bg-primary border border-primary text-white px-8 py-3 rounded-r-md hover:bg-transparent hover:text-primary transition hidden md:flex"
+				>Pesquisar</button
 			>
 		</div>
 
@@ -41,7 +42,7 @@
 						/></svg
 					>
 				</div>
-				<div class="text-xs leading-3 mt-0.5">Wishlist</div>
+				<div class="text-xs leading-3 mt-1">Wishlist</div>
 				<div
 					class="absolute right-0 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs"
 				>
@@ -59,7 +60,7 @@
 						/></svg
 					>
 				</div>
-				<div class="text-xs leading-3 mt-0.5">Carrinho</div>
+				<div class="text-xs leading-3 mt-1">Carrinho</div>
 				<div
 					class="absolute right-0.5 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs"
 				>
@@ -77,7 +78,7 @@
 						/></svg
 					>
 				</div>
-				<div class="text-xs leading-3 mt-0.5">Conta</div>
+				<div class="text-xs leading-3 mt-1">Conta</div>
 			</a>
 		</div>
 	</div>
@@ -87,13 +88,17 @@
 	<div class="container mx-auto flex">
 		<div class="px-8 py-4 bg-primary md:flex items-center cursor-pointer relative group hidden">
 			<span class="text-white">
-				<i class="fa-solid fa-bars" />
+				<svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 448 512"
+					><path
+						d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+					/></svg
+				>
 			</span>
-			<span class="capitalize ml-2 text-white hidden">All Categories</span>
+			<span class="capitalize ml-2 text-white hidden">Todas as Categorias</span>
 
 			<!-- dropdown -->
 			<div
-				class="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible"
+				class="absolute w-48 left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible"
 			>
 				<a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
 					<img src="assets/images/icons/sofa.svg" alt="sofa" class="w-5 h-5 object-contain" />
@@ -133,7 +138,7 @@
 				<a href="#" class="text-gray-200 hover:text-white transition">About us</a>
 				<a href="#" class="text-gray-200 hover:text-white transition">Contact us</a>
 			</div>
-			<a href="pages/login.html" class="text-gray-200 hover:text-white transition">Login</a>
+			<a href="pages/login.html" class="text-gray-200 hover:text-white transition">Entrar</a>
 		</div>
 	</div>
 </nav>
