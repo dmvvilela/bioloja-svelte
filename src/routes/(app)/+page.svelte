@@ -353,3 +353,19 @@
 	</div>
 </div>
 <!-- ./promotional -->
+
+<!-- banner 2 -->
+<div class="relative container mx-auto h-[362px] border-primary/20 border mb-16 overflow-hidden">
+	<a href="#">
+		<img src={banner} alt="ads" class="w-full h-full object-cover" />
+		<div
+			class="absolute -top-10 left-0 w-4/12 h-[560px] bg-white rounded-r-full flex items-center justify-center"
+		>
+			<div class="text-center">
+				<p class="mb-4">Your Text Here</p>
+				<button class="px-4 py-2 btn btn-primary text-white rounded">Comprar Agora</button>
+			</div>
+		</div>
+	</a>
+</div>
+<!-- ./banner 2 -->
