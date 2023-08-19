@@ -29,9 +29,9 @@
 	<!-- A common pattern is to return SEO-related data from page load functions, then use it (as $page.data) in a <svelte:head> in your root layout. -->
 </svelte:head>
 
-<div class="relative" data-sveltekit-preload-data="tap" data-sveltekit-preload-code="hover">
+<div class="relative">
 	<Header />
-	<button class="btn btn-primary">Button</button>
+	<!-- <button class="btn btn-primary">Button</button> -->
 	<!-- <Searchbox isOpen={isSearchOpen} {toggleSearch} /> -->
 	<!-- {#if $toasts}
 		<section class="fixed right-2.5 z-[999] mt-2.5 flex flex-col justify-center">
@@ -53,3 +53,9 @@
 
 	<Footer />
 </div>
+
+<!-- <style lang="postcss">
+	:global(html) {
+		background-color: theme(colors.gray.100);
+	}
+</style> -->
