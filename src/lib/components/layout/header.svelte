@@ -20,12 +20,12 @@
 				type="text"
 				name="search"
 				id="search"
-				class="w-full border border-primary border-r-0 pl-12 py-3 pr-3 rounded-l-md focus:outline-none hidden md:flex"
+				class="w-full border border-primary border-r-[0.5px] pl-12 py-3 pr-3 rounded-l-md focus:outline-none hidden md:flex"
 				placeholder="Pesquise em toda a Bioloja"
 				autocomplete="off"
 			/>
 			<button
-				class="bg-primary border border-primary text-white px-8 py-3 rounded-r-md hover:bg-transparent hover:text-primary transition hidden md:flex"
+				class="bg-primary border border-primary text-white px-8 py-3 rounded-r-md hover:bg-transparent hover:text-primary transition active:scale-95 hidden md:flex"
 				>Pesquisar</button
 			>
 		</div>
