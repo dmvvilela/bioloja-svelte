@@ -31,7 +31,7 @@
 
 <div class="relative" data-sveltekit-preload-data="tap" data-sveltekit-preload-code="hover">
 	<Header />
-
+	<button class="btn btn-primary">Button</button>
 	<!-- <Searchbox isOpen={isSearchOpen} {toggleSearch} /> -->
 	<!-- {#if $toasts}
 		<section class="fixed right-2.5 z-[999] mt-2.5 flex flex-col justify-center">
