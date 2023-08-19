@@ -81,3 +81,59 @@
 	</div>
 </div>
 <!-- ./features -->
+
+<!-- categories -->
+<div class="container mx-auto py-16">
+	<h2 class="text-2xl font-bold text-gray-800 uppercase mb-6">Comprar por categoria</h2>
+	<div class="grid grid-cols-3 gap-3">
+		<div class="relative rounded-sm overflow-hidden group tracking-wider">
+			<img src={banner} alt="category 1" class="w-full" />
+			<a
+				href="#"
+				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
+				>Genética</a
+			>
+		</div>
+		<div class="relative rounded-sm overflow-hidden group">
+			<img src={banner} alt="category 1" class="w-full" />
+			<a
+				href="#"
+				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
+				>Seres Vivos</a
+			>
+		</div>
+		<div class="relative rounded-sm overflow-hidden group">
+			<img src={banner} alt="category 1" class="w-full" />
+			<a
+				href="#"
+				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
+				>Microbiologia
+			</a>
+		</div>
+		<div class="relative rounded-sm overflow-hidden group">
+			<img src={banner} alt="category 1" class="w-full" />
+			<a
+				href="#"
+				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
+				>Anatomia e Fisiologia</a
+			>
+		</div>
+		<div class="relative rounded-sm overflow-hidden group">
+			<img src={banner} alt="category 1" class="w-full" />
+			<a
+				href="#"
+				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
+				>Bioquímica</a
+			>
+		</div>
+		<div class="relative rounded-sm overflow-hidden group">
+			<img src={banner} alt="category 1" class="w-full" />
+			<a
+				href="#"
+				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
+				>Evolução</a
+			>
+		</div>
+	</div>
+</div>
+<!-- ./categories -->
