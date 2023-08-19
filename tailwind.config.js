@@ -2,6 +2,10 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		fontFamily: {
+			lora: 'Lora, serif',
+			inter: 'Inter, sans-serif'
+		},
 		extend: {}
 	},
 	plugins: [require('@tailwindcss/typography'), require('daisyui')],

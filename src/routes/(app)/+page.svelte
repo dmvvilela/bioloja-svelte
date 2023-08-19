@@ -4,13 +4,13 @@
 
 <!-- banner -->
 <div class="bg-cover bg-no-repeat bg-center" style="background-image: url({banner});">
-	<div class="bg-slate-100 bg-opacity-90 backdrop-blur-md py-28">
+	<div class="bg-slate-100 bg-opacity-90 backdrop-blur-md py-24">
 		<div class="container mx-auto">
 			<div class="max-w-2xl rounded-xl p-4">
-				<h1 class="text-6xl text-gray-800 font-semibold mb-4 leading-tight tracking-wide">
+				<h1 class="text-6xl text-gray-800 font-semibold mb-4 leading-tight tracking-normal">
 					Materiais Didáticos <br /> de Biologia
 				</h1>
-				<p class="text-lg">
+				<p class="text-lg font-lora font-medium">
 					Aulas em PowerPoint, Apostilas, Exercícios e Simulados de Biologia.<br />
 					Para os Ensinos Fundamental, Médio, Superior e o Enem.
 				</p>
@@ -41,7 +41,7 @@
 				/></svg
 			>
 			<div>
-				<h4 class="font-medium capitalize text-lg">Materiais Exclusivos</h4>
+				<h4 class="font-semibold capitalize text-lg">Materiais Exclusivos</h4>
 				<p class="text-gray-500 text-sm">Download direto pelo nosso site</p>
 			</div>
 		</div>
@@ -57,7 +57,7 @@
 				/></svg
 			>
 			<div>
-				<h4 class="font-medium text-lg">Suporte via E-mail</h4>
+				<h4 class="font-semibold text-lg">Suporte via E-mail</h4>
 				<p class="text-gray-500 text-sm">Estamos sempre disponíveis</p>
 			</div>
 		</div>
@@ -74,7 +74,7 @@
 				/></svg
 			>
 			<div>
-				<h4 class="font-medium capitalize text-lg">Pagamentos Seguros</h4>
+				<h4 class="font-semibold capitalize text-lg">Pagamentos Seguros</h4>
 				<p class="text-gray-500 text-sm">100% Confiabilidade</p>
 			</div>
 		</div>
