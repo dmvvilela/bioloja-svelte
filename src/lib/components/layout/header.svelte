@@ -98,7 +98,7 @@
 
 			<!-- dropdown -->
 			<div
-				class="absolute w-48 left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible"
+				class="absolute w-48 left-0 z-10 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible"
 			>
 				<a href="#" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
 					<img src="assets/images/icons/sofa.svg" alt="sofa" class="w-5 h-5 object-contain" />
