@@ -1,5 +1,14 @@
 <script lang="ts">
 	import banner from '$lib/images/banner-bg.jpg';
+	import slide1 from '$lib/images/slides1/Slide1.jpg';
+	import slide2 from '$lib/images/slides1/Slide2.jpg';
+	import slide3 from '$lib/images/slides1/Slide3.jpg';
+	import slide4 from '$lib/images/slides1/Slide4.jpg';
+	import slide5 from '$lib/images/slides1/Slide5.jpg';
+	import slide6 from '$lib/images/slides1/Slide6.jpg';
+	import slide7 from '$lib/images/slides1/Slide7.jpg';
+	import slide8 from '$lib/images/slides1/Slide8.jpg';
+	import ProductLink from './product_link.svelte';
 </script>
 
 <!-- banner -->
@@ -87,7 +96,7 @@
 	<h2 class="text-2xl font-bold text-gray-800 uppercase mb-6">Comprar por categoria</h2>
 	<div class="grid grid-cols-3 gap-3">
 		<div class="relative rounded-sm overflow-hidden group tracking-wider">
-			<img src={banner} alt="category 1" class="w-full" />
+			<img src={slide1} alt="category 1" class="w-full" />
 			<a
 				href="#"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
@@ -95,7 +104,7 @@
 			>
 		</div>
 		<div class="relative rounded-sm overflow-hidden group">
-			<img src={banner} alt="category 1" class="w-full" />
+			<img src={slide2} alt="category 1" class="w-full" />
 			<a
 				href="#"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
@@ -103,7 +112,7 @@
 			>
 		</div>
 		<div class="relative rounded-sm overflow-hidden group">
-			<img src={banner} alt="category 1" class="w-full" />
+			<img src={slide3} alt="category 1" class="w-full" />
 			<a
 				href="#"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
@@ -111,7 +120,7 @@
 			</a>
 		</div>
 		<div class="relative rounded-sm overflow-hidden group">
-			<img src={banner} alt="category 1" class="w-full" />
+			<img src={slide4} alt="category 1" class="w-full" />
 			<a
 				href="#"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
@@ -119,7 +128,7 @@
 			>
 		</div>
 		<div class="relative rounded-sm overflow-hidden group">
-			<img src={banner} alt="category 1" class="w-full" />
+			<img src={slide5} alt="category 1" class="w-full" />
 			<a
 				href="#"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
@@ -127,7 +136,7 @@
 			>
 		</div>
 		<div class="relative rounded-sm overflow-hidden group">
-			<img src={banner} alt="category 1" class="w-full" />
+			<img src={slide6} alt="category 1" class="w-full" />
 			<a
 				href="#"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
@@ -142,214 +151,10 @@
 <div class="container mx-auto pb-16">
 	<h2 class="text-2xl font-bold text-gray-800 uppercase mb-6">Materiais em promoção</h2>
 	<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Guyer Chair
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Bed King Size
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Couple Sofa
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Mattrass X
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
+		<ProductLink slide={slide1} />
+		<ProductLink slide={slide2} />
+		<ProductLink slide={slide3} />
+		<ProductLink slide={slide4} />
 	</div>
 </div>
 <!-- ./promotional -->
@@ -379,422 +184,14 @@
 <div class="container mx-auto pb-16">
 	<h2 class="text-2xl font-bold text-gray-800 uppercase mb-6">Mais vendidos</h2>
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Guyer Chair
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Bed King Size
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Couple Sofa
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Mattrass X
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Guyer Chair
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Bed King Size
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Couple Sofa
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
-		<div class="bg-white shadow rounded overflow-hidden group">
-			<div class="relative">
-				<img src={banner} alt="product 1" class="w-full" />
-				<div
-					class="absolute inset-0 bg-black bg-opacity-40 flex items-center
-									justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-				>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="view product"
-					>
-						<i class="fa-solid fa-magnifying-glass" />
-					</a>
-					<a
-						href="#"
-						class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-						title="add to wishlist"
-					>
-						<i class="fa-solid fa-heart" />
-					</a>
-				</div>
-			</div>
-			<div class="pt-4 pb-3 px-4">
-				<a href="#">
-					<h4
-						class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
-					>
-						Mattrass X
-					</h4>
-				</a>
-				<div class="flex items-baseline mb-1 space-x-2">
-					<p class="text-xl text-primary font-semibold">$45.00</p>
-					<p class="text-sm text-gray-400 line-through">$55.90</p>
-				</div>
-				<div class="flex items-center">
-					<div class="flex gap-1 text-sm text-yellow-400">
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-						<span><i class="fa-solid fa-star" /></span>
-					</div>
-					<div class="text-xs text-gray-500 ml-3">(150)</div>
-				</div>
-			</div>
-			<a
-				href="#"
-				class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-				>Add to cart</a
-			>
-		</div>
+		<ProductLink slide={slide1} />
+		<ProductLink slide={slide2} />
+		<ProductLink slide={slide3} />
+		<ProductLink slide={slide4} />
+		<ProductLink slide={slide5} />
+		<ProductLink slide={slide6} />
+		<ProductLink slide={slide7} />
+		<ProductLink slide={slide8} />
 	</div>
 </div>
 <!-- ./best sellers -->

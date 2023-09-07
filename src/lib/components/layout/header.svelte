@@ -9,10 +9,24 @@
 		</a>
 
 		<div class="w-full max-w-xl relative flex items-center">
-			<span class="absolute left-4 text-lg text-gray-400">
-				<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+			<span class="absolute left-[14px] text-lg text-gray-400">
+				<!-- <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
 					<path
 						d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+					/>
+				</svg> -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="2.1"
+					stroke="currentColor"
+					class="w-6 h-6"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
 					/>
 				</svg>
 			</span>
