@@ -48,7 +48,7 @@
 		<div class="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				height="2.9em"
+				height="3em"
 				viewBox="0 0 512 512"
 				fill="currentColor"
 				class="text-primary"
