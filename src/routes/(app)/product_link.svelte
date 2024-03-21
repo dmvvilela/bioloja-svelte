@@ -1,5 +1,7 @@
 <script lang="ts">
 	export let slide: string;
+
+	// TODO: Make the fa links arrows to change slide like wimoveis
 </script>
 
 <div class="bg-white shadow rounded overflow-hidden group">

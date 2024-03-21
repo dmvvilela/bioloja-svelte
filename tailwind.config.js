@@ -45,3 +45,6 @@ export default {
 
 // Medidor Digital
 // #00594E
+
+// Mantine
+// https://mantine.dev/colors-generator/?color=7895A3
