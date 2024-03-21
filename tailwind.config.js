@@ -33,7 +33,9 @@ export default {
 				cupcake: {
 					// eslint-disable-next-line @typescript-eslint/no-var-requires
 					...require('daisyui/src/theming/themes')['[data-theme=cupcake]'],
-					primary: '#7C9AA6',
+					primary: '#7895A3',
+					secondary: '#002336',
+					accent: '#00594F',
 					'background-color': '#FFFFFF'
 				}
 			}

@@ -200,7 +200,7 @@
 <div class="relative sm:py-16 bg-gray-50">
 	<div class="relative max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
 		<div
-			class="relative px-6 py-10 overflow-hidden shadow-lg rounded-3xl bg-bioloja-600 sm:px-12 sm:py-20"
+			class="relative px-6 py-10 overflow-hidden shadow-lg rounded-3xl bg-bioloja-400 sm:px-12 sm:py-20"
 		>
 			<div aria-hidden="true" class="absolute inset-0 -mt-72 sm:-mt-32 md:mt-0">
 				<svg
@@ -227,7 +227,7 @@
 					<h2 class="text-4xl font-extrabold text-white tracking-tight sm:text-4.5xl font-display">
 						Saiba quando adicionarmos novos materiais
 					</h2>
-					<p class="max-w-2xl mx-auto mt-6 text-lg text-bioloja-100">
+					<p class="max-w-2xl mx-auto mt-6 text-lg text-bioloja-50">
 						Receba as novidades da Bioloja, recebendo ofertas exclusivas e avisos de novos materiais
 						publicados. Fique por dentro de nossas novidades!
 					</p>
@@ -235,7 +235,7 @@
 				<form class="sm:mx-auto sm:max-w-lg sm:flex">
 					<div class="relative w-full max-w-xl mx-auto bg-white rounded-full h-14 lg:max-w-none">
 						<input
-							class="rounded-full w-full h-14 bg-transparent py-0 sm:pl-6 pl-5 pr-16 sm:pr-32 outline-none border-2 border-gray-100 shadow-md hover:outline-none focus:ring-bioloja-200 focus:border-bioloja-200"
+							class="rounded-full w-full h-14 bg-transparent py-0 text-bioloja-700 sm:pl-6 pl-5 pr-16 sm:pr-32 outline-none border-2 border-gray-100 shadow-md hover:outline-none focus:ring-bioloja-200 focus:border-bioloja-200"
 							placeholder="Endereço de e-mail"
 							autocomplete="email"
 							type="email"
@@ -245,7 +245,7 @@
 						/>
 						<button
 							type="submit"
-							class="absolute inline-flex items-center h-12 p-4 text-sm text-white transition duration-150 ease-in-out rounded-r-full rounded-bl-full outline-none right-1 top-1 bg-bioloja-600 sm:py-2 sm:px-6 sm:rounded-full sm:text-base sm:font-medium hover:bg-bioloja-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bioloja-500"
+							class="absolute inline-flex items-center h-12 p-4 text-sm text-white transition duration-150 ease-in-out rounded-r-full rounded-bl-full outline-none right-1 top-1 bg-bioloja-400 sm:py-2 sm:px-6 sm:rounded-full sm:text-base sm:font-medium hover:bg-bioloja-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bioloja-400"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

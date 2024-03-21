@@ -141,7 +141,7 @@
 	</div>
 </header>
 
-<nav class="bg-gray-800">
+<nav class="bg-secondary">
 	<div class="container mx-auto flex">
 		<div class="px-8 py-4 bg-primary md:flex items-center cursor-pointer relative group hidden">
 			<span class="text-white">
@@ -196,7 +196,9 @@
 				<a href="/faq" class="text-gray-200 hover:text-white transition">Dúvidas</a>
 				<a href="/contato" class="text-gray-200 hover:text-white transition">Contato</a>
 			</div>
-			<a href="/entrar" class="text-gray-200 hover:text-white transition font-medium text-[15px]"
+			<a
+				href="/entrar"
+				class="text-gray-200 hover:text-white transition font-medium text-[15px] uppercase"
 				>Entrar</a
 			>
 		</div>

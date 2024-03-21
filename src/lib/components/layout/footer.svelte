@@ -75,13 +75,15 @@
 </footer>
 
 <!-- copyright -->
-<div class="bg-gray-800 py-4">
+<div class="bg-secondary py-4">
 	<div class="container mx-auto flex items-center justify-between font-light">
-		<p class="text-white text-sm tracking-wide">&copy; Bioloja - Todos os direitos reservados.</p>
-		<div class="flex space-x-2 text-white font-extralight">
-			<button class="btn btn-link btn-xs">Política de Privacidade</button>
-			<p>|</p>
-			<button class="btn btn-link btn-xs">Termos e Condições</button>
+		<p class="text-bioloja-100 text-sm tracking-wide">
+			&copy; Bioloja - Todos os direitos reservados.
+		</p>
+		<div class="flex space-x-2 font-extralight">
+			<button class="btn btn-link btn-xs text-bioloja-400">Política de Privacidade</button>
+			<p class="text-bioloja-500">|</p>
+			<button class="btn btn-link btn-xs text-bioloja-400">Termos e Condições</button>
 		</div>
 	</div>
 </div>
