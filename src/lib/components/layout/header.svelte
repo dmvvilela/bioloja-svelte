@@ -189,14 +189,14 @@
 		</div>
 
 		<div class="flex items-center justify-between flex-grow md:pl-12 py-5">
-			<div class="flex items-center space-x-6 capitalize">
+			<div class="flex items-center space-x-6 capitalize text-[15px]">
 				<a href="/" class="text-gray-200 hover:text-white transition">Início</a>
 				<a href="/loja" class="text-gray-200 hover:text-white transition">Loja</a>
 				<a href="/sobre-nos" class="text-gray-200 hover:text-white transition">Sobre Nós</a>
 				<a href="/faq" class="text-gray-200 hover:text-white transition">Dúvidas</a>
 				<a href="/contato" class="text-gray-200 hover:text-white transition">Contato</a>
 			</div>
-			<a href="pages/login.html" class="text-gray-200 hover:text-white transition font-medium"
+			<a href="/entrar" class="text-gray-200 hover:text-white transition font-medium text-[15px]"
 				>Entrar</a
 			>
 		</div>

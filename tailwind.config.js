@@ -8,7 +8,22 @@ export default {
 			lora: 'Lora, serif',
 			inter: 'Inter, sans-serif'
 		},
-		extend: {}
+		extend: {
+			colors: {
+				bioloja: {
+					50: '#ebf6ff',
+					100: '#ddeaf0',
+					200: '#c1d2d9',
+					300: '#a1b7c1',
+					400: '#87a1ad',
+					500: '#7693a1',
+					600: '#6b8c9c',
+					700: '#597989',
+					800: '#4b6c7c',
+					900: '#385e6f'
+				}
+			}
+		}
 	},
 	plugins: [require('@tailwindcss/typography'), require('daisyui')],
 	daisyui: {
@@ -49,4 +64,5 @@ export default {
 // #00594E
 
 // Mantine
+// #7895A3
 // https://mantine.dev/colors-generator/?color=7895A3
