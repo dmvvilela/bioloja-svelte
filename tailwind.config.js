@@ -3,6 +3,8 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		fontFamily: {
+			fredericka: 'Fredericka, serif',
+			poppins: 'Poppins, sans-serif',
 			lora: 'Lora, serif',
 			inter: 'Inter, sans-serif'
 		},
