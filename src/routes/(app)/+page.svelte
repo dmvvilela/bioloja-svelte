@@ -93,7 +93,7 @@
 
 <!-- categories -->
 <div class="container mx-auto py-16">
-	<h2 class="text-2xl font-bold text-gray-800 uppercase mb-6">Comprar por categoria</h2>
+	<h2 class="text-2xl font-bold text-secondary uppercase mb-6">Comprar por categoria</h2>
 	<div class="grid grid-cols-3 gap-3">
 		<div class="relative rounded-sm overflow-hidden group tracking-wider">
 			<img src={slide1} alt="category 1" class="w-full" />
@@ -149,7 +149,7 @@
 
 <!-- promotional -->
 <div class="container mx-auto pb-16">
-	<h2 class="text-2xl font-bold text-gray-800 uppercase mb-6">Materiais em promoção</h2>
+	<h2 class="text-2xl font-bold text-secondary uppercase mb-6">Materiais em promoção</h2>
 	<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
 		<ProductLink slide={slide1} />
 		<ProductLink slide={slide2} />
@@ -182,7 +182,7 @@
 
 <!-- best sellers -->
 <div class="container mx-auto pb-16">
-	<h2 class="text-2xl font-bold text-gray-800 uppercase mb-6">Mais vendidos</h2>
+	<h2 class="text-2xl font-bold text-secondary uppercase mb-6">Mais vendidos</h2>
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 		<ProductLink slide={slide1} />
 		<ProductLink slide={slide2} />
