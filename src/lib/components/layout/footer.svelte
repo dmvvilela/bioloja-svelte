@@ -13,7 +13,10 @@
 			</div>
 
 			<div class="flex space-x-5 pb-8">
-				<a href="#" class="text-gray-400 hover:text-gray-500"
+				<a
+					href="https://www.facebook.com/Bioloja"
+					target="_blank"
+					class="text-gray-400 hover:text-gray-500"
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
 						x="0px"
@@ -27,7 +30,10 @@
 						/>
 					</svg></a
 				>
-				<a href="#" class="text-gray-400 hover:text-gray-500"
+				<a
+					href="https://www.instagram.com/biolojaoficial"
+					target="_blank"
+					class="text-gray-400 hover:text-gray-500"
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
 						x="0px"
@@ -41,7 +47,10 @@
 						/>
 					</svg></a
 				>
-				<a href="#" class="text-gray-400 hover:text-gray-500"
+				<a
+					href="https://twitter.com/Bioloja"
+					target="_blank"
+					class="text-gray-400 hover:text-gray-500"
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
 						x="0px"
