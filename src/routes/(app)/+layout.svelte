@@ -1,6 +1,7 @@
 <script>
 	import Footer from '$lib/components/layout/footer.svelte';
 	import Header from '$lib/components/layout/header.svelte';
+	import PrivacyNotice from '$lib/components/layout/privacy_notice.svelte';
 	import '../../app.css';
 
 	const title = 'Bioloja - Materiais Didáticos de Biologia';
@@ -51,6 +52,7 @@
 		<slot />
 	</main>
 
+	<PrivacyNotice />
 	<Footer />
 </div>
 
