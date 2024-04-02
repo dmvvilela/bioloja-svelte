@@ -7,7 +7,8 @@ declare global {
 		// interface PageData {}
 		interface Platform {
 			env: {
-				COUNTER: DurableObjectNamespace;
+				D1_DATABASE: D1Database;
+				R2_BUCKET: R2Bucket;
 			};
 			context: {
 				// eslint-disable-next-line @typescript-eslint/no-explicit-any

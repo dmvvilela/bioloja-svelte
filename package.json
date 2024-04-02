@@ -6,15 +6,17 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"test": "npm run test:integration && npm run test:unit",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"generate": "drizzle-kit generate:sqlite",
+		"up": "drizzle-kit up:sqlite",
+		"studio": "drizzle-kit studio"
 	},
 	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20240329.0",
+		"@lucia-auth/adapter-drizzle": "^1.0.7",
 		"@sveltejs/adapter-auto": "^3.2.0",
 		"@sveltejs/adapter-cloudflare": "^4.2.0",
 		"@sveltejs/kit": "^2.5.5",
@@ -24,9 +26,13 @@
 		"@typescript-eslint/parser": "^5.62.0",
 		"autoprefixer": "^10.4.19",
 		"daisyui": "^3.9.4",
+		"drizzle-kit": "^0.20.14",
+		"drizzle-orm": "^0.30.6",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^8.10.0",
 		"eslint-plugin-svelte": "^2.35.1",
+		"lucia": "^3.1.1",
+		"oslo": "^1.2.0",
 		"postcss": "^8.4.38",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.1",
@@ -36,7 +42,9 @@
 		"tslib": "^2.6.2",
 		"typescript": "^5.4.3",
 		"vite": "^5.2.7",
-		"vitest": "^1.4.0"
+		"vitest": "^1.4.0",
+		"wrangler": "^3.44.0",
+		"zod": "^3.22.4"
 	},
 	"type": "module"
 }
