@@ -144,7 +144,7 @@
 
 <nav class="bg-secondary">
 	<div class="container mx-auto flex">
-		<div class="px-8 py-4 bg-primary md:flex items-center cursor-pointer relative group hidden">
+		<div class="px-8 py-4 bg-bioloja-400 md:flex items-center cursor-pointer relative group hidden">
 			<span class="text-white">
 				<svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 448 512"
 					><path
@@ -152,25 +152,25 @@
 					/></svg
 				>
 			</span>
-			<span class="capitalize ml-2 text-white hidden">Todas as Categorias</span>
+			<span class="capitalize ml-4 text-secondary font-medium">Categorias</span>
 
 			<!-- dropdown -->
 			<div
 				class="absolute w-64 left-0 z-10 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible"
 			>
-				{#each categories as category}
+				{#each categories.sort((a, b) => a.name.localeCompare(b.name)) as category}
 					<a
 						href="/categorias/{category.slug}"
 						class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
 					>
-						<img src="assets/images/icons/sofa.svg" alt="sofa" class="w-5 h-5 object-contain" />
+						<!-- <img src="assets/images/icons/sofa.svg" alt="sofa" class="w-5 h-5 object-contain" /> -->
 						<span class="ml-6 text-gray-600 text-sm">{category.name}</span>
 					</a>
 				{/each}
 			</div>
 		</div>
 
-		<div class="flex items-center justify-between flex-grow md:pl-12 py-5">
+		<div class="flex items-center justify-between flex-grow md:pl-8 py-5">
 			<div class="flex items-center space-x-6 capitalize text-[15px]">
 				<a href="/" class="text-gray-200 hover:text-white transition">Início</a>
 				<a href="/loja" class="text-gray-200 hover:text-white transition">Loja</a>
