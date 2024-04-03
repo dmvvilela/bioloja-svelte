@@ -1,5 +1,5 @@
 {
-  "id": "b395bc7d-b85c-46e2-b772-c55aa1cdc09c",
+  "id": "14db40c3-a8ac-4ddd-a860-0fc9a2278e27",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -20,16 +20,9 @@
           "primaryKey": false,
           "notNull": true
         },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
         "expires_at": {
           "name": "expires_at",
-          "type": "integer",
+          "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": true
         }

@@ -4,7 +4,7 @@ import { isEmail, isPassword } from '$lib/utils/validation';
 import { users } from '$lib/server/db/schema';
 import { eq } from 'drizzle-orm';
 import { lucia } from '$lib/server/auth/lucia';
-import { conn } from '$lib/server/db/conn';
+import { db } from '$lib/server/db/conn';
 import type { Actions } from './$types';
 
 export const actions: Actions = {
@@ -19,7 +19,6 @@ export const actions: Actions = {
 			});
 		}
 
-		const db = conn(event.platform);
 		const existingUser = (
 			await db.select().from(users).where(eq(users.email, email.toLowerCase()))
 		)[0];

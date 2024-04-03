@@ -1,7 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { generateId } from 'lucia';
 import { Argon2id } from 'oslo/password';
-import { conn } from '$lib/server/db/conn';
+import { db } from '$lib/server/db/conn';
 import { users } from '$lib/server/db/schema';
 import { lucia } from '$lib/server/auth/lucia';
 import { isEmail, isPassword } from '$lib/utils/validation';
@@ -21,7 +21,6 @@ export const actions: Actions = {
 
 		const userId = generateId(15);
 		const hashedPassword = await new Argon2id().hash(password);
-		const db = conn(event.platform);
 
 		// Will throw if the user already exists
 		// TODO: handle it

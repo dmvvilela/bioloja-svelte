@@ -1,10 +1,6 @@
-import { drizzle } from 'drizzle-orm/d1';
+import { drizzle } from 'drizzle-orm/neon-http';
+import { neon } from '@neondatabase/serverless';
 // import * as schema from './schema';
 
-export const conn = (platform: App.Platform | undefined) => {
-	if (!platform?.env.D1_DATABASE) {
-		throw new Error('Database not configured');
-	}
-
-	return drizzle(platform.env.D1_DATABASE);
-};
+const sql = neon(Bun.env.PG_CONN || '');
+export const db = drizzle(sql);

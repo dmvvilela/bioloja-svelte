@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Lucia } from 'lucia';
 import { dev } from '$app/environment';
-import { DrizzleSQLiteAdapter } from '@lucia-auth/adapter-drizzle';
+import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
 import { sessions, users } from '../db/schema';
-import { conn } from '../db/conn';
+import { db } from '../db/conn';
 
-const adapter = new DrizzleSQLiteAdapter(conn as any, sessions, users);
+const adapter = new DrizzlePostgreSQLAdapter(db, sessions, users);
 
 export const lucia = new Lucia(adapter, {
 	sessionCookie: {

@@ -1,4 +1,4 @@
-import { integer, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 
 export const users = pgTable('users', {
 	id: text('id').notNull().primaryKey(),
@@ -8,12 +8,14 @@ export const users = pgTable('users', {
 });
 
 export const sessions = pgTable('sessions', {
-	id: text('id').notNull().primaryKey(),
+	id: text('id').primaryKey(),
 	userId: text('user_id')
 		.notNull()
 		.references(() => users.id),
-	createdAt: timestamp('created_at').notNull().defaultNow(),
-	expiresAt: integer('expires_at').notNull()
+	expiresAt: timestamp('expires_at', {
+		withTimezone: true,
+		mode: 'date'
+	}).notNull()
 });
 
 // import {
