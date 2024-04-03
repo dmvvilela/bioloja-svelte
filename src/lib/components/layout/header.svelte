@@ -111,7 +111,7 @@
 				</div>
 			</a>
 			<a
-				href="/conta"
+				href="/minha-conta"
 				class="text-center text-gray-700 hover:text-primary transition relative flex flex-col items-center"
 			>
 				<!-- <div class="text-2xl">

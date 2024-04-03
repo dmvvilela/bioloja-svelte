@@ -72,7 +72,7 @@
 				<div>
 					<h3 class="text-[15px] font-semibold text-gray-400 uppercase tracking-wider">Perfil</h3>
 					<div class="mt-4 space-y-4 text-sm">
-						<a href="/conta" class="text-gray-500 hover:text-gray-900 block">Sua conta</a>
+						<a href="/minha-conta" class="text-gray-500 hover:text-gray-900 block">Sua conta</a>
 						<a href="/carrinho" class="text-gray-500 hover:text-gray-900 block">Carrinho</a>
 						<a href="/wishlist" class="text-gray-500 hover:text-gray-900 block">Wishlist</a>
 					</div>
