@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ProductLink from './product_link.svelte';
+	import ProductCard from '$lib/components/product_card.svelte';
 	import banner from '$lib/images/banner-bg.jpg';
 	import slide1 from '$lib/images/slides1/Slide1.jpg';
 	import slide2 from '$lib/images/slides1/Slide2.jpg';
@@ -151,10 +151,10 @@
 <div class="container mx-auto pb-16">
 	<h2 class="text-2xl font-bold text-secondary uppercase mb-6">Materiais em promoção</h2>
 	<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-		<ProductLink slide={slide1} />
-		<ProductLink slide={slide2} />
-		<ProductLink slide={slide3} />
-		<ProductLink slide={slide4} />
+		<ProductCard slide={slide1} />
+		<ProductCard slide={slide2} />
+		<ProductCard slide={slide3} />
+		<ProductCard slide={slide4} />
 	</div>
 </div>
 <!-- ./promotional -->
@@ -184,14 +184,14 @@
 <div class="container mx-auto pb-16">
 	<h2 class="text-2xl font-bold text-secondary uppercase mb-6">Mais vendidos</h2>
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-		<ProductLink slide={slide1} />
-		<ProductLink slide={slide2} />
-		<ProductLink slide={slide3} />
-		<ProductLink slide={slide4} />
-		<ProductLink slide={slide5} />
-		<ProductLink slide={slide6} />
-		<ProductLink slide={slide7} />
-		<ProductLink slide={slide8} />
+		<ProductCard slide={slide1} />
+		<ProductCard slide={slide2} />
+		<ProductCard slide={slide3} />
+		<ProductCard slide={slide4} />
+		<ProductCard slide={slide5} />
+		<ProductCard slide={slide6} />
+		<ProductCard slide={slide7} />
+		<ProductCard slide={slide8} />
 	</div>
 </div>
 <!-- ./best sellers -->

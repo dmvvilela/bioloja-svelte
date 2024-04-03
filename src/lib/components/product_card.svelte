@@ -54,7 +54,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="pt-4 pb-3 px-4">
+	<div class="pt-4 pb-3 px-4 bg-slate-50/40">
 		<a href="#">
 			<h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
 				Guyer Chair
