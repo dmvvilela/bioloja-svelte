@@ -46,15 +46,15 @@ const getFileList: any = (dirName: fs.PathLike) => {
 	return files;
 };
 
-const files: string[] = getFileList(
-	'/Users/danvilela/Code/Bioloja/materiais zip/Anatomia e Fisiologia Humanas'
-);
+const files: string[] = getFileList('/Users/danvilela/Code/Bioloja/materiais zip');
 console.log(files.length);
 
-try {
-	for (const file of files) {
+let fileName = '';
+const errorFiles = [];
+for (const file of files) {
+	try {
 		const fileStream = fs.readFileSync(file);
-		const fileName = file.replace('/Users/danvilela/Code/Bioloja/materiais zip/', '');
+		fileName = file.replace('/Users/danvilela/Code/Bioloja/materiais zip/', '');
 
 		if (fileName.includes('.DS_Store')) continue;
 
@@ -85,14 +85,22 @@ try {
 
 		const data = await S3.send(cmd);
 		console.log(`Success - Status Code: ${data.$metadata.httpStatusCode}`);
-	}
-} catch (err: any) {
-	if (Object.prototype.hasOwnProperty.call(err, '$metadata')) {
-		console.error(`Error - Status Code: ${err.$metadata.httpStatusCode} - ${err.message}`);
-	} else {
-		console.error('Error', err);
+	} catch (err: any) {
+		if (Object.prototype.hasOwnProperty.call(err, '$metadata')) {
+			if (err.$metadata.httpStatusCode === 412) {
+				console.error(`Error - File already exists`);
+			} else {
+				errorFiles.push(fileName);
+				console.error(`Error - Status Code: ${err.$metadata.httpStatusCode} - ${err.message}`);
+			}
+		} else {
+			console.error('Error', err);
+			errorFiles.push(fileName);
+		}
 	}
 }
+
+await Bun.write('./data/error_files.txt', errorFiles.join('\n'));
 
 // const keys = Object.keys(products[0]);
 
