@@ -144,7 +144,9 @@
 
 <nav class="bg-secondary">
 	<div class="container mx-auto flex">
-		<div class="px-8 py-4 bg-bioloja-400 md:flex items-center cursor-pointer relative group hidden">
+		<div
+			class="px-8 py-4 bg-slate-300/80 md:flex items-center cursor-pointer relative group hidden"
+		>
 			<span class="text-white">
 				<svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 448 512"
 					><path
@@ -171,18 +173,17 @@
 		</div>
 
 		<div class="flex items-center justify-between flex-grow md:pl-8 py-5">
-			<div class="flex items-center space-x-6 capitalize text-[15px]">
-				<a href="/" class="text-gray-200 hover:text-white transition">Início</a>
-				<a href="/loja" class="text-gray-200 hover:text-white transition">Loja</a>
-				<a href="/sobre-nos" class="text-gray-200 hover:text-white transition">Sobre Nós</a>
-				<a href="/faq" class="text-gray-200 hover:text-white transition">Dúvidas</a>
-				<a href="/contato" class="text-gray-200 hover:text-white transition">Contato</a>
+			<div class="flex items-center space-x-6 capitalize text-[15px] text-slate-200">
+				<a href="/" class=" hover:text-white transition">Início</a>
+				<a href="/loja" class=" hover:text-white transition">Loja</a>
+				<a href="/sobre-nos" class=" hover:text-white transition">Sobre Nós</a>
+				<a href="/faq" class=" hover:text-white transition">Dúvidas</a>
+				<a href="/contato" class=" hover:text-white transition">Contato</a>
 			</div>
-			<a
-				href="/entrar"
-				class="text-gray-200 hover:text-white transition font-medium text-[15px] uppercase"
-				>Entrar</a
-			>
+			<div class="text-slate-200 font-medium text-[15px] uppercase">
+				<a href="/entrar" class="hover:text-white transition">Entrar</a> |
+				<a href="/cadastrar" class="hover:text-white transition">Cadastrar</a>
+			</div>
 		</div>
 	</div>
 </nav>
