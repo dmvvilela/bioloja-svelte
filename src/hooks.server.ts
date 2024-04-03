@@ -10,10 +10,10 @@ import type { Handle, HandleServerError } from '@sveltejs/kit';
 let platform: App.Platform;
 
 if (dev) {
-	const { getPlatformProxy } = await import('wrangler');
-	// @ts-ignore
-	platform = await getPlatformProxy();
-	console.log('Platform initialised for local development', platform);
+	// const { getPlatformProxy } = await import('wrangler');
+	// // @ts-ignore
+	// platform = await getPlatformProxy();
+	// console.log('Platform initialised for local development', platform);
 } else {
 	Sentry.init({
 		dsn: 'https://64f911bfb693718cdb6e43168c554183@o4504529324670976.ingest.us.sentry.io/4507019633557504',
