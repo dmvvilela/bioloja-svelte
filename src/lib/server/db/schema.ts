@@ -1,16 +1,18 @@
-import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { integer, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 
-export const users = sqliteTable('users', {
+export const users = pgTable('users', {
 	id: text('id').notNull().primaryKey(),
 	email: text('email').notNull().unique(),
-	hashedPassword: text('hashed_password').notNull()
+	hashedPassword: text('hashed_password').notNull(),
+	createdAt: timestamp('created_at').notNull().defaultNow()
 });
 
-export const sessions = sqliteTable('sessions', {
+export const sessions = pgTable('sessions', {
 	id: text('id').notNull().primaryKey(),
 	userId: text('user_id')
 		.notNull()
 		.references(() => users.id),
+	createdAt: timestamp('created_at').notNull().defaultNow(),
 	expiresAt: integer('expires_at').notNull()
 });
 

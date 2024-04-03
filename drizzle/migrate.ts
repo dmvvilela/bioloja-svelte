@@ -4,7 +4,8 @@ import { migrate } from 'drizzle-orm/neon-http/migrator';
 
 console.log('Migrating...');
 
-const sql = neon(process.env.PG_CONN || '');
+// Since this is a local script we use Bun to facilitate.
+const sql = neon(Bun.env.PG_CONN || '');
 const db = drizzle(sql);
 
 try {

@@ -11,6 +11,9 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"generate": "drizzle-kit generate:pg",
+		"migrate": "bun run ./drizzle/migrate.ts",
+		"seed": "bun run ./drizzle/seed.ts",
+		"push": "drizzle-kit push:pg",
 		"up": "drizzle-kit up:pg",
 		"studio": "drizzle-kit studio"
 	},
@@ -24,6 +27,7 @@
 		"@sveltejs/kit": "^2.5.5",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
 		"@tailwindcss/typography": "^0.5.12",
+		"@types/bun": "^1.0.12",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
 		"@typescript-eslint/parser": "^5.62.0",
 		"autoprefixer": "^10.4.19",

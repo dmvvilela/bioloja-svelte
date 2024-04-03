@@ -1,12 +1,12 @@
 {
   "version": "5",
-  "dialect": "sqlite",
+  "dialect": "pg",
   "entries": [
     {
       "idx": 0,
       "version": "5",
-      "when": 1712093726540,
-      "tag": "0000_nervous_praxagora",
+      "when": 1712162456221,
+      "tag": "0000_cooing_gorilla_man",
       "breakpoints": true
     }
   ]

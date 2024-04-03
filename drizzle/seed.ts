@@ -1,7 +1,7 @@
 import { drizzle } from 'drizzle-orm/neon-http';
 import { neon } from '@neondatabase/serverless';
 
-const sql = neon(process.env.PG_CONN || '');
+const sql = neon(Bun.env.PG_CONN || '');
 const db = drizzle(sql);
 
 try {
