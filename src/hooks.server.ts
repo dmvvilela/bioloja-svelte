@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { sequence } from '@sveltejs/kit/hooks';
+import * as Sentry from '@sentry/sveltekit';
 import { dev } from '$app/environment';
 import { lucia } from '$lib/server/auth/lucia';
-import type { Handle } from '@sveltejs/kit';
+import type { Handle, HandleServerError } from '@sveltejs/kit';
 
 // When developing, this hook will add proxy objects to the `platform` object
 // which will emulate any bindings defined in `wrangler.toml`.
-
 let platform: App.Platform;
 
 if (dev) {
@@ -13,9 +14,15 @@ if (dev) {
 	// @ts-ignore
 	platform = await getPlatformProxy();
 	console.log('Platform initialised for local development', platform);
+} else {
+	Sentry.init({
+		dsn: 'https://64f911bfb693718cdb6e43168c554183@o4504529324670976.ingest.us.sentry.io/4507019633557504',
+		tracesSampleRate: 1
+	});
 }
 
-export const handle = (async ({ event, resolve }) => {
+const customHandle = (async ({ event, resolve }) => {
+	// https://stackoverflow.com/questions/74904528/how-to-run-sveltekit-cloudflare-page-locally | https://github.com/sdarnell/cf-svelte/
 	if (dev && platform) {
 		event.platform = {
 			...event.platform,
@@ -55,15 +62,14 @@ export const handle = (async ({ event, resolve }) => {
 	return resolve(event);
 }) satisfies Handle;
 
-// export const handleError = Sentry.handleErrorWithSentry((({ error, event }) => {
-// 	if (dev) {
-// 		console.error(error);
-// 		return;
-// 	}
+export const handle = dev ? customHandle : sequence(Sentry.sentryHandle(), customHandle);
 
-// 	return {
-// 		message: 'Whoops! Check handleError() on hooks.server.ts',
-// 		error,
-// 		event
-// 	};
-// }) satisfies HandleServerError);
+const customHandleError = (async ({ error, event }) => {
+	return {
+		message: 'Whoops! Check handleError() on hooks.server.ts',
+		error,
+		event
+	};
+}) satisfies HandleServerError;
+
+export const handleError = dev ? customHandleError : Sentry.handleErrorWithSentry();
