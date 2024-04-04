@@ -105,7 +105,7 @@ export const getFirst10SlidesPerPrefix = (fileList: any[]) => {
 	// Flatten the groups into a single array
 	const first10Files = Object.values(fileGroups).flat();
 
-	return first10Files;
+	return first10Files as any;
 };
 
 export const getErrorFileList: any = async (dirName: fs.PathLike) => {
@@ -187,8 +187,6 @@ export const uploadRenamedFiles = async (
 		try {
 			const fileStream = fs.readFileSync(file.originalFilePath);
 			fileName = file.newFilePath.replace(path, '');
-
-			if (fileName.includes('.DS_Store')) continue;
 			console.log(fileName);
 
 			const uploadParams: PutObjectCommandInput = {
