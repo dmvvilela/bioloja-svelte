@@ -35,7 +35,7 @@
 	<div class="mx-auto max-w-xl lg:max-w-4xl">
 		<h2 class="text-4xl font-bold tracking-tight text-gray-900">Precisa falar com a gente?</h2>
 		<p class="mt-2 text-lg leading-8 text-gray-600">
-			Caso tenha alguma dúvida ou queira resolver algum problema.
+			Caso possua alguma dúvida ou deseja resolver algum problema.
 		</p>
 		<div class="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
 			<form action="#" method="POST" class="lg:flex-auto">
@@ -51,6 +51,7 @@
 								id="full-name"
 								autocomplete="name"
 								class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+								required
 							/>
 						</div>
 					</div>
@@ -65,6 +66,7 @@
 								id="email"
 								autocomplete="email"
 								class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+								required
 							/>
 						</div>
 					</div>
@@ -104,6 +106,7 @@
 								name="message"
 								rows="4"
 								class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+								required
 							/>
 						</div>
 					</div>

@@ -46,7 +46,19 @@ const getFileList: any = (dirName: fs.PathLike) => {
 	return files;
 };
 
-const files: string[] = getFileList('/Users/danvilela/Code/Bioloja/materiais zip');
+const getErrorFileList: any = async (dirName: fs.PathLike) => {
+	const errorFilesTxt = await Bun.file('./data/error_files.txt').text();
+	const fileList = errorFilesTxt.split('\n');
+	const files: any[] = [];
+
+	for (const file of fileList) {
+		files.push(`${dirName}/${file}`);
+	}
+
+	return files;
+};
+
+const files: string[] = await getErrorFileList('/Users/danvilela/Code/Bioloja/materiais zip');
 console.log(files.length);
 
 let fileName = '';
