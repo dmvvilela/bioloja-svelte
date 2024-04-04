@@ -15,10 +15,10 @@ const path = '/Users/danvilela/Code/Bioloja/materiais zip/';
 // await uploadFiles(path, files);
 // const files: string[] = await getErrorFileList(path);
 
-const slides = getSlidesFileList(path);
-const first10Slides = getFirst10SlidesPerPrefix(slides);
-console.log(first10Slides.length);
-await uploadRenamedFiles(slidesBucket, path, first10Slides);
+// const slides = getSlidesFileList(path);
+// const first10Slides = getFirst10SlidesPerPrefix(slides);
+// console.log(first10Slides.length);
+// await uploadRenamedFiles(slidesBucket, path, first10Slides);
 
 // const keys = Object.keys(products[0]);
 // console.log(products[0]);

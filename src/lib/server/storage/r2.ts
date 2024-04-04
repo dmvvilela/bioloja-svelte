@@ -27,7 +27,3 @@ export const getProductUrlDownloadLink = async (fileName: string) => {
 		}
 	);
 };
-
-// TODO:
-// make slides a public bucket
-// make products bucket with only zip files

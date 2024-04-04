@@ -1,24 +1,22 @@
 import { drizzle } from 'drizzle-orm/neon-http';
 import { neon } from '@neondatabase/serverless';
+import * as schema from '../src/lib/server/db/schema';
 
 const sql = neon(Bun.env.PG_CONN || '');
 const db = drizzle(sql);
 
 try {
-	// await db.insert(schema.movies).values([
-	// 	{
-	// 		title: 'The Matrix',
-	// 		releaseYear: 1999
-	// 	},
-	// 	{
-	// 		title: 'The Matrix Reloaded',
-	// 		releaseYear: 2003
-	// 	},
-	// 	{
-	// 		title: 'The Matrix Revolutions',
-	// 		releaseYear: 2003
-	// 	}
-	// ]);
+	await db
+		.insert(schema.tags)
+		.values([
+			{ name: 'Apresentações' },
+			{ name: 'Apostilas' },
+			{ name: 'Atividades Extras' },
+			{ name: 'Acompanha Vídeos' },
+			{ name: 'Ensino Médio' },
+			{ name: 'Ensino Superior' },
+			{ name: 'Promoções' }
+		]);
 
 	console.log(`Seeding complete.`);
 } catch (error) {

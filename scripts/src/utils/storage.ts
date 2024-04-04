@@ -114,7 +114,7 @@ export const getErrorFileList: any = async (dirName: fs.PathLike) => {
 	const files: any[] = [];
 
 	for (const file of fileList) {
-		files.push(`${dirName}/${file}`);
+		files.push(`${dirName}${file}`);
 	}
 
 	return files;
