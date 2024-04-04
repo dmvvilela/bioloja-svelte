@@ -30,7 +30,7 @@ export const sessions = pgTable(
 		}).notNull()
 	},
 	(table) => ({
-		userIdIdx: index('sessions_user_id_idx').on(table.userId)
+		userIdIdx: index('idx_sessions_user_id').on(table.userId)
 	})
 );
 
@@ -54,25 +54,38 @@ export const categories = pgTable('categories', {
 // 	};
 //  });
 
-export const products = pgTable('products', {
-	id: text('id').notNull().primaryKey(),
-	name: text('name').notNull(),
-	published: boolean('published').notNull().default(false),
-	featured: boolean('featured').notNull().default(false),
-	shortDescription: text('short_description').notNull(),
-	description: text('description').notNull(),
-	price: integer('price').notNull(),
-	discountPrice: integer('discount_price').notNull(),
-	discountExpiresAt: timestamp('discount_expires_at'),
-	createdAt: timestamp('created_at').notNull().defaultNow(),
-	updatedAt: timestamp('updated_at').notNull().defaultNow()
-});
+export const tags = pgTable(
+	'tags',
+	{
+		id: serial('id').primaryKey(),
+		slug: text('slug').notNull().unique(),
+		name: text('name').notNull()
+	},
+	(table) => ({
+		slugIdx: index('idx_tags_slug').on(table.slug)
+	})
+);
 
-export const tags = pgTable('tags', {
-	id: serial('id').primaryKey(),
-	slug: text('slug').notNull().unique(),
-	name: text('name').notNull()
-});
+export const products = pgTable(
+	'products',
+	{
+		id: text('id').notNull().primaryKey(),
+		slug: text('slug').notNull().unique(),
+		name: text('name').notNull(),
+		published: boolean('published').notNull().default(false),
+		featured: boolean('featured').notNull().default(false),
+		shortDescription: text('short_description').notNull(),
+		description: text('description').notNull(),
+		price: integer('price').notNull(),
+		discountPrice: integer('discount_price').notNull(),
+		discountExpiresAt: timestamp('discount_expires_at'),
+		createdAt: timestamp('created_at').notNull().defaultNow(),
+		updatedAt: timestamp('updated_at').notNull().defaultNow()
+	},
+	(table) => ({
+		slugIdx: index('idx_products_slug').on(table.slug)
+	})
+);
 
 export const productTags = pgTable(
 	'product_tags',
@@ -80,12 +93,29 @@ export const productTags = pgTable(
 		productId: integer('product_id').references(() => products.id),
 		tagId: integer('tag_id').references(() => tags.id)
 	},
-	(table) => {
-		return {
-			pk: primaryKey({ columns: [table.productId, table.tagId] }),
-			pkWithCustomName: primaryKey({ name: 'productTags', columns: [table.productId, table.tagId] })
-		};
-	}
+	(table) => ({
+		pk: primaryKey({ columns: [table.productId, table.tagId] }),
+		pkWithCustomName: primaryKey({ name: 'productTags', columns: [table.productId, table.tagId] }),
+		productIdIdx: index('idx_product_tags_product_id').on(table.productId),
+		tagIdIdx: index('idx_product_tags_tag_id').on(table.tagId)
+	})
+);
+
+export const productCategories = pgTable(
+	'product_categories',
+	{
+		productId: integer('product_id').references(() => products.id),
+		categoryId: integer('category_id').references(() => categories.id)
+	},
+	(table) => ({
+		pk: primaryKey({ columns: [table.productId, table.categoryId] }),
+		pkWithCustomName: primaryKey({
+			name: 'productCategories',
+			columns: [table.productId, table.categoryId]
+		}),
+		productIdIdx: index('idx_product_categories_product_id').on(table.productId),
+		categoryIdIdx: index('idx_product_categories_category_id').on(table.categoryId)
+	})
 );
 
 // export const insertTicket = async (ticket_id: string, message: string) => {
@@ -128,3 +158,8 @@ export const productTags = pgTable(
 //     orderBy: [desc(ticket_progress.created_at)],
 //   })
 // }
+
+// export type Messages = typeof ticket_messages.$inferSelect
+// export type Stages = (typeof ticket_stages.enumValues)[number]
+// export type Exits = typeof ticket_exits.$inferSelect
+// export type Progress = typeof ticket_progress.$inferSelect
