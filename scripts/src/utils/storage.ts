@@ -18,6 +18,8 @@ const {
 	CLOUDFLARE_R2_BUCKET_NAME: cloudflareR2BucketName
 } = Bun.env;
 
+export const slidesBucket = 'bioloja-slides';
+
 // @ts-ignore
 const S3 = new S3Client({
 	region: 'auto',

@@ -1,4 +1,4 @@
-import { getErrorFileList, getFileList, getSlidesFileList, uploadFiles } from './storage/upload';
+import { getErrorFileList, getFileList, getSlidesFileList, uploadFiles } from './utils/storage';
 import products from '../data/exported_products.json';
 
 const path = '/Users/danvilela/Code/Bioloja/materiais zip/';
@@ -11,7 +11,6 @@ console.log(slides);
 // await uploadFiles(path, files);
 
 // const keys = Object.keys(products[0]);
-
 // console.log(products[0]);
 
 // const path = './data/parsed_products.json';
