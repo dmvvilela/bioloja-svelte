@@ -58,6 +58,7 @@ const getErrorFileList: any = async (dirName: fs.PathLike) => {
 	return files;
 };
 
+// Remove await if it is to get all files list.
 const files: string[] = await getErrorFileList('/Users/danvilela/Code/Bioloja/materiais zip');
 console.log(files.length);
 
