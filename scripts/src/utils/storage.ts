@@ -14,8 +14,7 @@ import path from 'path';
 const {
 	CLOUDFLARE_ACCOUNT_ID: cloudflareAccountId,
 	CLOUDFLARE_R2_ACCESS_KEY_ID: cloudflareR2AccessKeyId,
-	CLOUDFLARE_R2_SECRET_ACCESS_KEY: cloudflareR2SecretAccessKey,
-	CLOUDFLARE_R2_BUCKET_NAME: cloudflareR2BucketName
+	CLOUDFLARE_R2_SECRET_ACCESS_KEY: cloudflareR2SecretAccessKey
 } = Bun.env;
 
 export const slidesBucket = 'bioloja-slides';
@@ -82,6 +81,33 @@ export const getSlidesFileList: any = (dirName: string) => {
 	return files;
 };
 
+export const getFirst10SlidesPerPrefix = (fileList: any[]) => {
+	// Group the files by their prefix
+	const fileGroups = fileList.reduce((groups, file) => {
+		const prefix = file.newFilePath.match(/(.*\/slide)\d/i)[1];
+		if (!groups[prefix]) {
+			groups[prefix] = [];
+		}
+		groups[prefix].push(file);
+		return groups;
+	}, {});
+
+	// Sort each group of files and pick the first 10
+	for (const prefix in fileGroups) {
+		fileGroups[prefix].sort((a: any, b: any) => {
+			const numA = parseInt(a.newFilePath.match(/slide(\d+)/i)[1]);
+			const numB = parseInt(b.newFilePath.match(/slide(\d+)/i)[1]);
+			return numA - numB;
+		});
+		fileGroups[prefix] = fileGroups[prefix].slice(0, 10);
+	}
+
+	// Flatten the groups into a single array
+	const first10Files = Object.values(fileGroups).flat();
+
+	return first10Files;
+};
+
 export const getErrorFileList: any = async (dirName: fs.PathLike) => {
 	const errorFilesTxt = await Bun.file('./data/error_files.txt').text();
 	const fileList = errorFilesTxt.split('\n');
@@ -94,7 +120,7 @@ export const getErrorFileList: any = async (dirName: fs.PathLike) => {
 	return files;
 };
 
-export const uploadFiles = async (path: string, files: string[]) => {
+export const uploadFiles = async (bucket: string, path: string, files: string[]) => {
 	let fileName = '';
 	const errorFiles = [];
 
@@ -107,7 +133,7 @@ export const uploadFiles = async (path: string, files: string[]) => {
 			console.log(fileName);
 
 			const uploadParams: PutObjectCommandInput = {
-				Bucket: cloudflareR2BucketName,
+				Bucket: bucket,
 				Key: fileName,
 				Body: fileStream,
 				ContentLength: fs.statSync(file).size,
@@ -150,6 +176,7 @@ export const uploadFiles = async (path: string, files: string[]) => {
 };
 
 export const uploadRenamedFiles = async (
+	bucket: string,
 	path: string,
 	files: { originalFilePath: string; newFilePath: string }[]
 ) => {
@@ -165,7 +192,7 @@ export const uploadRenamedFiles = async (
 			console.log(fileName);
 
 			const uploadParams: PutObjectCommandInput = {
-				Bucket: cloudflareR2BucketName,
+				Bucket: bucket,
 				Key: fileName,
 				Body: fileStream,
 				ContentLength: fs.statSync(file.originalFilePath).size,
