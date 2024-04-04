@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/neon-http';
 import { neon } from '@neondatabase/serverless';
-import { categories } from '../src/lib/utils/data';
+import { tags, categories } from '../src/lib/utils/data';
 import { eq } from 'drizzle-orm';
 import * as schema from '../src/lib/server/db/schema';
 
@@ -9,17 +9,9 @@ const db = drizzle(sql);
 
 try {
 	// Insert tags
-	await db
-		.insert(schema.tags)
-		.values([
-			{ name: 'Apresentações' },
-			{ name: 'Apostilas' },
-			{ name: 'Atividades Extras' },
-			{ name: 'Acompanha Vídeos' },
-			{ name: 'Ensino Médio' },
-			{ name: 'Ensino Superior' },
-			{ name: 'Promoções' }
-		]);
+	for (const tag of tags) {
+		await db.insert(schema.tags).values({ slug: tag.slug, name: tag.name });
+	}
 
 	// Insert parent categories
 	// const parentCategories = categories.filter((category) => category.subcategories.length === 0);

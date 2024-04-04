@@ -6,6 +6,7 @@ import {
 	integer,
 	index,
 	serial,
+	primaryKey,
 	type AnyPgColumn
 } from 'drizzle-orm/pg-core';
 
@@ -67,16 +68,24 @@ export const products = pgTable('products', {
 	updatedAt: timestamp('updated_at').notNull().defaultNow()
 });
 
-export const tags = pgTable(
-	'tags',
+export const tags = pgTable('tags', {
+	id: serial('id').primaryKey(),
+	slug: text('slug').notNull().unique(),
+	name: text('name').notNull()
+});
+
+export const productTags = pgTable(
+	'product_tags',
 	{
-		id: serial('id').primaryKey(),
-		name: text('name').notNull(),
-		productId: integer('product_id').references(() => products.id)
+		productId: integer('product_id').references(() => products.id),
+		tagId: integer('tag_id').references(() => tags.id)
 	},
-	(table) => ({
-		productIdIdx: index('tags_product_id_idx').on(table.productId)
-	})
+	(table) => {
+		return {
+			pk: primaryKey({ columns: [table.productId, table.tagId] }),
+			pkWithCustomName: primaryKey({ name: 'productTags', columns: [table.productId, table.tagId] })
+		};
+	}
 );
 
 // export const insertTicket = async (ticket_id: string, message: string) => {
