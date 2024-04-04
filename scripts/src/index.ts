@@ -6,7 +6,7 @@ const files: string[] = getFileList(path);
 // const files: string[] = await getErrorFileList(path);
 console.log(files.length);
 
-const slides = getSlidesFileList(path + 'Anatomia e Fisiologia Humanas/');
+const slides = getSlidesFileList(path + 'Anatomia e Fisiologia Humanas/Ensino Médio/Colesterol');
 console.log(slides);
 // await uploadFiles(path, files);
 

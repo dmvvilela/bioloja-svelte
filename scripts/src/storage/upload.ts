@@ -46,12 +46,12 @@ export const getFileList: any = (dirName: fs.PathLike) => {
 	return files;
 };
 
-export const getSlidesFileList: any = (dirName: fs.PathLike) => {
+export const getSlidesFileList: any = (dirName: string) => {
 	let files: any[] = [];
 	const items = fs.readdirSync(dirName, { withFileTypes: true });
 
 	for (const item of items) {
-		let fullPath = `${dirName}/${item.name}`;
+		const fullPath = path.join(dirName, item.name);
 
 		if (item.isDirectory()) {
 			files = [...files, ...getSlidesFileList(fullPath)];
@@ -61,16 +61,18 @@ export const getSlidesFileList: any = (dirName: fs.PathLike) => {
 
 			// Check if the file name matches the pattern SlideXX.YY or slideXX.YY
 			if (/^slide\d+\.\w+$/i.test(fileName)) {
+				let newFilePath;
+
 				// If the parent directory is not "slides", change it to "slides"
 				if (parentDirName.toLowerCase() !== 'slides') {
 					const grandParentDir = path.dirname(path.dirname(fullPath));
-					fullPath = path.join(grandParentDir, 'slides', fileName);
+					newFilePath = path.join(grandParentDir, 'slides', fileName.toLowerCase());
 				} else {
-					fullPath = path.join(path.dirname(fullPath), fileName.toLowerCase());
+					newFilePath = path.join(path.dirname(fullPath), fileName.toLowerCase());
 				}
 
-				// Push the file path to the array
-				files.push(fullPath);
+				// Push the original file path and new file path to the array
+				files.push({ originalFilePath: fullPath, newFilePath });
 			}
 		}
 	}
@@ -138,6 +140,64 @@ export const uploadFiles = async (path: string, files: string[]) => {
 			} else {
 				console.error('Error', err);
 				errorFiles.push(fileName);
+			}
+		}
+	}
+
+	await Bun.write('./data/error_files.txt', errorFiles.join('\n'));
+};
+
+export const uploadRenamedFiles = async (
+	path: string,
+	files: { originalFilePath: string; newFilePath: string }[]
+) => {
+	let fileName = '';
+	const errorFiles = [];
+
+	for (const file of files) {
+		try {
+			const fileStream = fs.readFileSync(file.originalFilePath);
+			fileName = file.newFilePath.replace(path, '');
+
+			if (fileName.includes('.DS_Store')) continue;
+			console.log(fileName);
+
+			const uploadParams: PutObjectCommandInput = {
+				Bucket: cloudflareR2BucketName,
+				Key: fileName,
+				Body: fileStream,
+				ContentLength: fs.statSync(file.originalFilePath).size,
+				ContentType: 'application/octet-stream'
+			};
+
+			const cmd = new PutObjectCommand(uploadParams);
+			const digest = md5(fileStream);
+
+			// Check if the file already exists in the bucket (code 412)
+			cmd.middlewareStack.add(
+				(next: any) => async (args: any) => {
+					args.request.headers['if-none-match'] = `"${digest}"`;
+					return await next(args);
+				},
+				{
+					step: 'build',
+					name: 'addETag'
+				}
+			);
+
+			const data = await S3.send(cmd);
+			console.log(`Success - Status Code: ${data.$metadata.httpStatusCode}`);
+		} catch (err: any) {
+			if (Object.prototype.hasOwnProperty.call(err, '$metadata')) {
+				if (err.$metadata.httpStatusCode === 412) {
+					console.error(`Error - File already exists`);
+				} else {
+					errorFiles.push(file.originalFilePath);
+					console.error(`Error - Status Code: ${err.$metadata.httpStatusCode} - ${err.message}`);
+				}
+			} else {
+				console.error('Error', err);
+				errorFiles.push(file.originalFilePath);
 			}
 		}
 	}
