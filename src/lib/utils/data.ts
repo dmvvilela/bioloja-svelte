@@ -1,3 +1,13 @@
+export const tags = [
+	{ name: 'Apresentações', slug: 'apresentacoes' },
+	{ name: 'Apostilas', slug: 'apostilas' },
+	{ name: 'Atividades Extras', slug: 'atividades-extras' },
+	{ name: 'Acompanha Vídeos', slug: 'acompanha-videos' },
+	{ name: 'Ensino Médio', slug: 'ensino-medio' },
+	{ name: 'Ensino Superior', slug: 'ensino-superior' },
+	{ name: 'Promoções', slug: 'promocoes' }
+];
+
 export const categories = [
 	{
 		slug: 'promocoes',
