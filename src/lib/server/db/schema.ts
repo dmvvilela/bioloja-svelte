@@ -10,12 +10,19 @@ import {
 	type AnyPgColumn
 } from 'drizzle-orm/pg-core';
 
-export const users = pgTable('users', {
-	id: text('id').notNull().primaryKey(),
-	email: text('email').notNull().unique(),
-	hashedPassword: text('hashed_password').notNull(),
-	createdAt: timestamp('created_at').notNull().defaultNow()
-});
+export const users = pgTable(
+	'users',
+	{
+		id: text('id').notNull().primaryKey(),
+		email: text('email').notNull().unique(),
+		hashedPassword: text('hashed_password').notNull(),
+		createdAt: timestamp('created_at').notNull().defaultNow()
+	},
+	(table) => ({
+		idIdx: index('idx_users_id').on(table.id),
+		emailIdx: index('idx_users_email').on(table.email)
+	})
+);
 
 export const sessions = pgTable(
 	'sessions',
@@ -34,12 +41,18 @@ export const sessions = pgTable(
 	})
 );
 
-export const categories = pgTable('categories', {
-	id: serial('id').primaryKey(),
-	parentId: integer('parent_id').references((): AnyPgColumn => categories.id),
-	slug: text('slug').notNull().unique(),
-	name: text('name').notNull()
-});
+export const categories = pgTable(
+	'categories',
+	{
+		id: serial('id').primaryKey(),
+		parentId: integer('parent_id').references((): AnyPgColumn => categories.id),
+		slug: text('slug').notNull().unique(),
+		name: text('name').notNull()
+	},
+	(table) => ({
+		slugIdx: index('idx_categories_slug').on(table.slug)
+	})
+);
 // Alternatively, using a standalone foreignKey operator
 // export const categories = pgTable("categories", {
 // 	id: serial("id").primaryKey(),
@@ -72,7 +85,7 @@ export const products = pgTable(
 		id: text('id').notNull().primaryKey(),
 		slug: text('slug').notNull().unique(),
 		name: text('name').notNull(),
-		published: boolean('published').notNull().default(false),
+		published: boolean('published').notNull().default(true),
 		featured: boolean('featured').notNull().default(false),
 		shortDescription: text('short_description').notNull(),
 		description: text('description').notNull(),

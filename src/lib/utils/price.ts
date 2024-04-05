@@ -16,3 +16,6 @@ export const calculatePrice = (numberOfSlides: number, discountPercentage = 0) =
 	const discount = price * (discountPercentage / 100);
 	return price - discount;
 };
+
+export const purchaseNote =
+	'A SENHA para abrir os arquivos baixados se encontra no arquivo LEIA-ME.txt. O download estará disponível por 7 dias a partir da data de efetuação do pagamento e terá um limite disponível de 3 downloads por compra.';
