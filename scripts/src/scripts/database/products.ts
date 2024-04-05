@@ -81,7 +81,7 @@ for (const product of products) {
 	}
 
 	// Insert tags
-	const tagNames = product.Tags.split(',').map((name: any) => name.trim());
+	const tagNames = product.Tags.split(',').map((name) => name.trim());
 
 	for (const tagName of tagNames) {
 		// Get the tag from the database
