@@ -18,6 +18,8 @@ const sql = neon(Bun.env.PG_CONN_DEV);
 const db = drizzle(sql);
 
 for (const product of products) {
+	console.log(product.Nome);
+
 	const slug = slugify(product.Nome, {
 		lower: true,
 		strict: true,
@@ -118,9 +120,15 @@ for (const product of products) {
 		let attributeValue = product[`Valores do atributo ${i}`];
 
 		if (attributeName && attributeValue !== undefined) {
-			// If the attribute value is 0 or 1, treat it as a boolean
-			if (attributeValue === 0 || attributeValue === 1) {
-				attributeValue = Boolean(attributeValue);
+			// If the attribute value is 0 or 1, or 'Sim', treat it as a boolean
+			if (
+				attributeValue === 0 ||
+				attributeValue === 1 ||
+				(typeof attributeValue === 'string' && attributeValue.toLowerCase() === 'sim')
+			) {
+				attributeValue =
+					Boolean(attributeValue) ||
+					(typeof attributeValue === 'string' && attributeValue.toLowerCase() === 'sim');
 			}
 
 			// Get the attribute from the database
@@ -144,9 +152,3 @@ for (const product of products) {
 		}
 	}
 }
-
-// const keys = Object.keys(products[0]);
-// console.log(products[0]);
-
-// const path = './data/parsed_products.json';
-// await Bun.write(path, keys.join('\n'));
