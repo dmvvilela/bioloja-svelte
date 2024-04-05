@@ -39,6 +39,25 @@ try {
 		}
 	}
 
+	// Now the attributes
+	// - Anotações do apresentador: Presenter's Notes
+	// - Apostila em PDF: PDF Handout
+	// - Atividades extras: Extra Activities
+	// - Gabarito em PDF: PDF Answer Key
+	// - Legendas de vídeos: Video Subtitles
+	// - Número de páginas: Number of Pages
+	// - Número de slides: Number of Slides
+
+	// And the corresponding slugs:
+
+	// - Presenter's Notes: presenters-notes
+	// - PDF Handout: pdf-handout
+	// - Extra Activities: extra-activities
+	// - PDF Answer Key: pdf-answer-key
+	// - Video Subtitles: video-subtitles
+	// - Number of Pages: number-of-pages
+	// - Number of Slides: number-of-slides
+
 	console.log(`Seeding complete.`);
 } catch (error) {
 	console.error('Error performing migration: ', error);

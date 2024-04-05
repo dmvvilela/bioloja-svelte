@@ -118,6 +118,39 @@ export const productCategories = pgTable(
 	})
 );
 
+export const attributes = pgTable(
+	'attributes',
+	{
+		id: serial('id').primaryKey(),
+		slug: text('slug').notNull().unique(),
+		name: text('name').notNull(),
+		dataType: text('data_type').notNull()
+	},
+	(table) => ({
+		slugIdx: index('idx_attributes_slug').on(table.slug)
+	})
+);
+
+export const productAttributes = pgTable(
+	'product_attributes',
+	{
+		productId: integer('product_id').references(() => products.id),
+		attributeId: integer('attribute_id').references(() => attributes.id),
+		valueText: text('value_text'),
+		valueNumber: integer('value_number'),
+		valueBoolean: boolean('value_boolean')
+	},
+	(table) => ({
+		pk: primaryKey({ columns: [table.productId, table.attributeId] }),
+		pkWithCustomName: primaryKey({
+			name: 'productAttributes',
+			columns: [table.productId, table.attributeId]
+		}),
+		productIdIdx: index('idx_product_attributes_product_id').on(table.productId),
+		attributeIdIdx: index('idx_product_attributes_attribute_id').on(table.attributeId)
+	})
+);
+
 // export const insertTicket = async (ticket_id: string, message: string) => {
 //   return await db
 //     .insert(ticket_messages)
