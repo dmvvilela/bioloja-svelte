@@ -90,7 +90,7 @@ export const products = pgTable(
 		shortDescription: text('short_description').notNull(),
 		description: text('description').notNull(),
 		price: integer('price').notNull(),
-		discountPrice: integer('discount_price').notNull(),
+		discountPrice: integer('discount_price'),
 		discountExpiresAt: timestamp('discount_expires_at'),
 		createdAt: timestamp('created_at').notNull().defaultNow(),
 		updatedAt: timestamp('updated_at').notNull().defaultNow()

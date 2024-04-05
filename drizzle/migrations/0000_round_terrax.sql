@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS "products" (
 	"short_description" text NOT NULL,
 	"description" text NOT NULL,
 	"price" integer NOT NULL,
-	"discount_price" integer NOT NULL,
+	"discount_price" integer,
 	"discount_expires_at" timestamp,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,

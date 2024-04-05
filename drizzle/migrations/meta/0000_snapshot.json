@@ -1,5 +1,5 @@
 {
-  "id": "745e46e6-ab3d-4861-9dfb-ce8d2ad64395",
+  "id": "790bbc97-c823-48df-8b4a-232a0b10b124",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -431,7 +431,7 @@
           "name": "discount_price",
           "type": "integer",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "discount_expires_at": {
           "name": "discount_expires_at",
