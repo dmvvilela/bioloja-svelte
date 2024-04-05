@@ -1,13 +1,3 @@
-export const tags = [
-	{ name: 'Apresentações', slug: 'apresentacoes' },
-	{ name: 'Apostilas', slug: 'apostilas' },
-	{ name: 'Atividades Extras', slug: 'atividades-extras' },
-	{ name: 'Acompanha Vídeos', slug: 'acompanha-videos' },
-	{ name: 'Ensino Médio', slug: 'ensino-medio' },
-	{ name: 'Ensino Superior', slug: 'ensino-superior' },
-	{ name: 'Promoções', slug: 'promocoes' }
-];
-
 export const categories = [
 	{
 		slug: 'promocoes',
@@ -107,4 +97,23 @@ export const categories = [
 	// 	name: 'Sem Cateogira',
 	// 	subcategories: [],
 	// }
+];
+
+export const tags = [
+	{ name: 'Apresentações', slug: 'apresentacoes' },
+	{ name: 'Apostilas', slug: 'apostilas' },
+	{ name: 'Atividades Extras', slug: 'atividades-extras' },
+	{ name: 'Acompanha Vídeos', slug: 'acompanha-videos' },
+	{ name: 'Ensino Médio', slug: 'ensino-medio' },
+	{ name: 'Ensino Superior', slug: 'ensino-superior' },
+	{ name: 'Promoções', slug: 'promocoes' }
+];
+
+export const attributes = [
+	{ slug: 'anotacoes-do-apresentador', name: 'Anotações do apresentador', data_type: 'boolean' },
+	{ slug: 'apostila-em-pdf', name: 'Apostila em PDF', data_type: 'boolean' },
+	{ slug: 'atividades-extras', name: 'Atividades extras', data_type: 'boolean' },
+	{ slug: 'gabarito-em-pdf', name: 'Gabarito em PDF', data_type: 'boolean' },
+	{ slug: 'numero-de-paginas', name: 'Número de páginas', data_type: 'number' },
+	{ slug: 'numero-de-slides', name: 'Número de slides', data_type: 'number' }
 ];
