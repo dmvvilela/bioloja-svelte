@@ -11,8 +11,8 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"generate": "drizzle-kit generate:pg",
-		"migrate": "bun run ./drizzle/migrate.ts",
-		"seed": "bun run ./drizzle/seed.ts",
+		"migrate": "bun --env-file=.env ./drizzle/migrate.ts",
+		"seed": "bun --env-file=.env ./drizzle/seed.ts",
 		"push": "drizzle-kit push:pg",
 		"up": "drizzle-kit up:pg",
 		"studio": "drizzle-kit studio"

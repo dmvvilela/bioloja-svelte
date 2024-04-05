@@ -4,7 +4,7 @@ import { tags, categories, attributes } from '../src/lib/utils/data';
 import { eq } from 'drizzle-orm';
 import * as schema from '../src/lib/server/db/schema';
 
-const sql = neon(Bun.env.PG_CONN || '');
+const sql = neon(Bun.env.PG_CONN);
 const db = drizzle(sql);
 
 try {

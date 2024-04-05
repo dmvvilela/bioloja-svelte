@@ -36,10 +36,10 @@ CREATE TABLE IF NOT EXISTS "product_tags" (
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "products" (
-	"id" text PRIMARY KEY NOT NULL,
+	"id" serial PRIMARY KEY NOT NULL,
 	"slug" text NOT NULL,
 	"name" text NOT NULL,
-	"published" boolean DEFAULT false NOT NULL,
+	"published" boolean DEFAULT true NOT NULL,
 	"featured" boolean DEFAULT false NOT NULL,
 	"short_description" text NOT NULL,
 	"description" text NOT NULL,
@@ -51,6 +51,12 @@ CREATE TABLE IF NOT EXISTS "products" (
 	CONSTRAINT "products_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "sessions" (
+	"id" text PRIMARY KEY NOT NULL,
+	"user_id" text NOT NULL,
+	"expires_at" timestamp with time zone NOT NULL
+);
+--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "tags" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"slug" text NOT NULL,
@@ -58,16 +64,28 @@ CREATE TABLE IF NOT EXISTS "tags" (
 	CONSTRAINT "tags_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "users" (
+	"id" text PRIMARY KEY NOT NULL,
+	"email" text NOT NULL,
+	"hashed_password" text NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	CONSTRAINT "users_email_unique" UNIQUE("email")
+);
+--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_attributes_slug" ON "attributes" ("slug");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_categories_slug" ON "categories" ("slug");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_product_attributes_product_id" ON "product_attributes" ("product_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_product_attributes_attribute_id" ON "product_attributes" ("attribute_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_product_categories_product_id" ON "product_categories" ("product_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_product_categories_category_id" ON "product_categories" ("category_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_product_tags_product_id" ON "product_tags" ("product_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_product_tags_tag_id" ON "product_tags" ("tag_id");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_products_id" ON "products" ("id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_products_slug" ON "products" ("slug");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "idx_tags_slug" ON "tags" ("slug");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_sessions_user_id" ON "sessions" ("user_id");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_tags_slug" ON "tags" ("slug");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_users_id" ON "users" ("id");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_users_email" ON "users" ("email");--> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "categories" ADD CONSTRAINT "categories_parent_id_categories_id_fk" FOREIGN KEY ("parent_id") REFERENCES "categories"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
@@ -106,6 +124,12 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "product_tags" ADD CONSTRAINT "product_tags_tag_id_tags_id_fk" FOREIGN KEY ("tag_id") REFERENCES "tags"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "sessions" ADD CONSTRAINT "sessions_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

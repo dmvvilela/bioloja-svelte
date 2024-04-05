@@ -82,7 +82,7 @@ export const tags = pgTable(
 export const products = pgTable(
 	'products',
 	{
-		id: text('id').notNull().primaryKey(),
+		id: serial('id').notNull().primaryKey(),
 		slug: text('slug').notNull().unique(),
 		name: text('name').notNull(),
 		published: boolean('published').notNull().default(true),
@@ -96,6 +96,7 @@ export const products = pgTable(
 		updatedAt: timestamp('updated_at').notNull().defaultNow()
 	},
 	(table) => ({
+		idIdx: index('idx_products_id').on(table.id),
 		slugIdx: index('idx_products_slug').on(table.slug)
 	})
 );
