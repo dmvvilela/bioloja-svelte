@@ -18,25 +18,29 @@ export const categories = [
 		slug: 'anatomia-e-fisiologia',
 		name: 'Anatomia e Fisiologia',
 		subcategories: [
-			'Outros',
-			'Hematologia',
-			'Sistema Circulatório',
-			'Sistema Digestório',
-			'Sistema Endócrino',
-			'Sistema Excretor',
-			'Sistema Nervoso',
-			'Sistema Reprodutor',
-			'Sistema Respiratório',
-			'Sistema Sensorial',
-			'Sistema Tegumentar',
-			'Sistemas de Sustentação',
-			'Sistemas Imune e Linfático'
+			{ name: 'Outros', slug: 'outros' },
+			{ name: 'Hematologia', slug: 'hematologia' },
+			{ name: 'Sistema Circulatório', slug: 'sistema-circulatorio' },
+			{ name: 'Sistema Digestório', slug: 'sistema-digestorio' },
+			{ name: 'Sistema Endócrino', slug: 'sistema-endocrino' },
+			{ name: 'Sistema Excretor', slug: 'sistema-excretor' },
+			{ name: 'Sistema Nervoso', slug: 'sistema-nervoso' },
+			{ name: 'Sistema Reprodutor', slug: 'sistema-reprodutor' },
+			{ name: 'Sistema Respiratório', slug: 'sistema-respiratorio' },
+			{ name: 'Sistema Sensorial', slug: 'sistema-sensorial' },
+			{ name: 'Sistema Tegumentar', slug: 'sistema-tegumentar' },
+			{ name: 'Sistemas de Sustentação', slug: 'sistemas-de-sustentacao' },
+			{ name: 'Sistemas Imune e Linfático', slug: 'sistemas-imune-e-linfatico' }
 		]
 	},
 	{
 		slug: 'seres-vivos',
 		name: 'Seres Vivos',
-		subcategories: ['Microbiologia', 'Botânica', 'Zoologia']
+		subcategories: [
+			{ name: 'Microbiologia', slug: 'microbiologia' },
+			{ name: 'Botânica', slug: 'botanica' },
+			{ name: 'Zoologia', slug: 'zoologia' }
+		]
 	},
 	{
 		slug: 'biologia-celular-e-molecular',
@@ -98,4 +102,9 @@ export const categories = [
 		name: 'Especiais',
 		subcategories: []
 	}
+	// {
+	// 	slug: 'sem-categoria',
+	// 	name: 'Sem Cateogira',
+	// 	subcategories: [],
+	// }
 ];

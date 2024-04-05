@@ -30,12 +30,11 @@ try {
 			.from(schema.categories)
 			.where(eq(schema.categories.slug, parent.slug));
 
-		// TODO: Get correct slugs for subcategories and add to array
-		for (const subcategoryName of parent.subcategories) {
+		for (const subcategory of parent.subcategories) {
 			await db.insert(schema.categories).values({
 				parentId: parentId[0].id,
-				slug: subcategoryName.toLowerCase().replace(/ /g, '-'),
-				name: subcategoryName
+				slug: subcategory.slug,
+				name: subcategory.name
 			});
 		}
 	}
