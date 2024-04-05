@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import products from '../data/exported_products.json';
+import products from '../../../data/exported_products.json';
 import slugify from 'slugify';
 import { and, eq } from 'drizzle-orm';
-import * as schema from '../../src/lib/server/db/schema';
-import { db } from './utils/database';
+import * as schema from '../../../../src/lib/server/db/schema';
+import { db } from '../../utils/database';
 
 for (const product of products) {
 	console.log(product.Nome);
@@ -80,7 +81,7 @@ for (const product of products) {
 	}
 
 	// Insert tags
-	const tagNames = product.Tags.split(',').map((name) => name.trim());
+	const tagNames = product.Tags.split(',').map((name: any) => name.trim());
 
 	for (const tagName of tagNames) {
 		// Get the tag from the database
