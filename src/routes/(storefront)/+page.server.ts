@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { db } from '$lib/server/db/conn';
 import { categories, productCategories, products } from '$lib/server/db/schema';
-import { isNotNull, not, desc, eq, and } from 'drizzle-orm';
+import { isNotNull, not, sql, desc, eq, and } from 'drizzle-orm';
 import { alias } from 'drizzle-orm/pg-core';
 import type { PageServerLoad } from './$types';
+import type { ProductCard } from '$lib/utils/types';
 
 export const load = (async ({ params }) => {
 	// This query may grab duplicates (parent category)
@@ -30,11 +31,10 @@ export const load = (async ({ params }) => {
 				eq(products.published, true),
 				not(eq(categories.slug, 'promocoes')) // TODO: how to get image from those..
 			)
-		) // .orderBy(desc(products.updatedAt))
+		)
+		.orderBy(sql`RANDOM()`) // desc(products.updatedAt))
 		.limit(8) // Fetch double the products
 		.execute();
-
-	console.log('ALL', promotions);
 
 	// Remove duplicates, keeping the ones with a parent category
 	const uniqueProductsWithParentCategory: any = [];
@@ -52,7 +52,7 @@ export const load = (async ({ params }) => {
 	});
 
 	// Ensure we have the correct number of products
-	const filteredProducts = uniqueProductsWithParentCategory.slice(0, 4);
+	const filteredProducts: ProductCard[] = uniqueProductsWithParentCategory.slice(0, 4);
 
 	return { promotions: filteredProducts };
 }) satisfies PageServerLoad;
