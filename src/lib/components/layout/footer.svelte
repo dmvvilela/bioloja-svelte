@@ -2,17 +2,16 @@
 	import logo from '$lib/images/logo/full.png';
 </script>
 
-<footer class="bg-white pt-16 pb-12 border-t border-gray-100" aria-labelledby="footer-heading">
+<footer class="bg-white pt-20 pb-10 border-t border-gray-100" aria-labelledby="footer-heading">
 	<h2 id="footer-heading" class="sr-only">Footer</h2>
-	<div class="container mx-auto md:grid md:grid-cols-2 px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+	<div class="container mx-auto md:grid md:grid-cols-2 px-6 pb-8 lg:px-8">
 		<div class="col-span-1 space-y-4">
 			<img src={logo} alt="logo" class="w-48" />
-			<div class="mr-2">
+			<div class="sm:w-10/12">
 				<p class="text-gray-500 tracking-wide">
 					Materiais didáticos de Biologia para todos os níveis de Ensino.
 				</p>
 			</div>
-
 			<div class="flex space-x-5 pb-8">
 				<a
 					href="https://www.facebook.com/Bioloja"
@@ -100,7 +99,7 @@
 		&copy; 2020 Your Company, Inc. All rights reserved.
 	</p>
 </div> -->
-<div class="bg-secondary py-4">
+<div class="bg-secondary py-3">
 	<div class="container mx-auto px-6 lg:px-8 sm:flex sm:items-center sm:justify-between font-light">
 		<p class="text-bioloja-100 text-sm tracking-wide pl-2 sm:pl-0 mt-1 sm:mt-0">
 			&copy; Bioloja - Todos os direitos reservados.
