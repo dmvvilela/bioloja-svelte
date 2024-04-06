@@ -1,18 +1,22 @@
 <script lang="ts">
-	export let slide: string;
+	import { getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
+	import type { ProductCard } from '$lib/utils/types';
+
+	export let product: ProductCard;
 
 	// TODO: Make the fa links arrows to change slide like wimoveis
+	// TODO: reupload everything the correct way
 </script>
 
 <div class="bg-white shadow rounded overflow-hidden group">
 	<div class="relative">
-		<img src={slide} alt="product 1" class="w-full" />
+		<img src={getSlideImageUrl(product)} alt="{product.productName} capa" class="w-full" />
 		<div
 			class="absolute inset-0 bg-black bg-opacity-40 flex items-center
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
 		>
 			<a
-				href="#"
+				href="/loja/{product.categoryName}/{product.productName}"
 				class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
 				title="view product"
 			>
@@ -57,12 +61,16 @@
 	<div class="pt-4 pb-3 px-4 bg-slate-50/40">
 		<a href="#">
 			<h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-				Guyer Chair
+				{product.productName}
 			</h4>
 		</a>
 		<div class="flex items-baseline mb-1 space-x-2">
-			<p class="text-xl text-accent font-semibold">R$45,00</p>
-			<p class="text-sm text-gray-400 line-through">R$55,90</p>
+			<p class="text-xl text-accent font-semibold">
+				R${getLocalePrice(product.discountPrice || product.price)}
+			</p>
+			{#if product.discountPrice}
+				<p class="text-sm text-gray-400 line-through">R${getLocalePrice(product.price)}</p>
+			{/if}
 		</div>
 		<!-- TODO: Ver qual fica melhor.render. Talvez uma estrela média com uma nota seja ok -->
 		<div class="flex items-center">

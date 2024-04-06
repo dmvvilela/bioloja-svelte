@@ -1,18 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { db } from '$lib/server/db/conn';
 import { categories, productCategories, products } from '$lib/server/db/schema';
-import { isNotNull, desc, eq, and } from 'drizzle-orm';
+import { isNotNull, not, desc, eq, and } from 'drizzle-orm';
 import { alias } from 'drizzle-orm/pg-core';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params }) => {
-	// const promotions = await db
-	// 	.select()
-	// 	.from(products)
-	// 	.where(isNotNull(products.discountPrice))
-	// 	.orderBy(desc(products.discountExpiresAt))
-	// 	.limit(4);
-
 	// This query may grab duplicates (parent category)
 	const parentCategory = alias(categories, 'parentCategory');
 	const promotions = await db
@@ -31,10 +24,17 @@ export const load = (async ({ params }) => {
 		.fullJoin(productCategories, eq(productCategories.productId, products.id))
 		.fullJoin(categories, eq(categories.id, productCategories.categoryId))
 		.leftJoin(parentCategory, eq(parentCategory.id, categories.parentId))
-		.where(and(isNotNull(products.discountPrice), eq(products.published, true)))
-		// .orderBy(desc(products.updatedAt))
+		.where(
+			and(
+				isNotNull(products.discountPrice),
+				eq(products.published, true),
+				not(eq(categories.slug, 'promocoes')) // TODO: how to get image from those..
+			)
+		) // .orderBy(desc(products.updatedAt))
 		.limit(8) // Fetch double the products
 		.execute();
+
+	console.log('ALL', promotions);
 
 	// Remove duplicates, keeping the ones with a parent category
 	const uniqueProductsWithParentCategory: any = [];
@@ -51,7 +51,7 @@ export const load = (async ({ params }) => {
 		}
 	});
 
-	// Ensure you have the correct number of products
+	// Ensure we have the correct number of products
 	const filteredProducts = uniqueProductsWithParentCategory.slice(0, 4);
 
 	return { promotions: filteredProducts };

@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { PUBLIC_SLIDES_BUCKET_URL } from '$env/static/public';
 	import ProductCard from '$lib/components/product_card.svelte';
 	import banner from '$lib/images/banner-bg.jpg';
-	import { PUBLIC_SLIDES_BUCKET_URL } from '$env/static/public';
 	import slide1 from '$lib/images/slides1/Slide1.jpg';
 	import slide2 from '$lib/images/slides1/Slide2.jpg';
 	import slide3 from '$lib/images/slides1/Slide3.jpg';
@@ -13,7 +13,8 @@
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
-	$: console.log(data);
+	const { promotions } = data;
+	console.log(promotions);
 </script>
 
 <!-- banner -->
@@ -177,15 +178,16 @@
 <!-- ./categories -->
 
 <!-- promotional -->
-<div class="container mx-auto pb-16">
-	<h2 class="text-2xl font-bold text-secondary uppercase mb-6">Materiais em promoção</h2>
-	<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-		<ProductCard slide={slide1} />
-		<ProductCard slide={slide2} />
-		<ProductCard slide={slide3} />
-		<ProductCard slide={slide4} />
+{#if promotions.length > 0}
+	<div class="container mx-auto pb-16">
+		<h2 class="text-2xl font-bold text-secondary uppercase mb-6">Materiais em promoção</h2>
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+			{#each promotions as promotion}
+				<ProductCard product={promotion} />
+			{/each}
+		</div>
 	</div>
-</div>
+{/if}
 <!-- ./promotional -->
 
 <!-- banner 2 -->
@@ -213,14 +215,14 @@
 <div class="container mx-auto pb-16">
 	<h2 class="text-2xl font-bold text-secondary uppercase mb-6">Mais vendidos</h2>
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-		<ProductCard slide={slide1} />
+		<!-- <ProductCard slide={slide1} />
 		<ProductCard slide={slide2} />
 		<ProductCard slide={slide3} />
 		<ProductCard slide={slide4} />
 		<ProductCard slide={slide5} />
 		<ProductCard slide={slide6} />
 		<ProductCard slide={slide7} />
-		<ProductCard slide={slide8} />
+		<ProductCard slide={slide8} /> -->
 	</div>
 </div>
 <!-- ./best sellers -->

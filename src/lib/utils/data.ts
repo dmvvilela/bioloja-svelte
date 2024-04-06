@@ -6,7 +6,7 @@ export const categories = [
 	},
 	{
 		slug: 'anatomia-e-fisiologia',
-		name: 'Anatomia e Fisiologia',
+		name: 'Anatomia e Fisiologia Humanas',
 		subcategories: [
 			{ name: 'Outros', slug: 'outros' },
 			{ name: 'Hematologia', slug: 'hematologia' },

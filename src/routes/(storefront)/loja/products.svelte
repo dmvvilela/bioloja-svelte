@@ -1,13 +1,5 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/product_card.svelte';
-	import slide1 from '$lib/images/slides1/Slide1.jpg';
-	import slide2 from '$lib/images/slides1/Slide2.jpg';
-	import slide3 from '$lib/images/slides1/Slide3.jpg';
-	import slide4 from '$lib/images/slides1/Slide4.jpg';
-	import slide5 from '$lib/images/slides1/Slide5.jpg';
-	import slide6 from '$lib/images/slides1/Slide6.jpg';
-	import slide7 from '$lib/images/slides1/Slide7.jpg';
-	import slide8 from '$lib/images/slides1/Slide8.jpg';
 </script>
 
 <div class="col-span-3">
@@ -60,13 +52,13 @@
 	</div>
 
 	<div class="grid md:grid-cols-3 grid-cols-2 gap-6">
-		<ProductCard slide={slide1} />
+		<!-- <ProductCard slide={slide1} />
 		<ProductCard slide={slide2} />
 		<ProductCard slide={slide3} />
 		<ProductCard slide={slide4} />
 		<ProductCard slide={slide5} />
 		<ProductCard slide={slide6} />
 		<ProductCard slide={slide7} />
-		<ProductCard slide={slide8} />
+		<ProductCard slide={slide8} /> -->
 	</div>
 </div>
