@@ -191,7 +191,7 @@
 				<a href="/faq" class=" hover:text-white transition hidden sm:block">Dúvidas</a>
 				<a href="/contato" class=" hover:text-white transition hidden md:block">Contato</a>
 			</div>
-			<div class="text-slate-200 font-medium md:text-[15px] text-sm uppercase">
+			<div class="text-slate-200 font-medium md:text-[15px] mr-4 md:mr-0 text-sm uppercase">
 				<a href="/entrar" class="hover:text-white transition">Entrar</a> |
 				<a href="/cadastrar" class="hover:text-white transition">Cadastrar</a>
 			</div>
