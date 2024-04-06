@@ -35,7 +35,7 @@
 				type="text"
 				name="search"
 				id="search"
-				class="w-full border border-primary border-r-[0.5px] pl-12 py-3 pr-3 rounded-l-md focus:outline-none hidden md:flex"
+				class="w-full border border-primary border-r-[0.5px] pl-12 py-3 pr-3 rounded-l-md focus:outline-none focus:border-primary focus:ring-primary hidden md:flex"
 				placeholder="Pesquise em toda a Bioloja"
 				autocomplete="off"
 			/>

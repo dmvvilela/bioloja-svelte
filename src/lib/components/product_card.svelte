@@ -60,12 +60,12 @@
 	</div>
 	<div class="pt-4 pb-3 px-4 bg-slate-50/40">
 		<a href="#">
-			<h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
+			<h4 class="uppercase font-medium text-lg mb-2 text-gray-800 hover:text-primary transition">
 				{product.productName}
 			</h4>
 		</a>
 		<div class="flex items-baseline mb-1 space-x-2">
-			<p class="text-xl text-accent font-semibold">
+			<p class="text-lg text-accent font-semibold">
 				R${getLocalePrice(product.discountPrice || product.price)}
 			</p>
 			{#if product.discountPrice}
@@ -153,7 +153,7 @@
 	</div>
 	<a
 		href="#"
-		class="block w-full py-2.5 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition flex justify-center items-center"
+		class="w-full py-2.5 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition flex justify-center items-center"
 	>
 		Adicionar
 		<svg
