@@ -10,7 +10,7 @@
 
 <div class="bg-white shadow rounded overflow-hidden group">
 	<div class="relative">
-		<img src={getSlideImageUrl(product)} alt="{product.productName} capa" class="w-full" />
+		<img src={getSlideImageUrl(product)} alt="{product.productName} capa" class="w-full h-40" />
 		<div
 			class="absolute inset-0 bg-black bg-opacity-40 flex items-center
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
@@ -60,8 +60,10 @@
 	</div>
 	<div class="pt-4 pb-3 px-4 bg-slate-50/40">
 		<a href="#">
-			<h4 class="uppercase font-medium text-lg mb-2 text-gray-800 hover:text-primary transition">
-				{product.productName}
+			<h4
+				class="uppercase h-24 overflow-auto leading-tight overflow-ellipsis font-medium text-lg mb-2 text-gray-800 hover:text-primary transition"
+			>
+				<span title={product.productName}>{product.productName}</span>
 			</h4>
 		</a>
 		<div class="flex items-baseline mb-1 space-x-2">
@@ -73,7 +75,7 @@
 			{/if}
 		</div>
 		<!-- TODO: Ver qual fica melhor.render. Talvez uma estrela média com uma nota seja ok -->
-		<div class="flex items-center">
+		<!-- <div class="flex items-center">
 			<div class="flex gap-1 text-sm text-yellow-400">
 				<span
 					><svg
@@ -149,7 +151,7 @@
 				</span>
 			</div>
 			<div class="text-xs text-gray-500 ml-3">(150)</div>
-		</div>
+		</div>-->
 	</div>
 	<a
 		href="#"
