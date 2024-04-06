@@ -1,6 +1,8 @@
 <script lang="ts">
 	import logo from '$lib/images/logo/full.png';
 	import { categories } from '$lib/utils/data';
+
+	let menuOpen = false;
 </script>
 
 <header class="py-4 shadow-sm bg-white">
@@ -9,13 +11,8 @@
 			<img src={logo} alt="Logo" class="w-[11.5rem] mb-1" />
 		</a>
 
-		<div class="w-full max-w-xl relative flex items-center">
+		<div class="hidden lg:flex w-full max-w-xl relative items-center">
 			<span class="absolute left-[14px] text-lg text-gray-400">
-				<!-- <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
-					<path
-						d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
-					/>
-				</svg> -->
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -144,7 +141,7 @@
 
 <nav class="bg-secondary">
 	<div class="container mx-auto flex">
-		<div class="px-8 py-4 bg-primary md:flex items-center cursor-pointer relative group hidden">
+		<div class="px-8 py-4 bg-primary flex items-center cursor-pointer relative group">
 			<span class="text-secondary">
 				<svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 448 512"
 					><path
@@ -152,7 +149,7 @@
 					/></svg
 				>
 			</span>
-			<span class="capitalize ml-4 text-secondary font-medium">Categorias</span>
+			<span class="capitalize ml-4 text-secondary font-medium hidden lg:block">Categorias</span>
 
 			<!-- dropdown -->
 			<div
@@ -171,14 +168,30 @@
 		</div>
 
 		<div class="flex items-center justify-between flex-grow md:pl-8 py-5">
-			<div class="flex items-center space-x-6 capitalize text-[15px] text-slate-200">
-				<a href="/" class=" hover:text-white transition">Início</a>
+			<div class="items-center space-x-6 capitalize text-[15px] text-slate-200 flex">
+				<a href="#" class="ml-6 md:ml-0 lg:hidden">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="2.1"
+						stroke="currentColor"
+						class="w-6 h-6 text-slate-200 hover:text-white cursor-pointer"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+						/>
+					</svg>
+				</a>
+				<a href="/" class=" hover:text-white transition hidden lg:block">Início</a>
 				<a href="/loja" class=" hover:text-white transition">Loja</a>
-				<a href="/sobre-nos" class=" hover:text-white transition">Sobre Nós</a>
-				<a href="/faq" class=" hover:text-white transition">Dúvidas</a>
-				<a href="/contato" class=" hover:text-white transition">Contato</a>
+				<a href="/sobre-nos" class=" hover:text-white transition hidden md:block">Sobre Nós</a>
+				<a href="/faq" class=" hover:text-white transition hidden sm:block">Dúvidas</a>
+				<a href="/contato" class=" hover:text-white transition hidden md:block">Contato</a>
 			</div>
-			<div class="text-slate-200 font-medium text-[15px] uppercase">
+			<div class="text-slate-200 font-medium md:text-[15px] text-sm uppercase">
 				<a href="/entrar" class="hover:text-white transition">Entrar</a> |
 				<a href="/cadastrar" class="hover:text-white transition">Cadastrar</a>
 			</div>
