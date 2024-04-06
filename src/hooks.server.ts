@@ -45,6 +45,7 @@ const customHandle = (async ({ event, resolve }) => {
 export const handle = dev ? customHandle : sequence(Sentry.sentryHandle(), customHandle);
 
 const customHandleError = (async ({ error, event }) => {
+	console.error(error);
 	return {
 		message: 'Whoops! Check handleError() on hooks.server.ts',
 		error,

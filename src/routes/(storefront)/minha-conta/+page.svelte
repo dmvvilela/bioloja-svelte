@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/layout/breadcrumbs.svelte';
+	import Wishlist from './wishlist.svelte';
 </script>
 
 <div class="container mx-auto">
@@ -227,6 +228,7 @@
 					<p class="text-gray-800">0811 8877 988</p>
 				</div>
 			</div>
+			<Wishlist />
 		</div>
 		<!-- ./info -->
 	</div>

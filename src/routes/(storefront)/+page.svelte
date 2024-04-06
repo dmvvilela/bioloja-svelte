@@ -10,6 +10,10 @@
 	import slide6 from '$lib/images/slides1/Slide6.jpg';
 	import slide7 from '$lib/images/slides1/Slide7.jpg';
 	import slide8 from '$lib/images/slides1/Slide8.jpg';
+	import type { PageServerData } from './$types';
+
+	export let data: PageServerData;
+	$: console.log(data);
 </script>
 
 <!-- banner -->
