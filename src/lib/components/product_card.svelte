@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
-	import type { ProductCard } from '$lib/utils/types';
+	import { getLocalePrice, getMainImageUrl } from '$lib/utils/product';
+	import type { ProductType } from '$lib/utils/types';
 
-	export let product: ProductCard;
+	export let product: ProductType;
 
 	// TODO: Make the fa links arrows to change slide like wimoveis
 	// TODO: reupload everything the correct way
@@ -10,7 +10,11 @@
 
 <div class="bg-white shadow rounded overflow-hidden group">
 	<div class="relative">
-		<img src={getSlideImageUrl(product)} alt="{product.productName} capa" class="w-full h-40" />
+		<img
+			src={getMainImageUrl(product)}
+			alt="{product.productName} capa"
+			class="w-full aspect-video h-48 object-contain"
+		/>
 		<div
 			class="absolute inset-0 bg-black bg-opacity-40 flex items-center
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"

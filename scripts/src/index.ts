@@ -23,6 +23,7 @@ for (const product of products) {
 		locale: 'pt'
 	});
 
+	// Upload files to R2 bucket.
 	const downloadLinks: DownloadLinksType = [];
 	const downloadFiles: string[] = [];
 	for (let i = 1; i <= 4; i++) {
@@ -39,13 +40,12 @@ for (const product of products) {
 		}
 	}
 
-	// Upload files to R2 bucket.
 	await uploadFiles(downloadBucket, backupPath, downloadFiles);
 
+	// Upload images to R2 bucket.
 	const imageUrls = product.Imagens.split(',').map((url) => url.trim().replace(wpUrlPrefix, ''));
 	const imageFiles = imageUrls.map((url) => backupPath + url);
 
-	// Upload images to R2 bucket.
 	await uploadFiles(imageBucket, backupPath, imageFiles);
 
 	// Insert product

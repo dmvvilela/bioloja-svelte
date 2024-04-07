@@ -1,8 +1,8 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/product_card.svelte';
-	import type { ProductCard as Product } from '$lib/utils/types';
+	import type { ProductType } from '$lib/utils/types';
 
-	export let promotions: Product[];
+	export let promotions: ProductType[];
 </script>
 
 {#if promotions.length > 0}

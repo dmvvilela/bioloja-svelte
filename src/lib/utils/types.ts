@@ -1,12 +1,12 @@
-export type ProductCard = {
+export type ProductType = {
 	productId: number;
 	productName: string;
+	imageUrls: string;
 	price: number;
 	discountPrice?: number;
-	discountExpiresAt: Date | null;
-	// categoryId: number;
-	categoryNames: string[];
-	// categoryName: string;
-	// parentCategoryId: number | null;
-	// parentCategoryName: string | null;
+	discountExpiresAt?: Date;
+	categoryId: number;
+	categoryName: string;
+	parentCategoryId?: number;
+	parentCategoryName?: string;
 };

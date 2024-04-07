@@ -7,6 +7,7 @@ import {
 	type PutObjectCommandInput,
 	S3Client
 } from '@aws-sdk/client-s3';
+import { appendFile } from 'node:fs/promises';
 import fs from 'fs';
 import md5 from 'md5';
 import path from 'path';
@@ -172,7 +173,7 @@ export const uploadFiles = async (bucket: string, path: string, files: string[])
 		}
 	}
 
-	await Bun.write('./data/error_files.txt', errorFiles.join('\n'));
+	await appendFile('./data/error_files.txt', errorFiles.join('\n'));
 };
 
 export const uploadRenamedFiles = async (
