@@ -9,7 +9,8 @@
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
-	const { promotions } = data;
+
+	const { promotions, bestSellers } = data;
 </script>
 
 <MainBanner />
@@ -17,5 +18,5 @@
 <Categories />
 <Promotions {promotions} />
 <PromoBanner />
-<BestSellers />
+<BestSellers {bestSellers} />
 <MailingList />

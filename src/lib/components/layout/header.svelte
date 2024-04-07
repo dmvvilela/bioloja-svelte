@@ -167,9 +167,9 @@
 			</div>
 		</div>
 
-		<div class="flex items-center justify-between flex-grow md:pl-8 py-5">
+		<div class="flex items-center justify-between flex-grow pl-6 lg:pl-0 py-5">
 			<div class="items-center space-x-6 capitalize text-[15px] text-slate-200 flex">
-				<a href="#" class="ml-6 md:ml-0 lg:hidden">
+				<a href="#" class="md:ml-0 lg:hidden">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
