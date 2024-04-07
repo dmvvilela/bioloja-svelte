@@ -7,8 +7,11 @@ import {
 	index,
 	serial,
 	primaryKey,
-	type AnyPgColumn
+	type AnyPgColumn,
+	jsonb
 } from 'drizzle-orm/pg-core';
+
+export type DownloadLinksType = { name: string; url: string }[];
 
 export const users = pgTable(
 	'users',
@@ -53,19 +56,6 @@ export const categories = pgTable(
 		slugIdx: index('idx_categories_slug').on(table.slug)
 	})
 );
-// Alternatively, using a standalone foreignKey operator
-// export const categories = pgTable("categories", {
-// 	id: serial("id").primaryKey(),
-// 	parentId: integer("parent_id"),
-//  }, (table) => {
-// 	return {
-// 		 parentReference: foreignKey({
-// 			 columns: [table.parentId],
-// 			 foreignColumns: [table.id],
-// 			 name: "custom_fk"
-// 		 }),
-// 	};
-//  });
 
 export const tags = pgTable(
 	'tags',
@@ -92,6 +82,8 @@ export const products = pgTable(
 		price: integer('price').notNull(),
 		discountPrice: integer('discount_price'),
 		discountExpiresAt: timestamp('discount_expires_at'),
+		imageUrls: text('image_urls').notNull(),
+		downloadLinks: jsonb('download_links').notNull().$type<DownloadLinksType>(),
 		createdAt: timestamp('created_at').notNull().defaultNow(),
 		updatedAt: timestamp('updated_at').notNull().defaultNow()
 	},
@@ -165,34 +157,6 @@ export const productAttributes = pgTable(
 	})
 );
 
-// export const insertTicket = async (ticket_id: string, message: string) => {
-//   return await db
-//     .insert(ticket_messages)
-//     .values({ ticket_id, message })
-//     .returning()
-// }
-
-// export const insertTicketProgress = async (
-//   ticketId: string,
-//   stage: Stages,
-//   exit_id?: string,
-//   note?: string,
-//   completed = false
-// ) => {
-//   const progress = await db
-//     .insert(ticket_progress)
-//     .values({
-//       ticket_id: ticketId,
-//       stage: stage as any,
-//       completed,
-//       exit_id,
-//       note,
-//     })
-//     .returning()
-
-//   return progress
-// }
-
 // export const findLastTicketProgress = async (
 //   ticket_id: string,
 //   completed = false
@@ -208,5 +172,3 @@ export const productAttributes = pgTable(
 
 // export type Messages = typeof ticket_messages.$inferSelect
 // export type Stages = (typeof ticket_stages.enumValues)[number]
-// export type Exits = typeof ticket_exits.$inferSelect
-// export type Progress = typeof ticket_progress.$inferSelect

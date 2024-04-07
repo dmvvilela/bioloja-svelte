@@ -46,6 +46,8 @@ CREATE TABLE IF NOT EXISTS "products" (
 	"price" integer NOT NULL,
 	"discount_price" integer,
 	"discount_expires_at" timestamp,
+	"image_urls" text NOT NULL,
+	"download_links" jsonb NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
 	CONSTRAINT "products_slug_unique" UNIQUE("slug")

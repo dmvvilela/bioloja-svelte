@@ -1,5 +1,5 @@
 {
-  "id": "790bbc97-c823-48df-8b4a-232a0b10b124",
+  "id": "fc2e79de-5fc2-421b-932c-88e5cdc28321",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -438,6 +438,18 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false
+        },
+        "image_urls": {
+          "name": "image_urls",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "download_links": {
+          "name": "download_links",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
         },
         "created_at": {
           "name": "created_at",

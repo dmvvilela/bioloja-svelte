@@ -1,9 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import products from '../data/exported_products.json';
 import slugify from 'slugify';
 import { and, eq } from 'drizzle-orm';
-import * as schema from '../../src/lib/server/db/schema';
 import { db } from './utils/database';
+import * as schema from '../../src/lib/server/db/schema';
+import type { DownloadLinksType } from '../../src/lib/server/db/schema';
+import { uploadFiles } from './utils/storage';
+
+// We also remove wp-content to avoid site bots.
+const wpUrlPrefix = 'https://bioloja.bio.br/wp-content/';
+const backupPath = '/Users/danvilela/Code/Bioloja/backup-bioloja-wpcontent/';
+const imageBucket = 'bioloja-images';
+const downloadBucket = 'bioloja-downloads';
 
 for (const product of products) {
 	console.log(product.Nome);
@@ -14,11 +23,36 @@ for (const product of products) {
 		locale: 'pt'
 	});
 
+	const downloadLinks: DownloadLinksType = [];
+	const downloadFiles: string[] = [];
+	for (let i = 1; i <= 4; i++) {
+		const p = product as any;
+		const name = p[`Nome do download ${i}`];
+		const url = p[`URL de download ${i}`]?.replace(wpUrlPrefix, '');
+
+		if (name && url) {
+			downloadLinks.push({ name, url });
+
+			// Construct the local file path
+			const filePath = backupPath + url;
+			downloadFiles.push(filePath);
+		}
+	}
+
+	// Upload files to R2 bucket.
+	await uploadFiles(downloadBucket, backupPath, downloadFiles);
+
+	const imageUrls = product.Imagens.split(',').map((url) => url.trim().replace(wpUrlPrefix, ''));
+	const imageFiles = imageUrls.map((url) => backupPath + url);
+
+	// Upload images to R2 bucket.
+	await uploadFiles(imageBucket, backupPath, imageFiles);
+
 	// Insert product
 	const result = await db
 		.insert(schema.products)
 		.values({
-			slug: slug,
+			slug,
 			name: product.Nome,
 			published: Boolean(product.Publicado),
 			featured: Boolean(product['Em destaque?']),
@@ -28,7 +62,9 @@ for (const product of products) {
 			discountPrice:
 				product['Preço promocional'] && product['Preço promocional'] !== ''
 					? Math.round(parseFloat(product['Preço promocional'].toString().replace(',', '.')) * 100)
-					: null
+					: null,
+			imageUrls: imageUrls.join(', '),
+			downloadLinks
 		})
 		.returning();
 
@@ -66,6 +102,7 @@ for (const product of products) {
 					});
 				} else {
 					// Handle the case where the subcategory does not exist in the database
+					console.error('subcategory does not exist in the database: ', subcategoryName);
 				}
 			} else {
 				// If there's no subcategory name, link the parent category to the product
@@ -76,6 +113,7 @@ for (const product of products) {
 			}
 		} else {
 			// Handle the case where the parent category does not exist in the database
+			console.error('parent category does not exist in the database: ', parentName);
 		}
 	}
 
@@ -97,6 +135,7 @@ for (const product of products) {
 			});
 		} else {
 			// Handle the case where the tag does not exist in the database
+			console.error('tag does not exist in the database: ', tagName);
 		}
 	}
 
