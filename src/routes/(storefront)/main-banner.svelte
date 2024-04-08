@@ -14,10 +14,12 @@
 					Para os Ensinos Fundamental, Médio, Superior e o Enem.
 				</p>
 				<div class="mt-12">
-					<button
-						class="btn btn-primary btn-md glass bg-primary-focus text-base border border-primary text-white px-8 font-medium
+					<a href="/loja">
+						<button
+							class="btn btn-primary btn-md glass bg-primary-focus text-base border border-primary text-white px-8 font-medium
 							rounded-md hover:shadow-lg">Comprar Agora</button
-					>
+						>
+					</a>
 				</div>
 			</div>
 		</div>

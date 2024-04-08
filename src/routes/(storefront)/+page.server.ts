@@ -6,7 +6,8 @@ import { alias } from 'drizzle-orm/pg-core';
 import type { PageServerLoad } from './$types';
 import type { ProductType } from '$lib/utils/types';
 
-export const load = (async ({ params }) => {
+export const load = (async ({ setHeaders }) => {
+	// setHeaders({ 'cache-control': 'max-age=3600' });
 	const parentCategory = alias(categories, 'parentCategory');
 	const promotions = (await db
 		.select({
