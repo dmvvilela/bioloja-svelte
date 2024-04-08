@@ -2,7 +2,10 @@
 	import logo from '$lib/images/logo/full.png';
 </script>
 
-<footer class="bg-white pt-20 pb-10 border-t border-gray-100" aria-labelledby="footer-heading">
+<footer
+	class="bg-white pt-20 pb-10 lg:pt-32 lg:pb-20 border-t border-gray-100"
+	aria-labelledby="footer-heading"
+>
 	<h2 id="footer-heading" class="sr-only">Footer</h2>
 	<div class="container mx-auto md:grid md:grid-cols-2 px-6 pb-8 lg:px-8">
 		<div class="col-span-1 space-y-4">
@@ -104,7 +107,7 @@
 		<p class="text-bioloja-100 text-sm tracking-wide pl-2 sm:pl-0 mt-1 sm:mt-0">
 			&copy; Bioloja - Todos os direitos reservados.
 		</p>
-		<div class="sm:flex sm:space-x-2 font-extralight mt-4 mb-1 sm:my-0">
+		<div class="sm:flex sm:space-x-2 font-extralight mt-4 mb-1 sm:my-0 lg:mr-4">
 			<button class="btn btn-link btn-xs text-bioloja-400">Política de Privacidade</button>
 			<p class="text-bioloja-500 hidden sm:block">|</p>
 			<button class="btn btn-link btn-xs text-bioloja-400">Termos e Condições</button>
