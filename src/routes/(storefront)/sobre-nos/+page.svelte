@@ -55,7 +55,7 @@
 				<rect width="404" height="384" fill="url(#7a00fe67-0343-4a3c-8e81-c145097a3ce0)" />
 			</svg>
 			<div class="relative md:bg-white md:p-6">
-				<div class="lg:grid lg:grid-cols-2 lg:gap-6">
+				<div class="lg:grid lg:grid-cols-2 lg:gap-8">
 					<div class="prose prose-lg prose-indigo text-gray-500 lg:max-w-none">
 						<p>
 							A Bioloja é a evolução e ampliação da loja, de grande sucesso, do site <a
