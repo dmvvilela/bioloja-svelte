@@ -3,10 +3,10 @@ export type ProductType = {
 	productName: string;
 	imageUrls: string;
 	price: number;
-	discountPrice?: number;
-	discountExpiresAt?: Date;
+	discountPrice: number | null;
+	discountExpiresAt: Date | null;
 	categoryId: number;
 	categoryName: string;
-	parentCategoryId?: number;
-	parentCategoryName?: string;
+	parentCategoryId: number | null;
+	parentCategoryName: string | null;
 };

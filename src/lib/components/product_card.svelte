@@ -65,7 +65,14 @@
 	<div class="pt-4 pb-3 px-4 bg-slate-50/40">
 		<a href="#">
 			<h4
-				class="uppercase h-24 overflow-auto leading-tight overflow-ellipsis font-medium text-lg mb-2 text-gray-800 hover:text-primary transition"
+				class="capitalize h-5 overflow-hidden leading-normal overflow-ellipsis font-medium text-sm mb-2 text-gray-400 hover:text-primary transition"
+			>
+				<span title={product.categoryName}>{product.categoryName}</span>
+			</h4>
+		</a>
+		<a href="#">
+			<h4
+				class="uppercase h-24 overflow-auto leading-tight overflow-ellipsis font-semibold text-lg mb-2 text-gray-800 hover:text-primary transition"
 			>
 				<span title={product.productName}>{product.productName}</span>
 			</h4>
