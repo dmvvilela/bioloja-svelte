@@ -40,13 +40,13 @@ for (const product of products) {
 		}
 	}
 
-	await uploadFiles(downloadBucket, backupPath, downloadFiles);
+	// await uploadFiles(downloadBucket, backupPath, downloadFiles);
 
 	// Upload images to R2 bucket.
 	const imageUrls = product.Imagens.split(',').map((url) => url.trim().replace(wpUrlPrefix, ''));
 	const imageFiles = imageUrls.map((url) => backupPath + url);
 
-	await uploadFiles(imageBucket, backupPath, imageFiles);
+	// await uploadFiles(imageBucket, backupPath, imageFiles);
 
 	// Insert product
 	const result = await db

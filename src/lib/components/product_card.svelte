@@ -159,7 +159,7 @@
 	</div>
 	<a
 		href="#"
-		class="w-full py-2.5 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition flex justify-center items-center"
+		class="w-full py-1.5 lg:py-2.5 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition flex justify-center items-center"
 	>
 		Adicionar
 		<svg

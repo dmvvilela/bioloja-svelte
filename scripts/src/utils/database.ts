@@ -9,5 +9,5 @@ declare module 'bun' {
 }
 
 // Since this is a local script we use Bun to facilitate.
-const sql = neon(Bun.env.PG_CONN_DEV);
+const sql = neon(Bun.env.PG_CONN_PROD);
 export const db = drizzle(sql);
