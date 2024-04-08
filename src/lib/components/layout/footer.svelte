@@ -77,7 +77,7 @@
 					<div class="mt-4 space-y-4 text-sm">
 						<a href="/minha-conta" class="text-gray-500 hover:text-gray-900 block">Sua conta</a>
 						<a href="/carrinho" class="text-gray-500 hover:text-gray-900 block">Carrinho</a>
-						<a href="/wishlist" class="text-gray-500 hover:text-gray-900 block">Wishlist</a>
+						<!-- <a href="/wishlist" class="text-gray-500 hover:text-gray-900 block">Wishlist</a> -->
 					</div>
 				</div>
 
@@ -85,9 +85,7 @@
 					<h3 class="text-[15px] font-semibold text-gray-400 uppercase tracking-wider">Suporte</h3>
 					<div class="mt-4 space-y-4 text-sm">
 						<a href="/sobre-nos" class="text-gray-500 hover:text-gray-900 block">Sobre a Bioloja</a>
-						<a href="/como-comprar" class="text-gray-500 hover:text-gray-900 block">Como comprar</a>
-
-						<a href="/faq" class="text-gray-500 hover:text-gray-900 block">Perguntas Frequentes</a>
+						<a href="/faq" class="text-gray-500 hover:text-gray-900 block">Dúvidas Frequentes</a>
 						<a href="/contato" class="text-gray-500 hover:text-gray-900 block">Contato</a>
 					</div>
 				</div>
@@ -108,9 +106,13 @@
 			&copy; Bioloja - Todos os direitos reservados.
 		</p>
 		<div class="sm:flex sm:space-x-2 font-extralight mt-4 mb-1 sm:my-0 lg:mr-4">
-			<button class="btn btn-link btn-xs text-bioloja-400">Política de Privacidade</button>
+			<a href="/termos-e-condicoes"
+				><button class="btn btn-link btn-xs text-bioloja-400">Termos e Condições</button></a
+			>
 			<p class="text-bioloja-500 hidden sm:block">|</p>
-			<button class="btn btn-link btn-xs text-bioloja-400">Termos e Condições</button>
+			<a href="/politica-de-privacidade">
+				<button class="btn btn-link btn-xs text-bioloja-400">Política de Privacidade</button></a
+			>
 		</div>
 	</div>
 </div>

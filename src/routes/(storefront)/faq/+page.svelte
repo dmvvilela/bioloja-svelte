@@ -31,7 +31,7 @@
 
 			<div class="pt-8 lg:grid lg:grid-cols-12 lg:gap-8">
 				<dt class="text-base font-semibold leading-7 text-secondary lg:col-span-5">
-					Está pedindo uma senha para abrir os materiais, qual é?
+					Está pedindo uma senha para abrir os materiais, onde encontro?
 				</dt>
 				<dd class="mt-4 lg:col-span-7 lg:mt-0">
 					<p class="text-base leading-7 text-gray-600">
@@ -52,11 +52,12 @@
 					<ul class="list-inside pt-2 pl-6">
 						<li>
 							– <span class="font-semibold">ZIP</span> (Os materiais estão compactados em formato .zip.
-							Antes de usá-los, descompacte-os com o WinRAR ou similar.).
+							Antes de usá-los, é necessário descompactá-los com o WinRAR ou similar.).
 						</li>
 						<li>
 							– <span class="font-semibold">PPSX</span> (Apresentação auto-executável – Pode-se
-							utilizar o MS Power Point ou algum aplicativo compatível -
+							utilizar o MS Power Point ou algum aplicativo compatível. Apenas dê um duplo clique no
+							arquivo para iniciar a apresentação. -
 							<span class="underline">Obs</span>:
 							<span class="font-semibold">Não</span> vendemos materiais em PPTX.).
 						</li>

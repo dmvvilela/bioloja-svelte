@@ -60,7 +60,7 @@
 						<p>
 							A Bioloja é a evolução e ampliação da loja, de grande sucesso, do site <a
 								href="https://afh.bio.br"
-								target="_blank">AFH – Anatomia e Fisiologia Humanas</a
+								target="_blank">AFH – Anatomia e Fisiologia Humana</a
 							>, da Profª. Drª. Ana Luisa Miranda Vilela. Tendo muito mais materiais prontos de
 							outras áreas da Biologia, a professora resolveu abrir este espaço para compartilhar
 							também esses materiais, além de possibilitar a disponibilização de materiais por
