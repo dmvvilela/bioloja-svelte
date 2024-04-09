@@ -38,17 +38,17 @@ export const templateNameToSubject = (template: string) => {
 };
 
 export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
-	return (await import(`/src/lib/emails/${type}/${template}.svelte`)).default;
+	return (await import(`../../emails/${type}/${template}.svelte`)).default;
 };
 
 export const renderEmailBody = async (
-	templateComponent: any,
+	template: string,
 	subject: string,
 	type: 'mjml' | 'svelte',
 	props?: Record<string, unknown>
 ) => {
 	try {
-		// const templateComponent = await getTemplateComponent(template, type);
+		const templateComponent = await getTemplateComponent(template, type);
 
 		if (type === 'mjml') {
 			// Render the email template to html and text
