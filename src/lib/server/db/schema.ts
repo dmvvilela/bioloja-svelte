@@ -44,6 +44,18 @@ export const sessions = pgTable(
 	})
 );
 
+export const passwordResets = pgTable('password_resets', {
+	id: text('id').primaryKey(),
+	userId: text('user_id')
+		.notNull()
+		.references(() => users.id),
+	tokenHash: text('token_hash').notNull(),
+	expiresAt: timestamp('expires_at', {
+		withTimezone: true,
+		mode: 'date'
+	}).notNull()
+});
+
 export const categories = pgTable(
 	'categories',
 	{
