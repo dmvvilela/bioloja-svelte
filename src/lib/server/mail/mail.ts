@@ -3,10 +3,16 @@
 import * as html2text from 'html-to-text';
 import { render as renderMjmlEmail } from '$lib/utils/mail';
 import { render as renderSvelteEmail } from 'svelte-email';
-import { AWS_SES_REGION } from '$env/static/private';
+import { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SES_REGION } from '$env/static/private';
 import AWS from 'aws-sdk';
 const convert = html2text.convert;
 
+new AWS.Config({
+	credentials: {
+		accessKeyId: AWS_ACCESS_KEY_ID,
+		secretAccessKey: AWS_SECRET_ACCESS_KEY
+	}
+});
 AWS.config.update({ region: AWS_SES_REGION });
 
 export const templateNameToSubject = (template: string) => {
@@ -78,32 +84,25 @@ export const sendMail = async (
 	to: string | string[],
 	subject: string,
 	html: string,
-	text: string
+	text?: string
 ) => {
-	let Destination;
-	if (Array.isArray(to)) {
-		Destination = {
-			BccAddresses: to
-		};
-	} else {
-		Destination = {
-			ToAddresses: [to]
-		};
-	}
-
 	const options = {
-		Source: 'contato@bioloja.bio.br',
-		Destination,
+		Source: 'Bioloja <contato@bioloja.bio.br>',
+		Destination: Array.isArray(to) ? { BccAddresses: to } : { ToAddresses: [to] },
 		Message: {
 			Body: {
 				Html: {
 					Charset: 'UTF-8',
 					Data: html
 				},
-				Text: {
-					Charset: 'UTF-8',
-					Data: text
-				}
+				...(text
+					? {
+							Text: {
+								Charset: 'UTF-8',
+								Data: text
+							}
+					  }
+					: {})
 			},
 			Subject: {
 				Charset: 'UTF-8',
