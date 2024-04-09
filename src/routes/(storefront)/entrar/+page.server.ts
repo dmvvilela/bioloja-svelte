@@ -8,7 +8,7 @@ import { db } from '$lib/server/db/conn';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	if (locals.session) {
+	if (locals.user) {
 		redirect(307, '/');
 	}
 };

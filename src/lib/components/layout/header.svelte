@@ -1,8 +1,18 @@
 <script lang="ts">
 	import logo from '$lib/images/logo/full.png';
 	import { categories } from '$lib/utils/data';
+	import { page } from '$app/stores';
+	import { invalidateAll } from '$app/navigation';
+
+	$: isLoggedIn = !!$page.data.user;
 
 	let menuOpen = false;
+
+	const logOut = async () => {
+		console.log('Saindo...');
+		await fetch('/sair', { method: 'POST' });
+		invalidateAll();
+	};
 </script>
 
 <header class="py-4 shadow-sm bg-white">
@@ -184,10 +194,17 @@
 				<a href="/faq" class=" hover:text-white transition hidden sm:block">Dúvidas</a>
 				<a href="/contato" class=" hover:text-white transition hidden md:block">Contato</a>
 			</div>
-			<div class="text-slate-200 font-medium md:text-[15px] mr-4 md:mr-0 text-sm uppercase">
-				<a href="/entrar" class="hover:text-white transition">Entrar</a> |
-				<a href="/cadastrar" class="hover:text-white transition">Cadastrar</a>
-			</div>
+			{#if isLoggedIn}
+				<div class="text-slate-200 font-medium md:text-[15px] pr-2 text-sm uppercase">
+					<button on:click={logOut} class="hover:text-white transition">Sair</button>
+				</div>
+			{/if}
+			{#if !isLoggedIn}
+				<div class="text-slate-200 font-medium md:text-[15px] mr-4 md:mr-0 text-sm uppercase">
+					<a href="/entrar" class="hover:text-white transition">Entrar</a> |
+					<a href="/cadastrar" class="hover:text-white transition">Cadastrar</a>
+				</div>
+			{/if}
 		</div>
 	</div>
 </nav>

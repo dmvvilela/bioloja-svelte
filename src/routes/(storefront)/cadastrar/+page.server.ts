@@ -8,7 +8,7 @@ import { isEmail, isPassword } from '$lib/utils/validation';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	if (locals.session) {
+	if (locals.user) {
 		redirect(307, '/');
 	}
 };
