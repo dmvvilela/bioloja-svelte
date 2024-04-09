@@ -2,8 +2,8 @@
 // @ts-ignore
 import * as html2text from 'html-to-text';
 import { render as renderMjmlEmail } from '$lib/utils/mail';
-import { AWS_SES_REGION } from '$env/static/private';
 import { render as renderSvelteEmail } from 'svelte-email';
+import { AWS_SES_REGION } from '$env/static/private';
 import AWS from 'aws-sdk';
 const convert = html2text.convert;
 
@@ -32,7 +32,7 @@ export const templateNameToSubject = (template: string) => {
 };
 
 export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
-	return (await import(`$lib/emails/${type}/${template}.svelte`)).default;
+	return (await import(`/src/lib/emails/${type}/${template}.svelte`)).default;
 };
 
 export const renderEmailBody = async (
