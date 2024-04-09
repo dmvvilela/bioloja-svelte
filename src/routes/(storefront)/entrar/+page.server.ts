@@ -5,16 +5,23 @@ import { users } from '$lib/server/db/schema';
 import { eq } from 'drizzle-orm';
 import { lucia } from '$lib/server/auth/lucia';
 import { db } from '$lib/server/db/conn';
-import type { Actions } from './$types';
+import type { Actions, PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async ({ locals }) => {
+	if (locals.session) {
+		redirect(307, '/');
+	}
+};
 
 export const actions: Actions = {
-	default: async (event) => {
-		const formData = await event.request.formData();
+	default: async ({ request, cookies, url }) => {
+		const formData = await request.formData();
 		const email = formData.get('email') as string;
 		const password = formData.get('password') as string;
 
 		if (!isEmail(email) || !isPassword(password)) {
 			return fail(400, {
+				email,
 				message: 'Credenciais inválidas'
 			});
 		}
@@ -34,6 +41,7 @@ export const actions: Actions = {
 			// it is crucial your implementation is protected against brute-force attacks with login throttling etc.
 			// If emails are public, you may outright tell the user that the email is invalid.
 			return fail(400, {
+				email,
 				message: 'Credenciais inválidas'
 			});
 		}
@@ -41,17 +49,22 @@ export const actions: Actions = {
 		const validPassword = await new Argon2id().verify(existingUser.hashedPassword, password);
 		if (!validPassword) {
 			return fail(400, {
+				email,
 				message: 'Credenciais inválidas'
 			});
 		}
 
 		const session = await lucia.createSession(existingUser.id, {});
 		const sessionCookie = lucia.createSessionCookie(session.id);
-		event.cookies.set(sessionCookie.name, sessionCookie.value, {
+		cookies.set(sessionCookie.name, sessionCookie.value, {
 			path: '.',
 			...sessionCookie.attributes
 		});
 
-		redirect(302, '/');
+		if (url.searchParams.has('redirectTo')) {
+			redirect(303, url.searchParams.get('redirectTo') as string);
+		}
+
+		redirect(303, '/');
 	}
 };

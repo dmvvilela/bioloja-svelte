@@ -5,6 +5,11 @@
 	export let form: ActionData;
 </script>
 
+<svelte:head>
+	<title>Página de Contato</title>
+	<meta name="description" content="Envie-nos uma mensagem." />
+</svelte:head>
+
 <div class="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
 	<svg
 		class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"

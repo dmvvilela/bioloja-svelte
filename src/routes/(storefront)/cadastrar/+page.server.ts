@@ -5,17 +5,26 @@ import { db } from '$lib/server/db/conn';
 import { users } from '$lib/server/db/schema';
 import { lucia } from '$lib/server/auth/lucia';
 import { isEmail, isPassword } from '$lib/utils/validation';
-import type { Actions } from './$types';
+import type { Actions, PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async ({ locals }) => {
+	if (locals.session) {
+		redirect(307, '/');
+	}
+};
 
 export const actions: Actions = {
-	default: async (event) => {
-		const formData = await event.request.formData();
+	default: async ({ request, cookies }) => {
+		const formData = await request.formData();
+		const name = formData.get('name') as string;
 		const email = formData.get('email') as string;
 		const password = formData.get('password') as string;
+		const confirm = formData.get('confirm') as string;
 
-		if (!isEmail(email) || !isPassword(password)) {
+		if (name.length < 3 || !isEmail(email) || !isPassword(password) || password !== confirm) {
 			return fail(400, {
-				message: 'Credenciais inválidas'
+				email,
+				message: 'Verifique seus dados e tente de novo.'
 			});
 		}
 
@@ -23,16 +32,22 @@ export const actions: Actions = {
 		const hashedPassword = await new Argon2id().hash(password);
 
 		// Will throw if the user already exists
-		// TODO: handle it
-		await db.insert(users).values({
-			id: userId,
-			email,
-			hashedPassword
-		});
+		try {
+			await db.insert(users).values({
+				id: userId,
+				email,
+				hashedPassword
+			});
+		} catch (err) {
+			return fail(400, {
+				email,
+				message: 'Usuário já cadastrado.'
+			});
+		}
 
 		const session = await lucia.createSession(userId, {});
 		const sessionCookie = lucia.createSessionCookie(session.id);
-		event.cookies.set(sessionCookie.name, sessionCookie.value, {
+		cookies.set(sessionCookie.name, sessionCookie.value, {
 			path: '.',
 			...sessionCookie.attributes
 		});

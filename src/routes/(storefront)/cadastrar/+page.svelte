@@ -1,6 +1,12 @@
 <script lang="ts">
 	import logo from '$lib/images/logo/icon.png';
 	import { enhance } from '$app/forms';
+	import type { ActionData } from '../$types';
+
+	export let form: ActionData;
+
+	$: value = (form as any)?.name;
+	$: message = (form as any)?.message;
 </script>
 
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8 bg-gray-50">
@@ -22,8 +28,9 @@
 							type="text"
 							name="name"
 							id="name"
-							required
 							class="block w-full rounded-md border-0 py-1.5 text-secondary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+							value={value ?? ''}
+							required
 						/>
 					</div>
 				</div>
@@ -61,7 +68,7 @@
 				</div>
 
 				<div>
-					<label for="password" class="block text-sm font-medium leading-6 text-secondary"
+					<label for="confirm" class="block text-sm font-medium leading-6 text-secondary"
 						>Confirmar senha</label
 					>
 					<div class="mt-2">
@@ -98,6 +105,14 @@
 						>Criar conta</button
 					>
 				</div>
+
+				{#if message}
+					<div class="mt-4">
+						<div class="bg-red-100 border-l-4 border-red-500 text-red-700 px-4 py-2.5" role="alert">
+							<p class="font-medium text-sm">{message}</p>
+						</div>
+					</div>
+				{/if}
 			</form>
 
 			<!-- <div>
