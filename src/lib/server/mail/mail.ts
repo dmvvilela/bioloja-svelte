@@ -42,13 +42,13 @@ export const getTemplateComponent = async (template: string, type: 'mjml' | 'sve
 };
 
 export const renderEmailBody = async (
-	template: string,
+	templateComponent: any,
 	subject: string,
 	type: 'mjml' | 'svelte',
 	props?: Record<string, unknown>
 ) => {
 	try {
-		const templateComponent = await getTemplateComponent(template, type);
+		// const templateComponent = await getTemplateComponent(template, type);
 
 		if (type === 'mjml') {
 			// Render the email template to html and text
