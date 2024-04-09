@@ -1,7 +1,4 @@
 <script lang="ts">
-	import Breadcrumbs from '$lib/components/layout/breadcrumbs.svelte';
-	import Products from './products.svelte';
-	import Sidebar from './sidebar.svelte';
 	import ProductCard from '$lib/components/product_card.svelte';
 	import { categories, tags } from '$lib/utils/data';
 	import type { PageServerData } from './$types';
@@ -447,7 +444,7 @@
 												type="checkbox"
 												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 											/>
-											<label for="sizes-0" class="ml-3 text-sm text-gray-600">XS</label>
+											<label for="sizes-0" class="ml-3 text-sm text-gray-600">R$0 - R$20</label>
 										</div>
 										<div class="flex items-center">
 											<input
@@ -457,7 +454,7 @@
 												type="checkbox"
 												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 											/>
-											<label for="sizes-1" class="ml-3 text-sm text-gray-600">S</label>
+											<label for="sizes-1" class="ml-3 text-sm text-gray-600">R$20 - R$40</label>
 										</div>
 										<div class="flex items-center">
 											<input
@@ -467,7 +464,7 @@
 												type="checkbox"
 												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 											/>
-											<label for="sizes-2" class="ml-3 text-sm text-gray-600">M</label>
+											<label for="sizes-2" class="ml-3 text-sm text-gray-600">R$40 - R$60</label>
 										</div>
 										<div class="flex items-center">
 											<input
@@ -477,7 +474,7 @@
 												type="checkbox"
 												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 											/>
-											<label for="sizes-3" class="ml-3 text-sm text-gray-600">L</label>
+											<label for="sizes-3" class="ml-3 text-sm text-gray-600">R$60 - R$80</label>
 										</div>
 										<div class="flex items-center">
 											<input
@@ -487,7 +484,7 @@
 												type="checkbox"
 												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 											/>
-											<label for="sizes-4" class="ml-3 text-sm text-gray-600">XL</label>
+											<label for="sizes-4" class="ml-3 text-sm text-gray-600">R$80 - R$100</label>
 										</div>
 										<div class="flex items-center">
 											<input
@@ -497,7 +494,7 @@
 												type="checkbox"
 												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 											/>
-											<label for="sizes-5" class="ml-3 text-sm text-gray-600">2XL</label>
+											<label for="sizes-5" class="ml-3 text-sm text-gray-600">&gt; R$100</label>
 										</div>
 									</div>
 								</fieldset>
@@ -516,14 +513,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-
-<div class="container mx-auto">
-	<Breadcrumbs />
-
-	<div class="grid md:grid-cols-4 grid-cols-2 gap-6 pt-4 pb-16 items-start">
-		<Sidebar />
-		<Products />
 	</div>
 </div>
