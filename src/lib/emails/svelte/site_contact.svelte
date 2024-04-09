@@ -3,10 +3,12 @@
 
 	export let name: string;
 	export let email: string;
+	export let phone: string;
+	export let orderNumber: string;
 	export let message: string;
 
 	const fontFamily =
-		'-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
+		'Poppins, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
 
 	const main = {
 		backgroundColor: '#ffffff'
@@ -34,10 +36,11 @@
 
 	const button = {
 		fontFamily,
-		backgroundColor: '#FFA726',
+		backgroundColor: '#7895A3',
 		borderRadius: '3px',
-		color: '#000',
+		color: '#FFFFFF',
 		fontSize: '16px',
+		fontWeight: '600',
 		textDecoration: 'none',
 		textAlign: 'center',
 		display: 'block'
@@ -61,8 +64,8 @@
 	<Section style={main}>
 		<Container style={container}>
 			<Img
-				src="https://firebasestorage.googleapis.com/v0/b/anatomia-e-fisiologia-humanas.appspot.com/o/AFH_reduzida_principal.png?alt=media&token=3c661a73-463c-4fcd-a274-bc25a24cfdec"
-				alt="AFH logo"
+				src="https://bioloja.bio.br/wp-content/uploads/2018/04/Bioloja-aprovada-01.jpg"
+				alt="Bioloja Logo"
 				style={logo}
 				width="534"
 				height="244"
@@ -78,11 +81,19 @@
 					second: '2-digit'
 				})}:
 			</Text>
+			{#if phone}
+				<Text style={paragraph}>
+					Telefone: {phone}
+				</Text>
+			{/if}
+			{#if orderNumber}
+				<Text style={paragraph}>
+					Número do pedido: {orderNumber}
+				</Text>
+			{/if}
 			<Text style={paragraph}><pre>{message}</pre></Text>
 			<Hr style={hr} />
-			<Button pX={12} pY={12} style={button} href="https://anatomiaefisiologiahumana.com.br">
-				Ir para o site
-			</Button>
+			<Button pX={12} pY={12} style={button} href="https://bioloja.bio.br">Visitar o site</Button>
 			<!-- <Text style={footer}>Prof. Dr. Ana Luisa</Text> -->
 		</Container>
 	</Section>

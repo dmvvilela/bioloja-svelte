@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import * as html2text from 'html-to-text';
 import { render as renderMjmlEmail } from '$lib/utils/mail';
@@ -23,18 +22,18 @@ export const templateNameToSubject = (template: string) => {
 		case 'cancel_plus':
 			return 'Você cancelou seu plano AFH+';
 		case 'sign_up':
-			return 'Seja bem-vindo(a) ao AFH!';
+			return 'Seja bem-vindo(a) a Bioloja!';
 		case 'welcome':
-			return 'Bem-vindo(a) ao site de Anatomia e Fisiologia Humana!';
+			return 'Bem-vindo(a) a Bioloja!';
 		case 'curiosity':
-			return 'Explore o fascinante mundo da anatomia e fisiologia humana!';
+			return 'Explore o fascinante mundo da Biologia!';
 		case 'plus_reminder':
 			return 'Torne-se um membro AFH+';
 		case 'plus_reminder_2':
 			return 'Já conheceu nossos benefícios de ser um membro AFH+?';
-		case 'contact':
+		case 'siteContact':
 		default:
-			return '✔ Contato do AFH';
+			return '✔ Contato da Bioloja';
 	}
 };
 
@@ -63,10 +62,6 @@ export const getTemplateComponent = async (template: string, type: 'mjml' | 'sve
 
 	return (await import(`../../emails/${type}/${template}.svelte`)).default;
 };
-
-// export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
-// 	return (await import(`$lib/emails/${type}/${template}.svelte`)).default;
-// };
 
 export const renderEmailBody = async (
 	template: string,
@@ -102,9 +97,24 @@ export const renderEmailBody = async (
 			return { html, text };
 		}
 	} catch (e) {
-		console.log(e);
+		console.error(e);
 		return null;
 	}
+};
+
+export const sendTemplateEmail = async (
+	to: string | string[],
+	template: string,
+	type: 'mjml' | 'svelte',
+	props?: Record<string, unknown>
+) => {
+	const subject = templateNameToSubject(template);
+	const body = await renderEmailBody(template, subject, type, props);
+	if (!body) {
+		throw new Error('Could not render email body.');
+	}
+
+	return sendMail(to, subject, body.html, body.text);
 };
 
 export const sendMail = async (
