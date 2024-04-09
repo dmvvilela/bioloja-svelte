@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import * as html2text from 'html-to-text';
@@ -37,9 +38,35 @@ export const templateNameToSubject = (template: string) => {
 	}
 };
 
-export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
-	return (await import(`$lib/emails/${type}/${template}.svelte`)).default;
+// Define a mapping of templates to their import functions
+const componentImports = {
+	mjml: {
+		helloWorld: () => import('$lib/emails/mjml/hello-world.svelte'),
+		newPlus: () => import('$lib/emails/mjml/new_plus.svelte'),
+		cancelPlus: () => import('$lib/emails/mjml/cancel_plus.svelte')
+	},
+	svelte: {
+		welcome: () => import('$lib/emails/svelte/welcome.svelte'),
+		siteContact: () => import('$lib/emails/svelte/site_contact.svelte'),
+		signUp: () => import('$lib/emails/svelte/sign_up.svelte')
+	}
 };
+
+// Dynamically select the import function based on the template and type
+export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
+	// @ts-ignore
+	const importFunction = componentImports[type][template];
+	if (importFunction) {
+		const module = await importFunction();
+		return module.default;
+	}
+
+	return (await import(`../../emails/${type}/${template}.svelte`)).default;
+};
+
+// export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
+// 	return (await import(`$lib/emails/${type}/${template}.svelte`)).default;
+// };
 
 export const renderEmailBody = async (
 	template: string,
