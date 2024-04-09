@@ -20,14 +20,11 @@
 								id="email-address"
 								name="email-address"
 								autocomplete="email"
-								class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
+								disabled
+								class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm disabled:bg-gray-200/80"
 							/>
 						</div>
 					</div>
-				</div>
-
-				<div class="mt-10 border-t border-gray-200 pt-10">
-					<h2 class="text-lg font-medium text-gray-900">Endereço de cobrança</h2>
 
 					<div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
 						<div>
@@ -87,7 +84,9 @@
 						</div>
 
 						<div class="sm:col-span-2">
-							<label for="apartment" class="block text-sm font-medium text-gray-700">Número</label>
+							<label for="apartment" class="block text-sm font-medium text-gray-700"
+								>Complemento</label
+							>
 							<div class="mt-1">
 								<input
 									type="text"
@@ -120,7 +119,7 @@
 									autocomplete="country-name"
 									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
 								>
-									<option>United States</option>
+									<option>Brasil</option>
 									<option>Canada</option>
 									<option>Mexico</option>
 								</select>
@@ -153,69 +152,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="mt-10 border-t border-gray-200 pt-10">
-					<fieldset>
-						<legend class="text-lg font-medium text-gray-900">Informações de entrega</legend>
-
-						<div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-							<!--
-                Checked: "border-transparent", Not Checked: "border-gray-300"
-                Active: "ring-2 ring-bioloja-400"
-              -->
-							<label class="relative flex rounded-lg bg-white p-4 shadow-sm focus:outline-none">
-								<input
-									type="radio"
-									name="delivery-method"
-									value="Standard"
-									class="sr-only"
-									aria-labelledby="delivery-method-0-label"
-									aria-describedby="delivery-method-0-description-0 delivery-method-0-description-1"
-								/>
-								<span class="flex flex-1">
-									<span class="flex flex-col">
-										<span
-											id="delivery-method-0-label"
-											class="block text-sm font-medium text-gray-900"
-											>Download direto pelo site</span
-										>
-										<span
-											id="delivery-method-0-description-0"
-											class="mt-1 flex items-center text-sm text-gray-500"
-											>Senha no arquivo zip de download</span
-										>
-										<span
-											id="delivery-method-0-description-1"
-											class="mt-6 text-sm font-medium text-gray-900"
-											>7 dias para download.<br />3 downloads disponíveis.</span
-										>
-									</span>
-								</span>
-								<!-- Not Checked: "hidden" -->
-								<svg
-									class="h-5 w-5 text-bioloja-800"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										fill-rule="evenodd"
-										d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								<!--
-                  Active: "border", Not Active: "border-2"
-                  Checked: "border-bioloja-400", Not Checked: "border-transparent"
-                -->
-								<span
-									class="pointer-events-none absolute -inset-px rounded-lg border-2"
-									aria-hidden="true"
-								/>
-							</label>
-						</div>
-					</fieldset>
 				</div>
 
 				<!-- Payment -->
@@ -404,8 +340,8 @@
 							<dd class="text-sm font-medium text-gray-900">R$64,00</dd>
 						</div>
 						<div class="flex items-center justify-between">
-							<dt class="text-sm">Desconto</dt>
-							<dd class="text-sm font-medium text-gray-900">-R$0</dd>
+							<dt class="text-sm">Desconto (Cupom: BIOLOJANOTA10)</dt>
+							<dd class="text-sm font-medium text-gray-900">- R$0</dd>
 						</div>
 						<div class="flex items-center justify-between border-t border-gray-200 pt-6">
 							<dt class="text-base font-medium">Total</dt>
@@ -420,6 +356,68 @@
 							>Confirmar pedido</button
 						>
 					</div>
+				</div>
+				<div class="mt-10 border-t border-gray-200 pt-10">
+					<fieldset>
+						<legend class="text-lg font-medium text-gray-900">Informações de entrega</legend>
+
+						<div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+							<!--
+                Checked: "border-transparent", Not Checked: "border-gray-300"
+                Active: "ring-2 ring-bioloja-400"
+              -->
+							<label class="relative flex rounded-lg bg-white p-4 shadow-sm focus:outline-none">
+								<input
+									type="radio"
+									name="delivery-method"
+									value="Standard"
+									class="sr-only"
+									aria-labelledby="delivery-method-0-label"
+									aria-describedby="delivery-method-0-description-0 delivery-method-0-description-1"
+								/>
+								<span class="flex flex-1">
+									<span class="flex flex-col">
+										<span
+											id="delivery-method-0-label"
+											class="block text-sm font-medium text-gray-900"
+											>Download direto pelo site</span
+										>
+										<span
+											id="delivery-method-0-description-0"
+											class="mt-1 flex items-center text-sm text-gray-500"
+											>Senha no arquivo zip de download</span
+										>
+										<span
+											id="delivery-method-0-description-1"
+											class="mt-6 text-sm font-medium text-gray-900"
+											>7 dias para download.<br />3 downloads disponíveis.</span
+										>
+									</span>
+								</span>
+								<!-- Not Checked: "hidden" -->
+								<svg
+									class="h-5 w-5 text-bioloja-800"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+								<!--
+                  Active: "border", Not Active: "border-2"
+                  Checked: "border-bioloja-400", Not Checked: "border-transparent"
+                -->
+								<span
+									class="pointer-events-none absolute -inset-px rounded-lg border-2"
+									aria-hidden="true"
+								/>
+							</label>
+						</div>
+					</fieldset>
 				</div>
 			</div>
 		</form>
