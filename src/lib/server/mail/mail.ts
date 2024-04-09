@@ -1,0 +1,116 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import * as html2text from 'html-to-text';
+import { render as renderMjmlEmail } from '$lib/utils/mail';
+import { AWS_SES_REGION } from '$env/static/private';
+import { render as renderSvelteEmail } from 'svelte-email';
+import AWS from 'aws-sdk';
+const convert = html2text.convert;
+
+AWS.config.update({ region: AWS_SES_REGION });
+
+export const templateNameToSubject = (template: string) => {
+	switch (template) {
+		case 'new_plus':
+			return 'Agora você é um membro AFH+!';
+		case 'cancel_plus':
+			return 'Você cancelou seu plano AFH+';
+		case 'sign_up':
+			return 'Seja bem-vindo(a) ao AFH!';
+		case 'welcome':
+			return 'Bem-vindo(a) ao site de Anatomia e Fisiologia Humana!';
+		case 'curiosity':
+			return 'Explore o fascinante mundo da anatomia e fisiologia humana!';
+		case 'plus_reminder':
+			return 'Torne-se um membro AFH+';
+		case 'plus_reminder_2':
+			return 'Já conheceu nossos benefícios de ser um membro AFH+?';
+		case 'contact':
+		default:
+			return '✔ Contato do AFH';
+	}
+};
+
+export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
+	return (await import(`$lib/emails/${type}/${template}.svelte`)).default;
+};
+
+export const renderEmailBody = async (
+	template: string,
+	subject: string,
+	type: 'mjml' | 'svelte',
+	props?: Record<string, unknown>
+) => {
+	try {
+		const templateComponent = await getTemplateComponent(template, type);
+
+		if (type === 'mjml') {
+			// Render the email template to html and text
+			// TODO: Use compile convert for performance on batch
+			const html = renderMjmlEmail(templateComponent, subject, props || {});
+			const text = convert(html, { preserveNewLines: true });
+
+			return { html, text };
+		} else {
+			// Render the email template to html and text
+			const html = renderSvelteEmail({
+				template: templateComponent,
+				props
+			});
+
+			const text = renderSvelteEmail({
+				template: templateComponent,
+				props,
+				options: {
+					plainText: true
+				}
+			});
+
+			return { html, text };
+		}
+	} catch (e) {
+		console.log(e);
+		return null;
+	}
+};
+
+export const sendMail = async (
+	to: string | string[],
+	subject: string,
+	html: string,
+	text: string
+) => {
+	let Destination;
+	if (Array.isArray(to)) {
+		Destination = {
+			BccAddresses: to
+		};
+	} else {
+		Destination = {
+			ToAddresses: [to]
+		};
+	}
+
+	const options = {
+		Source: 'contato@bioloja.bio.br',
+		Destination,
+		Message: {
+			Body: {
+				Html: {
+					Charset: 'UTF-8',
+					Data: html
+				},
+				Text: {
+					Charset: 'UTF-8',
+					Data: text
+				}
+			},
+			Subject: {
+				Charset: 'UTF-8',
+				Data: subject
+			}
+		}
+	};
+
+	return new AWS.SES({ apiVersion: '2010-12-01' }).sendEmail(options).promise();
+};
