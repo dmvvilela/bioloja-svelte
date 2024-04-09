@@ -4,6 +4,15 @@
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
+
+	const prices = [
+		'R$0 - R$20',
+		'R$20 - R$40',
+		'R$40 - R$60',
+		'R$60 - R$80',
+		'R$80 - R$100',
+		'> R$100'
+	];
 </script>
 
 <div>
@@ -41,12 +50,12 @@
 					class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl"
 				>
 					<div class="flex items-center justify-between px-4">
-						<h2 class="text-lg font-medium text-secondary">Filters</h2>
+						<h2 class="text-lg font-medium text-secondary">Filtros</h2>
 						<button
 							type="button"
 							class="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500"
 						>
-							<span class="sr-only">Close menu</span>
+							<span class="sr-only">Fechar menu</span>
 							<svg
 								class="h-6 w-6"
 								fill="none"
@@ -72,7 +81,7 @@
 										aria-controls="filter-section-0"
 										aria-expanded="false"
 									>
-										<span class="text-sm font-medium text-secondary">Color</span>
+										<span class="text-sm font-medium text-secondary">Categoria</span>
 										<span class="ml-6 flex h-7 items-center">
 											<!--
                         Expand/collapse icon, toggle classes based on section open state.
@@ -96,66 +105,20 @@
 								</legend>
 								<div class="px-4 pb-2 pt-4" id="filter-section-0">
 									<div class="space-y-6">
-										<div class="flex items-center">
-											<input
-												id="color-0-mobile"
-												name="color[]"
-												value="white"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="color-0-mobile" class="ml-3 text-sm text-gray-500">White</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="color-1-mobile"
-												name="color[]"
-												value="beige"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="color-1-mobile" class="ml-3 text-sm text-gray-500">Beige</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="color-2-mobile"
-												name="color[]"
-												value="blue"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="color-2-mobile" class="ml-3 text-sm text-gray-500">Blue</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="color-3-mobile"
-												name="color[]"
-												value="brown"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="color-3-mobile" class="ml-3 text-sm text-gray-500">Brown</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="color-4-mobile"
-												name="color[]"
-												value="green"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="color-4-mobile" class="ml-3 text-sm text-gray-500">Green</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="color-5-mobile"
-												name="color[]"
-												value="purple"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="color-5-mobile" class="ml-3 text-sm text-gray-500">Purple</label>
-										</div>
+										{#each categories as category}
+											<div class="flex items-center">
+												<input
+													id="color-0-mobile"
+													name="color[]"
+													value="white"
+													type="checkbox"
+													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
+												/>
+												<label for="color-0-mobile" class="ml-3 text-sm text-gray-500"
+													>{category.name}</label
+												>
+											</div>
+										{/each}
 									</div>
 								</div>
 							</fieldset>
@@ -170,7 +133,7 @@
 										aria-controls="filter-section-1"
 										aria-expanded="false"
 									>
-										<span class="text-sm font-medium text-secondary">Category</span>
+										<span class="text-sm font-medium text-secondary">Tag</span>
 										<span class="ml-6 flex h-7 items-center">
 											<!--
                         Expand/collapse icon, toggle classes based on section open state.
@@ -194,64 +157,20 @@
 								</legend>
 								<div class="px-4 pb-2 pt-4" id="filter-section-1">
 									<div class="space-y-6">
-										<div class="flex items-center">
-											<input
-												id="category-0-mobile"
-												name="category[]"
-												value="new-arrivals"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="category-0-mobile" class="ml-3 text-sm text-gray-500"
-												>All New Arrivals</label
-											>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="category-1-mobile"
-												name="category[]"
-												value="tees"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="category-1-mobile" class="ml-3 text-sm text-gray-500">Tees</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="category-2-mobile"
-												name="category[]"
-												value="crewnecks"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="category-2-mobile" class="ml-3 text-sm text-gray-500"
-												>Crewnecks</label
-											>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="category-3-mobile"
-												name="category[]"
-												value="sweatshirts"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="category-3-mobile" class="ml-3 text-sm text-gray-500"
-												>Sweatshirts</label
-											>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="category-4-mobile"
-												name="category[]"
-												value="pants-shorts"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="category-4-mobile" class="ml-3 text-sm text-gray-500"
-												>Pants &amp; Shorts</label
-											>
-										</div>
+										{#each tags as tag}
+											<div class="flex items-center">
+												<input
+													id="category-0-mobile"
+													name="category[]"
+													value="new-arrivals"
+													type="checkbox"
+													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
+												/>
+												<label for="category-0-mobile" class="ml-3 text-sm text-gray-500"
+													>{tag.name}</label
+												>
+											</div>
+										{/each}
 									</div>
 								</div>
 							</fieldset>
@@ -266,7 +185,7 @@
 										aria-controls="filter-section-2"
 										aria-expanded="false"
 									>
-										<span class="text-sm font-medium text-secondary">Sizes</span>
+										<span class="text-sm font-medium text-secondary">Preço</span>
 										<span class="ml-6 flex h-7 items-center">
 											<!--
                         Expand/collapse icon, toggle classes based on section open state.
@@ -290,66 +209,20 @@
 								</legend>
 								<div class="px-4 pb-2 pt-4" id="filter-section-2">
 									<div class="space-y-6">
-										<div class="flex items-center">
-											<input
-												id="sizes-0-mobile"
-												name="sizes[]"
-												value="xs"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-0-mobile" class="ml-3 text-sm text-gray-500">XS</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-1-mobile"
-												name="sizes[]"
-												value="s"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-1-mobile" class="ml-3 text-sm text-gray-500">S</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-2-mobile"
-												name="sizes[]"
-												value="m"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-2-mobile" class="ml-3 text-sm text-gray-500">M</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-3-mobile"
-												name="sizes[]"
-												value="l"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-3-mobile" class="ml-3 text-sm text-gray-500">L</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-4-mobile"
-												name="sizes[]"
-												value="xl"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-4-mobile" class="ml-3 text-sm text-gray-500">XL</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-5-mobile"
-												name="sizes[]"
-												value="2xl"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-5-mobile" class="ml-3 text-sm text-gray-500">2XL</label>
-										</div>
+										{#each prices as price}
+											<div class="flex items-center">
+												<input
+													id="sizes-0-mobile"
+													name="sizes[]"
+													value="xs"
+													type="checkbox"
+													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
+												/>
+												<label for="sizes-0-mobile" class="ml-3 text-sm text-gray-500"
+													>{price}</label
+												>
+											</div>
+										{/each}
 									</div>
 								</div>
 							</fieldset>
@@ -436,66 +309,18 @@
 									<legend class="block text-lg font-semibold text-secondary uppercase">Preço</legend
 									>
 									<div class="space-y-3 pt-6">
-										<div class="flex items-center">
-											<input
-												id="sizes-0"
-												name="sizes[]"
-												value="xs"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-0" class="ml-3 text-sm text-gray-600">R$0 - R$20</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-1"
-												name="sizes[]"
-												value="s"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-1" class="ml-3 text-sm text-gray-600">R$20 - R$40</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-2"
-												name="sizes[]"
-												value="m"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-2" class="ml-3 text-sm text-gray-600">R$40 - R$60</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-3"
-												name="sizes[]"
-												value="l"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-3" class="ml-3 text-sm text-gray-600">R$60 - R$80</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-4"
-												name="sizes[]"
-												value="xl"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-4" class="ml-3 text-sm text-gray-600">R$80 - R$100</label>
-										</div>
-										<div class="flex items-center">
-											<input
-												id="sizes-5"
-												name="sizes[]"
-												value="2xl"
-												type="checkbox"
-												class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-											/>
-											<label for="sizes-5" class="ml-3 text-sm text-gray-600">&gt; R$100</label>
-										</div>
+										{#each prices as price}
+											<div class="flex items-center">
+												<input
+													id="sizes-0"
+													name="sizes[]"
+													value="xs"
+													type="checkbox"
+													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
+												/>
+												<label for="sizes-0" class="ml-3 text-sm text-gray-600">{price}</label>
+											</div>
+										{/each}
 									</div>
 								</fieldset>
 							</div>
