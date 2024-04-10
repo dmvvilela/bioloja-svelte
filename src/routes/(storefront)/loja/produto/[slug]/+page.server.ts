@@ -4,8 +4,7 @@ import { categories, productCategories, products } from '$lib/server/db/schema';
 import type { PageServerLoad } from './$types';
 import type { ProductWithCategories } from '$lib/utils/types';
 
-export const load = (async ({ setHeaders, params }) => {
-	// setHeaders({ 'cache-control': 'max-age=3600' });
+export const load = (async ({ params }) => {
 	// const product = (await db.select().from(products).where(eq(products.slug, params.slug)))[0];
 
 	// const product = (
@@ -47,8 +46,6 @@ export const load = (async ({ setHeaders, params }) => {
 			and(inArray(productCategories.categoryId, product.category_ids), ne(products.id, product.id))
 		)
 		.limit(4);
-
-	console.log(relatedProducts);
 
 	return { product, relatedProducts };
 }) satisfies PageServerLoad;

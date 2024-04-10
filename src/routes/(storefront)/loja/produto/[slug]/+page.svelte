@@ -11,6 +11,8 @@
 
 	export let data: PageData;
 
+	let radioGroup: number | null = null;
+
 	const product = data.product as ProductWithCategories;
 	const relatedProducts = data.relatedProducts as ProductWithCategory[];
 	const images = getAllSlideImageUrls(product.image_urls);
@@ -24,6 +26,33 @@
 		categoryId: relatedProduct.product_categories.categoryId,
 		categoryName: relatedProduct.categories.name
 	}));
+
+	const details = [
+		{
+			title: 'Atributos',
+			description: `
+<div class="prose prose-sm pb-6" id="disclosure-1">
+	<ul role="list">
+		<li>Multiple strap configurations</li>
+		<li>Spacious interior with top zip</li>
+		<li>Leather handle and tabs</li>
+		<li>Interior dividers</li>
+		<li>Stainless strap loops</li>
+		<li>Double stitched construction</li>
+		<li>Water-resistant</li>
+	</ul>
+</div>`
+		},
+		{
+			title: 'Entrega',
+			description: 'Download digital direto pelo site acessando o menu Minha conta.'
+		},
+		{
+			title: 'Notas',
+			description:
+				'A SENHA para abrir os arquivos baixados se encontra no arquivo LEIA-ME.txt. O download estará disponível por 7 dias a partir da data de efetuação do pagamento e terá um limite disponível de 3 downloads por compra.'
+		}
+	];
 
 	// set up carousel config
 	const mainOptions = {
@@ -80,80 +109,22 @@
 					</Splide>
 				</div>
 
-				<section aria-labelledby="details-heading" class="mt-12">
-					<h2 id="details-heading" class="sr-only">Additional details</h2>
+				<section aria-labelledby="about-heading" class="mt-12">
+					<h2 id="about-heading" class="sr-only">Sobre</h2>
 
 					<div class="divide-y divide-gray-200 border-t">
 						<div>
-							<h3>
-								<!-- Expand/collapse question button -->
-								<button
-									type="button"
-									class="group relative flex w-full items-center justify-between py-6 text-left"
-									aria-controls="disclosure-1"
-									aria-expanded="false"
-								>
-									<!-- Open: "text-indigo-600", Closed: "text-gray-900" -->
-									<span class="text-gray-900 text-sm font-medium">Features</span>
-									<span class="ml-6 flex items-center">
-										<!-- Open: "hidden", Closed: "block" -->
-										<svg
-											class="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke-width="1.5"
-											stroke="currentColor"
-											aria-hidden="true"
-										>
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												d="M12 4.5v15m7.5-7.5h-15"
-											/>
-										</svg>
-										<!-- Open: "block", Closed: "hidden" -->
-										<svg
-											class="hidden h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke-width="1.5"
-											stroke="currentColor"
-											aria-hidden="true"
-										>
-											<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
-										</svg>
-									</span>
-								</button>
-							</h3>
-							<div class="prose prose-sm pb-6" id="disclosure-1">
-								<ul role="list">
-									<li>Multiple strap configurations</li>
-									<li>Spacious interior with top zip</li>
-									<li>Leather handle and tabs</li>
-									<li>Interior dividers</li>
-									<li>Stainless strap loops</li>
-									<li>Double stitched construction</li>
-									<li>Water-resistant</li>
-								</ul>
+							<h3 class="my-4 font-medium text-gray-500 uppercase tracking-wider">Sobre</h3>
+							<div class="prose prose-sm pb-6 whitespace-pre-line" id="disclosure-1">
+								{@html product.description}
 							</div>
 						</div>
-
-						<!-- More sections... -->
 					</div>
 				</section>
-				<!-- <div class="mt-6">
-					<h3 class="sr-only">Detalhes extras</h3>
-
-					<div class="space-y-6 text-base text-gray-700">
-						<p class="whitespace-pre-line">
-							{@html product.description}
-						</p>
-					</div>
-				</div> -->
 			</div>
 
 			<!-- Product info -->
-			<div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
+			<div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0 mb-20">
 				<h1 class="text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
 				<h2 class="mt-1 text-gray-400">{product.category_names.join(' | ')}</h2>
 
@@ -173,70 +144,39 @@
 
 				<!-- Reviews -->
 				<div class="mt-3">
-					<h3 class="sr-only">Avaliações</h3>
+					<h3 class="sr-only">Reviews</h3>
 					<div class="flex items-center">
 						<div class="flex items-center">
-							<!-- Active: "text-indigo-500", Inactive: "text-gray-300" -->
-							<svg
-								class="h-5 w-5 flex-shrink-0 text-indigo-500"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-									clip-rule="evenodd"
-								/>
-							</svg>
-							<svg
-								class="h-5 w-5 flex-shrink-0 text-indigo-500"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-									clip-rule="evenodd"
-								/>
-							</svg>
-							<svg
-								class="h-5 w-5 flex-shrink-0 text-indigo-500"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-									clip-rule="evenodd"
-								/>
-							</svg>
-							<svg
-								class="h-5 w-5 flex-shrink-0 text-indigo-500"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-									clip-rule="evenodd"
-								/>
-							</svg>
-							<svg
-								class="h-5 w-5 flex-shrink-0 text-gray-300"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-									clip-rule="evenodd"
-								/>
-							</svg>
+							{#each [0, 1, 2, 3, 4] as rating}
+								{#if rating < 4}
+									<svg
+										class="h-5 w-5 flex-shrink-0 text-yellow-400"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+											clip-rule="evenodd"
+										/>
+									</svg>
+								{/if}
+								{#if rating == 4}
+									<svg
+										class="h-5 w-5 flex-shrink-0 text-gray-300"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+											clip-rule="evenodd"
+										/>
+									</svg>
+								{/if}
+							{/each}
 						</div>
 						<p class="sr-only">4 out of 5 stars</p>
 					</div>
@@ -303,64 +243,58 @@
 				</form>
 
 				<section aria-labelledby="details-heading" class="mt-12">
-					<h2 id="details-heading" class="sr-only">Additional details</h2>
+					<h2 id="details-heading" class="sr-only">Mais detalhes</h2>
 
 					<div class="divide-y divide-gray-200 border-t">
-						<div>
-							<h3>
-								<!-- Expand/collapse question button -->
-								<button
-									type="button"
-									class="group relative flex w-full items-center justify-between py-6 text-left"
-									aria-controls="disclosure-1"
-									aria-expanded="false"
-								>
-									<!-- Open: "text-indigo-600", Closed: "text-gray-900" -->
-									<span class="text-gray-900 text-sm font-medium">Features</span>
-									<span class="ml-6 flex items-center">
-										<!-- Open: "hidden", Closed: "block" -->
-										<svg
-											class="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke-width="1.5"
-											stroke="currentColor"
-											aria-hidden="true"
+						{#each details as detail, i}
+							<div>
+								<h3>
+									<!-- Expand/collapse question button -->
+									<button
+										on:click={() => (radioGroup = i)}
+										class="collapse join-item group relative w-full text-left"
+									>
+										<input type="radio" class="hidden" checked={radioGroup == i} />
+										<div
+											class="collapse-title text-gray-900 text-sm font-medium flex items-center justify-between"
 										>
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												d="M12 4.5v15m7.5-7.5h-15"
-											/>
-										</svg>
-										<!-- Open: "block", Closed: "hidden" -->
-										<svg
-											class="hidden h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke-width="1.5"
-											stroke="currentColor"
-											aria-hidden="true"
-										>
-											<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
-										</svg>
-									</span>
-								</button>
-							</h3>
-							<div class="prose prose-sm pb-6" id="disclosure-1">
-								<ul role="list">
-									<li>Multiple strap configurations</li>
-									<li>Spacious interior with top zip</li>
-									<li>Leather handle and tabs</li>
-									<li>Interior dividers</li>
-									<li>Stainless strap loops</li>
-									<li>Double stitched construction</li>
-									<li>Water-resistant</li>
-								</ul>
+											{detail.title}
+											<span class="ml-6 flex items-center">
+												<!-- Open: "hidden", Closed: "block" -->
+												<svg
+													class="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke-width="1.5"
+													stroke="currentColor"
+													aria-hidden="true"
+												>
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														d="M12 4.5v15m7.5-7.5h-15"
+													/>
+												</svg>
+												<!-- Open: "block", Closed: "hidden" -->
+												<svg
+													class="hidden h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke-width="1.5"
+													stroke="currentColor"
+													aria-hidden="true"
+												>
+													<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+												</svg>
+											</span>
+										</div>
+										<div class="collapse-content prose prose-sm pb-6" id="disclosure-1">
+											{@html detail.description}
+										</div>
+									</button>
+								</h3>
 							</div>
-						</div>
-
-						<!-- More sections... -->
+						{/each}
 					</div>
 				</section>
 			</div>
