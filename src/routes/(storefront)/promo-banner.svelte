@@ -3,7 +3,7 @@
 </script>
 
 <div class="relative container mx-auto h-[362px] border-primary/20 border mb-16 overflow-hidden">
-	<a href="#">
+	<a href="/loja?=categorias=apostilas">
 		<img src={banner} alt="promo text" class="w-full h-full object-cover" />
 		<div
 			class="absolute -top-10 left-0 w-10/12 sm:w-8/12 md:w-6/12 lg:w-4/12 h-[560px] bg-slate-50 rounded-r-full flex items-center justify-center"

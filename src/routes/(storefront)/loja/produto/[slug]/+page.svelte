@@ -7,73 +7,70 @@
 	import slide4 from '$lib/images/slides1/Slide4.jpg';
 	import slide5 from '$lib/images/slides1/Slide5.jpg';
 	import slide6 from '$lib/images/slides1/Slide6.jpg';
-	import { getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
+	import { getAllSlideImageUrls, getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import '@splidejs/svelte-splide/css';
 
 	export let data: PageData;
 
-	$: product = data.product;
+	const product = data.product;
+	const images = getAllSlideImageUrls(product.imageUrls);
+
+	// set up carousel config
+	const mainOptions = {
+		// pagination: true,
+		// type: 'loop'
+	};
+
+	const thumbsOptions = {
+		arrows: false,
+		focus: 'center' as 'center',
+		gap: 5,
+		isNavigation: true,
+		pagination: false,
+		perMove: 1,
+		perPage: 4,
+		// type: 'loop',
+		updateOnMove: true
+	};
+
+	// sync carousels
+	let main: any;
+	let thumbs: { splide: any };
+
+	onMount(() => {
+		if (main && thumbs) {
+			console.log({ main, thumbs });
+			main.sync(thumbs.splide);
+		}
+	});
 </script>
 
 <div class="bg-white">
 	<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
 		<div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
 			<!-- Image gallery -->
-			<div class="flex flex-col-reverse">
-				<Splide aria-label="My Favorite Images">
-					<SplideSlide>
-						<img src={getSlideImageUrl(product.imageUrls)} alt="Slide 1" />
-					</SplideSlide>
-					<SplideSlide>
-						<img src={getSlideImageUrl(product.imageUrls, 1)} alt="Slide 2" />
-					</SplideSlide>
-				</Splide>
-				<!-- Image selector -->
-				<div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
-					<!-- <div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
-						<button
-							id="tabs-1-tab-1"
-							class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
-							aria-controls="tabs-1-panel-1"
-							role="tab"
-							type="button"
-						>
-							<span class="sr-only">Angled view</span>
-							<span class="absolute inset-0 overflow-hidden rounded-md">
-								<img
-									src={getSlideImageUrl(product.imageUrls)}
-									alt=""
-									class="h-full w-full object-cover object-center"
-								/>
-							</span>
-							<span
-								class="ring-transparent pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2"
-								aria-hidden="true"
-							/>
-						</button> -->
-
-					<!-- </div> -->
+			<div class="gallery">
+				<div class="gallery--main">
+					<Splide bind:this={main} options={mainOptions}>
+						{#each images as image, i}
+							<SplideSlide>
+								<img src={image} alt="Main slide {i}" class="rounded" />
+							</SplideSlide>
+						{/each}
+					</Splide>
 				</div>
-
-				<div class="aspect-h-1 w-full">
-					<!-- Tab panel, show/hide based on tab state. -->
-					<!-- <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
-						<img
-							src={getSlideImageUrl(product.imageUrls)}
-							alt="Angled front view with bag zipped and handles upright."
-							class="h-full object-contain aspect-video object-center sm:rounded-lg"
-						/>
-					</div> -->
-
-					<!-- <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
-						<img
-							src={getSlideImageUrl(product.imageUrls, 1)}
-							alt="Angled front view with bag zipped and handles upright."
-							class="h-full w-full object-cover object-center sm:rounded-lg"
-						/>
-					</div> -->
+				<!-- Image selector -->
+				<div class="gallery--thumbs mt-2">
+					<Splide id="gallery--thumbs" bind:this={thumbs} options={thumbsOptions}>
+						{#each images as image, i}
+							<SplideSlide>
+								<img src={image} alt="Thumb slide {i}" class="rounded-sm" />
+							</SplideSlide>
+						{/each}
+					</Splide>
 				</div>
 			</div>
 
@@ -571,3 +568,17 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.gallery--thumbs
+		:global(.splide__track--nav)
+		> :global(.splide__list)
+		> :global(.splide__slide.is-active) {
+		border: 2.5px solid #002336;
+		border-radius: 4px;
+	}
+
+	:global(.splide__pagination__page.is-active) {
+		background-color: #7895a3;
+	}
+</style>

@@ -5,4 +5,8 @@ export const getSlideImageUrl = (imageUrls: string, slide = 0) => {
 	return PUBLIC_IMAGES_BUCKET_URL + path;
 };
 
+export const getAllSlideImageUrls = (imageUrls: string) => {
+	return imageUrls.split(',').map((url) => PUBLIC_IMAGES_BUCKET_URL + url.trim());
+};
+
 export const getLocalePrice = (price: number) => (price / 100).toFixed(2).replace('.', ',');
