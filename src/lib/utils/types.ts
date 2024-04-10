@@ -54,6 +54,20 @@ export type ProductType = {
 	parentCategoryName?: string | null;
 };
 
+export type Tag = {
+	name: string;
+	slug: string;
+};
+
+export type Attribute = {
+	name: string;
+	slug: string;
+	type: 'number' | 'boolean' | 'string';
+	valueText?: string | null;
+	valueNumber?: number | null;
+	valueBoolean?: boolean | null;
+};
+
 // Raw SQL queries
 export type ProductWithCategories = {
 	id: number;

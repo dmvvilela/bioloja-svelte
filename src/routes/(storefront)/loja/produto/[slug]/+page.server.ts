@@ -1,6 +1,14 @@
 import { db } from '$lib/server/db/conn';
 import { eq, and, inArray, ne, sql } from 'drizzle-orm';
-import { categories, productCategories, products } from '$lib/server/db/schema';
+import {
+	attributes,
+	categories,
+	productAttributes,
+	productCategories,
+	productTags,
+	products,
+	tags
+} from '$lib/server/db/schema';
 import type { PageServerLoad } from './$types';
 import type { ProductWithCategories } from '$lib/utils/types';
 
@@ -37,6 +45,25 @@ export const load = (async ({ params }) => {
 		`)
 	).rows[0] as ProductWithCategories;
 
+	const qtags = await db
+		.select({ name: tags.name, slug: tags.slug })
+		.from(tags)
+		.innerJoin(productTags, eq(productTags.tagId, tags.id))
+		.where(eq(productTags.productId, product.id));
+
+	const qattributes = await db
+		.select({
+			name: attributes.name,
+			slug: attributes.slug,
+			type: attributes.dataType,
+			valueText: productAttributes.valueText,
+			valueNumber: productAttributes.valueNumber,
+			valueBoolean: productAttributes.valueBoolean
+		})
+		.from(attributes)
+		.innerJoin(productAttributes, eq(productAttributes.attributeId, attributes.id))
+		.where(eq(productAttributes.productId, product.id));
+
 	const relatedProducts = await db
 		.select()
 		.from(products)
@@ -47,7 +74,7 @@ export const load = (async ({ params }) => {
 		)
 		.limit(4);
 
-	return { product, relatedProducts };
+	return { product, relatedProducts, tags: qtags, attributes: qattributes };
 }) satisfies PageServerLoad;
 
 // If needed more categories try this..

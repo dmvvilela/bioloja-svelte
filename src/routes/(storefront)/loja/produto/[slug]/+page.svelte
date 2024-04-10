@@ -6,16 +6,24 @@
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
-	import type { ProductType, ProductWithCategories, ProductWithCategory } from '$lib/utils/types';
+	import type {
+		Attribute,
+		ProductType,
+		ProductWithCategories,
+		ProductWithCategory,
+		Tag
+	} from '$lib/utils/types';
 	import '@splidejs/svelte-splide/css';
 
 	export let data: PageData;
 
-	let radioGroup: number | null = 1;
+	let radioGroup: number | null = 0;
 
 	const product = data.product as ProductWithCategories;
 	const relatedProducts = data.relatedProducts as ProductWithCategory[];
 	const images = getAllSlideImageUrls(product.image_urls);
+	const tags = data.tags as Tag[];
+	const attributes = data.attributes as Attribute[];
 
 	const related: ProductType[] = relatedProducts.map((relatedProduct) => ({
 		productId: relatedProduct.products.id,
@@ -32,15 +40,20 @@
 			title: 'Atributos',
 			description: `
 <div class="prose prose-sm pb-6">
-	<ul role="list">
-		<li>Multiple strap configurations</li>
-		<li>Spacious interior with top zip</li>
-		<li>Leather handle and tabs</li>
-		<li>Interior dividers</li>
-		<li>Stainless strap loops</li>
-		<li>Double stitched construction</li>
-		<li>Water-resistant</li>
-	</ul>
+    <ul role="list">
+        ${attributes
+					.map(
+						(attribute) =>
+							`<li>${attribute.name}: <span class="font-semibold">${
+								attribute.type === 'boolean'
+									? attribute.valueBoolean
+										? 'Sim'
+										: 'Não'
+									: attribute.valueText || attribute.valueNumber
+							}</span></li>`
+					)
+					.join('')}
+    </ul>
 </div>`
 		},
 		{
@@ -198,7 +211,7 @@
 					<div>
 						<h3 class="text-sm text-gray-600">Tags</h3>
 						<h4 class="pt-1 text-xs text-gray-400 tracking-wide uppercase">
-							Ensino Médio | Ensino Superior | Apresentações
+							{tags.map((tag) => tag.name).join(' | ')}
 						</h4>
 					</div>
 
