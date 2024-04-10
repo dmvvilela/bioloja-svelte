@@ -17,9 +17,8 @@ AWS.config.update({ region: AWS_SES_REGION });
 
 export const templateNameToSubject = (template: string) => {
 	switch (template) {
-		case 'sign_up':
-			return 'Seja bem-vindo(a) a Bioloja!';
 		case 'welcome':
+		case 'sign_up':
 			return 'Bem-vindo(a) a Bioloja!';
 		case 'resetPassword':
 			return 'Redefina sua senha';

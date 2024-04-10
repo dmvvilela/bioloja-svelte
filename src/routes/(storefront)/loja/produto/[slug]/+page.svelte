@@ -7,20 +7,32 @@
 	import slide4 from '$lib/images/slides1/Slide4.jpg';
 	import slide5 from '$lib/images/slides1/Slide5.jpg';
 	import slide6 from '$lib/images/slides1/Slide6.jpg';
-	import { getAllSlideImageUrls, getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
+	import { getAllSlideImageUrls, getLocalePrice } from '$lib/utils/product';
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
+	import type { ProductType, ProductWithCategories, ProductWithCategory } from '$lib/utils/types';
 	import '@splidejs/svelte-splide/css';
 
 	export let data: PageData;
 
-	const product = data.product;
-	const images = getAllSlideImageUrls(product.imageUrls);
+	const product = data.product as ProductWithCategories;
+	const relatedProducts = data.relatedProducts as ProductWithCategory[];
+	const images = getAllSlideImageUrls(product.image_urls);
+
+	const related: ProductType[] = relatedProducts.map((relatedProduct) => ({
+		productId: relatedProduct.products.id,
+		productSlug: relatedProduct.products.slug,
+		productName: relatedProduct.products.name,
+		price: relatedProduct.products.price,
+		imageUrls: relatedProduct.products.imageUrls,
+		categoryId: relatedProduct.product_categories.categoryId,
+		categoryName: relatedProduct.categories.name
+	}));
 
 	// set up carousel config
 	const mainOptions = {
-		// pagination: true,
+		pagination: true
 		// type: 'loop'
 	};
 
@@ -39,17 +51,17 @@
 	// sync carousels
 	let main: any;
 	let thumbs: { splide: any };
-
 	onMount(() => {
 		if (main && thumbs) {
-			console.log({ main, thumbs });
+			// console.log({ main, thumbs });
 			main.sync(thumbs.splide);
 		}
 	});
 </script>
 
 <div class="bg-white">
-	<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+	<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8">
+		<Breadcrumbs />
 		<div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
 			<!-- Image gallery -->
 			<div class="gallery">
@@ -77,6 +89,7 @@
 			<!-- Product info -->
 			<div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
 				<h1 class="text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
+				<!-- <h2>{product.}</h2> -->
 
 				<div class="mt-3">
 					<h2 class="sr-only">Product information</h2>
@@ -159,7 +172,7 @@
 
 					<div class="space-y-6 text-base text-gray-700">
 						<p class="whitespace-pre-line">
-							{@html product.shortDescription}
+							{@html product.short_description}
 						</p>
 					</div>
 				</div>
@@ -238,12 +251,23 @@
 
 					<div class="mt-10 flex">
 						<button
-							type="submit"
-							class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-							>Add to bag</button
+							class="btn btn-primary btn-md flex max-w-xs flex-1 items-center justify-center glass bg-primary-focus text-base border border-primary text-white px-8 py-3 font-medium border-transparent sm:w-full rounded-md hover:shadow-lg"
+							>Adicionar <svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								class="w-6 h-6 ml-2"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+								/>
+							</svg></button
 						>
-
-						<button
+						<!-- <button
 							type="button"
 							class="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
 						>
@@ -261,8 +285,8 @@
 									d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
 								/>
 							</svg>
-							<span class="sr-only">Add to favorites</span>
-						</button>
+							<span class="sr-only">Adicionar a Wishlist</span>
+						</button> -->
 					</div>
 				</form>
 
@@ -559,12 +583,13 @@
 
 	<!-- related product -->
 	<div class="pb-16">
-		<h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">Produtos Relacionados</h2>
+		<h2 class="text-2xl font-semibold tracking-tight text-gray-800 uppercase mb-6">
+			Produtos Relacionados
+		</h2>
 		<div class="grid grid-cols-4 gap-6">
-			<!-- <ProductCard slide={slide1} />
-			<ProductCard slide={slide2} />
-			<ProductCard slide={slide3} />
-			<ProductCard slide={slide4} /> -->
+			{#each related as product}
+				<ProductCard {product} />
+			{/each}
 		</div>
 	</div>
 </div>

@@ -6,7 +6,10 @@ export const getSlideImageUrl = (imageUrls: string, slide = 0) => {
 };
 
 export const getAllSlideImageUrls = (imageUrls: string) => {
-	return imageUrls.split(',').map((url) => PUBLIC_IMAGES_BUCKET_URL + url.trim());
+	return imageUrls
+		.split(',')
+		.map((url) => PUBLIC_IMAGES_BUCKET_URL + url.trim())
+		.slice(0, 9);
 };
 
 export const getLocalePrice = (price: number) => (price / 100).toFixed(2).replace('.', ',');
