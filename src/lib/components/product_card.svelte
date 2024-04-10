@@ -8,7 +8,7 @@
 	// TODO: reupload everything the correct way
 </script>
 
-<div class="bg-white shadow rounded overflow-hidden group">
+<div class="bg-gray-50/60 shadow-sm border rounded-md overflow-hidden group">
 	<div class="relative">
 		<img
 			src={getSlideImageUrl(product.imageUrls)}
@@ -62,7 +62,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="pt-4 pb-3 px-4 bg-slate-50/40">
+	<div class="pt-4 pb-3 px-4 bg-white">
 		<a href="#">
 			<h4
 				class="capitalize h-5 overflow-hidden leading-normal overflow-ellipsis font-medium text-sm mb-2 text-gray-400 hover:text-primary transition"
@@ -72,7 +72,7 @@
 		</a>
 		<a href="/loja/produto/{product.productSlug}">
 			<h4
-				class="uppercase h-24 overflow-auto leading-tight overflow-ellipsis font-semibold text-lg mb-2 text-gray-800 hover:text-primary transition"
+				class="uppercase h-24 overflow-hidden leading-tight overflow-ellipsis font-semibold text-lg mb-2 text-gray-800 hover:text-primary transition"
 			>
 				<span title={product.productName}>{product.productName}</span>
 			</h4>

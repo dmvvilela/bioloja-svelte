@@ -8,7 +8,9 @@
 	import slide5 from '$lib/images/slides1/Slide5.jpg';
 	import slide6 from '$lib/images/slides1/Slide6.jpg';
 	import { getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
+	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import type { PageData } from './$types';
+	import '@splidejs/svelte-splide/css';
 
 	export let data: PageData;
 
@@ -20,9 +22,17 @@
 		<div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
 			<!-- Image gallery -->
 			<div class="flex flex-col-reverse">
+				<Splide aria-label="My Favorite Images">
+					<SplideSlide>
+						<img src={getSlideImageUrl(product.imageUrls)} alt="Slide 1" />
+					</SplideSlide>
+					<SplideSlide>
+						<img src={getSlideImageUrl(product.imageUrls, 1)} alt="Slide 2" />
+					</SplideSlide>
+				</Splide>
 				<!-- Image selector -->
 				<div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
-					<div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
+					<!-- <div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
 						<button
 							id="tabs-1-tab-1"
 							class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
@@ -38,34 +48,32 @@
 									class="h-full w-full object-cover object-center"
 								/>
 							</span>
-							<!-- Selected: "ring-indigo-500", Not Selected: "ring-transparent" -->
 							<span
 								class="ring-transparent pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2"
 								aria-hidden="true"
 							/>
-						</button>
+						</button> -->
 
-						<!-- More images... -->
-					</div>
+					<!-- </div> -->
 				</div>
 
-				<div class="aspect-h-1 aspect-w-1 w-full">
+				<div class="aspect-h-1 w-full">
 					<!-- Tab panel, show/hide based on tab state. -->
-					<div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
+					<!-- <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
 						<img
 							src={getSlideImageUrl(product.imageUrls)}
 							alt="Angled front view with bag zipped and handles upright."
-							class="h-full w-full object-cover object-center sm:rounded-lg"
+							class="h-full object-contain aspect-video object-center sm:rounded-lg"
 						/>
-					</div>
+					</div> -->
 
-					<div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
+					<!-- <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
 						<img
 							src={getSlideImageUrl(product.imageUrls, 1)}
 							alt="Angled front view with bag zipped and handles upright."
 							class="h-full w-full object-cover object-center sm:rounded-lg"
 						/>
-					</div>
+					</div> -->
 				</div>
 			</div>
 

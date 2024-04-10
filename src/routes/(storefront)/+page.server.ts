@@ -55,7 +55,5 @@ export const load = (async ({ setHeaders }) => {
 		.limit(8)
 		.execute()) as ProductType[];
 
-	// console.log(bestSellers);
-
 	return { promotions, bestSellers };
 }) satisfies PageServerLoad;

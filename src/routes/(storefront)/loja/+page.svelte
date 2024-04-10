@@ -257,7 +257,7 @@
 						</svg>
 					</button>
 
-					<div class="hidden lg:block border p-4 rounded border-gray-100 bg-gray-50">
+					<div class="hidden lg:block border p-4 rounded-md border-gray-100 bg-gray-50">
 						<form class="space-y-10 divide-y divide-gray-200">
 							<div>
 								<fieldset>
@@ -352,7 +352,7 @@
 				</aside>
 
 				<!-- Product grid -->
-				<div class="pt-4 lg:col-span-2 lg:mt-0 xl:col-span-3">
+				<div class="pt-0.5 lg:col-span-2 lg:mt-0 xl:col-span-3">
 					<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
 						{#each data.storeProducts as product}
 							<ProductCard {product} />
