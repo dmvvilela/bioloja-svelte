@@ -35,6 +35,7 @@ export const actions: Actions = {
 		try {
 			await db.insert(users).values({
 				id: userId,
+				name,
 				email,
 				hashedPassword
 			});

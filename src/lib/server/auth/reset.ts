@@ -9,7 +9,7 @@ import { eq } from 'drizzle-orm';
 // TODO: Make sure to implement rate limiting based on IP addresses.
 export async function createPasswordResetToken(userId: string): Promise<string> {
 	// Optionally invalidate all existing tokens
-	await db.delete(passwordResets).where(eq(users.id, userId));
+	await db.delete(passwordResets).where(eq(passwordResets.userId, userId));
 
 	const tokenId = generateId(40);
 	const tokenHash = encodeHex(await sha256(new TextEncoder().encode(tokenId)));

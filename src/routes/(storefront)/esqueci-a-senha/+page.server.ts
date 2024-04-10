@@ -6,6 +6,7 @@ import { db } from '$lib/server/db/conn';
 import { PUBLIC_BASE_URL } from '$env/static/public';
 import { createPasswordResetToken } from '$lib/server/auth/reset';
 import type { Actions, PageServerLoad } from './$types';
+import { sendTemplateEmail } from '$lib/server/mail/mail';
 
 function sleep(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
@@ -18,7 +19,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 };
 
 export const actions: Actions = {
-	default: async ({ request, url }) => {
+	default: async ({ request }) => {
 		const formData = await request.formData();
 		const email = formData.get('email') as string;
 
@@ -32,7 +33,7 @@ export const actions: Actions = {
 		// We won't tell the user if the e-mail exists.
 		const user = (await db.select().from(users).where(eq(users.email, email.toLowerCase())))[0];
 		if (!user) {
-			await sleep(100);
+			await sleep(50);
 
 			return { success: true };
 		}
@@ -40,7 +41,10 @@ export const actions: Actions = {
 		const verificationToken = await createPasswordResetToken(user.id);
 		const verificationLink = PUBLIC_BASE_URL + '/esqueci-a-senha/' + verificationToken;
 
-		await sendPasswordResetToken(email, verificationLink);
+		await sendTemplateEmail(email, 'resetPassword', 'mjml', {
+			name: user.name,
+			verificationLink
+		});
 		return { success: true };
 	}
 };

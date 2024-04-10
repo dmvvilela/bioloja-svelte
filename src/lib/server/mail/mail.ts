@@ -31,6 +31,8 @@ export const templateNameToSubject = (template: string) => {
 			return 'Torne-se um membro AFH+';
 		case 'plus_reminder_2':
 			return 'Já conheceu nossos benefícios de ser um membro AFH+?';
+		case 'resetPassword':
+			return 'Redefina sua senha';
 		case 'siteContact':
 		default:
 			return '✔ Contato da Bioloja';
@@ -42,7 +44,8 @@ const componentImports = {
 	mjml: {
 		helloWorld: () => import('$lib/emails/mjml/hello-world.svelte'),
 		newPlus: () => import('$lib/emails/mjml/new_plus.svelte'),
-		cancelPlus: () => import('$lib/emails/mjml/cancel_plus.svelte')
+		cancelPlus: () => import('$lib/emails/mjml/cancel_plus.svelte'),
+		resetPassword: () => import('$lib/emails/mjml/reset_password.svelte')
 	},
 	svelte: {
 		welcome: () => import('$lib/emails/svelte/welcome.svelte'),
