@@ -89,11 +89,20 @@
 			<!-- Product info -->
 			<div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
 				<h1 class="text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
-				<!-- <h2>{product.}</h2> -->
+				<h2 class="mt-1 text-gray-400">{product.category_names.join(' | ')}</h2>
 
 				<div class="mt-3">
 					<h2 class="sr-only">Product information</h2>
-					<p class="text-3xl tracking-tight text-gray-900">R${getLocalePrice(product.price)}</p>
+					<div class="flex items-baseline mb-1 space-x-2 font-roboto mt-4">
+						<p class="text-3xl text-primary font-semibold">
+							R${getLocalePrice(product.discount_price || product.price)}
+						</p>
+						{#if product.discount_price}
+							<p class="text-base text-gray-400 line-through">
+								R${getLocalePrice(product.price)}
+							</p>
+						{/if}
+					</div>
 				</div>
 
 				<!-- Reviews -->
@@ -180,73 +189,10 @@
 				<form class="mt-6">
 					<!-- Colors -->
 					<div>
-						<h3 class="text-sm text-gray-600">Color</h3>
-
-						<fieldset class="mt-2">
-							<legend class="sr-only">Choose a color</legend>
-							<span class="flex items-center space-x-3">
-								<!--
-                  Active and Checked: "ring ring-offset-1"
-                  Not Active and Checked: "ring-2"
-                -->
-								<label
-									class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-700"
-								>
-									<input
-										type="radio"
-										name="color-choice"
-										value="Washed Black"
-										class="sr-only"
-										aria-labelledby="color-choice-0-label"
-									/>
-									<span id="color-choice-0-label" class="sr-only">Washed Black</span>
-									<span
-										aria-hidden="true"
-										class="h-8 w-8 bg-gray-700 rounded-full border border-black border-opacity-10"
-									/>
-								</label>
-								<!--
-                  Active and Checked: "ring ring-offset-1"
-                  Not Active and Checked: "ring-2"
-                -->
-								<label
-									class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400"
-								>
-									<input
-										type="radio"
-										name="color-choice"
-										value="White"
-										class="sr-only"
-										aria-labelledby="color-choice-1-label"
-									/>
-									<span id="color-choice-1-label" class="sr-only">White</span>
-									<span
-										aria-hidden="true"
-										class="h-8 w-8 bg-white rounded-full border border-black border-opacity-10"
-									/>
-								</label>
-								<!--
-                  Active and Checked: "ring ring-offset-1"
-                  Not Active and Checked: "ring-2"
-                -->
-								<label
-									class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-500"
-								>
-									<input
-										type="radio"
-										name="color-choice"
-										value="Washed Gray"
-										class="sr-only"
-										aria-labelledby="color-choice-2-label"
-									/>
-									<span id="color-choice-2-label" class="sr-only">Washed Gray</span>
-									<span
-										aria-hidden="true"
-										class="h-8 w-8 bg-gray-500 rounded-full border border-black border-opacity-10"
-									/>
-								</label>
-							</span>
-						</fieldset>
+						<h3 class="text-sm text-gray-600">Tags</h3>
+						<h4 class="pt-1 text-xs text-gray-400 tracking-wide uppercase">
+							Ensino Médio | Ensino Superior | Apresentações
+						</h4>
 					</div>
 
 					<div class="mt-10 flex">
