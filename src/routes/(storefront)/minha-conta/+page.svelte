@@ -1,13 +1,25 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import { invalidateAll } from '$app/navigation';
+
+	$: user = $page.data.user;
+
+	let menuOpen = false;
+
+	const logOut = async () => {
+		console.log('Saindo...');
+		await fetch('/sair', { method: 'POST' });
+		invalidateAll();
+	};
 </script>
 
-<div class="mx-4 max-w-screen-xl py-16 sm:mx-8 xl:mx-auto">
+<div class="mx-4 max-w-screen-xl py-16 mb-10 sm:mx-8 xl:mx-auto">
 	<h1 class="border-b py-6 text-4xl font-semibold">Minha Conta</h1>
 	<div class="grid grid-cols-8 pt-3 sm:grid-cols-10">
 		<div class="relative my-4 w-56 sm:hidden">
 			<label
 				for="select-1"
-				class="flex w-full cursor-pointer select-none rounded-lg border p-2 px-3 text-sm text-gray-700 ring-blue-700 peer-checked:ring"
+				class="flex w-full cursor-pointer select-none rounded-lg border p-2 px-3 text-sm text-gray-700 ring-primary peer-checked:ring"
 				>Accounts
 			</label>
 			<svg
@@ -24,59 +36,49 @@
 				class="max-h-0 select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3"
 			>
 				<li
-					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white"
+					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white"
 				>
 					Accounts
 				</li>
 				<li
-					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white"
+					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white"
 				>
 					Team
 				</li>
 				<li
-					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-blue-700 hover:text-white"
+					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white"
 				>
 					Others
 				</li>
 			</ul>
 		</div>
 
-		<div class="col-span-2 hidden sm:block">
+		<div class="col-span-2 hidden sm:block text-secondary">
 			<ul>
 				<li
-					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+					class="mt-5 cursor-pointer border-l-2 border-l-primary px-2 py-2 font-semibold text-primary transition hover:border-l-primary hover:text-primary"
 				>
-					Teams
+					Detalhes
 				</li>
 				<li
-					class="mt-5 cursor-pointer border-l-2 border-l-blue-700 px-2 py-2 font-semibold text-blue-700 transition hover:border-l-blue-700 hover:text-blue-700"
+					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-primary hover:text-primary"
 				>
-					Accounts
+					Pedidos
 				</li>
 				<li
-					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-primary hover:text-primary"
 				>
-					Users
+					Downloads
 				</li>
 				<li
-					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-primary hover:text-primary"
 				>
-					Profile
+					Endereços
 				</li>
 				<li
-					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
+					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition text-red-500 hover:border-l-primary hover:text-primary"
 				>
-					Billing
-				</li>
-				<li
-					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
-				>
-					Notifications
-				</li>
-				<li
-					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-blue-700 hover:text-blue-700"
-				>
-					Integrations
+					Sair
 				</li>
 			</ul>
 		</div>
@@ -90,7 +92,7 @@
 			<p class="py-2 text-xl font-semibold">E-mail</p>
 			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
 				<p class="text-gray-600">Seu e-mail é <strong>john.doe@company.com</strong></p>
-				<button class="inline-flex text-sm font-semibold text-blue-600 underline decoration-2"
+				<button class="inline-flex text-sm font-semibold text-bioloja-600 underline decoration-2"
 					>Change</button
 				>
 			</div>
@@ -101,7 +103,7 @@
 					<label for="login-password">
 						<span class="text-sm text-gray-500">Current Password</span>
 						<div
-							class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600"
+							class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-bioloja-600"
 						>
 							<input
 								type="password"
@@ -114,7 +116,7 @@
 					<label for="login-password">
 						<span class="text-sm text-gray-500">New Password</span>
 						<div
-							class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-blue-600"
+							class="relative flex overflow-hidden rounded-md border-2 transition focus-within:border-bioloja-600"
 						>
 							<input
 								type="password"
@@ -142,11 +144,13 @@
 			</div>
 			<p class="mt-2">
 				Can't remember your current password. <a
-					class="text-sm font-semibold text-blue-600 underline decoration-2"
+					class="text-sm font-semibold text-bioloja-600 underline decoration-2"
 					href="#">Recover Account</a
 				>
 			</p>
-			<button class="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-white">Save Password</button>
+			<button class="mt-4 rounded-lg bg-primary px-4 py-2 text-white hover:bg-bioloja-700"
+				>Save Password</button
+			>
 			<hr class="mt-4 mb-8" />
 
 			<div class="mb-10">
