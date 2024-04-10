@@ -1,8 +1,10 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { invalidateAll } from '$app/navigation';
+	import type { PageServerData } from './$types';
 
-	$: user = $page.data.user;
+	export let data: PageServerData;
+
+	const { user } = data;
 
 	let menuOpen = false;
 
@@ -20,7 +22,7 @@
 			<label
 				for="select-1"
 				class="flex w-full cursor-pointer select-none rounded-lg border p-2 px-3 text-sm text-gray-700 ring-primary peer-checked:ring"
-				>Accounts
+				>Detalhes
 			</label>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -38,17 +40,17 @@
 				<li
 					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white"
 				>
-					Accounts
+					Detalhes
 				</li>
 				<li
 					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white"
 				>
-					Team
+					Pedidos
 				</li>
 				<li
 					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white"
 				>
-					Others
+					Downloads
 				</li>
 			</ul>
 		</div>
@@ -91,9 +93,14 @@
 			<hr class="mt-4 mb-8" />
 			<p class="py-2 text-xl font-semibold">E-mail</p>
 			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-				<p class="text-gray-600">Seu e-mail é <strong>john.doe@company.com</strong></p>
+				<p class="text-gray-600">Seu e-mail é <strong>{user.email}</strong>.</p>
+			</div>
+			<hr class="mt-4 mb-8" />
+			<p class="py-2 text-xl font-semibold">Nome Completo</p>
+			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+				<p class="text-accent">Seu nome é <strong>{user.name}</strong>.</p>
 				<button class="inline-flex text-sm font-semibold text-bioloja-600 underline decoration-2"
-					>Change</button
+					>Editar</button
 				>
 			</div>
 			<hr class="mt-4 mb-8" />

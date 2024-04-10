@@ -17,6 +17,9 @@
 
 	export let data: PageData;
 
+	// TODO: Add customer reviews and share like this: https://tailwindui.com/components/ecommerce/components/product-overviews#component-a4287d3928b87e3ac5c04af49bc062a8
+	// Share can also be on the other side of breadcrumbs everywhere! It's a good idea.
+
 	let radioGroup: number | null = 0;
 
 	const product = data.product as ProductWithCategories;

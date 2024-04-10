@@ -327,7 +327,7 @@
 						</form>
 					</div>
 
-					<div
+					<!-- <div
 						class="container bg-gradient-to-r from-indigo-500 to-violet-500 text-white p-8 rounded-lg shadow-lg max-w-md mx-auto mt-8"
 					>
 						<div class="text-3xl font-bold mb-4">Oferta Especial!</div>
@@ -348,7 +348,7 @@
 							<p>Válido até <span class="font-semibold">31 de Julho de 2024.</span></p>
 							<p>Termos e condições se aplicam</p>
 						</div>
-					</div>
+					</div> -->
 				</aside>
 
 				<!-- Product grid -->

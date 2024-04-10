@@ -31,6 +31,5 @@ export const load = (async ({ setHeaders }) => {
 		.limit(8)
 		.execute()) as ProductType[];
 
-	console.log(storeProducts);
 	return { storeProducts };
 }) satisfies PageServerLoad;

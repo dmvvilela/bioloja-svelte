@@ -4,6 +4,20 @@ export type DownloadLink = {
 	name: string;
 };
 
+export type Tag = {
+	name: string;
+	slug: string;
+};
+
+export type Attribute = {
+	name: string;
+	slug: string;
+	type: 'number' | 'boolean' | 'string';
+	valueText?: string | null;
+	valueNumber?: number | null;
+	valueBoolean?: boolean | null;
+};
+
 // ORM queries
 export type Product = {
 	id: number;
@@ -52,20 +66,6 @@ export type ProductType = {
 	categoryName: string;
 	parentCategoryId?: number | null;
 	parentCategoryName?: string | null;
-};
-
-export type Tag = {
-	name: string;
-	slug: string;
-};
-
-export type Attribute = {
-	name: string;
-	slug: string;
-	type: 'number' | 'boolean' | 'string';
-	valueText?: string | null;
-	valueNumber?: number | null;
-	valueBoolean?: boolean | null;
 };
 
 // Raw SQL queries
