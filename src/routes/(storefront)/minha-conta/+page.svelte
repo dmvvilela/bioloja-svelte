@@ -96,16 +96,22 @@
 				<p class="text-gray-600">Seu e-mail é <strong>{user.email}</strong>.</p>
 			</div>
 			<hr class="mt-4 mb-8" />
-			<p class="py-2 text-xl font-semibold">Nome Completo</p>
+			<p class="py-2 text-xl font-semibold">Nome</p>
 			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
 				<p class="text-accent">Seu nome é <strong>{user.name}</strong>.</p>
-				<button class="inline-flex text-sm font-semibold text-bioloja-600 underline decoration-2"
+				<!-- <button class="inline-flex text-sm font-semibold text-bioloja-600 underline decoration-2"
 					>Editar</button
-				>
+				> -->
 			</div>
 			<hr class="mt-4 mb-8" />
 			<p class="py-2 text-xl font-semibold">Senha</p>
-			<div class="flex items-center">
+			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+				<p class="text-accent">
+					Caso queira alterar sua senha, clique em Sair para deslogar da sua conta e clique no link
+					"esqueci a senha" na tela de login e siga as instruções indicadas.
+				</p>
+			</div>
+			<!-- <div class="flex items-center">
 				<div class="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-3">
 					<label for="login-password">
 						<span class="text-sm text-gray-500">Current Password</span>
@@ -158,10 +164,10 @@
 			<button
 				class="mt-4 rounded-lg bg-primary px-4 py-2 text-white font-medium hover:bg-bioloja-700"
 				>Save Password</button
-			>
-			<hr class="mt-4 mb-8" />
-
-			<div class="mb-10">
+			> -->
+			<!-- <hr class="mt-4 mb-8" /> -->
+			<div class="mb-8" />
+			<!-- <div class="mb-10">
 				<p class="py-2 text-xl font-semibold">Delete Account</p>
 				<p class="inline-flex items-center rounded-full bg-rose-100 px-4 py-1 text-rose-600">
 					<svg
@@ -186,7 +192,7 @@
 				<button class="ml-auto text-sm font-semibold text-rose-600 underline decoration-2"
 					>Continue with deletion</button
 				>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
