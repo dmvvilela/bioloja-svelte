@@ -20,7 +20,7 @@
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
 		>
 			<a
-				href="/loja/{product.categoryName}/{product.productName}"
+				href="/loja/produto/{product.productSlug}"
 				class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
 				title="view product"
 			>
@@ -70,7 +70,7 @@
 				<span title={product.categoryName}>{product.categoryName}</span>
 			</h4>
 		</a>
-		<a href="#">
+		<a href="/loja/produto/{product.productSlug}">
 			<h4
 				class="uppercase h-24 overflow-auto leading-tight overflow-ellipsis font-semibold text-lg mb-2 text-gray-800 hover:text-primary transition"
 			>

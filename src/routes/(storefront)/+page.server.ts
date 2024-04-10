@@ -13,6 +13,7 @@ export const load = (async ({ setHeaders }) => {
 		.select({
 			productId: products.id,
 			productName: products.name,
+			productSlug: products.slug,
 			imageUrls: products.imageUrls,
 			price: products.price,
 			discountPrice: products.discountPrice,
@@ -35,6 +36,7 @@ export const load = (async ({ setHeaders }) => {
 		.select({
 			productId: products.id,
 			productName: products.name,
+			productSlug: products.slug,
 			imageUrls: products.imageUrls,
 			price: products.price,
 			discountPrice: products.discountPrice,
