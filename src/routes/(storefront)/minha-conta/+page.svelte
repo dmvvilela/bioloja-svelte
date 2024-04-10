@@ -148,7 +148,8 @@
 					href="#">Recover Account</a
 				>
 			</p>
-			<button class="mt-4 rounded-lg bg-primary px-4 py-2 text-white hover:bg-bioloja-700"
+			<button
+				class="mt-4 rounded-lg bg-primary px-4 py-2 text-white font-medium hover:bg-bioloja-700"
 				>Save Password</button
 			>
 			<hr class="mt-4 mb-8" />
