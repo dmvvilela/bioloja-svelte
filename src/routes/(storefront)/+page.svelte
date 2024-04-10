@@ -5,7 +5,7 @@
 	import PromoBanner from './promo-banner.svelte';
 	import Promotions from './promotions.svelte';
 	import BestSellers from './best-sellers.svelte';
-	import MailingList from '$lib/components/layout/mailing-list.svelte';
+	import MailingList from '$lib/components/layout/mailing_list.svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
