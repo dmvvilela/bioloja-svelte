@@ -17,20 +17,10 @@ AWS.config.update({ region: AWS_SES_REGION });
 
 export const templateNameToSubject = (template: string) => {
 	switch (template) {
-		case 'new_plus':
-			return 'Agora você é um membro AFH+!';
-		case 'cancel_plus':
-			return 'Você cancelou seu plano AFH+';
 		case 'sign_up':
 			return 'Seja bem-vindo(a) a Bioloja!';
 		case 'welcome':
 			return 'Bem-vindo(a) a Bioloja!';
-		case 'curiosity':
-			return 'Explore o fascinante mundo da Biologia!';
-		case 'plus_reminder':
-			return 'Torne-se um membro AFH+';
-		case 'plus_reminder_2':
-			return 'Já conheceu nossos benefícios de ser um membro AFH+?';
 		case 'resetPassword':
 			return 'Redefina sua senha';
 		case 'siteContact':
