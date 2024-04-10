@@ -11,7 +11,7 @@
 
 	export let data: PageData;
 
-	let radioGroup: number | null = null;
+	let radioGroup: number | null = 1;
 
 	const product = data.product as ProductWithCategories;
 	const relatedProducts = data.relatedProducts as ProductWithCategory[];
@@ -31,7 +31,7 @@
 		{
 			title: 'Atributos',
 			description: `
-<div class="prose prose-sm pb-6" id="disclosure-1">
+<div class="prose prose-sm pb-6">
 	<ul role="list">
 		<li>Multiple strap configurations</li>
 		<li>Spacious interior with top zip</li>
@@ -45,12 +45,13 @@
 		},
 		{
 			title: 'Entrega',
-			description: 'Download digital direto pelo site acessando o menu Minha conta.'
+			description:
+				'<div class="pb-4">Download digital em formato zip. Acesso pelo site no menu Minha conta.</div>'
 		},
 		{
 			title: 'Notas',
 			description:
-				'A SENHA para abrir os arquivos baixados se encontra no arquivo LEIA-ME.txt. O download estará disponível por 7 dias a partir da data de efetuação do pagamento e terá um limite disponível de 3 downloads por compra.'
+				'<div class="pb-4">A SENHA para abrir os arquivos baixados se encontra no arquivo LEIA-ME.txt. O download estará disponível por 7 dias a partir da data de efetuação do pagamento e terá um limite disponível de 3 downloads por compra.</div>'
 		}
 	];
 
@@ -143,7 +144,7 @@
 				</div>
 
 				<!-- Reviews -->
-				<div class="mt-3">
+				<!-- <div class="mt-3">
 					<h3 class="sr-only">Reviews</h3>
 					<div class="flex items-center">
 						<div class="flex items-center">
@@ -180,7 +181,7 @@
 						</div>
 						<p class="sr-only">4 out of 5 stars</p>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="mt-6">
 					<h3 class="sr-only">Descrição</h3>
@@ -249,43 +250,44 @@
 						{#each details as detail, i}
 							<div>
 								<h3>
-									<!-- Expand/collapse question button -->
 									<button
 										on:click={() => (radioGroup = i)}
-										class="collapse join-item group relative w-full text-left"
+										class="collapse group relative w-full text-left"
 									>
 										<input type="radio" class="hidden" checked={radioGroup == i} />
 										<div
-											class="collapse-title text-gray-900 text-sm font-medium flex items-center justify-between"
+											class="collapse-title text-gray-900 text-sm font-medium flex items-center justify-between p-0"
 										>
 											{detail.title}
 											<span class="ml-6 flex items-center">
-												<!-- Open: "hidden", Closed: "block" -->
-												<svg
-													class="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke-width="1.5"
-													stroke="currentColor"
-													aria-hidden="true"
-												>
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														d="M12 4.5v15m7.5-7.5h-15"
-													/>
-												</svg>
-												<!-- Open: "block", Closed: "hidden" -->
-												<svg
-													class="hidden h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke-width="1.5"
-													stroke="currentColor"
-													aria-hidden="true"
-												>
-													<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
-												</svg>
+												{#if radioGroup != i}
+													<svg
+														class="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+														fill="none"
+														viewBox="0 0 24 24"
+														stroke-width="1.5"
+														stroke="currentColor"
+														aria-hidden="true"
+													>
+														<path
+															stroke-linecap="round"
+															stroke-linejoin="round"
+															d="M12 4.5v15m7.5-7.5h-15"
+														/>
+													</svg>
+												{/if}
+												{#if radioGroup == i}
+													<svg
+														class="h-6 w-6 text-gray-400 group-hover:text-gray-500"
+														fill="none"
+														viewBox="0 0 24 24"
+														stroke-width="1.5"
+														stroke="currentColor"
+														aria-hidden="true"
+													>
+														<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+													</svg>
+												{/if}
 											</span>
 										</div>
 										<div class="collapse-content prose prose-sm pb-6" id="disclosure-1">
@@ -306,7 +308,7 @@
 			<h2 class="text-2xl font-semibold tracking-tight text-gray-800 uppercase mb-6">
 				Produtos Relacionados
 			</h2>
-			<div class="grid grid-cols-4 gap-6">
+			<div class="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 				{#each related as product}
 					<ProductCard {product} />
 				{/each}
