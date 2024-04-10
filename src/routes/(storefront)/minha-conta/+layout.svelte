@@ -1,12 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { invalidateAll } from '$app/navigation';
-	import type { PageServerData } from './$types';
-
-	export let data: PageServerData;
 
 	$: path = $page.route.id;
-	const { user } = data;
 
 	let menuOpen = false;
 
@@ -30,7 +26,7 @@
 		}
 	];
 
-	const classes = (menu: any) =>
+	$: classes = (menu: any) =>
 		path?.endsWith(menu.path) ? 'border-l-primary text-primary' : 'border-transparent';
 </script>
 
@@ -63,19 +59,24 @@
 						{menu.title}
 					</li>
 				{/each}
+				<li class="text-red-500 cursor-pointer px-3 py-2 text-sm hover:bg-primary hover:text-white">
+					<button on:click={logOut}>Sair</button>
+				</li>
 			</ul>
 		</div>
 
 		<div class="col-span-2 hidden sm:block text-secondary">
 			<ul>
 				{#each menus as menu}
-					<li
-						class="{classes(
-							menu
-						)} mt-5 cursor-pointer border-l-2 px-2 py-1.5 my-0.5 font-semibold transition hover:border-l-primary hover:text-primary"
-					>
-						{menu.title}
-					</li>
+					<a href={menu.path}>
+						<li
+							class="{classes(
+								menu
+							)} mt-5 cursor-pointer border-l-2 px-2 py-1.5 my-0.5 font-semibold transition hover:border-l-primary hover:text-primary"
+						>
+							{menu.title}
+						</li>
+					</a>
 				{/each}
 				<li
 					class="text-red-500 mt-5 cursor-pointer border-l-2 border-transparent px-2 py-1 my-1 font-semibold transition hover:border-l-red-500"

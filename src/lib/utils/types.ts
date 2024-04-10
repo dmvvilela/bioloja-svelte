@@ -88,3 +88,40 @@ export type ProductWithCategories = {
 	created_at: Date;
 	updated_at: Date;
 };
+
+export interface Order {
+	order_number: string;
+	order_status: string;
+	order_date: string;
+	billing_first_name: string;
+	billing_last_name: string;
+	billing_company: string;
+	billing_address: string;
+	billing_city: string;
+	billing_state: string;
+	billing_postcode: string;
+	billing_country: string;
+	billing_email: string;
+	billing_phone: string;
+	payment_method_title: string;
+	cart_discount: string;
+	order_subtotal: number;
+	order_refund: number;
+	order_total: string;
+	products: OrderProduct[];
+	coupons: Coupon[];
+}
+
+export interface OrderProduct {
+	sku: string;
+	line_id: number;
+	name: string;
+	qty_minus_refund: number;
+	item_price: number;
+}
+
+export interface Coupon {
+	code: string;
+	discount_amount: string;
+	discount_percentage?: number; // not on wp
+}
