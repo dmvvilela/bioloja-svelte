@@ -2,7 +2,7 @@ import { TimeSpan, createDate } from 'oslo';
 import { sha256 } from 'oslo/crypto';
 import { encodeHex } from 'oslo/encoding';
 import { generateId } from 'lucia';
-import { passwordResets, users } from '../db/schema';
+import { passwordResets } from '../db/schema';
 import { db } from '../db/conn';
 import { eq } from 'drizzle-orm';
 

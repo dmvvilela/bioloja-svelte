@@ -43,7 +43,9 @@ export const actions: Actions = {
 		}
 
 		if (!token || !isWithinExpirationDate(token.expiresAt)) {
-			return fail(400);
+			return fail(400, {
+				message: 'Token expirado.'
+			});
 		}
 
 		await lucia.invalidateUserSessions(token.userId);
