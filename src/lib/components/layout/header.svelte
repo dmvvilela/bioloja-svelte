@@ -9,7 +9,6 @@
 	let menuOpen = false;
 
 	const logOut = async () => {
-		console.log('Saindo...');
 		await fetch('/sair', { method: 'POST' });
 		invalidateAll();
 	};
@@ -144,15 +143,16 @@
 
 <nav class="bg-secondary">
 	<div class="container mx-auto flex">
-		<div class="px-8 py-4 bg-primary flex items-center cursor-pointer relative group">
-			<span class="text-secondary">
+		<div class="px-8 py-4 bg-bioloja-800 flex items-center cursor-pointer relative group">
+			<span class="text-gray-200/95">
 				<svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 448 512"
 					><path
+						fill="currentColor"
 						d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
 					/></svg
 				>
 			</span>
-			<span class="capitalize ml-4 text-secondary font-medium hidden lg:block">Categorias</span>
+			<span class="capitalize ml-4 text-gray-200/95 font-medium hidden lg:block">Categorias</span>
 
 			<!-- dropdown -->
 			<div

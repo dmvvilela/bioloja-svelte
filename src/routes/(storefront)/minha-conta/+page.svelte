@@ -52,6 +52,11 @@
 				>
 					Downloads
 				</li>
+				<li
+					class="cursor-pointer px-3 py-2 text-sm text-slate-600 hover:bg-primary hover:text-white"
+				>
+					Sair
+				</li>
 			</ul>
 		</div>
 
@@ -72,11 +77,11 @@
 				>
 					Downloads
 				</li>
-				<li
+				<!-- <li
 					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition hover:border-l-primary hover:text-primary"
 				>
 					Endereços
-				</li>
+				</li> -->
 				<li
 					class="mt-5 cursor-pointer border-l-2 border-transparent px-2 py-2 font-semibold transition text-red-500 hover:border-l-primary hover:text-primary"
 				>
