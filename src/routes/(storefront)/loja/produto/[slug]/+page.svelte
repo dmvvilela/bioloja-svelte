@@ -7,7 +7,7 @@
 	import slide4 from '$lib/images/slides1/Slide4.jpg';
 	import slide5 from '$lib/images/slides1/Slide5.jpg';
 	import slide6 from '$lib/images/slides1/Slide6.jpg';
-	import { getLocalePrice } from '$lib/utils/product';
+	import { getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -33,7 +33,7 @@
 							<span class="sr-only">Angled view</span>
 							<span class="absolute inset-0 overflow-hidden rounded-md">
 								<img
-									src="https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg"
+									src={getSlideImageUrl(product.imageUrls)}
 									alt=""
 									class="h-full w-full object-cover object-center"
 								/>
@@ -53,13 +53,19 @@
 					<!-- Tab panel, show/hide based on tab state. -->
 					<div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
 						<img
-							src="https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg"
+							src={getSlideImageUrl(product.imageUrls)}
 							alt="Angled front view with bag zipped and handles upright."
 							class="h-full w-full object-cover object-center sm:rounded-lg"
 						/>
 					</div>
 
-					<!-- More images... -->
+					<div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
+						<img
+							src={getSlideImageUrl(product.imageUrls, 1)}
+							alt="Angled front view with bag zipped and handles upright."
+							class="h-full w-full object-cover object-center sm:rounded-lg"
+						/>
+					</div>
 				</div>
 			</div>
 

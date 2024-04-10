@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getLocalePrice, getMainImageUrl } from '$lib/utils/product';
+	import { getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
 	import type { ProductType } from '$lib/utils/types';
 
 	export let product: ProductType;
@@ -11,7 +11,7 @@
 <div class="bg-white shadow rounded overflow-hidden group">
 	<div class="relative">
 		<img
-			src={getMainImageUrl(product)}
+			src={getSlideImageUrl(product.imageUrls)}
 			alt="{product.productName} capa"
 			class="w-full aspect-video h-48 object-contain"
 		/>
