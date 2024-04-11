@@ -8,10 +8,13 @@ import {
 	serial,
 	primaryKey,
 	type AnyPgColumn,
-	jsonb
+	jsonb,
+	pgEnum
 } from 'drizzle-orm/pg-core';
 
 export type DownloadLinksType = { name: string; url: string }[];
+
+export const userRoles = pgEnum('user_roles', ['USER', 'EDITOR', 'ADMIN']);
 
 export const users = pgTable(
 	'users',
@@ -19,6 +22,7 @@ export const users = pgTable(
 		id: text('id').notNull().primaryKey(),
 		name: text('name').notNull(),
 		email: text('email').notNull().unique(),
+		role: userRoles('role').notNull().default('USER'),
 		hashedPassword: text('hashed_password').notNull(),
 		createdAt: timestamp('created_at').notNull().defaultNow()
 	},

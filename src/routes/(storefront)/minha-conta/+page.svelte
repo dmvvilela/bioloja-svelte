@@ -3,26 +3,89 @@
 
 	export let data: LayoutServerData;
 
-	const { user } = data;
+	const user = data.user;
+	$: name = data.user?.name || '';
+
+	let editModal: HTMLDialogElement;
+	let errorMessage = '';
+	let newName = user.name;
+
+	const openModal = () => {
+		errorMessage = '';
+		editModal.showModal();
+	};
+
+	const editName = async () => {
+		try {
+			const response = await fetch('/api/user', {
+				method: 'PUT',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify({
+					id: user.id,
+					name: newName
+				})
+			});
+			const json = await response.json();
+			if (!response.ok) throw new Error(json.message);
+
+			data.user.name = newName;
+			editModal.close();
+		} catch (err: any) {
+			console.error(err);
+			errorMessage = err.message;
+		}
+	};
 </script>
+
+<dialog bind:this={editModal} class="modal">
+	<div class="modal-box">
+		<h3 class="font-bold text-lg">Edite seu nome:</h3>
+		<p class="py-4">Digite o nome de sua escolha e clique em confirmar.</p>
+		<input
+			class="w-full bg-transparent rounded-lg focus:outline-none focus:border-primary focus:ring-primary"
+			type="text"
+			bind:value={newName}
+		/>
+		{#if errorMessage?.length}
+			<div class="mt-4">
+				<div class="bg-red-100 border-l-4 border-red-500 text-red-700 px-4 py-2.5" role="alert">
+					<p class="font-medium text-sm">{errorMessage}</p>
+				</div>
+			</div>
+		{/if}
+		<div class="modal-action">
+			<form method="dialog">
+				<button class="btn">Cancelar</button>
+				<button type="button" on:click={editName} class="btn btn-primary text-white"
+					>Confirmar</button
+				>
+			</form>
+		</div>
+	</div>
+</dialog>
 
 <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow mt-3">
 	<div class="pt-4">
 		<h1 class="py-2 text-2xl font-semibold">Detalhes da conta</h1>
-		<!-- <p class="font- text-slate-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> -->
+		<!-- <p class="text-slate-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> -->
 	</div>
 	<hr class="mt-4 mb-8" />
 	<p class="py-2 text-xl font-semibold">E-mail</p>
 	<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
 		<p class="text-gray-600">Seu e-mail é <strong>{user.email}</strong>.</p>
+		<p class="text-sm text-gray-500">Seu e-mail não pode ser alterado.</p>
 	</div>
 	<hr class="mt-4 mb-8" />
 	<p class="py-2 text-xl font-semibold">Nome</p>
 	<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-		<p class="text-gray-600">Seu nome é <strong>{user.name}</strong>.</p>
-		<!-- <button class="inline-flex text-sm font-semibold text-bioloja-600 underline decoration-2"
-					>Editar</button
-				> -->
+		<p class="text-gray-600">Seu nome é <strong>{name}</strong>.</p>
+		<button
+			on:click={openModal}
+			class="inline-flex text-sm font-semibold text-bioloja-600 underline decoration-2"
+			>Editar</button
+		>
 	</div>
 	<hr class="mt-4 mb-8" />
 	<p class="py-2 text-xl font-semibold">Senha</p>
