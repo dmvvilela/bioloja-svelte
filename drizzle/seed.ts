@@ -50,3 +50,9 @@ try {
 	console.error('Error performing migration: ', error);
 	process.exit(1);
 }
+
+declare module 'bun' {
+	interface Env {
+		PG_CONN: string;
+	}
+}

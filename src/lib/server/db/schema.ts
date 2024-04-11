@@ -7,14 +7,24 @@ import {
 	index,
 	serial,
 	primaryKey,
-	type AnyPgColumn,
 	jsonb,
-	pgEnum
+	pgEnum,
+	type AnyPgColumn
 } from 'drizzle-orm/pg-core';
 
 export type DownloadLinksType = { name: string; url: string }[];
 
 export const userRoles = pgEnum('user_roles', ['USER', 'EDITOR', 'ADMIN']);
+export const couponTypes = pgEnum('coupon_types', ['PERCENTAGE', 'FIXED_AMOUNT']);
+export const orderStatus = pgEnum('order_status', [
+	'COMPLETED',
+	'PAYMENT_PENDING',
+	'PROCESSING',
+	'CANCELLED',
+	'AWAITING',
+	'REFUNDED',
+	'CART'
+]);
 
 export const users = pgTable(
 	'users',
@@ -24,7 +34,8 @@ export const users = pgTable(
 		email: text('email').notNull().unique(),
 		role: userRoles('role').notNull().default('USER'),
 		hashedPassword: text('hashed_password').notNull(),
-		createdAt: timestamp('created_at').notNull().defaultNow()
+		createdAt: timestamp('created_at').notNull().defaultNow(),
+		updatedAt: timestamp('updated_at').notNull().defaultNow()
 	},
 	(table) => ({
 		idIdx: index('idx_users_id').on(table.id),
@@ -171,6 +182,106 @@ export const productAttributes = pgTable(
 		}),
 		productIdIdx: index('idx_product_attributes_product_id').on(table.productId),
 		attributeIdIdx: index('idx_product_attributes_attribute_id').on(table.attributeId)
+	})
+);
+
+export const orders = pgTable(
+	'orders',
+	{
+		orderNumber: text('order_number').notNull().primaryKey(),
+		userId: text('user_id')
+			.notNull()
+			.references(() => users.id),
+		addressId: integer('address_id').references(() => addresses.id),
+		orderStatus: orderStatus('order_status').notNull().default('CART'),
+		orderDate: timestamp('order_date').notNull(),
+		paymentMethodTitle: text('payment_method_title').notNull(),
+		cartDiscount: text('cart_discount').notNull(),
+		orderSubtotal: integer('order_subtotal').notNull(),
+		orderRefund: integer('order_refund').notNull(),
+		orderTotal: text('order_total').notNull(),
+		createdAt: timestamp('created_at').notNull().defaultNow(),
+		updatedAt: timestamp('updated_at').notNull().defaultNow()
+	},
+	(table) => ({
+		userIdIdx: index('idx_orders_user_id').on(table.userId),
+		orderNumberIdx: index('idx_orders_order_number').on(table.orderNumber),
+		orderStatusIdx: index('idx_orders_order_status').on(table.orderStatus)
+	})
+);
+
+export const orderProducts = pgTable(
+	'order_products',
+	{
+		orderNumber: text('order_number').references(() => orders.orderNumber),
+		productSlug: text('product_slug').notNull(),
+		productName: text('product_name').notNull(),
+		lineId: integer('line_id').notNull(),
+		refunded: boolean('refunded').notNull().default(false),
+		itemPrice: integer('item_price').notNull()
+	},
+	(table) => ({
+		pk: primaryKey({ columns: [table.orderNumber, table.productSlug] }),
+		pkWithCustomName: primaryKey({
+			name: 'orderProducts',
+			columns: [table.orderNumber, table.productSlug]
+		}),
+		orderNumberIdx: index('idx_order_products_order_number').on(table.orderNumber),
+		productSlugIdx: index('idx_order_products_product_slug').on(table.productSlug)
+	})
+);
+
+export const coupons = pgTable(
+	'coupons',
+	{
+		code: text('code').notNull().primaryKey(),
+		value: text('value').notNull(),
+		type: couponTypes('type').notNull().default('PERCENTAGE'),
+		minAmount: integer('min_amount'),
+		maxAmount: integer('max_amount'),
+		maxUses: integer('max_uses'),
+		expiresAt: timestamp('expires_at', {
+			withTimezone: true,
+			mode: 'date'
+		}),
+		createdAt: timestamp('created_at').notNull().defaultNow(),
+		updatedAt: timestamp('updated_at').notNull().defaultNow()
+	},
+	(table) => ({
+		codeIdx: index('idx_coupons_code').on(table.code)
+	})
+);
+
+export const orderCoupons = pgTable(
+	'order_coupons',
+	{
+		orderNumber: text('order_number').references(() => orders.orderNumber),
+		couponCode: text('coupon_code').references(() => coupons.code)
+	},
+	(table) => ({
+		pk: primaryKey({ columns: [table.orderNumber, table.couponCode] }),
+		orderNumberIdx: index('idx_order_coupons_order_number').on(table.orderNumber),
+		couponCodeIdx: index('idx_order_coupons_coupon_code').on(table.couponCode)
+	})
+);
+
+export const addresses = pgTable(
+	'addresses',
+	{
+		id: serial('id').primaryKey(),
+		userId: text('user_id').references(() => users.id),
+		firstName: text('first_name').notNull(),
+		lastName: text('last_name').notNull(),
+		city: text('city').notNull(),
+		state: text('state').notNull(),
+		postalCode: text('postal_code').notNull(),
+		country: text('country').notNull(),
+		phone: text('phone').notNull(),
+		createdAt: timestamp('created_at').notNull().defaultNow(),
+		updatedAt: timestamp('updated_at').notNull().defaultNow()
+	},
+	(table) => ({
+		idIdx: index('idx_addresses_id').on(table.id)
 	})
 );
 

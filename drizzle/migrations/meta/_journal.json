@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1712449278206,
-      "tag": "0000_round_dormammu",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1712708037462,
-      "tag": "0001_lucky_komodo",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1712857552307,
-      "tag": "0002_ambiguous_wendell_rand",
+      "when": 1712869718397,
+      "tag": "0000_past_hydra",
       "breakpoints": true
     }
   ]

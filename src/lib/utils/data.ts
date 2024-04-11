@@ -106,7 +106,7 @@ export const tags = [
 	{ name: 'Acompanha Vídeos', slug: 'acompanha-videos' },
 	{ name: 'Ensino Médio', slug: 'ensino-medio' },
 	{ name: 'Ensino Superior', slug: 'ensino-superior' },
-	{ name: 'Promoções', slug: 'promocoes' }
+	{ name: 'Super Promoções', slug: 'promocoes' }
 ];
 
 export const attributes = [
