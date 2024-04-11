@@ -17,18 +17,25 @@
 
 	export let data: PageData;
 
+	$: if (data) {
+		console.log(main);
+		if (main) {
+			main.go(0);
+		}
+	}
+
 	// TODO: Add customer reviews and share like this: https://tailwindui.com/components/ecommerce/components/product-overviews#component-a4287d3928b87e3ac5c04af49bc062a8
 	// Share can also be on the other side of breadcrumbs everywhere! It's a good idea.
 
 	let radioGroup: number | null = 0;
 
-	const product = data.product as ProductWithCategories;
-	const relatedProducts = data.relatedProducts as ProductWithCategory[];
-	const images = getAllSlideImageUrls(product.image_urls);
-	const tags = data.tags as Tag[];
-	const attributes = data.attributes as Attribute[];
+	$: product = data.product as ProductWithCategories;
+	$: relatedProducts = data.relatedProducts as ProductWithCategory[];
+	$: images = getAllSlideImageUrls(product.image_urls);
+	$: tags = data.tags as Tag[];
+	$: attributes = data.attributes as Attribute[];
 
-	const related: ProductType[] = relatedProducts.map((relatedProduct) => ({
+	$: related = relatedProducts.map((relatedProduct) => ({
 		productId: relatedProduct.products.id,
 		productSlug: relatedProduct.products.slug,
 		productName: relatedProduct.products.name,
@@ -36,9 +43,9 @@
 		imageUrls: relatedProduct.products.imageUrls,
 		categoryId: relatedProduct.product_categories.categoryId,
 		categoryName: relatedProduct.categories.name
-	}));
+	})) as ProductType[];
 
-	const details = [
+	$: details = [
 		{
 			title: 'Atributos',
 			description: `
@@ -67,7 +74,7 @@
 		{
 			title: 'Notas',
 			description:
-				'<div class="pb-4">A SENHA para abrir os arquivos baixados se encontra no arquivo LEIA-ME.txt. O download estará disponível por 7 dias a partir da data de efetuação do pagamento e terá um limite disponível de 3 downloads por compra.</div>'
+				'<div class="pb-0">A SENHA para abrir os arquivos baixados se encontra no arquivo LEIA-ME.txt. O download estará disponível por 7 dias a partir da data de efetuação do pagamento e terá um limite disponível de 3 downloads por compra.</div>'
 		}
 	];
 
@@ -94,7 +101,7 @@
 	let thumbs: { splide: any };
 	onMount(() => {
 		if (main && thumbs) {
-			// console.log({ main, thumbs });
+			console.log({ main, thumbs });
 			main.sync(thumbs.splide);
 		}
 	});
@@ -320,7 +327,7 @@
 
 		<!-- related products  -->
 		<!-- TODO: Carousel with many more products -->
-		<div class="pb-16">
+		<div class="pb-16 mt-8">
 			<h2 class="text-2xl font-semibold tracking-tight text-gray-800 uppercase mb-6">
 				Produtos Relacionados
 			</h2>

@@ -13,6 +13,7 @@ import type { PageServerLoad } from './$types';
 import type { ProductWithCategories } from '$lib/utils/types';
 
 export const load = (async ({ params }) => {
+	console.log('load');
 	// const product = (await db.select().from(products).where(eq(products.slug, params.slug)))[0];
 
 	// const product = (
