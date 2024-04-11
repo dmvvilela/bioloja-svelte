@@ -47,7 +47,7 @@
 		</div>
 		<p class="font- text-slate-600">Pedido realizado em 26 de Abril de 2024.</p>
 	</div>
-	<hr class="mt-4 mb-8" />
+	<hr class="mt-4 mb-6" />
 	<p class="py-2 mb-2 text-xl font-semibold">Resumo</p>
 	<div class="bg-white rounded-lg p-4">
 		<h2 class="sr-only">Resumo do pedido</h2>
@@ -139,7 +139,7 @@
 		</div>
 	</div>
 
-	<hr class="mt-4 mb-8" />
+	<hr class="mt-6 mb-8" />
 	<p class="py-2 text-xl font-semibold">Downloads</p>
 	<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
 		<p class="text-gray-600">Disponíveis até 31 de Abril de 2024</p>
