@@ -4,7 +4,7 @@
 	// export let data: PageData;
 
 	// const  user = data.user!;
-	const orders = [];
+	const orders = ['a'];
 </script>
 
 <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow mt-3">
@@ -25,15 +25,15 @@
 		</div>
 	{/if}
 	{#if orders.length > 0}
-		<div class="overflow-x-auto mb-4">
+		<div class="overflow-x-auto mb-6">
 			<table class="table">
 				<thead>
 					<tr>
-						<th />
+						<th>NÚMERO</th>
 						<th>DATA</th>
 						<th>STATUS</th>
 						<th>TOTAL</th>
-						<th />
+						<th>AÇÃO</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -43,7 +43,7 @@
 						<td><span class="badge badge-success badge-sm">Concluído</span></td>
 						<td>R$80,27 (3 items)</td>
 						<th>
-							<button class="btn btn-xs btn-primary">Ver pedido</button>
+							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
 						</th>
 					</tr>
 					<tr>
@@ -52,7 +52,7 @@
 						<td><span class="badge badge-ghost badge-sm">Pagamento Pendente</span></td>
 						<td>R$8,21 (1 item)</td>
 						<th>
-							<button class="btn btn-xs btn-primary">Ver pedido</button>
+							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
 						</th>
 					</tr>
 					<tr>
@@ -61,7 +61,7 @@
 						<td><span class="badge badge-outline badge-sm">Processando</span></td>
 						<td>R$42,30 (2 items)</td>
 						<th>
-							<button class="btn btn-xs btn-primary">Ver pedido</button>
+							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
 						</th>
 					</tr>
 					<tr>
@@ -70,7 +70,7 @@
 						<td><span class="badge badge-error badge-sm">Cancelado</span></td>
 						<td>R$8,21 (1 item)</td>
 						<th>
-							<button class="btn btn-xs btn-primary">Ver pedido</button>
+							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
 						</th>
 					</tr>
 					<tr>
@@ -79,7 +79,7 @@
 						<td><span class="badge badge-warning badge-sm">Aguardando</span></td>
 						<td>R$8,21 (1 item)</td>
 						<th>
-							<button class="btn btn-xs btn-primary">Ver pedido</button>
+							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
 						</th>
 					</tr>
 					<tr>
@@ -88,7 +88,7 @@
 						<td><span class="badge badge-info badge-sm">Reembolsado</span></td>
 						<td>R$8,21 (1 item)</td>
 						<th>
-							<button class="btn btn-xs btn-primary">Ver pedido</button>
+							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
 						</th>
 					</tr>
 				</tbody>
