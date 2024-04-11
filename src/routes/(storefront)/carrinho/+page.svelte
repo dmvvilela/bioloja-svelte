@@ -7,22 +7,27 @@
 	const products = [
 		{
 			id: 1,
-			category: 'Farmacologia',
+			category: 'Botânica, Seres Vivos',
 			name: 'Product 1',
+			slug: 'product-1',
 			image: slide1,
-			price: 1299
+			price: 1299,
+			discountPrice: 1099
 		},
 		{
 			id: 2,
 			category: 'Genética',
 			name: 'Product 2',
+			slug: 'product-2',
 			image: slide2,
-			price: 2100
+			price: 2100,
+			discountPrice: 1599
 		},
 		{
 			id: 3,
-			category: 'Promoções',
+			category: 'Promoções, Anatomia e Fisiologia Humana',
 			name: 'Product 3',
+			slug: 'product-3',
 			image: slide3,
 			price: 4230
 		}
@@ -53,19 +58,27 @@
 										<div class="flex justify-between">
 											<h3 class="text-sm">
 												<a
-													href="#"
+													href="/loja/produto/{product.slug}"
 													class="font-semibold text-lg leading-tight uppercase text-gray-700 hover:text-gray-800"
 													>{product.name}</a
 												>
 											</h3>
 										</div>
 										<div class="mt-1 flex">
-											<p class="text-gray-500">{product.category}</p>
+											<p class="text-gray-400 text-sm">{product.category}</p>
 											<!-- <p class="ml-4 border-l border-gray-200 pl-4 text-gray-500">Large</p> -->
 										</div>
-										<p class="mt-1 font-medium text-gray-600">
-											R${getLocalePrice(product.price)}
-										</p>
+
+										<div class="flex items-baseline mb-1 space-x-2 mt-1">
+											<p class="text-xl text-primary font-semibold">
+												R${getLocalePrice(product.discountPrice || product.price)}
+											</p>
+											{#if product.discountPrice}
+												<p class="text-sm text-gray-400 line-through">
+													R${getLocalePrice(product.price)}
+												</p>
+											{/if}
+										</div>
 									</div>
 
 									<div class="mt-4 sm:mt-0 sm:pr-9">
@@ -91,8 +104,7 @@
 										</div>
 									</div>
 								</div>
-
-								<p class="mt-4 flex space-x-2 text-sm text-gray-700">
+								<!-- <p class="mt-4 flex space-x-2 text-sm text-gray-700">
 									<svg
 										class="h-5 w-5 flex-shrink-0 text-green-500"
 										viewBox="0 0 20 20"
@@ -106,7 +118,7 @@
 										/>
 									</svg>
 									<span>Download Digital</span>
-								</p>
+								</p> -->
 							</div>
 						</li>
 					{/each}
@@ -130,14 +142,30 @@
 
 					<div class="flex items-center justify-between border-t border-gray-200 pt-4">
 						<dt class="flex text-sm text-gray-600">
-							<span>Desconto (Cupom: BIOLOJANOTA10)</span>
+							<span
+								>Desconto <span class="badge badge-success badge-sm uppercase ml-1 py-2.5"
+									>biolojanota10
+									<!-- <svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+										class="w-5 h-5 ml-1.5 text-gray-600/80"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+											clip-rule="evenodd"
+										/>
+									</svg> -->
+								</span></span
+							>
 							<a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
 								<span class="sr-only">Learn more about how tax is calculated</span>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 24 24"
 									fill="currentColor"
-									class="w-5 h-5 rounded-full text-gray-400 border p-[1px]"
+									class="w-5 h-5 rounded-full text-gray-400 p-[1px] mt-[1px] -ml-1 hover:text-gray-600"
 								>
 									<path
 										fill-rule="evenodd"
@@ -174,9 +202,8 @@
 							type="coupon"
 							name="code"
 							id="coupon"
-							placeholder="Código do cupom"
-							class="text-lg font-semibold bg-transparent outline-none"
-							value="TAILOFFER25"
+							placeholder="biolojanota10"
+							class="text-lg font-semibold bg-transparent outline-none uppercase"
 						/>
 						<button
 							class="bg-primary text-white px-3 py-1 rounded hover:bg-white/80 font-medium hover:text-primary border border-primary focus:outline-none"
