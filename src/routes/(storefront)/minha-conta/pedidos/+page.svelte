@@ -31,9 +31,9 @@
 					<tr>
 						<th>NÚMERO</th>
 						<th>DATA</th>
-						<th>STATUS</th>
-						<th>TOTAL</th>
-						<th>AÇÃO</th>
+						<th class="min-w-[11.5rem]">STATUS</th>
+						<th class="min-w-40">TOTAL</th>
+						<th class="min-w-40">AÇÃO</th>
 					</tr>
 				</thead>
 				<tbody>
