@@ -17,38 +17,17 @@
 
 <div>
 	<div>
-		<!--
-      Mobile filter dialog
-
-      Off-canvas menu for mobile, show/hide based on off-canvas menu state.
-    -->
-		<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
-			<!--
-        Off-canvas menu backdrop, show/hide based on off-canvas menu state.
-
-        Entering: "transition-opacity ease-linear duration-300"
-          From: "opacity-0"
-          To: "opacity-100"
-        Leaving: "transition-opacity ease-linear duration-300"
-          From: "opacity-100"
-          To: "opacity-0"
-      -->
-			<div class="fixed inset-0 bg-black bg-opacity-25" />
-
-			<div class="fixed inset-0 z-40 flex">
-				<!--
-          Off-canvas menu, show/hide based on off-canvas menu state.
-
-          Entering: "transition ease-in-out duration-300 transform"
-            From: "translate-x-full"
-            To: "translate-x-0"
-          Leaving: "transition ease-in-out duration-300 transform"
-            From: "translate-x-0"
-            To: "translate-x-full"
-        -->
-				<div
-					class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl"
-				>
+		<!-- mobile-menu -->
+		<div class="drawer drawer-end z-40">
+			<input id="filter-drawer" type="checkbox" class="drawer-toggle" />
+			<div class="drawer-content">
+				<!-- Page content here -->
+				<label for="filter-drawer" class="drawer-button btn btn-primary">Abrir filtros</label>
+			</div>
+			<div class="drawer-side">
+				<label for="filter-drawer" aria-label="fechar filtros" class="drawer-overlay" />
+				<ul class="menu w-80 pt-4 min-h-full bg-white">
+					<!-- Sidebar content here -->
 					<div class="flex items-center justify-between px-4">
 						<h2 class="text-lg font-medium text-secondary">Filtros</h2>
 						<button
@@ -228,9 +207,10 @@
 							</fieldset>
 						</div>
 					</form>
-				</div>
+				</ul>
 			</div>
 		</div>
+		<!-- end-mobile-menu -->
 
 		<div class="container mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
 			<div class="border-b border-gray-200 pb-10">

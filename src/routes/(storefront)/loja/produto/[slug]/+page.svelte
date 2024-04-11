@@ -17,8 +17,8 @@
 
 	export let data: PageData;
 
+	// Restart carousel on new data
 	$: if (data) {
-		console.log(main);
 		if (main) {
 			main.go(0);
 		}
