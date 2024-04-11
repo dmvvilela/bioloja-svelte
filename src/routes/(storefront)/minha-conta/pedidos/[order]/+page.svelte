@@ -136,7 +136,7 @@
 	<hr class="mt-4 mb-8" />
 	<p class="py-2 text-xl font-semibold">Downloads</p>
 	<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
-		<p class="text-gray-600">Seus downloads disponíveis:</p>
+		<p class="text-gray-600">Disponíveis até 31 de Abril de 2024</p>
 	</div>
 	<div class="overflow-x-auto mb-6">
 		<table class="table">
