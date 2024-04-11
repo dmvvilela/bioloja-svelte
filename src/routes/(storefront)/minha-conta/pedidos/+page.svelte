@@ -43,8 +43,10 @@
 						<td><span class="badge badge-success badge-sm">Concluído</span></td>
 						<td>R$80,27 (3 items)</td>
 						<th>
-							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
-						</th>
+							<a href="/minha-conta/pedidos/8049">
+								<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
+							</a></th
+						>
 					</tr>
 					<tr>
 						<th>#2</th>
