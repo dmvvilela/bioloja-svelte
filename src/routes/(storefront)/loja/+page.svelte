@@ -5,6 +5,9 @@
 
 	export let data: PageServerData;
 
+	let checked = false;
+	const toggleMenu = () => (checked = !checked);
+
 	const prices = [
 		'R$0 - R$20',
 		'R$20 - R$40',
@@ -19,11 +22,10 @@
 	<div>
 		<!-- mobile-menu -->
 		<div class="drawer drawer-end z-40">
-			<input id="filter-drawer" type="checkbox" class="drawer-toggle" />
-			<div class="drawer-content">
-				<!-- Page content here -->
+			<input id="filter-drawer" type="checkbox" class="drawer-toggle" bind:checked />
+			<!-- <div class="drawer-content">
 				<label for="filter-drawer" class="drawer-button btn btn-primary">Abrir filtros</label>
-			</div>
+			</div> -->
 			<div class="drawer-side">
 				<label for="filter-drawer" aria-label="fechar filtros" class="drawer-overlay" />
 				<ul class="menu w-80 pt-4 min-h-full bg-white">
@@ -32,6 +34,7 @@
 						<h2 class="text-lg font-medium text-secondary">Filtros</h2>
 						<button
 							type="button"
+							on:click={toggleMenu}
 							class="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500"
 						>
 							<span class="sr-only">Fechar menu</span>
@@ -221,12 +224,16 @@
 			<div class="pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
 				<aside>
 					<h2 class="sr-only">Filtros</h2>
-
 					<!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
-					<button type="button" class="inline-flex items-center lg:hidden">
-						<span class="text-sm font-medium text-gray-700">Filtros</span>
+					<button
+						type="button"
+						on:click={toggleMenu}
+						class="inline-flex items-center lg:hidden mb-4 btn-ghost py-1 pl-2.5 pr-1.5 rounded-full"
+					>
+						<span class="text-base font-medium text-gray-700">Filtros</span>
+
 						<svg
-							class="ml-1 h-5 w-5 flex-shrink-0 text-gray-400"
+							class="ml-1 h-6 w-6 flex-shrink-0 text-gray-400"
 							viewBox="0 0 20 20"
 							fill="currentColor"
 							aria-hidden="true"

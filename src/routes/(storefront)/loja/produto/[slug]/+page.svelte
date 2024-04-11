@@ -153,7 +153,7 @@
 				<h2 class="mt-1 text-gray-400">{product.category_names.join(' | ')}</h2>
 
 				<div class="mt-3">
-					<h2 class="sr-only">Product information</h2>
+					<h2 class="sr-only">Preço</h2>
 					<div class="flex items-baseline mb-1 space-x-2 mt-4">
 						<p class="text-3xl text-primary font-semibold">
 							R${getLocalePrice(product.discount_price || product.price)}
