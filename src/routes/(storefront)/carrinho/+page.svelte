@@ -43,7 +43,7 @@
 
 				<ul role="list" class="divide-y divide-gray-200 border-b border-t border-gray-200">
 					{#each products as product}
-						<li class="flex py-2">
+						<li class="flex py-1">
 							<div class="flex-shrink-0">
 								<img
 									src={product.image}
@@ -192,7 +192,8 @@
 						></a
 					>
 				</div>
-				<div class="container text-primary p-8 rounded-lg bg-white max-w-md mx-auto mt-8">
+				<div class="border-t border-gray-200 mt-8" />
+				<div class="container text-primary p-5 rounded-lg bg-white max-w-md mx-auto mt-8">
 					<div class="text-xl font-bold mb-4">Cupom de desconto</div>
 					<div class="text-sm mb-4">Possui um cupom? Use-o aqui:</div>
 					<div
