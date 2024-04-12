@@ -60,10 +60,12 @@ export const searchProducts = async (filters: Filters, query = '') => {
 		index.search(query, {
 			numericFilters: [discountPriceFilter],
 			facetFilters: facetFilters
+			// sort: 'price:asc'
 		}),
 		index.search('', {
 			numericFilters: [priceFilter],
 			facetFilters: facetFilters
+			// sort: 'price:asc'
 		})
 	]);
 

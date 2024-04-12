@@ -2,7 +2,6 @@
 	import ProductCard from '$lib/components/product_card.svelte';
 	import { searchProducts, getFacetCounts, getFacetCountsWithFilters } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
-	import { afterUpdate, onMount } from 'svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -27,12 +26,6 @@
 		categoriesCounts = categoryCounts;
 		tagsCounts = tagCounts;
 	})();
-
-	// onMount(async () => {
-	// 	const { categoryCounts, tagCounts } = await getFacetCountsWithFilters(filters);
-	// 	categoriesCounts = categoryCounts;
-	// 	tagsCounts = tagCounts;
-	// });
 </script>
 
 <div>
@@ -117,6 +110,9 @@
 												<label for="category-{i}-mobile" class="ml-3 text-sm text-gray-500"
 													>{category.name}</label
 												>
+												<div class="ml-auto text-gray-400 text-sm">
+													({categoriesCounts?.[category.name] || 0})
+												</div>
 											</div>
 										{/each}
 									</div>
@@ -160,16 +156,19 @@
 										{#each tags as tag, i}
 											<div class="flex items-center">
 												<input
-													id="category-{i}-mobile"
-													name="category[]"
+													id="tag-{i}-mobile"
+													name="tag[]"
 													value={tag}
 													type="checkbox"
 													bind:group={filters.tags}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 												/>
-												<label for="category-{i}-mobile" class="ml-3 text-sm text-gray-500"
+												<label for="tag-{i}-mobile" class="ml-3 text-sm text-gray-500"
 													>{tag.name}</label
 												>
+												<div class="ml-auto text-gray-400 text-sm">
+													({tagsCounts?.[tag.name] || 0})
+												</div>
 											</div>
 										{/each}
 									</div>
