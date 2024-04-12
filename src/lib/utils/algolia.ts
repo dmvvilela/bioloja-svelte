@@ -40,7 +40,7 @@ export const search = async (query: string) => {
 	});
 };
 
-export const searchProducts = async (filters: Filters, query = '') => {
+export const searchProducts = async (query = '', filters: Filters) => {
 	// Convert the slider values from dollars to cents
 	const minPrice = (filters.prices.min || 0) * 100;
 	const maxPrice = (filters.prices.max || 1e9) * 100;
@@ -62,7 +62,7 @@ export const searchProducts = async (filters: Filters, query = '') => {
 			facetFilters: facetFilters
 			// sort: 'price:asc'
 		}),
-		index.search('', {
+		index.search(query, {
 			numericFilters: [priceFilter],
 			facetFilters: facetFilters
 			// sort: 'price:asc'
@@ -74,9 +74,9 @@ export const searchProducts = async (filters: Filters, query = '') => {
 	return products;
 };
 
-export async function getFacetCounts() {
+export async function getFacetCounts(query = '') {
 	// Perform a search without a query
-	const result = await index.search('', {
+	const result = await index.search(query, {
 		facets: ['categories', 'tags']
 	});
 
@@ -87,7 +87,7 @@ export async function getFacetCounts() {
 	return { categoryCounts, tagCounts };
 }
 
-export async function getFacetCountsWithFilters(filters: Filters) {
+export async function getFacetCountsWithFilters(query = '', filters: Filters) {
 	// Convert the slider values from dollars to cents
 	const minPrice = (filters.prices.min || 0) * 100;
 	const maxPrice = (filters.prices.max || 1e9) * 100; // 1e9 is 1 billion
@@ -102,7 +102,7 @@ export async function getFacetCountsWithFilters(filters: Filters) {
 	];
 
 	// Perform a search with the numeric filter and facet filters, and request the categories and tags facets
-	const result = await index.search('', {
+	const result = await index.search(query, {
 		numericFilters: [priceFilter],
 		facetFilters: facetFilters,
 		facets: ['categories', 'tags']
@@ -131,7 +131,7 @@ export async function getFacetCountsWithFilters(filters: Filters) {
 //   ];
 
 //   // Perform a search with the numeric filter and facet filters
-//   return await index.search('', {
+//   return await index.search(query, {
 //     numericFilters: [priceFilter],
 //     facetFilters: facetFilters
 //   });

@@ -9,6 +9,8 @@
 	let checked = false;
 	const toggleMenu = () => (checked = !checked);
 
+	// TODO: Add clear button to query input
+	let query = '';
 	let range = 0;
 	let filters = {
 		categories: [],
@@ -17,13 +19,13 @@
 	};
 	$: filters.prices.max = range;
 
-	$: searchProducts(filters);
+	$: searchProducts(query, filters);
 
 	let categoriesCounts: any;
 	let tagsCounts: any;
 
 	$: (async () => {
-		const { categoryCounts, tagCounts } = await getFacetCountsWithFilters(filters);
+		const { categoryCounts, tagCounts } = await getFacetCountsWithFilters(query, filters);
 		categoriesCounts = categoryCounts;
 		tagsCounts = tagCounts;
 	})();
@@ -64,6 +66,52 @@
 
 					<!-- Filters -->
 					<form class="mt-4">
+						<div class="border-t border-gray-200 pb-4 pt-4">
+							<fieldset>
+								<legend class="w-full px-2">
+									<!-- Expand/collapse section button -->
+									<button
+										type="button"
+										class="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500"
+										aria-controls="filter-section-0"
+										aria-expanded="false"
+									>
+										<span class="text-[14.5] font-medium text-secondary">Pesquise pelo nome</span>
+										<span class="ml-6 flex h-7 items-center">
+											<!--
+											Expand/collapse icon, toggle classes based on section open state.
+
+											Open: "-rotate-180", Closed: "rotate-0"
+										-->
+											<svg
+												class="rotate-0 h-5 w-5 transform"
+												viewBox="0 0 20 20"
+												fill="currentColor"
+												aria-hidden="true"
+											>
+												<path
+													fill-rule="evenodd"
+													d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+													clip-rule="evenodd"
+												/>
+											</svg>
+										</span>
+									</button>
+								</legend>
+								<div class="px-4 pb-2 pt-4" id="filter-section-0">
+									<div class="space-y-6">
+										<input
+											id="search-query"
+											name="search-query"
+											bind:value={query}
+											placeholder="Digite o termo da pesquisa"
+											class="rounded-md border-gray-300 text-primary focus:ring-bioloja-300 w-full text-sm focus:border-primary outline-none"
+										/>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+
 						<div class="border-t border-gray-200 pb-4 pt-4">
 							<fieldset>
 								<legend class="w-full px-2">
@@ -259,12 +307,12 @@
 					<button
 						type="button"
 						on:click={toggleMenu}
-						class="inline-flex items-center lg:hidden mb-4 btn-ghost py-1 pl-2.5 pr-1.5 rounded-full"
+						class="inline-flex items-center lg:hidden mb-4 btn-ghost py-1 pl-2.5 pr-1.5 rounded-full hover:bg-primary hover:text-white"
 					>
-						<span class="text-base font-medium text-gray-700">Filtros</span>
+						<span class="text-base font-medium">Filtros</span>
 
 						<svg
-							class="ml-1 h-6 w-6 flex-shrink-0 text-gray-400"
+							class="ml-1 h-6 w-6 flex-shrink-0"
 							viewBox="0 0 20 20"
 							fill="currentColor"
 							aria-hidden="true"
@@ -278,6 +326,27 @@
 					<div class="hidden lg:block border p-4 rounded-md border-gray-100 bg-gray-50">
 						<form class="space-y-10 divide-y divide-gray-200">
 							<div>
+								<fieldset>
+									<legend class="block text-[18.5px] font-semibold text-secondary uppercase"
+										>Pesquisa por nome</legend
+									>
+									<div class="space-y-3 pt-6">
+										<div class="flex flex-col">
+											<input
+												id="search-query"
+												name="search-query"
+												bind:value={query}
+												placeholder="Digite o termo da pesquisa"
+												class="rounded-md border-gray-300 text-primary focus:ring-bioloja-300 w-full text-sm focus:border-primary outline-none"
+											/>
+											<!-- <label for="search-query" class="mt-2 ml-2 text-sm text-gray-600"
+												>Procure por nome ou categoria
+											</label> -->
+										</div>
+									</div>
+								</fieldset>
+							</div>
+							<div class="pt-10">
 								<fieldset>
 									<legend class="block text-lg font-semibold text-secondary uppercase"
 										>Categorias</legend
