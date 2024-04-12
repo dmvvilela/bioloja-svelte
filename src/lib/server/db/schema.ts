@@ -285,6 +285,9 @@ export const addresses = pgTable(
 	})
 );
 
+export type Orders = typeof orders.$inferSelect;
+// export type Stages = (typeof ticket_stages.enumValues)[number]
+
 // export const findLastTicketProgress = async (
 //   ticket_id: string,
 //   completed = false
@@ -297,6 +300,3 @@ export const addresses = pgTable(
 //     orderBy: [desc(ticket_progress.created_at)],
 //   })
 // }
-
-// export type Messages = typeof ticket_messages.$inferSelect
-// export type Stages = (typeof ticket_stages.enumValues)[number]

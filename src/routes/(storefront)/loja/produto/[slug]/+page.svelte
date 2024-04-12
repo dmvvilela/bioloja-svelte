@@ -101,10 +101,24 @@
 	let thumbs: { splide: any };
 	onMount(() => {
 		if (main && thumbs) {
-			console.log({ main, thumbs });
+			// console.log({ main, thumbs });
 			main.sync(thumbs.splide);
 		}
 	});
+
+	const addToCart = async () => {
+		const response = await fetch('/api/cart', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(product)
+		});
+
+		const json = await response.json();
+		if (!response.ok) console.error(json.message);
+		// throw new Error(json.message);
+	};
 </script>
 
 <div class="bg-white">
@@ -227,6 +241,7 @@
 
 					<div class="mt-10 flex">
 						<button
+							on:click={addToCart}
 							class="btn btn-primary btn-md flex max-w-xs flex-1 items-center justify-center glass bg-primary-focus text-base border border-primary text-white px-8 py-3 font-medium border-transparent sm:w-full rounded-md hover:shadow-lg"
 							>Adicionar <svg
 								xmlns="http://www.w3.org/2000/svg"
