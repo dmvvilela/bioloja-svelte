@@ -12,6 +12,7 @@ export const load = (async ({ setHeaders }) => {
 	const storeProducts = (await db
 		.select({
 			productId: products.id,
+			productSlug: products.slug,
 			productName: products.name,
 			imageUrls: products.imageUrls,
 			price: products.price,

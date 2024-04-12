@@ -34,6 +34,7 @@
 		"@types/mjml": "^4.7.4",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
 		"@typescript-eslint/parser": "^5.62.0",
+		"algoliasearch": "^4.23.3",
 		"autoprefixer": "^10.4.19",
 		"aws-sdk": "^2.1598.0",
 		"daisyui": "^3.9.4",

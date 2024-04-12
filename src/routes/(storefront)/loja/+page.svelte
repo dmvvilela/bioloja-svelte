@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/product_card.svelte';
+	import { searchProducts, type Filters } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
 	import type { PageServerData } from './$types';
 
@@ -8,13 +9,21 @@
 	let checked = false;
 	const toggleMenu = () => (checked = !checked);
 
+	let filters: Filters = {
+		categories: [],
+		tags: [],
+		prices: []
+	};
+
+	$: searchProducts(filters);
+
 	const prices = [
-		'R$0 - R$20',
-		'R$20 - R$40',
-		'R$40 - R$60',
-		'R$60 - R$80',
-		'R$80 - R$100',
-		'> R$100'
+		{ name: 'R$0 - R$20', slug: '0-20' },
+		{ name: 'R$20 - R$40', slug: '20-40' },
+		{ name: 'R$40 - R$60', slug: '40-60' },
+		{ name: 'R$60 - R$80', slug: '60-80' },
+		{ name: 'R$80 - R$100', slug: '80-100' },
+		{ name: '> R$100', slug: 'over-100' }
 	];
 </script>
 
@@ -87,16 +96,17 @@
 								</legend>
 								<div class="px-4 pb-2 pt-4" id="filter-section-0">
 									<div class="space-y-6">
-										{#each categories as category}
+										{#each categories as category, i}
 											<div class="flex items-center">
 												<input
-													id="color-0-mobile"
-													name="color[]"
-													value="white"
+													id="category-{i}-mobile"
+													name="category[]"
+													value={category}
 													type="checkbox"
+													bind:group={filters.categories}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 												/>
-												<label for="color-0-mobile" class="ml-3 text-sm text-gray-500"
+												<label for="category-{i}-mobile" class="ml-3 text-sm text-gray-500"
 													>{category.name}</label
 												>
 											</div>
@@ -139,16 +149,17 @@
 								</legend>
 								<div class="px-4 pb-2 pt-4" id="filter-section-1">
 									<div class="space-y-6">
-										{#each tags as tag}
+										{#each tags as tag, i}
 											<div class="flex items-center">
 												<input
-													id="category-0-mobile"
+													id="category-{i}-mobile"
 													name="category[]"
-													value="new-arrivals"
+													value={tag}
 													type="checkbox"
+													bind:group={filters.tags}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 												/>
-												<label for="category-0-mobile" class="ml-3 text-sm text-gray-500"
+												<label for="category-{i}-mobile" class="ml-3 text-sm text-gray-500"
 													>{tag.name}</label
 												>
 											</div>
@@ -191,17 +202,18 @@
 								</legend>
 								<div class="px-4 pb-2 pt-4" id="filter-section-2">
 									<div class="space-y-6">
-										{#each prices as price}
+										{#each prices as price, i}
 											<div class="flex items-center">
 												<input
-													id="sizes-0-mobile"
+													id="sizes-{i}-mobile"
 													name="sizes[]"
-													value="xs"
+													value={price}
 													type="checkbox"
+													bind:group={filters.prices}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 												/>
-												<label for="sizes-0-mobile" class="ml-3 text-sm text-gray-500"
-													>{price}</label
+												<label for="sizes-{i}-mobile" class="ml-3 text-sm text-gray-500"
+													>{price.name}</label
 												>
 											</div>
 										{/each}
@@ -252,16 +264,17 @@
 										>Categorias</legend
 									>
 									<div class="space-y-3 pt-6">
-										{#each categories as category}
+										{#each categories as category, i}
 											<div class="flex items-center">
 												<input
-													id="color-0"
-													name="color[]"
-													value="white"
+													id="category-{i}"
+													name="category[]"
+													value={category}
 													type="checkbox"
+													bind:group={filters.categories}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 												/>
-												<label for="color-0" class="ml-3 text-sm text-gray-600"
+												<label for="category-{i}" class="ml-3 text-sm text-gray-600"
 													>{category.name}</label
 												>
 												<div class="ml-auto text-gray-400 text-sm">(15)</div>
@@ -274,17 +287,17 @@
 								<fieldset>
 									<legend class="block text-lg font-semibold text-secondary uppercase">Tags</legend>
 									<div class="space-y-3 pt-6">
-										{#each tags as tag}
+										{#each tags as tag, i}
 											<div class="flex items-center">
 												<input
-													id="category-0"
-													name="category[]"
-													value="new-arrivals"
+													id="tag-{i}"
+													name="tag[]"
+													value={tag}
 													type="checkbox"
+													bind:group={filters.tags}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 												/>
-												<label for="category-0" class="ml-3 text-sm text-gray-600">{tag.name}</label
-												>
+												<label for="tag-{i}" class="ml-3 text-sm text-gray-600">{tag.name}</label>
 												<div class="ml-auto text-gray-400 text-sm">(4)</div>
 											</div>
 										{/each}
@@ -296,16 +309,19 @@
 									<legend class="block text-lg font-semibold text-secondary uppercase">Preço</legend
 									>
 									<div class="space-y-3 pt-6">
-										{#each prices as price}
+										{#each prices as price, i}
 											<div class="flex items-center">
 												<input
-													id="sizes-0"
-													name="sizes[]"
-													value="xs"
+													id="price-{i}"
+													name="price[]"
+													value={price}
 													type="checkbox"
+													bind:group={filters.prices}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 												/>
-												<label for="sizes-0" class="ml-3 text-sm text-gray-600">{price}</label>
+												<label for="price-{i}" class="ml-3 text-sm text-gray-600"
+													>{price.name}</label
+												>
 											</div>
 										{/each}
 									</div>

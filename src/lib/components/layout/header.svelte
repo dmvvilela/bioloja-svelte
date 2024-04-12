@@ -3,8 +3,11 @@
 	import { categories } from '$lib/utils/data';
 	import { page } from '$app/stores';
 	import { invalidateAll } from '$app/navigation';
+	import { search } from '$lib/utils/algolia';
 
 	$: isLoggedIn = !!$page.data.user;
+
+	let query = '';
 
 	const logOut = async () => {
 		await fetch('/sair', { method: 'POST' });
@@ -42,8 +45,10 @@
 				class="w-full border border-primary border-r-[0.5px] pl-12 py-3 pr-3 rounded-l-md focus:outline-none focus:border-primary focus:ring-primary hidden md:flex"
 				placeholder="Pesquise em toda a Bioloja"
 				autocomplete="off"
+				bind:value={query}
 			/>
 			<button
+				on:click={() => search(query)}
 				class="bg-primary border border-primary text-white px-8 py-3 rounded-r-md hover:bg-transparent hover:text-primary transition active:scale-95 hidden md:flex"
 				>Pesquisar</button
 			>
