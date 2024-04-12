@@ -6,8 +6,6 @@
 
 	$: isLoggedIn = !!$page.data.user;
 
-	let menuOpen = false;
-
 	const logOut = async () => {
 		await fetch('/sair', { method: 'POST' });
 		invalidateAll();
@@ -144,7 +142,7 @@
 <nav class="bg-secondary">
 	<div class="container mx-auto flex">
 		<div class="px-8 py-4 bg-primary flex items-center cursor-pointer relative group">
-			<span class="text-white">
+			<span class="text-secondary">
 				<svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 448 512"
 					><path
 						fill="currentColor"
@@ -152,7 +150,7 @@
 					/></svg
 				>
 			</span>
-			<span class="capitalize ml-4 text-white font-medium hidden lg:block">Categorias</span>
+			<span class="capitalize ml-4 text-secondary font-medium hidden lg:block">Categorias</span>
 
 			<!-- dropdown -->
 			<div
