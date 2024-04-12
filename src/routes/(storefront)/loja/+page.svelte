@@ -9,22 +9,14 @@
 	let checked = false;
 	const toggleMenu = () => (checked = !checked);
 
+	let range = 0;
 	let filters: Filters = {
 		categories: [],
 		tags: [],
-		prices: []
+		prices: { min: 0, max: range }
 	};
 
 	$: searchProducts(filters);
-
-	const prices = [
-		{ name: 'R$0 - R$20', slug: '0-20' },
-		{ name: 'R$20 - R$40', slug: '20-40' },
-		{ name: 'R$40 - R$60', slug: '40-60' },
-		{ name: 'R$60 - R$80', slug: '60-80' },
-		{ name: 'R$80 - R$100', slug: '80-100' },
-		{ name: '> R$100', slug: 'over-100' }
-	];
 </script>
 
 <div>
@@ -202,21 +194,32 @@
 								</legend>
 								<div class="px-4 pb-2 pt-4" id="filter-section-2">
 									<div class="space-y-6">
-										{#each prices as price, i}
-											<div class="flex items-center">
-												<input
-													id="sizes-{i}-mobile"
-													name="sizes[]"
-													value={price}
-													type="checkbox"
-													bind:group={filters.prices}
-													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-												/>
-												<label for="sizes-{i}-mobile" class="ml-3 text-sm text-gray-500"
-													>{price.name}</label
-												>
+										<div class="space-y-2 pt-2 mb-4 mr-4">
+											<input
+												type="range"
+												min="0"
+												max="100"
+												bind:value={range}
+												class="range range-primary range-sm"
+												step="20"
+											/>
+											<div class="w-full flex justify-between text-xs px-2">
+												<span>|</span>
+												<span>|</span>
+												<span>|</span>
+												<span>|</span>
+												<span>|</span>
+												<span>|</span>
 											</div>
-										{/each}
+											<div class="w-full flex justify-between text-xs">
+												<span class="w-8 -ml-1">&gt;R$0</span>
+												<span class="w-8">R$20</span>
+												<span class="w-8">R$40</span>
+												<span class="w-8">R$60</span>
+												<span class="w-8">R$80</span>
+												<span class="w-8 pl-0.5">&gt;R$100</span>
+											</div>
+										</div>
 									</div>
 								</div>
 							</fieldset>
@@ -308,22 +311,31 @@
 								<fieldset>
 									<legend class="block text-lg font-semibold text-secondary uppercase">Preço</legend
 									>
-									<div class="space-y-3 pt-6">
-										{#each prices as price, i}
-											<div class="flex items-center">
-												<input
-													id="price-{i}"
-													name="price[]"
-													value={price}
-													type="checkbox"
-													bind:group={filters.prices}
-													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
-												/>
-												<label for="price-{i}" class="ml-3 text-sm text-gray-600"
-													>{price.name}</label
-												>
-											</div>
-										{/each}
+									<div class="space-y-3 pt-6 mb-4 mr-4">
+										<input
+											type="range"
+											min="0"
+											max="100"
+											bind:value={range}
+											class="range range-primary range-sm"
+											step="20"
+										/>
+										<div class="w-full flex justify-between text-xs px-2">
+											<span>|</span>
+											<span>|</span>
+											<span>|</span>
+											<span>|</span>
+											<span>|</span>
+											<span>|</span>
+										</div>
+										<div class="w-full flex justify-between text-xs">
+											<span class="w-8 -ml-1">&gt;R$0</span>
+											<span class="w-8">R$20</span>
+											<span class="w-8">R$40</span>
+											<span class="w-8">R$60</span>
+											<span class="w-8">R$80</span>
+											<span class="w-8 pl-0.5">&gt;R$100</span>
+										</div>
 									</div>
 								</fieldset>
 							</div>

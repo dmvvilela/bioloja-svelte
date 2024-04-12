@@ -9,7 +9,7 @@ export interface FilterValue {
 export interface Filters {
 	categories: FilterValue[];
 	tags: FilterValue[];
-	prices: FilterValue[];
+	prices: { min?: number; max?: number };
 }
 
 export type AlgoliaProduct = {
@@ -41,21 +41,17 @@ export const search = async (query: string) => {
 };
 
 export const searchProducts = async (filters: Filters, query = '') => {
-	// Create an array of numeric filters based on the prices array
-	const numericFilters: string[] = filters.prices.map((price) => {
-		// Check if the price is over a certain value
-		if (price.slug === 'over-100') {
-			// Get the lower bound of the price range and convert it to cents
-			const lowerBound = Number(price.slug.split('-')[1]) * 100;
-			return `price >= ${lowerBound}`;
-		}
+	let numericFilter: string | undefined;
 
-		// Get the lower and upper bounds of the price range from the slug and convert them to cents
-		const [lowerBound, upperBound] = price.slug.split('-').map((value) => Number(value) * 100);
+	// Check if a price filter is set
+	if (filters.prices.min || filters.prices.max) {
+		// Convert the slider values from dollars to cents
+		const minPrice = (filters.prices.min || 0) * 100;
+		const maxPrice = (filters.prices.max || Infinity) * 100;
 
-		// Return a numeric filter for the price range
-		return `price:${lowerBound} TO ${upperBound}`;
-	});
+		// Create a numeric filter based on the slider values
+		numericFilter = `price:${minPrice} TO ${maxPrice}`;
+	}
 
 	// Create an array of facet filters based on the categories and tags arrays
 	const facetFilters: string[] = [
@@ -66,7 +62,7 @@ export const searchProducts = async (filters: Filters, query = '') => {
 	// Perform a search with the facet filters and numeric filters
 	const products = await index.search(query, {
 		facetFilters: facetFilters,
-		numericFilters: numericFilters
+		numericFilters: numericFilter ? [numericFilter] : undefined
 	});
 
 	console.log(products);
