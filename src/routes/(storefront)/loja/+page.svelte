@@ -4,6 +4,8 @@
 	import { categories, tags } from '$lib/utils/data';
 	import type { PageServerData } from './$types';
 	import promoImg from '$lib/images/promo/Compre-4-Leve-3.webp';
+	import { page } from '$app/stores';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	export let data: PageServerData;
 
@@ -30,6 +32,10 @@
 		categoriesCounts = categoryCounts;
 		tagsCounts = tagCounts;
 	})();
+
+	afterNavigate(() => {
+		query = $page.url.searchParams.get('q') || '';
+	});
 </script>
 
 <div>

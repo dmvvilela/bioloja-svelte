@@ -34,11 +34,11 @@ export type AlgoliaProduct = {
 const client = algoliasearch(PUBLIC_ALGOLIA_APP_ID, PUBLIC_ALGOLIA_SEARCH_KEY);
 const index = client.initIndex('products');
 
-export const search = async (query: string) => {
-	index.search(query).then(({ hits }) => {
-		console.log(hits);
-	});
-};
+// export const search = async (query: string) => {
+// 	index.search(query).then(({ hits }) => {
+// 		console.log(hits);
+// 	});
+// };
 
 export const searchProducts = async (query = '', filters: Filters) => {
 	// Convert the slider values from dollars to cents

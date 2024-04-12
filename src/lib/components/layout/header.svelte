@@ -2,8 +2,7 @@
 	import logo from '$lib/images/logo/full.png';
 	import { categories } from '$lib/utils/data';
 	import { page } from '$app/stores';
-	import { invalidateAll } from '$app/navigation';
-	import { search } from '$lib/utils/algolia';
+	import { goto, invalidateAll } from '$app/navigation';
 
 	$: isLoggedIn = !!$page.data.user;
 
@@ -48,7 +47,8 @@
 				bind:value={query}
 			/>
 			<button
-				on:click={() => search(query)}
+				on:click={() => goto('/loja?q=' + query)}
+				type="button"
 				class="bg-primary border border-primary text-white px-8 py-3 rounded-r-md hover:bg-transparent hover:text-primary transition active:scale-95 hidden md:flex"
 				>Pesquisar</button
 			>
