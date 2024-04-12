@@ -84,3 +84,53 @@ export async function getFacetCounts() {
 
 	return { categoryCounts, tagCounts };
 }
+
+export async function getFacetCountsWithFilters(filters: Filters) {
+	// Convert the slider values from dollars to cents
+	const minPrice = (filters.prices.min || 0) * 100;
+	const maxPrice = (filters.prices.max || 1e9) * 100; // 1e9 is 1 billion
+
+	// Create a numeric filter based on the slider values
+	const priceFilter = `price:${minPrice} TO ${maxPrice}`;
+
+	// Create an array of facet filters based on the categories and tags arrays
+	const facetFilters: string[] = [
+		...filters.categories.map((category) => `categories:${category.name}`),
+		...filters.tags.map((tag) => `tags:${tag.name}`)
+	];
+
+	// Perform a search with the numeric filter and facet filters, and request the categories and tags facets
+	const result = await index.search('', {
+		numericFilters: [priceFilter],
+		facetFilters: facetFilters,
+		facets: ['categories', 'tags']
+	});
+
+	// The facets property of the result contains the count of each category and tag
+	const categoryCounts = result.facets?.categories;
+	const tagCounts = result.facets?.tags;
+
+	return { categoryCounts, tagCounts };
+}
+
+// OR filter
+// async function searchProducts(filters: Filters) {
+//   // Convert the slider values from dollars to cents
+//   let minPrice = (filters.prices.min || 0) * 100;
+//   let maxPrice = (filters.prices.max || 1e9) * 100; // 1e9 is 1 billion
+
+//   // Create a numeric filter based on the slider values
+//   let priceFilter = `price:${minPrice} TO ${maxPrice}`;
+
+//   // Create an array of facet filters based on the categories and tags arrays
+//   let facetFilters: string[][] = [
+//     ...filters.categories.map(category => [`categories:${category.slug}`]),
+//     ...filters.tags.map(tag => [`tags:${tag.slug}`])
+//   ];
+
+//   // Perform a search with the numeric filter and facet filters
+//   return await index.search('', {
+//     numericFilters: [priceFilter],
+//     facetFilters: facetFilters
+//   });
+// }

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/product_card.svelte';
-	import { searchProducts, type Filters, getFacetCounts } from '$lib/utils/algolia';
+	import { searchProducts, getFacetCounts, getFacetCountsWithFilters } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
-	import { onMount } from 'svelte';
+	import { afterUpdate, onMount } from 'svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -22,11 +22,17 @@
 	let categoriesCounts: any;
 	let tagsCounts: any;
 
-	onMount(async () => {
-		const { categoryCounts, tagCounts } = await getFacetCounts();
+	$: (async () => {
+		const { categoryCounts, tagCounts } = await getFacetCountsWithFilters(filters);
 		categoriesCounts = categoryCounts;
 		tagsCounts = tagCounts;
-	});
+	})();
+
+	// onMount(async () => {
+	// 	const { categoryCounts, tagCounts } = await getFacetCountsWithFilters(filters);
+	// 	categoriesCounts = categoryCounts;
+	// 	tagsCounts = tagCounts;
+	// });
 </script>
 
 <div>
