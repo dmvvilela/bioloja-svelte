@@ -43,15 +43,17 @@ export const search = async (query: string) => {
 export const searchProducts = async (filters: Filters, query = '') => {
 	// Create an array of numeric filters based on the prices array
 	const numericFilters: string[] = filters.prices.map((price) => {
-		// Get the lower and upper bounds of the price range from the slug
-		const [lowerBound, upperBound] = price.slug.split('-');
-
-		// If there's no upper bound, it means the price is over a certain value
-		if (!upperBound) {
+		// Check if the price is over a certain value
+		if (price.slug === 'over-100') {
+			// Get the lower bound of the price range and convert it to cents
+			const lowerBound = Number(price.slug.split('-')[1]) * 100;
 			return `price >= ${lowerBound}`;
 		}
 
-		// Otherwise, return a numeric filter for the price range
+		// Get the lower and upper bounds of the price range from the slug and convert them to cents
+		const [lowerBound, upperBound] = price.slug.split('-').map((value) => Number(value) * 100);
+
+		// Return a numeric filter for the price range
 		return `price:${lowerBound} TO ${upperBound}`;
 	});
 
