@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/product_card.svelte';
-	import { searchProducts, getFacetCounts, getFacetCountsWithFilters } from '$lib/utils/algolia';
+	import { searchProducts, getFacetCountsWithFilters } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
 	import type { PageServerData } from './$types';
 
@@ -10,11 +10,12 @@
 	const toggleMenu = () => (checked = !checked);
 
 	let range = 0;
-	$: filters = {
+	let filters = {
 		categories: [],
 		tags: [],
 		prices: { min: 0, max: range }
 	};
+	$: filters.prices.max = range;
 
 	$: searchProducts(filters);
 
