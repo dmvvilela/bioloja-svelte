@@ -41,30 +41,46 @@ export const search = async (query: string) => {
 };
 
 export const searchProducts = async (filters: Filters, query = '') => {
-	let numericFilter: string | undefined;
+	// Convert the slider values from dollars to cents
+	const minPrice = (filters.prices.min || 0) * 100;
+	const maxPrice = (filters.prices.max || 1e9) * 100;
 
-	// Check if a price filter is set
-	if (filters.prices.min || filters.prices.max) {
-		// Convert the slider values from dollars to cents
-		const minPrice = (filters.prices.min || 0) * 100;
-		const maxPrice = (filters.prices.max || Infinity) * 100;
-
-		// Create a numeric filter based on the slider values
-		numericFilter = `price:${minPrice} TO ${maxPrice}`;
-	}
+	// Create numeric filters based on the slider values
+	const discountPriceFilter = `discountPrice:${minPrice} TO ${maxPrice}`;
+	const priceFilter = `price:${minPrice} TO ${maxPrice}`;
 
 	// Create an array of facet filters based on the categories and tags arrays
 	const facetFilters: string[] = [
-		...filters.categories.map((category) => `categories:${category.name}`),
-		...filters.tags.map((tag) => `tags:${tag.name}`)
+		...filters.categories.map((category) => `categories:${category.slug}`),
+		...filters.tags.map((tag) => `tags:${tag.slug}`)
 	];
 
-	// Perform a search with the facet filters and numeric filters
-	const products = await index.search(query, {
-		facetFilters: facetFilters,
-		numericFilters: numericFilter ? [numericFilter] : undefined
-	});
+	// Perform separate searches for products with a discountPrice and products without a discountPrice
+	const [discountPriceResults, priceResults] = await Promise.all([
+		index.search(query, {
+			numericFilters: [discountPriceFilter],
+			facetFilters: facetFilters
+		}),
+		index.search('', {
+			numericFilters: [priceFilter],
+			facetFilters: facetFilters
+		})
+	]);
 
-	console.log(products);
+	// Combine the results
+	const products = [...discountPriceResults.hits, ...priceResults.hits];
 	return products;
 };
+
+export async function getFacetCounts() {
+	// Perform a search without a query
+	const result = await index.search('', {
+		facets: ['categories', 'tags']
+	});
+
+	// The facets property of the result contains the count of each category and tag
+	const categoryCounts = result.facets?.categories;
+	const tagCounts = result.facets?.tags;
+
+	return { categoryCounts, tagCounts };
+}

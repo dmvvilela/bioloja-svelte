@@ -1,7 +1,8 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/product_card.svelte';
-	import { searchProducts, type Filters } from '$lib/utils/algolia';
+	import { searchProducts, type Filters, getFacetCounts } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
+	import { onMount } from 'svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -10,13 +11,22 @@
 	const toggleMenu = () => (checked = !checked);
 
 	let range = 0;
-	let filters: Filters = {
+	$: filters = {
 		categories: [],
 		tags: [],
 		prices: { min: 0, max: range }
 	};
 
 	$: searchProducts(filters);
+
+	let categoriesCounts: any;
+	let tagsCounts: any;
+
+	onMount(async () => {
+		const { categoryCounts, tagCounts } = await getFacetCounts();
+		categoriesCounts = categoryCounts;
+		tagsCounts = tagCounts;
+	});
 </script>
 
 <div>
@@ -217,7 +227,7 @@
 												<span class="w-8">R$40</span>
 												<span class="w-8">R$60</span>
 												<span class="w-8">R$80</span>
-												<span class="w-8 pl-0.5">&gt;R$100</span>
+												<span class="w-8 pl-0.5">R$100</span>
 											</div>
 										</div>
 									</div>
@@ -280,7 +290,9 @@
 												<label for="category-{i}" class="ml-3 text-sm text-gray-600"
 													>{category.name}</label
 												>
-												<div class="ml-auto text-gray-400 text-sm">(15)</div>
+												<div class="ml-auto text-gray-400 text-sm">
+													({categoriesCounts?.[category.name] || 0})
+												</div>
 											</div>
 										{/each}
 									</div>
@@ -301,7 +313,9 @@
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 												/>
 												<label for="tag-{i}" class="ml-3 text-sm text-gray-600">{tag.name}</label>
-												<div class="ml-auto text-gray-400 text-sm">(4)</div>
+												<div class="ml-auto text-gray-400 text-sm">
+													({tagsCounts?.[tag.name] || 0})
+												</div>
 											</div>
 										{/each}
 									</div>
@@ -332,9 +346,9 @@
 											<span class="w-8 -ml-1">&gt;R$0</span>
 											<span class="w-8">R$20</span>
 											<span class="w-8">R$40</span>
-											<span class="w-8">R$60</span>
-											<span class="w-8">R$80</span>
-											<span class="w-8 pl-0.5">&gt;R$100</span>
+											<span class="w-8 pl-0.5">R$60</span>
+											<span class="w-8 pl-0.5">R$80</span>
+											<span class="w-8 pl-0.5">R$100</span>
 										</div>
 									</div>
 								</fieldset>
