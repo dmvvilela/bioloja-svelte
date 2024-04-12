@@ -457,7 +457,11 @@
 
 					<div class="mx-auto mt-8 p-4">
 						<a href="/loja/produto/promocao-leve-4-e-pague-3">
-							<img src={promoImg} alt="promotion-banner" class="w-full" />
+							<img
+								src={promoImg}
+								alt="promotion-banner"
+								class="w-full hover:scale-[1.01] transition hover:shadow"
+							/>
 						</a>
 					</div>
 				</aside>
