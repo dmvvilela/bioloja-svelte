@@ -3,6 +3,7 @@
 	import { searchProducts, getFacetCountsWithFilters } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
 	import type { PageServerData } from './$types';
+	import promoImg from '$lib/images/promo/Compre-4-Leve-3.webp';
 
 	export let data: PageServerData;
 
@@ -453,6 +454,12 @@
 							<p>Termos e condições se aplicam</p>
 						</div>
 					</div> -->
+
+					<div class="mx-auto mt-8 p-4">
+						<a href="/loja/produto/promocao-leve-4-e-pague-3">
+							<img src={promoImg} alt="promotion-banner" class="w-full" />
+						</a>
+					</div>
 				</aside>
 
 				<!-- Product grid -->
