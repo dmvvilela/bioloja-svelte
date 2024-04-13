@@ -1,5 +1,5 @@
 {
-  "id": "937aa915-88b8-4735-a1da-bd918c58a21c",
+  "id": "f1a755df-7bae-4074-b11e-bd02f62c2a40",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -154,6 +154,232 @@
         }
       }
     },
+    "cart_items": {
+      "name": "cart_items",
+      "schema": "",
+      "columns": {
+        "cart_id": {
+          "name": "cart_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "product_id": {
+          "name": "product_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "line_id": {
+          "name": "line_id",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_price": {
+          "name": "item_price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "item_discount_price": {
+          "name": "item_discount_price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "idx_cart_items_cart_id": {
+          "name": "idx_cart_items_cart_id",
+          "columns": [
+            "cart_id"
+          ],
+          "isUnique": false
+        },
+        "idx_cart_items_product_id": {
+          "name": "idx_cart_items_product_id",
+          "columns": [
+            "product_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "cart_items_cart_id_carts_id_fk": {
+          "name": "cart_items_cart_id_carts_id_fk",
+          "tableFrom": "cart_items",
+          "tableTo": "carts",
+          "columnsFrom": [
+            "cart_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "cart_items_product_id_products_id_fk": {
+          "name": "cart_items_product_id_products_id_fk",
+          "tableFrom": "cart_items",
+          "tableTo": "products",
+          "columnsFrom": [
+            "product_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "cart_items_cart_id_product_id_pk": {
+          "name": "cart_items_cart_id_product_id_pk",
+          "columns": [
+            "cart_id",
+            "product_id"
+          ]
+        },
+        "cartItems": {
+          "name": "cartItems",
+          "columns": [
+            "cart_id",
+            "product_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "carts": {
+      "name": "carts",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "order_number": {
+          "name": "order_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount": {
+          "name": "discount",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        },
+        "coupon_code": {
+          "name": "coupon_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "subtotal": {
+          "name": "subtotal",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "total": {
+          "name": "total",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "idx_carts_id": {
+          "name": "idx_carts_id",
+          "columns": [
+            "id"
+          ],
+          "isUnique": false
+        },
+        "idx_carts_user_id": {
+          "name": "idx_carts_user_id",
+          "columns": [
+            "user_id"
+          ],
+          "isUnique": false
+        },
+        "idx_carts_order_number": {
+          "name": "idx_carts_order_number",
+          "columns": [
+            "order_number"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "carts_user_id_users_id_fk": {
+          "name": "carts_user_id_users_id_fk",
+          "tableFrom": "carts",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "carts_order_number_orders_order_number_fk": {
+          "name": "carts_order_number_orders_order_number_fk",
+          "tableFrom": "carts",
+          "tableTo": "orders",
+          "columnsFrom": [
+            "order_number"
+          ],
+          "columnsTo": [
+            "order_number"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "carts_coupon_code_coupons_code_fk": {
+          "name": "carts_coupon_code_coupons_code_fk",
+          "tableFrom": "carts",
+          "tableTo": "coupons",
+          "columnsFrom": [
+            "coupon_code"
+          ],
+          "columnsTo": [
+            "code"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "categories": {
       "name": "categories",
       "schema": "",
@@ -293,78 +519,6 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "order_coupons": {
-      "name": "order_coupons",
-      "schema": "",
-      "columns": {
-        "order_number": {
-          "name": "order_number",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "coupon_code": {
-          "name": "coupon_code",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {
-        "idx_order_coupons_order_number": {
-          "name": "idx_order_coupons_order_number",
-          "columns": [
-            "order_number"
-          ],
-          "isUnique": false
-        },
-        "idx_order_coupons_coupon_code": {
-          "name": "idx_order_coupons_coupon_code",
-          "columns": [
-            "coupon_code"
-          ],
-          "isUnique": false
-        }
-      },
-      "foreignKeys": {
-        "order_coupons_order_number_orders_order_number_fk": {
-          "name": "order_coupons_order_number_orders_order_number_fk",
-          "tableFrom": "order_coupons",
-          "tableTo": "orders",
-          "columnsFrom": [
-            "order_number"
-          ],
-          "columnsTo": [
-            "order_number"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "order_coupons_coupon_code_coupons_code_fk": {
-          "name": "order_coupons_coupon_code_coupons_code_fk",
-          "tableFrom": "order_coupons",
-          "tableTo": "coupons",
-          "columnsFrom": [
-            "coupon_code"
-          ],
-          "columnsTo": [
-            "code"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {
-        "order_coupons_order_number_coupon_code_pk": {
-          "name": "order_coupons_order_number_coupon_code_pk",
-          "columns": [
-            "order_number",
-            "coupon_code"
-          ]
-        }
-      },
-      "uniqueConstraints": {}
-    },
     "order_products": {
       "name": "order_products",
       "schema": "",
@@ -394,8 +548,8 @@
           "notNull": false,
           "default": false
         },
-        "item_price": {
-          "name": "item_price",
+        "amount": {
+          "name": "amount",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
@@ -563,16 +717,16 @@
           "type": "order_status",
           "primaryKey": false,
           "notNull": true,
-          "default": "'CART'"
-        },
-        "order_date": {
-          "name": "order_date",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": false
+          "default": "'PROCESSING'"
         },
         "payment_method_title": {
           "name": "payment_method_title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "coupon_code": {
+          "name": "coupon_code",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -664,6 +818,19 @@
           ],
           "columnsTo": [
             "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "orders_coupon_code_coupons_code_fk": {
+          "name": "orders_coupon_code_coupons_code_fk",
+          "tableFrom": "orders",
+          "tableTo": "coupons",
+          "columnsFrom": [
+            "coupon_code"
+          ],
+          "columnsTo": [
+            "code"
           ],
           "onDelete": "no action",
           "onUpdate": "no action"
@@ -1285,8 +1452,7 @@
         "PROCESSING": "PROCESSING",
         "CANCELLED": "CANCELLED",
         "AWAITING": "AWAITING",
-        "REFUNDED": "REFUNDED",
-        "CART": "CART"
+        "REFUNDED": "REFUNDED"
       }
     },
     "user_roles": {

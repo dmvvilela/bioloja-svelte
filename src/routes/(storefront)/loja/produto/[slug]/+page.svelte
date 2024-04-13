@@ -113,11 +113,17 @@
 			headers: {
 				'content-type': 'application/json'
 			},
-			body: JSON.stringify(product)
+			body: JSON.stringify({
+				productId: product.id,
+				itemDiscountPrice: product.discount_price,
+				itemPrice: product.price
+			})
 		});
 
 		const json = await response.json();
 		if (!response.ok) console.error(json.message);
+
+		console.log(json);
 		// throw new Error(json.message);
 	};
 </script>

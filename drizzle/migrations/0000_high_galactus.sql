@@ -5,7 +5,7 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- CREATE TYPE "order_status" AS ENUM('COMPLETED', 'PAYMENT_PENDING', 'PROCESSING', 'CANCELLED', 'AWAITING', 'REFUNDED', 'CART');
+ CREATE TYPE "order_status" AS ENUM('COMPLETED', 'PAYMENT_PENDING', 'PROCESSING', 'CANCELLED', 'AWAITING', 'REFUNDED');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -38,6 +38,27 @@ CREATE TABLE IF NOT EXISTS "attributes" (
 	CONSTRAINT "attributes_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "cart_items" (
+	"cart_id" text NOT NULL,
+	"product_id" integer NOT NULL,
+	"line_id" serial NOT NULL,
+	"item_price" integer NOT NULL,
+	"item_discount_price" integer,
+	CONSTRAINT "cart_items_cart_id_product_id_pk" PRIMARY KEY("cart_id","product_id")
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "carts" (
+	"id" text PRIMARY KEY NOT NULL,
+	"user_id" text,
+	"order_number" text,
+	"discount" integer DEFAULT 0,
+	"coupon_code" text,
+	"subtotal" integer NOT NULL,
+	"total" integer NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "categories" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"parent_id" integer,
@@ -58,18 +79,12 @@ CREATE TABLE IF NOT EXISTS "coupons" (
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "order_coupons" (
-	"order_number" text,
-	"coupon_code" text,
-	CONSTRAINT "order_coupons_order_number_coupon_code_pk" PRIMARY KEY("order_number","coupon_code")
-);
---> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "order_products" (
 	"order_number" text NOT NULL,
 	"product_id" integer NOT NULL,
 	"line_id" serial NOT NULL,
 	"refunded" boolean DEFAULT false,
-	"item_price" integer NOT NULL,
+	"amount" integer NOT NULL,
 	CONSTRAINT "order_products_order_number_product_id_pk" PRIMARY KEY("order_number","product_id")
 );
 --> statement-breakpoint
@@ -85,9 +100,9 @@ CREATE TABLE IF NOT EXISTS "orders" (
 	"order_number" text PRIMARY KEY NOT NULL,
 	"user_id" text NOT NULL,
 	"address_id" integer,
-	"order_status" "order_status" DEFAULT 'CART' NOT NULL,
-	"order_date" timestamp,
+	"order_status" "order_status" DEFAULT 'PROCESSING' NOT NULL,
 	"payment_method_title" text,
+	"coupon_code" text,
 	"cart_discount" integer DEFAULT 0,
 	"order_subtotal" integer NOT NULL,
 	"order_total" integer NOT NULL,
@@ -168,10 +183,13 @@ CREATE TABLE IF NOT EXISTS "users" (
 --> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_addresses_id" ON "addresses" ("id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_attributes_slug" ON "attributes" ("slug");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_cart_items_cart_id" ON "cart_items" ("cart_id");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_cart_items_product_id" ON "cart_items" ("product_id");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_carts_id" ON "carts" ("id");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_carts_user_id" ON "carts" ("user_id");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_carts_order_number" ON "carts" ("order_number");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_categories_slug" ON "categories" ("slug");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_coupons_code" ON "coupons" ("code");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "idx_order_coupons_order_number" ON "order_coupons" ("order_number");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "idx_order_coupons_coupon_code" ON "order_coupons" ("coupon_code");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_order_products_order_number" ON "order_products" ("order_number");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_order_products_product_id" ON "order_products" ("product_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_order_products_downloads_order_number_product_id" ON "order_products_downloads" ("order_products_order_number","order_products_product_id");--> statement-breakpoint
@@ -198,19 +216,37 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
+ ALTER TABLE "cart_items" ADD CONSTRAINT "cart_items_cart_id_carts_id_fk" FOREIGN KEY ("cart_id") REFERENCES "carts"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "cart_items" ADD CONSTRAINT "cart_items_product_id_products_id_fk" FOREIGN KEY ("product_id") REFERENCES "products"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "carts" ADD CONSTRAINT "carts_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "carts" ADD CONSTRAINT "carts_order_number_orders_order_number_fk" FOREIGN KEY ("order_number") REFERENCES "orders"("order_number") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "carts" ADD CONSTRAINT "carts_coupon_code_coupons_code_fk" FOREIGN KEY ("coupon_code") REFERENCES "coupons"("code") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
  ALTER TABLE "categories" ADD CONSTRAINT "categories_parent_id_categories_id_fk" FOREIGN KEY ("parent_id") REFERENCES "categories"("id") ON DELETE no action ON UPDATE no action;
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- ALTER TABLE "order_coupons" ADD CONSTRAINT "order_coupons_order_number_orders_order_number_fk" FOREIGN KEY ("order_number") REFERENCES "orders"("order_number") ON DELETE no action ON UPDATE no action;
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- ALTER TABLE "order_coupons" ADD CONSTRAINT "order_coupons_coupon_code_coupons_code_fk" FOREIGN KEY ("coupon_code") REFERENCES "coupons"("code") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -241,6 +277,12 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "orders" ADD CONSTRAINT "orders_address_id_addresses_id_fk" FOREIGN KEY ("address_id") REFERENCES "addresses"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "orders" ADD CONSTRAINT "orders_coupon_code_coupons_code_fk" FOREIGN KEY ("coupon_code") REFERENCES "coupons"("code") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

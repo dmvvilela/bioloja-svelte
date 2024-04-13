@@ -1,69 +1,129 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { db } from '$lib/server/db/conn';
-import {
-	orderProducts,
-	orders,
-	type Order,
-	type OrderProduct,
-	type Product
-} from '$lib/server/db/schema';
-import { createOrderId } from '$lib/server/ids';
+import { carts, cartItems, type Cart, type CartItem, type Product } from '$lib/server/db/schema';
+import { createId } from '$lib/server/ids';
 import { error, fail, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import { sql, eq } from 'drizzle-orm';
 
 // Create / update cart.
 export const POST: RequestHandler = async ({ request, cookies, locals }) => {
 	const user = locals.user;
 
 	try {
-		const product: Product = await request.json();
-		if (!product) {
+		const { productId, itemPrice, itemDiscountPrice } = await request.json();
+		if (!productId || !itemPrice) {
 			fail(400, {
-				message: 'Product is required.'
+				message: 'Invalid data.'
 			});
 		}
 
-		if (!user) {
-			const anonymousCart = cookies.get('anonymousCart');
-			const cart = anonymousCart ? JSON.parse(anonymousCart) : { orderProducts: [] };
-			cart.orderProducts.push(product);
-			cookies.set('anonymousCart', JSON.stringify(cart), { path: '/' });
-
-			return json(cart);
-		}
-
-		let cartId = cookies.get('cartId');
-		if (!cartId) {
-			cartId = await createOrderId();
+		let cartId = cookies.get('cartId') || '';
+		let cart: Cart | undefined;
+		if (!cartId.length) {
+			cartId = createId();
 			cookies.set('cartId', cartId, { path: '/' });
+
+			// Create a new cart on the database
+			cart = {
+				id: cartId,
+				userId: user?.id || null,
+				total: 0,
+				subtotal: 0
+			} as Cart;
+
+			await db.insert(carts).values(cart);
+		} else {
+			// Fetch the existing cart from the database
+			cart = (await db.select().from(carts).where(eq(carts.id, cartId)))[0];
 		}
 
-		const price = product.discountPrice || product.price;
-		const order = {
-			orderNumber: cartId,
-			userId: user?.id,
-			orderSubtotal: price,
-			orderTotal: price
-		} as Order;
+		// Update cart amounts
+		const amount = itemDiscountPrice || itemPrice;
+		cart!.total += amount;
+		cart!.subtotal += amount;
 
-		// Upsert order with default type CART on db.
-		await db.insert(orders).values(order).onConflictDoUpdate({
-			target: orders.orderNumber,
-			set: order
+		await db
+			.update(carts)
+			.set({ total: cart!.total, subtotal: cart!.subtotal })
+			.where(eq(carts.id, cartId));
+
+		// Create cart item on the database
+		await db.insert(cartItems).values({
+			cartId,
+			productId,
+			itemPrice,
+			itemDiscountPrice
 		});
 
-		const orderProduct = {
-			orderNumber: cartId,
-			productId: product.id,
-			itemPrice: price
-		} as OrderProduct;
-		await db.insert(orderProducts).values(order).onConflictDoUpdate({
-			target: orders.orderNumber,
-			set: order
-		});
+		return json(cart);
 
-		return json({ success: true });
+		// const result = (
+		// 	await db
+		// 		.select({
+		// 			cartId: carts.id,
+		// 			userId: carts.userId,
+		// 			orderNumber: carts.orderNumber,
+		// 			discount: carts.discount,
+		// 			couponCode: carts.couponCode,
+		// 			subtotal: carts.subtotal,
+		// 			total: carts.total,
+		// 			createdAt: carts.createdAt,
+		// 			updatedAt: carts.updatedAt,
+		// 			itemProductIds: sql`array_agg(${cartItems.productId})`,
+		// 			itemLineIds: sql`array_agg(${cartItems.lineId})`,
+		// 			itemPrices: sql`array_agg(${cartItems.itemPrice})`,
+		// 			itemDiscountPrices: sql`array_agg(${cartItems.itemDiscountPrice})`
+		// 		})
+		// 		.from(carts)
+		// 		.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
+		// 		.groupBy(carts.id)
+		// )[0];
+
+		// console.log(result);
+
+		// const price = product.discountPrice || product.price;
+		// const order = {
+		// 	orderNumber: cartId,
+		// 	userId: user?.id,
+		// 	orderSubtotal: total + price,
+		// 	orderTotal: total + price
+		// } as Cart;
+
+		// // Upsert order with default type CART on db.
+		// await db.insert(orders).values(order).onConflictDoUpdate({
+		// 	target: orders.orderNumber,
+		// 	set: order
+		// });
+
+		// const orderProduct = {
+		// 	orderNumber: cartId,
+		// 	productId: product.id,
+		// 	itemPrice: price
+		// } as CartItem;
+		// await db.insert(orderProducts).values(orderProduct);
 	} catch (err: any) {
 		error(500, err.message);
 	}
 };
+
+// SELECT
+//     carts.id AS cartId,
+//     carts.user_id AS userId,
+//     carts.order_number AS orderNumber,
+//     carts.discount AS discount,
+//     carts.coupon_code AS couponCode,
+//     carts.subtotal AS subtotal,
+//     carts.total AS total,
+//     carts.created_at AS createdAt,
+//     carts.updated_at AS updatedAt,
+//     array_agg(cart_items.product_id) AS itemProductIds,
+//     array_agg(cart_items.line_id) AS itemLineIds,
+//     array_agg(cart_items.item_price) AS itemPrices,
+//     array_agg(cart_items.item_discount_price) AS itemDiscountPrices
+// FROM
+//     carts
+// LEFT JOIN
+//     cart_items ON cart_items.cart_id = carts.id
+// GROUP BY
+//     carts.id;

@@ -23,14 +23,13 @@ export const orderStatus = pgEnum('order_status', [
 	'PROCESSING',
 	'CANCELLED',
 	'AWAITING',
-	'REFUNDED',
-	'CART'
+	'REFUNDED'
 ]);
 
 export const users = pgTable(
 	'users',
 	{
-		id: text('id').notNull().primaryKey(),
+		id: text('id').primaryKey(),
 		name: text('name').notNull(),
 		email: text('email').notNull().unique(),
 		role: userRoles('role').notNull().default('USER'),
@@ -101,7 +100,7 @@ export const tags = pgTable(
 export const products = pgTable(
 	'products',
 	{
-		id: serial('id').notNull().primaryKey(),
+		id: serial('id').primaryKey(),
 		slug: text('slug').notNull().unique(),
 		name: text('name').notNull(),
 		published: boolean('published').notNull().default(true),
@@ -189,14 +188,14 @@ export const productAttributes = pgTable(
 export const orders = pgTable(
 	'orders',
 	{
-		orderNumber: text('order_number').notNull().primaryKey(),
+		orderNumber: text('order_number').primaryKey(),
 		userId: text('user_id')
 			.notNull()
 			.references(() => users.id),
 		addressId: integer('address_id').references(() => addresses.id),
-		orderStatus: orderStatus('order_status').notNull().default('CART'),
-		orderDate: timestamp('order_date'),
+		orderStatus: orderStatus('order_status').notNull().default('PROCESSING'),
 		paymentMethodTitle: text('payment_method_title'),
+		couponCode: text('coupon_code').references(() => coupons.code),
 		cartDiscount: integer('cart_discount').default(0),
 		orderSubtotal: integer('order_subtotal').notNull(),
 		orderTotal: integer('order_total').notNull(),
@@ -222,7 +221,7 @@ export const orderProducts = pgTable(
 			.references(() => products.id),
 		lineId: serial('line_id'),
 		refunded: boolean('refunded').default(false),
-		itemPrice: integer('item_price').notNull()
+		amount: integer('amount').notNull()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.orderNumber, table.productId] }),
@@ -261,7 +260,7 @@ export const orderProductsDownloads = pgTable(
 export const coupons = pgTable(
 	'coupons',
 	{
-		code: text('code').notNull().primaryKey(),
+		code: text('code').primaryKey(),
 		value: text('value').notNull(),
 		type: couponTypes('type').notNull().default('PERCENTAGE'),
 		minAmount: integer('min_amount'),
@@ -276,19 +275,6 @@ export const coupons = pgTable(
 	},
 	(table) => ({
 		codeIdx: index('idx_coupons_code').on(table.code)
-	})
-);
-
-export const orderCoupons = pgTable(
-	'order_coupons',
-	{
-		orderNumber: text('order_number').references(() => orders.orderNumber),
-		couponCode: text('coupon_code').references(() => coupons.code)
-	},
-	(table) => ({
-		pk: primaryKey({ columns: [table.orderNumber, table.couponCode] }),
-		orderNumberIdx: index('idx_order_coupons_order_number').on(table.orderNumber),
-		couponCodeIdx: index('idx_order_coupons_coupon_code').on(table.couponCode)
 	})
 );
 
@@ -312,6 +298,50 @@ export const addresses = pgTable(
 	})
 );
 
+export const carts = pgTable(
+	'carts',
+	{
+		id: text('id').primaryKey(),
+		userId: text('user_id').references(() => users.id),
+		orderNumber: text('order_number').references(() => orders.orderNumber),
+		discount: integer('discount').default(0),
+		couponCode: text('coupon_code').references(() => coupons.code),
+		subtotal: integer('subtotal').notNull(),
+		total: integer('total').notNull(),
+		createdAt: timestamp('created_at').notNull().defaultNow(),
+		updatedAt: timestamp('updated_at').notNull().defaultNow()
+	},
+	(table) => ({
+		idIdx: index('idx_carts_id').on(table.id),
+		userIdIdx: index('idx_carts_user_id').on(table.userId),
+		orderNumberIdx: index('idx_carts_order_number').on(table.orderNumber)
+	})
+);
+
+export const cartItems = pgTable(
+	'cart_items',
+	{
+		cartId: text('cart_id')
+			.notNull()
+			.references(() => carts.id),
+		productId: integer('product_id')
+			.notNull()
+			.references(() => products.id),
+		lineId: serial('line_id'),
+		itemPrice: integer('item_price').notNull(),
+		itemDiscountPrice: integer('item_discount_price')
+	},
+	(table) => ({
+		pk: primaryKey({ columns: [table.cartId, table.productId] }),
+		pkWithCustomName: primaryKey({
+			name: 'cartItems',
+			columns: [table.cartId, table.productId]
+		}),
+		orderNumberIdx: index('idx_cart_items_cart_id').on(table.cartId),
+		productIdIdx: index('idx_cart_items_product_id').on(table.productId)
+	})
+);
+
 export type User = typeof users.$inferSelect;
 export type Sessions = typeof sessions.$inferSelect;
 export type PasswordReset = typeof passwordResets.$inferSelect;
@@ -326,22 +356,10 @@ export type Order = typeof orders.$inferSelect;
 export type OrderProduct = typeof orderProducts.$inferSelect;
 export type OrderProductsDownload = typeof orderProductsDownloads.$inferSelect;
 export type Coupon = typeof coupons.$inferSelect;
-export type OrderCoupon = typeof orderCoupons.$inferSelect;
 export type Address = typeof addresses.$inferSelect;
+export type Cart = typeof carts.$inferSelect;
+export type CartItem = typeof cartItems.$inferSelect;
 
 export type UserRoles = (typeof userRoles.enumValues)[number];
 export type CouponTypes = (typeof couponTypes.enumValues)[number];
 export type OrderStatus = (typeof orderStatus.enumValues)[number];
-
-// export const findLastTicketProgress = async (
-//   ticket_id: string,
-//   completed = false
-// ) => {
-//   return db.query.ticket_progress.findFirst({
-//     with: {
-//       ticket_id,
-//       completed,
-//     },
-//     orderBy: [desc(ticket_progress.created_at)],
-//   })
-// }
