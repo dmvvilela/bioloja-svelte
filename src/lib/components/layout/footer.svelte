@@ -1,12 +1,15 @@
 <script lang="ts">
 	import logo from '$lib/images/logo/full.png';
+	import { page } from '$app/stores';
+
+	$: isLoggedIn = !!$page.data.user;
 </script>
 
 <footer
 	class="bg-white pt-20 pb-10 lg:pt-32 lg:pb-20 border-t border-gray-100"
 	aria-labelledby="footer-heading"
 >
-	<h2 id="footer-heading" class="sr-only">Footer</h2>
+	<h2 id="footer-heading" class="sr-only">Rodapé</h2>
 	<div class="container mx-auto md:grid md:grid-cols-2 px-6 pb-8 lg:px-8">
 		<div class="col-span-1 space-y-4">
 			<img src={logo} alt="logo" class="w-48" />
@@ -75,7 +78,10 @@
 				<div class="mt-10 md:mt-0">
 					<h3 class="text-[15px] font-semibold text-gray-400 uppercase tracking-wider">Perfil</h3>
 					<div class="mt-4 space-y-4 text-sm">
-						<a href="/minha-conta" class="text-gray-500 hover:text-gray-900 block">Sua conta</a>
+						<a
+							href={isLoggedIn ? '/minha-conta' : '/entrar'}
+							class="text-gray-500 hover:text-gray-900 block">Sua conta</a
+						>
 						<a href="/carrinho" class="text-gray-500 hover:text-gray-900 block">Carrinho</a>
 						<!-- <a href="/wishlist" class="text-gray-500 hover:text-gray-900 block">Wishlist</a> -->
 					</div>
