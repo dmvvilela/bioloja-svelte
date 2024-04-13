@@ -5,7 +5,7 @@ import {
 	CLOUDFLARE_ACCOUNT_ID,
 	CLOUDFLARE_R2_ACCESS_KEY_ID,
 	CLOUDFLARE_R2_SECRET_ACCESS_KEY,
-	CLOUDFLARE_R2_BUCKET_NAME
+	DOWNLOADS_BUCKET_NAME
 } from '$env/static/private';
 
 // @ts-ignore
@@ -21,9 +21,9 @@ const S3 = new S3Client({
 export const getProductUrlDownloadLink = async (fileName: string) => {
 	return await getSignedUrl(
 		S3,
-		new GetObjectCommand({ Bucket: CLOUDFLARE_R2_BUCKET_NAME, Key: fileName }),
+		new GetObjectCommand({ Bucket: DOWNLOADS_BUCKET_NAME, Key: fileName }),
 		{
-			expiresIn: 604800 // Expires in 7 days.
+			expiresIn: 60 // Expires in 1 minute.
 		}
 	);
 };

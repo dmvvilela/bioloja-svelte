@@ -9,6 +9,7 @@ import {
 	primaryKey,
 	jsonb,
 	pgEnum,
+	foreignKey,
 	type AnyPgColumn
 } from 'drizzle-orm/pg-core';
 
@@ -230,6 +231,29 @@ export const orderProducts = pgTable(
 	})
 );
 
+export const orderProductsDownloads = pgTable(
+	'order_products_downloads',
+	{
+		id: serial('id').primaryKey(),
+		orderProductsOrderNumber: text('order_products_order_number'),
+		orderProductsProductId: text('product_id'),
+		downloadLink: text('download_link').notNull(),
+		downloadedAt: timestamp('downloaded_at').notNull().defaultNow()
+	},
+	(table) => ({
+		orderProductsReference: foreignKey({
+			columns: [table.orderProductsOrderNumber, table.orderProductsProductId],
+			foreignColumns: [orderProducts.orderNumber, orderProducts.productId],
+			name: 'order_products_reference'
+		}),
+		orderNumberProductIdIdx: index('idx_order_products_downloads_order_number_product_id').on(
+			table.orderProductsOrderNumber,
+			table.orderProductsProductId
+		),
+		downloadLinkIdx: index('idx_order_products_downloads_download_link').on(table.downloadLink)
+	})
+);
+
 export const coupons = pgTable(
 	'coupons',
 	{
@@ -284,8 +308,25 @@ export const addresses = pgTable(
 	})
 );
 
+export type User = typeof users.$inferSelect;
+export type Sessions = typeof sessions.$inferSelect;
+export type PasswordReset = typeof passwordResets.$inferSelect;
+export type Category = typeof categories.$inferSelect;
+export type Tag = typeof tags.$inferSelect;
+export type Product = typeof products.$inferSelect;
+export type ProductTag = typeof productTags.$inferSelect;
+export type ProductCategory = typeof productCategories.$inferSelect;
+export type Attribute = typeof attributes.$inferSelect;
+export type ProductAttribute = typeof productAttributes.$inferSelect;
 export type Order = typeof orders.$inferSelect;
 export type OrderProducts = typeof orderProducts.$inferSelect;
+export type OrderProductsDownload = typeof orderProductsDownloads.$inferSelect;
+export type Coupon = typeof coupons.$inferSelect;
+export type OrderCoupon = typeof orderCoupons.$inferSelect;
+export type Address = typeof addresses.$inferSelect;
+
+export type UserRoles = (typeof userRoles.enumValues)[number];
+export type CouponTypes = (typeof couponTypes.enumValues)[number];
 export type OrderStatus = (typeof orderStatus.enumValues)[number];
 
 // export const findLastTicketProgress = async (

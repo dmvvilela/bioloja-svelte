@@ -60,7 +60,7 @@
 							id="password"
 							name="password"
 							type="password"
-							autocomplete="current-password"
+							autocomplete="new-password"
 							required
 							class="block w-full rounded-md border-0 py-1.5 text-secondary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
 						/>
@@ -76,6 +76,7 @@
 							id="confirm"
 							name="confirm"
 							type="password"
+							autocomplete="new-password"
 							class="block w-full rounded-md border-0 py-1.5 text-secondary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
 							required
 						/>
