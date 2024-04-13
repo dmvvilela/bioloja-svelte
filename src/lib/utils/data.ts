@@ -1,14 +1,8 @@
 export const categories = [
 	{
-		slug: 'promocoes',
-		name: 'Promoções',
-		subcategories: []
-	},
-	{
 		slug: 'anatomia-e-fisiologia',
 		name: 'Anatomia e Fisiologia Humanas',
 		subcategories: [
-			{ name: 'Outros', slug: 'outros' },
 			{ name: 'Hematologia', slug: 'hematologia' },
 			{ name: 'Sistema Circulatório', slug: 'sistema-circulatorio' },
 			{ name: 'Sistema Digestório', slug: 'sistema-digestorio' },
@@ -20,7 +14,8 @@ export const categories = [
 			{ name: 'Sistema Sensorial', slug: 'sistema-sensorial' },
 			{ name: 'Sistema Tegumentar', slug: 'sistema-tegumentar' },
 			{ name: 'Sistemas de Sustentação', slug: 'sistemas-de-sustentacao' },
-			{ name: 'Sistemas Imune e Linfático', slug: 'sistemas-imune-e-linfatico' }
+			{ name: 'Sistemas Imune e Linfático', slug: 'sistemas-imune-e-linfatico' },
+			{ name: 'Outros', slug: 'outros' }
 		]
 	},
 	{
@@ -33,6 +28,16 @@ export const categories = [
 		]
 	},
 	{
+		slug: 'promocoes',
+		name: 'Promoções',
+		subcategories: []
+	},
+	{
+		slug: 'especiais',
+		name: 'Especiais',
+		subcategories: []
+	},
+	{
 		slug: 'biologia-celular-e-molecular',
 		name: 'Biologia Celular e Molecular',
 		subcategories: []
@@ -40,6 +45,21 @@ export const categories = [
 	{
 		slug: 'bioquimica',
 		name: 'Bioquímica',
+		subcategories: []
+	},
+	{
+		slug: 'ecologia',
+		name: 'Ecologia',
+		subcategories: []
+	},
+	{
+		slug: 'embriologia',
+		name: 'Embriologia',
+		subcategories: []
+	},
+	{
+		slug: 'evolucao',
+		name: 'Evolução',
 		subcategories: []
 	},
 	{
@@ -53,31 +73,6 @@ export const categories = [
 		subcategories: []
 	},
 	{
-		slug: 'ecologia',
-		name: 'Ecologia',
-		subcategories: []
-	},
-	{
-		slug: 'evolucao',
-		name: 'Evolução',
-		subcategories: []
-	},
-	{
-		slug: 'embriologia',
-		name: 'Embriologia',
-		subcategories: []
-	},
-	{
-		slug: 'patologia',
-		name: 'Patologia',
-		subcategories: []
-	},
-	{
-		slug: 'parasitologia',
-		name: 'Parasitologia',
-		subcategories: []
-	},
-	{
 		slug: 'histologia',
 		name: 'Histologia',
 		subcategories: []
@@ -88,15 +83,15 @@ export const categories = [
 		subcategories: []
 	},
 	{
-		slug: 'especiais',
-		name: 'Especiais',
+		slug: 'parasitologia',
+		name: 'Parasitologia',
+		subcategories: []
+	},
+	{
+		slug: 'patologia',
+		name: 'Patologia',
 		subcategories: []
 	}
-	// {
-	// 	slug: 'sem-categoria',
-	// 	name: 'Sem Cateogira',
-	// 	subcategories: [],
-	// }
 ];
 
 export const tags = [

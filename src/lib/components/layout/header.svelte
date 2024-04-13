@@ -159,15 +159,30 @@
 
 			<!-- dropdown -->
 			<div
-				class="absolute w-64 left-0 z-10 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover/parent:opacity-100 transition duration-300 invisible group-hover/parent:visible"
+				class="absolute w-72 left-0 z-10 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover/parent:opacity-100 transition duration-300 invisible group-hover/parent:visible"
 			>
-				{#each categories.sort((a, b) => a.name.localeCompare(b.name)) as category}
+				{#each categories as category}
 					<div class="group/child relative">
 						<a
 							href="/categorias/{category.slug}"
 							class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
 						>
 							<span class="ml-6 text-gray-600 text-sm">{category.name}</span>
+
+							{#if category.subcategories && category.subcategories.length > 0}
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									fill="currentColor"
+									class="w-4 h-4 ml-auto text-gray-500"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+							{/if}
 						</a>
 
 						{#if category.subcategories && category.subcategories.length > 0}
@@ -175,7 +190,7 @@
 							<div
 								class="absolute left-full top-0 w-64 z-20 bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover/child:opacity-100 transition duration-300 invisible group-hover/child:visible"
 							>
-								{#each category.subcategories.sort( (a, b) => a.name.localeCompare(b.name) ) as subcategory}
+								{#each category.subcategories as subcategory}
 									<a
 										href="/categorias/{category.slug}/{subcategory.slug}"
 										class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
