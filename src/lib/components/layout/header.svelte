@@ -162,27 +162,29 @@
 				class="absolute w-64 left-0 z-10 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover/parent:opacity-100 transition duration-300 invisible group-hover/parent:visible"
 			>
 				{#each categories.sort((a, b) => a.name.localeCompare(b.name)) as category}
-					<div class="group/child">
+					<div class="group/child relative">
 						<a
 							href="/categorias/{category.slug}"
 							class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
 						>
-							<!-- <img src="assets/images/icons/sofa.svg" alt="sofa" class="w-5 h-5 object-contain" /> -->
 							<span class="ml-6 text-gray-600 text-sm">{category.name}</span>
 						</a>
-						<!-- Subcategories dropdown -->
-						<div
-							class="absolute left-full top-0 w-64 z-20 bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover/child:opacity-100 transition duration-300 invisible group-hover/child:visible"
-						>
-							{#each category.subcategories as subcategory}
-								<a
-									href="/categorias/{category.slug}/{subcategory.slug}"
-									class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-								>
-									<span class="ml-6 text-gray-600 text-sm">{subcategory.name}</span>
-								</a>
-							{/each}
-						</div>
+
+						{#if category.subcategories && category.subcategories.length > 0}
+							<!-- Subcategories dropdown -->
+							<div
+								class="absolute left-full top-0 w-64 z-20 bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover/child:opacity-100 transition duration-300 invisible group-hover/child:visible"
+							>
+								{#each category.subcategories.sort( (a, b) => a.name.localeCompare(b.name) ) as subcategory}
+									<a
+										href="/categorias/{category.slug}/{subcategory.slug}"
+										class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
+									>
+										<span class="ml-6 text-gray-600 text-sm">{subcategory.name}</span>
+									</a>
+								{/each}
+							</div>
+						{/if}
 					</div>
 				{/each}
 			</div>
