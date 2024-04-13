@@ -146,7 +146,7 @@
 
 <nav class="bg-secondary">
 	<div class="container mx-auto flex">
-		<div class="px-8 py-4 bg-primary flex items-center cursor-pointer relative group">
+		<div class="px-8 py-4 bg-primary flex items-center cursor-pointer relative group/parent">
 			<span class="text-secondary">
 				<svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 448 512"
 					><path
@@ -159,16 +159,31 @@
 
 			<!-- dropdown -->
 			<div
-				class="absolute w-64 left-0 z-10 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible"
+				class="absolute w-64 left-0 z-10 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover/parent:opacity-100 transition duration-300 invisible group-hover/parent:visible"
 			>
 				{#each categories.sort((a, b) => a.name.localeCompare(b.name)) as category}
-					<a
-						href="/categorias/{category.slug}"
-						class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-					>
-						<!-- <img src="assets/images/icons/sofa.svg" alt="sofa" class="w-5 h-5 object-contain" /> -->
-						<span class="ml-6 text-gray-600 text-sm">{category.name}</span>
-					</a>
+					<div class="group/child">
+						<a
+							href="/categorias/{category.slug}"
+							class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
+						>
+							<!-- <img src="assets/images/icons/sofa.svg" alt="sofa" class="w-5 h-5 object-contain" /> -->
+							<span class="ml-6 text-gray-600 text-sm">{category.name}</span>
+						</a>
+						<!-- Subcategories dropdown -->
+						<div
+							class="absolute left-full top-0 w-64 z-20 bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover/child:opacity-100 transition duration-300 invisible group-hover/child:visible"
+						>
+							{#each category.subcategories as subcategory}
+								<a
+									href="/categorias/{category.slug}/{subcategory.slug}"
+									class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
+								>
+									<span class="ml-6 text-gray-600 text-sm">{subcategory.name}</span>
+								</a>
+							{/each}
+						</div>
+					</div>
 				{/each}
 			</div>
 		</div>

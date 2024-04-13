@@ -194,12 +194,12 @@ export const orders = pgTable(
 			.references(() => users.id),
 		addressId: integer('address_id').references(() => addresses.id),
 		orderStatus: orderStatus('order_status').notNull().default('CART'),
-		orderDate: timestamp('order_date').notNull(),
-		paymentMethodTitle: text('payment_method_title').notNull(),
-		cartDiscount: text('cart_discount').notNull(),
+		orderDate: timestamp('order_date'),
+		paymentMethodTitle: text('payment_method_title'),
+		cartDiscount: text('cart_discount'),
 		orderSubtotal: integer('order_subtotal').notNull(),
-		orderRefund: integer('order_refund').notNull(),
 		orderTotal: text('order_total').notNull(),
+		orderRefund: integer('order_refund'),
 		createdAt: timestamp('created_at').notNull().defaultNow(),
 		updatedAt: timestamp('updated_at').notNull().defaultNow()
 	},
@@ -214,20 +214,19 @@ export const orderProducts = pgTable(
 	'order_products',
 	{
 		orderNumber: text('order_number').references(() => orders.orderNumber),
-		productSlug: text('product_slug').notNull(),
-		productName: text('product_name').notNull(),
+		productId: text('product_id').notNull(),
 		lineId: integer('line_id').notNull(),
-		refunded: boolean('refunded').notNull().default(false),
+		refunded: boolean('refunded').default(false),
 		itemPrice: integer('item_price').notNull()
 	},
 	(table) => ({
-		pk: primaryKey({ columns: [table.orderNumber, table.productSlug] }),
+		pk: primaryKey({ columns: [table.orderNumber, table.productId] }),
 		pkWithCustomName: primaryKey({
 			name: 'orderProducts',
-			columns: [table.orderNumber, table.productSlug]
+			columns: [table.orderNumber, table.productId]
 		}),
 		orderNumberIdx: index('idx_order_products_order_number').on(table.orderNumber),
-		productSlugIdx: index('idx_order_products_product_slug').on(table.productSlug)
+		productIdIdx: index('idx_order_products_product_id').on(table.productId)
 	})
 );
 
@@ -285,8 +284,9 @@ export const addresses = pgTable(
 	})
 );
 
-export type Orders = typeof orders.$inferSelect;
-// export type Stages = (typeof ticket_stages.enumValues)[number]
+export type Order = typeof orders.$inferSelect;
+export type OrderProducts = typeof orderProducts.$inferSelect;
+export type OrderStatus = (typeof orderStatus.enumValues)[number];
 
 // export const findLastTicketProgress = async (
 //   ticket_id: string,

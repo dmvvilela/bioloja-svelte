@@ -66,12 +66,11 @@ CREATE TABLE IF NOT EXISTS "order_coupons" (
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "order_products" (
 	"order_number" text,
-	"product_slug" text NOT NULL,
-	"product_name" text NOT NULL,
+	"product_id" text NOT NULL,
 	"line_id" integer NOT NULL,
-	"refunded" boolean DEFAULT false NOT NULL,
+	"refunded" boolean DEFAULT false,
 	"item_price" integer NOT NULL,
-	CONSTRAINT "order_products_order_number_product_slug_pk" PRIMARY KEY("order_number","product_slug")
+	CONSTRAINT "order_products_order_number_product_id_pk" PRIMARY KEY("order_number","product_id")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "orders" (
@@ -79,12 +78,12 @@ CREATE TABLE IF NOT EXISTS "orders" (
 	"user_id" text NOT NULL,
 	"address_id" integer,
 	"order_status" "order_status" DEFAULT 'CART' NOT NULL,
-	"order_date" timestamp NOT NULL,
-	"payment_method_title" text NOT NULL,
-	"cart_discount" text NOT NULL,
+	"order_date" timestamp,
+	"payment_method_title" text,
+	"cart_discount" text,
 	"order_subtotal" integer NOT NULL,
-	"order_refund" integer NOT NULL,
 	"order_total" text NOT NULL,
+	"order_refund" integer,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
@@ -166,7 +165,7 @@ CREATE INDEX IF NOT EXISTS "idx_coupons_code" ON "coupons" ("code");--> statemen
 CREATE INDEX IF NOT EXISTS "idx_order_coupons_order_number" ON "order_coupons" ("order_number");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_order_coupons_coupon_code" ON "order_coupons" ("coupon_code");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_order_products_order_number" ON "order_products" ("order_number");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "idx_order_products_product_slug" ON "order_products" ("product_slug");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_order_products_product_id" ON "order_products" ("product_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_orders_user_id" ON "orders" ("user_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_orders_order_number" ON "orders" ("order_number");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_orders_order_status" ON "orders" ("order_status");--> statement-breakpoint

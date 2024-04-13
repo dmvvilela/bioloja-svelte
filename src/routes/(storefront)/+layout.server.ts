@@ -1,11 +1,11 @@
 import { db } from '$lib/server/db/conn';
-import { orders, type Orders } from '$lib/server/db/schema';
+import { orders, type Order } from '$lib/server/db/schema';
 import { and, eq } from 'drizzle-orm';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ cookies, locals }) => {
 	const cartId = cookies.get('cartId');
-	let cart: Orders | null = null;
+	let cart: Order | null = null;
 
 	if (cartId) {
 		try {

@@ -1,5 +1,5 @@
 {
-  "id": "10d704db-e0a5-4445-804a-faba353b45ca",
+  "id": "502fbcec-61e8-492e-b162-c5953cffc5e1",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -375,14 +375,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "product_slug": {
-          "name": "product_slug",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "product_name": {
-          "name": "product_name",
+        "product_id": {
+          "name": "product_id",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -397,7 +391,7 @@
           "name": "refunded",
           "type": "boolean",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "default": false
         },
         "item_price": {
@@ -415,10 +409,10 @@
           ],
           "isUnique": false
         },
-        "idx_order_products_product_slug": {
-          "name": "idx_order_products_product_slug",
+        "idx_order_products_product_id": {
+          "name": "idx_order_products_product_id",
           "columns": [
-            "product_slug"
+            "product_id"
           ],
           "isUnique": false
         }
@@ -439,18 +433,18 @@
         }
       },
       "compositePrimaryKeys": {
-        "order_products_order_number_product_slug_pk": {
-          "name": "order_products_order_number_product_slug_pk",
+        "order_products_order_number_product_id_pk": {
+          "name": "order_products_order_number_product_id_pk",
           "columns": [
             "order_number",
-            "product_slug"
+            "product_id"
           ]
         },
         "orderProducts": {
           "name": "orderProducts",
           "columns": [
             "order_number",
-            "product_slug"
+            "product_id"
           ]
         }
       },
@@ -489,28 +483,22 @@
           "name": "order_date",
           "type": "timestamp",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "payment_method_title": {
           "name": "payment_method_title",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "cart_discount": {
           "name": "cart_discount",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "order_subtotal": {
           "name": "order_subtotal",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "order_refund": {
-          "name": "order_refund",
           "type": "integer",
           "primaryKey": false,
           "notNull": true
@@ -520,6 +508,12 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "order_refund": {
+          "name": "order_refund",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
         },
         "created_at": {
           "name": "created_at",

@@ -107,6 +107,7 @@
 	});
 
 	const addToCart = async () => {
+		console.log(product);
 		const response = await fetch('/api/cart', {
 			method: 'POST',
 			headers: {
@@ -242,6 +243,7 @@
 					<div class="mt-10 flex">
 						<button
 							on:click={addToCart}
+							type="button"
 							class="btn btn-primary btn-md flex max-w-xs flex-1 items-center justify-center glass bg-primary-focus text-base border border-primary text-white px-8 py-3 font-medium border-transparent sm:w-full rounded-md hover:shadow-lg"
 							>Adicionar <svg
 								xmlns="http://www.w3.org/2000/svg"

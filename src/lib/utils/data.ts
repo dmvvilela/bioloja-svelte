@@ -6,7 +6,7 @@ export const categories = [
 	},
 	{
 		slug: 'anatomia-e-fisiologia',
-		name: 'Anatomia e Fisiologia Humana',
+		name: 'Anatomia e Fisiologia Humanas',
 		subcategories: [
 			{ name: 'Outros', slug: 'outros' },
 			{ name: 'Hematologia', slug: 'hematologia' },
@@ -106,7 +106,7 @@ export const tags = [
 	{ name: 'Acompanha Vídeos', slug: 'acompanha-videos' },
 	{ name: 'Ensino Médio', slug: 'ensino-medio' },
 	{ name: 'Ensino Superior', slug: 'ensino-superior' },
-	{ name: 'Super Promoções', slug: 'promocoes' }
+	{ name: 'Promoções', slug: 'promocoes' }
 ];
 
 export const attributes = [
