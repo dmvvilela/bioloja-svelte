@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { db } from '$lib/server/db/conn';
-import { orders, type Order } from '$lib/server/db/schema';
+import {
+	orderProducts,
+	orders,
+	type Order,
+	type OrderProduct,
+	type Product
+} from '$lib/server/db/schema';
 import { createOrderId } from '$lib/server/ids';
 import { error, fail, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
@@ -8,47 +14,50 @@ import type { RequestHandler } from './$types';
 // Create / update cart.
 export const POST: RequestHandler = async ({ request, cookies, locals }) => {
 	const user = locals.user;
-	let { item } = await request.json();
-	let cartId = cookies.get('cartId');
 
-	if (!item) {
-		fail(400, {
-			message: 'Item is required.'
-		});
-	}
+	try {
+		const product: Product = await request.json();
+		if (!product) {
+			fail(400, {
+				message: 'Product is required.'
+			});
+		}
 
-	if (!user) {
-		let anonCart = cookies.get('anonCart') || '';
-		const cart = JSON.parse(anonCart);
-	}
+		if (!user) {
+			const anonymousCart = cookies.get('anonymousCart');
+			const cart = anonymousCart ? JSON.parse(anonymousCart) : { orderProducts: [] };
+			cart.orderProducts.push(product);
+			cookies.set('anonymousCart', JSON.stringify(cart), { path: '/' });
 
-	item = JSON.parse(item);
+			return json(cart);
+		}
 
-	// TODO: check if user is logged in.. if not create an anonymius cart cookie.. only created on the db when user is registered...
-	// Create new order with status of cart if needed
-	if (!cartId) {
-		cartId = await createOrderId();
-		const price = item.discountPrice || item.price;
+		let cartId = cookies.get('cartId');
+		if (!cartId) {
+			cartId = await createOrderId();
+			cookies.set('cartId', cartId, { path: '/' });
+		}
 
+		const price = product.discountPrice || product.price;
 		const order = {
 			orderNumber: cartId,
-			userId: item.userId,
+			userId: user?.id,
 			orderSubtotal: price,
 			orderTotal: price
 		} as Order;
 
+		// Upsert order with default type CART on db.
 		await db.insert(orders).values(order).onConflictDoUpdate({
 			target: orders.orderNumber,
 			set: order
 		});
 
-		cookies.set('cartId', cartId, { path: '/' });
-	}
-
-	// create order.. then just add order items.. thats why sql is normalized...
-
-	try {
-		await db.insert(orders).values(order).onConflictDoUpdate({
+		const orderProduct = {
+			orderNumber: cartId,
+			productId: product.id,
+			itemPrice: price
+		} as OrderProduct;
+		await db.insert(orderProducts).values(order).onConflictDoUpdate({
 			target: orders.orderNumber,
 			set: order
 		});

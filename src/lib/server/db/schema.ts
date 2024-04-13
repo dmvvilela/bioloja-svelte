@@ -197,10 +197,10 @@ export const orders = pgTable(
 		orderStatus: orderStatus('order_status').notNull().default('CART'),
 		orderDate: timestamp('order_date'),
 		paymentMethodTitle: text('payment_method_title'),
-		cartDiscount: text('cart_discount'),
+		cartDiscount: integer('cart_discount').default(0),
 		orderSubtotal: integer('order_subtotal').notNull(),
-		orderTotal: text('order_total').notNull(),
-		orderRefund: integer('order_refund'),
+		orderTotal: integer('order_total').notNull(),
+		orderRefund: integer('order_refund').default(0),
 		createdAt: timestamp('created_at').notNull().defaultNow(),
 		updatedAt: timestamp('updated_at').notNull().defaultNow()
 	},
@@ -214,9 +214,13 @@ export const orders = pgTable(
 export const orderProducts = pgTable(
 	'order_products',
 	{
-		orderNumber: text('order_number').references(() => orders.orderNumber),
-		productId: text('product_id').notNull(),
-		lineId: integer('line_id').notNull(),
+		orderNumber: text('order_number')
+			.notNull()
+			.references(() => orders.orderNumber),
+		productId: integer('product_id')
+			.notNull()
+			.references(() => products.id),
+		lineId: serial('line_id'),
 		refunded: boolean('refunded').default(false),
 		itemPrice: integer('item_price').notNull()
 	},
@@ -236,7 +240,7 @@ export const orderProductsDownloads = pgTable(
 	{
 		id: serial('id').primaryKey(),
 		orderProductsOrderNumber: text('order_products_order_number'),
-		orderProductsProductId: text('product_id'),
+		orderProductsProductId: integer('order_products_product_id'),
 		downloadLink: text('download_link').notNull(),
 		downloadedAt: timestamp('downloaded_at').notNull().defaultNow()
 	},
@@ -319,7 +323,7 @@ export type ProductCategory = typeof productCategories.$inferSelect;
 export type Attribute = typeof attributes.$inferSelect;
 export type ProductAttribute = typeof productAttributes.$inferSelect;
 export type Order = typeof orders.$inferSelect;
-export type OrderProducts = typeof orderProducts.$inferSelect;
+export type OrderProduct = typeof orderProducts.$inferSelect;
 export type OrderProductsDownload = typeof orderProductsDownloads.$inferSelect;
 export type Coupon = typeof coupons.$inferSelect;
 export type OrderCoupon = typeof orderCoupons.$inferSelect;

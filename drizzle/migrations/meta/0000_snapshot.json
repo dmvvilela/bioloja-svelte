@@ -1,5 +1,5 @@
 {
-  "id": "502fbcec-61e8-492e-b162-c5953cffc5e1",
+  "id": "937aa915-88b8-4735-a1da-bd918c58a21c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -373,17 +373,17 @@
           "name": "order_number",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "product_id": {
           "name": "product_id",
-          "type": "text",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
         "line_id": {
           "name": "line_id",
-          "type": "integer",
+          "type": "serial",
           "primaryKey": false,
           "notNull": true
         },
@@ -430,6 +430,19 @@
           ],
           "onDelete": "no action",
           "onUpdate": "no action"
+        },
+        "order_products_product_id_products_id_fk": {
+          "name": "order_products_product_id_products_id_fk",
+          "tableFrom": "order_products",
+          "tableTo": "products",
+          "columnsFrom": [
+            "product_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {
@@ -448,6 +461,79 @@
           ]
         }
       },
+      "uniqueConstraints": {}
+    },
+    "order_products_downloads": {
+      "name": "order_products_downloads",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "order_products_order_number": {
+          "name": "order_products_order_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "order_products_product_id": {
+          "name": "order_products_product_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "download_link": {
+          "name": "download_link",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "downloaded_at": {
+          "name": "downloaded_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "idx_order_products_downloads_order_number_product_id": {
+          "name": "idx_order_products_downloads_order_number_product_id",
+          "columns": [
+            "order_products_order_number",
+            "order_products_product_id"
+          ],
+          "isUnique": false
+        },
+        "idx_order_products_downloads_download_link": {
+          "name": "idx_order_products_downloads_download_link",
+          "columns": [
+            "download_link"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "order_products_reference": {
+          "name": "order_products_reference",
+          "tableFrom": "order_products_downloads",
+          "tableTo": "order_products",
+          "columnsFrom": [
+            "order_products_order_number",
+            "order_products_product_id"
+          ],
+          "columnsTo": [
+            "order_number",
+            "product_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
     "orders": {
@@ -493,9 +579,10 @@
         },
         "cart_discount": {
           "name": "cart_discount",
-          "type": "text",
+          "type": "integer",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": 0
         },
         "order_subtotal": {
           "name": "order_subtotal",
@@ -505,7 +592,7 @@
         },
         "order_total": {
           "name": "order_total",
-          "type": "text",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
@@ -513,7 +600,8 @@
           "name": "order_refund",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": 0
         },
         "created_at": {
           "name": "created_at",
