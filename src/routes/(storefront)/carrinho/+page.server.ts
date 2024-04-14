@@ -51,7 +51,8 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 				orderNumber: carts.orderNumber,
 				discount: carts.discount,
 				couponCode: carts.couponCode,
-				couponExpired: sql`COALESCE((SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code), false)`,
+				couponExpired: sql`(SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code)`,
+				// couponExpired: sql`COALESCE((SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code), false)`,
 				subtotal:
 					sql`SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice}))`.mapWith(
 						Number
@@ -59,6 +60,18 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 				// couponExpired: sql`(SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code)`,
 				// discountedtotal: sql`SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice}))`,
 				// fullTotal: sql`SUM(${cartItems.itemPrice})`,
+				total: sql`
+          SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice})) - COALESCE(
+              (
+                  CASE 
+                      WHEN (SELECT type FROM coupons WHERE code = carts.coupon_code) = 'PERCENTAGE' THEN 
+                          ROUND(SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice})) * (SELECT value::numeric FROM coupons WHERE code = carts.coupon_code) / 100)
+                      WHEN (SELECT type FROM coupons WHERE code = carts.coupon_code) = 'FIXED_AMOUNT' THEN 
+                          ROUND((SELECT value::numeric FROM coupons WHERE code = carts.coupon_code))
+                  END
+              ), 
+              0
+          )`.mapWith(Number),
 				createdAt: carts.createdAt,
 				updatedAt: carts.updatedAt,
 				itemProducts: sql`array_agg(json_build_object(
@@ -68,10 +81,10 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
                   'lineId', cart_items.line_id,
                   'itemPrice', cart_items.item_price,
                   'itemDiscountPrice', cart_items.item_discount_price
-              ))`,
-				itemLineIds: sql`array_agg(${cartItems.lineId})`,
-				itemPrices: sql`array_agg(${cartItems.itemPrice})`,
-				itemDiscountPrices: sql`array_agg(${cartItems.itemDiscountPrice})`
+              ))`
+				// itemLineIds: sql`array_agg(${cartItems.lineId})`,
+				// itemPrices: sql`array_agg(${cartItems.itemPrice})`,
+				// itemDiscountPrices: sql`array_agg(${cartItems.itemDiscountPrice})`
 			})
 			.from(carts)
 			.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
