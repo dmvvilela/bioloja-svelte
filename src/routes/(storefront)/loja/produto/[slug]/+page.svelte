@@ -2,7 +2,7 @@
 	import Breadcrumbs from '$lib/components/layout/breadcrumbs.svelte';
 	import ProductCard from '$lib/components/product_card.svelte';
 	import MailingList from '$lib/components/layout/mailing_list.svelte';
-	import { getAllSlideImageUrls, getLocalePrice } from '$lib/utils/product';
+	import { addToCart, getAllSlideImageUrls, getLocalePrice } from '$lib/utils/product';
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
@@ -105,27 +105,6 @@
 			main.sync(thumbs.splide);
 		}
 	});
-
-	const addToCart = async () => {
-		console.log(product);
-		const response = await fetch('/api/cart', {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json'
-			},
-			body: JSON.stringify({
-				productId: product.id,
-				itemDiscountPrice: product.discount_price,
-				itemPrice: product.price
-			})
-		});
-
-		const json = await response.json();
-		if (!response.ok) console.error(json.message);
-
-		console.log(json);
-		// throw new Error(json.message);
-	};
 </script>
 
 <div class="bg-white">
@@ -248,7 +227,7 @@
 
 					<div class="mt-10 flex">
 						<button
-							on:click={addToCart}
+							on:click={() => addToCart(product.id)}
 							type="button"
 							class="btn btn-primary btn-md flex max-w-xs flex-1 items-center justify-center glass bg-primary-focus text-base border border-primary text-white px-8 py-3 font-medium border-transparent sm:w-full rounded-md hover:shadow-lg"
 							>Adicionar <svg

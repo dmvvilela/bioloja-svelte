@@ -3,9 +3,9 @@
 	import { categories } from '$lib/utils/data';
 	import { page } from '$app/stores';
 	import { goto, invalidateAll } from '$app/navigation';
+	import { cartItemsCount } from '$lib/stores/cart';
 
 	$: isLoggedIn = !!$page.data.user;
-	$: cartItemsCount = $page.data.cartItemsCount;
 
 	let query = '';
 
@@ -50,7 +50,7 @@
 			<button
 				on:click={() => goto('/loja?q=' + query)}
 				type="button"
-				class="bg-primary border border-primary text-white px-8 py-3 rounded-r-md hover:bg-transparent hover:text-primary transition active:scale-95 hidden md:flex"
+				class="bg-primary border border-primary tracking-[-0.02em] text-white px-8 py-3 rounded-r-md hover:bg-transparent hover:text-primary transition active:scale-95 hidden md:flex uppercase"
 				>Pesquisar</button
 			>
 		</div>
@@ -107,11 +107,11 @@
 				</svg>
 
 				<div class="text-xs leading-3 mt-1">Carrinho</div>
-				{#if cartItemsCount}
+				{#if $cartItemsCount}
 					<div
 						class="absolute right-0.5 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs"
 					>
-						{cartItemsCount}
+						{$cartItemsCount}
 					</div>
 				{/if}
 			</a>

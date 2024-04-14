@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
-	import type { Cart } from './types';
+	import type { Cart } from '../types';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -161,7 +161,7 @@
 				</div>
 				<div class="border-t border-gray-200 mt-8" />
 				<div class="container text-primary p-5 rounded-lg bg-white max-w-md mx-auto mt-8">
-					<div class="text-xl font-bold mb-4">Cupom de desconto</div>
+					<div class="text-xl font-bold mb-4 uppercase tracking-[-0.01em]">Cupom de desconto</div>
 					<div class="text-sm mb-4">Possui um cupom? Use-o aqui:</div>
 					<div
 						class="bg-gray-200/60 text-gray-800 rounded-lg px-4 py-2 flex items-center justify-between"

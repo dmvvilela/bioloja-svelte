@@ -1,13 +1,15 @@
 import { db } from '$lib/server/db/conn';
 import { carts, cartItems, products, coupons } from '$lib/server/db/schema';
 import { sql, and, eq, isNull, desc } from 'drizzle-orm';
-import type { PageServerLoad } from './$types';
 import { json } from '@sveltejs/kit';
 import type { Cart } from './types';
+import type { LayoutServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ locals, cookies }) => {
+export const load = (async ({ locals, cookies }) => {
 	const user = locals.user;
 	let cartId = cookies.get('cartId') || '';
+
+	console.log('loadingCart');
 
 	// Cart will be created when an item is added.
 	if (!cartId && !user?.id) {
@@ -78,8 +80,7 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 			.groupBy(carts.id, coupons.value, coupons.type, coupons.minAmount, coupons.maxAmount)
 	)[0] as Cart;
 
-	console.log(result);
-	console.log(result.products[0].categories);
+	// console.log(result);
 
 	let subtotal = 0;
 	let couponDiscount = 0;
@@ -123,7 +124,7 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 			total
 		}
 	};
-};
+}) satisfies LayoutServerLoad;
 
 // const carts = await db
 //     .select('*')
