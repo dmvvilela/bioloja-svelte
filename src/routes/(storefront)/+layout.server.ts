@@ -15,6 +15,7 @@ export const load: LayoutServerLoad = async ({ cookies, locals }) => {
 
 		try {
 			// TODO: Add cart items and save it to a svelte store
+			// actually just grab item count for header.. on cart page we do the rest..
 			cart = (await db.select().from(carts).where(clause))[0];
 			if (!cart) {
 				cookies.delete('cartId', { path: '/' });

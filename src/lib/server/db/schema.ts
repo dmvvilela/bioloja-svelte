@@ -16,7 +16,7 @@ import {
 export type DownloadLinksType = { name: string; url: string }[];
 
 export const userRoles = pgEnum('user_roles', ['USER', 'EDITOR', 'ADMIN']);
-export const couponTypes = pgEnum('coupon_types', ['PERCENTAGE', 'FIXED_AMOUNT']);
+export const couponTypes = pgEnum('coupon_types', ['PERCENTAGE', 'FIXED_AMOUNT']); // change to FLAT??
 export const orderStatus = pgEnum('order_status', [
 	'COMPLETED',
 	'PAYMENT_PENDING',

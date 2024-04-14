@@ -1,5 +1,5 @@
 import type { Actions } from './$types';
-import { sendTemplateEmail } from '$lib/server/mail/mail';
+import { sendTemplateEmail } from '$lib/server/mail';
 
 export const actions: Actions = {
 	default: async ({ request }) => {

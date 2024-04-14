@@ -6,7 +6,7 @@ import { db } from '$lib/server/db/conn';
 import { PUBLIC_BASE_URL } from '$env/static/public';
 import { createPasswordResetToken } from '$lib/server/auth/reset';
 import type { Actions, PageServerLoad } from './$types';
-import { sendTemplateEmail } from '$lib/server/mail/mail';
+import { sendTemplateEmail } from '$lib/server/mail';
 
 function sleep(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));

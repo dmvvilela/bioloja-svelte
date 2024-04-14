@@ -1,4 +1,4 @@
-import { renderEmailBody } from '$lib/server/mail/mail';
+import { renderEmailBody } from '$lib/server/mail';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ url }) => {

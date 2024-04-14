@@ -4,7 +4,7 @@ import { carts, cartItems, type Cart, type CartItem, type Product } from '$lib/s
 import { createId } from '$lib/server/ids';
 import { error, fail, json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { sql, eq } from 'drizzle-orm';
+import { eq, and } from 'drizzle-orm';
 
 // Create / update cart.
 export const POST: RequestHandler = async ({ request, cookies, locals }) => {
@@ -34,8 +34,24 @@ export const POST: RequestHandler = async ({ request, cookies, locals }) => {
 
 			await db.insert(carts).values(cart);
 		} else {
+			// Check if the item is already in the cart
+			const cartItem = await db
+				.select()
+				.from(cartItems)
+				.where(and(eq(cartItems.cartId, cartId), eq(cartItems.productId, productId)));
+			if (cartItem.length) {
+				return json({ message: 'Item is already in the cart.' });
+			}
+
 			// Fetch the existing cart from the database
 			cart = (await db.select().from(carts).where(eq(carts.id, cartId)))[0];
+			if (!cart) {
+				cookies.delete('cartId', { path: '/' });
+
+				fail(404, {
+					message: 'Cart not found.'
+				});
+			}
 		}
 
 		// Update cart amounts
@@ -57,30 +73,6 @@ export const POST: RequestHandler = async ({ request, cookies, locals }) => {
 		});
 
 		return json(cart);
-
-		// const result = (
-		// 	await db
-		// 		.select({
-		// 			cartId: carts.id,
-		// 			userId: carts.userId,
-		// 			orderNumber: carts.orderNumber,
-		// 			discount: carts.discount,
-		// 			couponCode: carts.couponCode,
-		// 			subtotal: carts.subtotal,
-		// 			total: carts.total,
-		// 			createdAt: carts.createdAt,
-		// 			updatedAt: carts.updatedAt,
-		// 			itemProductIds: sql`array_agg(${cartItems.productId})`,
-		// 			itemLineIds: sql`array_agg(${cartItems.lineId})`,
-		// 			itemPrices: sql`array_agg(${cartItems.itemPrice})`,
-		// 			itemDiscountPrices: sql`array_agg(${cartItems.itemDiscountPrice})`
-		// 		})
-		// 		.from(carts)
-		// 		.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
-		// 		.groupBy(carts.id)
-		// )[0];
-
-		// console.log(result);
 
 		// const price = product.discountPrice || product.price;
 		// const order = {
