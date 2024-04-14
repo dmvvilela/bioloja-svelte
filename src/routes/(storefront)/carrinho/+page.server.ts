@@ -57,6 +57,7 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
                 'id', products.id,
                 'slug', products.slug,
                 'name', products.name,
+                'categories', (SELECT array_agg(categories.name) FROM product_categories JOIN categories ON categories.id = product_categories.category_id WHERE product_categories.product_id = products.id),
                 'imageUrls', products.image_urls,
                 'lineId', cart_items.line_id,
                 'price', products.price,
@@ -78,6 +79,7 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 	)[0] as Cart;
 
 	console.log(result);
+	console.log(result.products[0].categories);
 
 	let subtotal = 0;
 	let couponDiscount = 0;

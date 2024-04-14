@@ -2,6 +2,7 @@ export type CartItem = {
 	id: number;
 	name: string;
 	slug: string;
+	categories: string[];
 	lineId: number;
 	price: number;
 	discountPrice: number | null;

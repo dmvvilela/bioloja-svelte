@@ -1,41 +1,11 @@
 <script lang="ts">
-	import slide1 from '$lib/images/slides1/Slide1.jpg';
-	import slide2 from '$lib/images/slides1/Slide2.jpg';
-	import slide3 from '$lib/images/slides1/Slide3.jpg';
-	import { getLocalePrice } from '$lib/utils/product';
+	import { getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
+	import type { Cart } from './types';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	console.log(data);
-	const products = [
-		{
-			id: 1,
-			category: 'Botânica, Seres Vivos',
-			name: 'Product 1',
-			slug: 'product-1',
-			image: slide1,
-			price: 1299,
-			discountPrice: 1099
-		},
-		{
-			id: 2,
-			category: 'Genética',
-			name: 'Product 2',
-			slug: 'product-2',
-			image: slide2,
-			price: 2100,
-			discountPrice: 1599
-		},
-		{
-			id: 3,
-			category: 'Promoções, Anatomia e Fisiologia Humana',
-			name: 'Product 3',
-			slug: 'product-3',
-			image: slide3,
-			price: 4230
-		}
-	];
+	$: cart = data.cart as Cart;
 </script>
 
 <div class="bg-white">
@@ -46,18 +16,18 @@
 				<h2 id="cart-heading" class="sr-only">Items no carrinho</h2>
 
 				<ul role="list" class="divide-y divide-gray-200 border-b border-t border-gray-200">
-					{#each products as product}
+					{#each cart.products as product}
 						<li class="flex py-1">
 							<div class="flex-shrink-0">
 								<img
-									src={product.image}
+									src={getSlideImageUrl(product.imageUrls)}
 									alt="Front of men&#039;s Basic Tee in sienna."
 									class="h-24 w-24 rounded-md object-contain object-center sm:h-40 sm:w-40"
 								/>
 							</div>
 
 							<div class="ml-4 flex flex-1 flex-col justify-between sm:ml-6 py-4">
-								<div class="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+								<div class="relative pr-9 sm:pr-12">
 									<div>
 										<div class="flex justify-between">
 											<h3 class="text-sm">
@@ -68,8 +38,8 @@
 												>
 											</h3>
 										</div>
-										<div class="mt-1 flex">
-											<p class="text-gray-400 text-sm">{product.category}</p>
+										<div class="mt-1 flex max-w-xs">
+											<p class="text-gray-400 text-sm">{product.categories.join(', ')}</p>
 											<!-- <p class="ml-4 border-l border-gray-200 pl-4 text-gray-500">Large</p> -->
 										</div>
 
@@ -141,7 +111,7 @@
 				<dl class="mt-6 space-y-4">
 					<div class="flex items-center justify-between">
 						<dt class="text-sm text-gray-600">Subtotal</dt>
-						<dd class="text-sm font-medium text-secondary">R$99,00</dd>
+						<dd class="text-sm font-medium text-secondary">R$ {getLocalePrice(cart.subtotal)}</dd>
 					</div>
 
 					<div class="flex items-center justify-between border-t border-gray-200 pt-4">
@@ -164,7 +134,7 @@
 								</span></span
 							>
 							<a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-								<span class="sr-only">Learn more about how tax is calculated</span>
+								<span class="sr-only">Remover cupom</span>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 24 24"
@@ -179,11 +149,13 @@
 								</svg>
 							</a>
 						</dt>
-						<dd class="text-sm font-medium text-secondary">R$8,32</dd>
+						<dd class="text-sm font-medium text-secondary">
+							-R$ {getLocalePrice(cart.couponDiscount || 0)}
+						</dd>
 					</div>
 					<div class="flex items-center justify-between border-t border-gray-200 pt-4">
 						<dt class="text-base font-medium text-secondary">Total do pedido</dt>
-						<dd class="text-base font-medium text-secondary">R$112,32</dd>
+						<dd class="text-base font-semibold text-secondary">R$ {getLocalePrice(cart.total)}</dd>
 					</div>
 				</dl>
 

@@ -27,9 +27,7 @@ export const POST: RequestHandler = async ({ request, cookies, locals }) => {
 			// Create a new cart on the database
 			cart = {
 				id: cartId,
-				userId: user?.id || null,
-				total: 0,
-				subtotal: 0
+				userId: user?.id || null
 			} as Cart;
 
 			await db.insert(carts).values(cart);

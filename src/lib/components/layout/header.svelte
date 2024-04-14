@@ -5,6 +5,7 @@
 	import { goto, invalidateAll } from '$app/navigation';
 
 	$: isLoggedIn = !!$page.data.user;
+	$: cartItemsCount = $page.data.cartItemsCount;
 
 	let query = '';
 
@@ -106,11 +107,13 @@
 				</svg>
 
 				<div class="text-xs leading-3 mt-1">Carrinho</div>
-				<div
-					class="absolute right-0.5 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs"
-				>
-					2
-				</div>
+				{#if cartItemsCount}
+					<div
+						class="absolute right-0.5 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs"
+					>
+						{cartItemsCount}
+					</div>
+				{/if}
 			</a>
 			<a
 				href={isLoggedIn ? '/minha-conta' : '/entrar'}

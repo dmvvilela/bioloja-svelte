@@ -16,15 +16,15 @@ export const load: LayoutServerLoad = async ({ cookies, locals }) => {
 
 		try {
 			// TODO: Add cart items and save it to a svelte store
-			// TODO: invalidate data
+			// TODO: invalidate data (maybe cart needs to depend on here cause here it might delete cartId)
 			const result = (
 				await db.select({ count: count() }).from(cartItems).where(eq(cartItems.cartId, cartId))
 			)[0];
 			if (!result) {
 				cookies.delete('cartId', { path: '/' });
+			} else {
+				itemsCount = result.count;
 			}
-
-			itemsCount = result.count;
 		} catch (e) {
 			console.error(e);
 		}
