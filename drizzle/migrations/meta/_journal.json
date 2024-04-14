@@ -8,6 +8,13 @@
       "when": 1713048208214,
       "tag": "0000_high_galactus",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1713106972818,
+      "tag": "0001_material_baron_strucker",
+      "breakpoints": true
     }
   ]
 }

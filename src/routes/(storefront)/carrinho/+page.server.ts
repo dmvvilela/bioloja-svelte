@@ -41,42 +41,26 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 				cartId: carts.id,
 				userId: carts.userId,
 				orderNumber: carts.orderNumber,
-				discount: carts.discount,
 				couponCode: carts.couponCode,
 				couponExpired: sql`(SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code)`,
-				// couponExpired: sql`COALESCE((SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code), false)`,
-				subtotal:
-					sql`SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice}))`.mapWith(
-						Number
-					),
-				// couponExpired: sql`(SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code)`,
-				// discountedtotal: sql`SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice}))`,
-				// fullTotal: sql`SUM(${cartItems.itemPrice})`,
-				total: sql`
-          SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice})) - COALESCE(
-              (
-                  CASE 
-                      WHEN NOT (SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code) THEN
-                          CASE 
-                              WHEN (SELECT type FROM coupons WHERE code = carts.coupon_code) = 'PERCENTAGE' THEN 
-                                  ROUND(SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice})) * (SELECT value::numeric FROM coupons WHERE code = carts.coupon_code) / 100)
-                              WHEN (SELECT type FROM coupons WHERE code = carts.coupon_code) = 'FIXED_AMOUNT' THEN 
-                                  (SELECT value::numeric FROM coupons WHERE code = carts.coupon_code)
-                          END
-                  END
-              ), 
-              0
-          )`.mapWith(Number),
+				couponUsed: sql`(SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code) >= (SELECT max_uses FROM coupons WHERE code = carts.coupon_code)`,
 				createdAt: carts.createdAt,
 				updatedAt: carts.updatedAt,
-				itemProducts: sql`array_agg(json_build_object(
-                  'productId', products.id,
-                  'productName', products.name,
-                  'productSlug', products.slug,
+				products: sql`array_agg(json_build_object(
+                  'id', products.id,
+                  'slug', products.slug,
+                  'name', products.name,
+                  'imageUrls', products.image_urls,
                   'lineId', cart_items.line_id,
-                  'itemPrice', cart_items.item_price,
-                  'itemDiscountPrice', cart_items.item_discount_price
-              ))`
+                  'price', products.price,
+                  'discountPrice', 
+                      CASE 
+                          WHEN products.discount_expires_at IS NOT NULL AND products.discount_expires_at < NOW() THEN 
+                              null
+                          ELSE 
+                              products.discount_price
+                      END
+                ))`
 				// itemLineIds: sql`array_agg(${cartItems.lineId})`,
 				// itemPrices: sql`array_agg(${cartItems.itemPrice})`,
 				// itemDiscountPrices: sql`array_agg(${cartItems.itemDiscountPrice})`
@@ -88,28 +72,31 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 			.where(clause)
 			.groupBy(carts.id)
 	)[0];
-	// const result = (
-	// 	await db
-	// 		.select({
-	// 			cartId: carts.id,
-	// 			userId: carts.userId,
-	// 			orderNumber: carts.orderNumber,
-	// 			discount: carts.discount,
-	// 			couponCode: carts.couponCode,
-	// 			subtotal: carts.subtotal,
-	// 			total: carts.total,
-	// 			createdAt: carts.createdAt,
-	// 			updatedAt: carts.updatedAt,
-	// 			itemProductIds: sql`array_agg(${cartItems.productId})`,
-	// 			itemLineIds: sql`array_agg(${cartItems.lineId})`,
-	// 			itemPrices: sql`array_agg(${cartItems.itemPrice})`,
-	// 			itemDiscountPrices: sql`array_agg(${cartItems.itemDiscountPrice})`
-	// 		})
-	// 		.from(carts)
-	// 		.where(clause)
-	// 		.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
-	// 		.groupBy(carts.id)
-	// )[0];
 
 	console.log(result);
 };
+
+// const carts = await db
+//     .select('*')
+//     .from(carts)
+//     .leftJoin(cartItems, eq(cartItems.cartId, carts.id))
+//     .leftJoin(products, eq(products.id, cartItems.productId))
+//     .leftJoin(coupons, eq(coupons.code, carts.couponCode))
+//     .where(clause)
+//     .groupBy(carts.id);
+
+// // Perform the calculations in JavaScript
+// carts.forEach(cart => {
+//     const subtotal = cart.cartItems.reduce((sum, item) => sum + (item.itemDiscountPrice || item.itemPrice), 0);
+//     let discount = 0;
+//     if (cart.coupon && !cart.couponExpired) {
+//         if (cart.coupon.type === 'PERCENTAGE') {
+//             discount = Math.round(subtotal * cart.coupon.value / 100);
+//         } else if (cart.coupon.type === 'FIXED_AMOUNT') {
+//             discount = cart.coupon.value;
+//         }
+//     }
+//     cart.subtotal = subtotal;
+//     cart.discount = discount;
+//     cart.total = subtotal - discount;
+// });

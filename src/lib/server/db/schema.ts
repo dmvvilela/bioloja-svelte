@@ -304,10 +304,7 @@ export const carts = pgTable(
 		id: text('id').primaryKey(),
 		userId: text('user_id').references(() => users.id),
 		orderNumber: text('order_number').references(() => orders.orderNumber),
-		discount: integer('discount').default(0),
 		couponCode: text('coupon_code').references(() => coupons.code),
-		subtotal: integer('subtotal').notNull(),
-		total: integer('total').notNull(),
 		createdAt: timestamp('created_at').notNull().defaultNow(),
 		updatedAt: timestamp('updated_at').notNull().defaultNow()
 	},
@@ -327,9 +324,7 @@ export const cartItems = pgTable(
 		productId: integer('product_id')
 			.notNull()
 			.references(() => products.id),
-		lineId: serial('line_id'),
-		itemPrice: integer('item_price').notNull(),
-		itemDiscountPrice: integer('item_discount_price')
+		lineId: serial('line_id')
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.cartId, table.productId] }),
