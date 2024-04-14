@@ -1,29 +1,34 @@
 import { db } from '$lib/server/db/conn';
-import { carts, type Cart } from '$lib/server/db/schema';
-import { and, eq } from 'drizzle-orm';
+import { cartItems, carts } from '$lib/server/db/schema';
+import { count, and, eq } from 'drizzle-orm';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ cookies, locals }) => {
 	const user = locals.user;
 	const cartId = cookies.get('cartId');
-	let cart: Cart | null = null;
+	let itemsCount = 0;
 
 	if (cartId) {
+		// TODO: maybe grab the cart to ensure the userid matches?
 		const clause = user
 			? and(eq(carts.userId, user.id), eq(carts.userId, user.id))
 			: eq(carts.id, cartId);
 
 		try {
 			// TODO: Add cart items and save it to a svelte store
-			// actually just grab item count for header.. on cart page we do the rest..
-			cart = (await db.select().from(carts).where(clause))[0];
-			if (!cart) {
+			// TODO: invalidate data
+			const result = (
+				await db.select({ count: count() }).from(cartItems).where(eq(cartItems.cartId, cartId))
+			)[0];
+			if (!result) {
 				cookies.delete('cartId', { path: '/' });
 			}
+
+			itemsCount = result.count;
 		} catch (e) {
 			console.error(e);
 		}
 	}
 
-	return { user: locals.user, session: locals.session, cart };
+	return { user: locals.user, session: locals.session, cartItemsCount: itemsCount };
 };

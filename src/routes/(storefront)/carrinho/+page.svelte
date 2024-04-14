@@ -3,7 +3,11 @@
 	import slide2 from '$lib/images/slides1/Slide2.jpg';
 	import slide3 from '$lib/images/slides1/Slide3.jpg';
 	import { getLocalePrice } from '$lib/utils/product';
+	import type { PageData } from './$types';
 
+	export let data: PageData;
+
+	console.log(data);
 	const products = [
 		{
 			id: 1,

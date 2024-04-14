@@ -54,56 +54,73 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
               'couponUsed', (SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code) >= (SELECT max_uses FROM coupons WHERE code = carts.coupon_code)
           ) ELSE NULL END`,
 				products: sql`array_agg(json_build_object(
-                  'id', products.id,
-                  'slug', products.slug,
-                  'name', products.name,
-                  'imageUrls', products.image_urls,
-                  'lineId', cart_items.line_id,
-                  'price', products.price,
-                  'discountPrice', 
-                      CASE 
-                          WHEN products.discount_expires_at IS NOT NULL AND products.discount_expires_at < NOW() THEN 
-                              null
-                          ELSE 
-                              products.discount_price
-                      END
-                ))`
-				// itemLineIds: sql`array_agg(${cartItems.lineId})`,
-				// itemPrices: sql`array_agg(${cartItems.itemPrice})`,
-				// itemDiscountPrices: sql`array_agg(${cartItems.itemDiscountPrice})`
+                'id', products.id,
+                'slug', products.slug,
+                'name', products.name,
+                'imageUrls', products.image_urls,
+                'lineId', cart_items.line_id,
+                'price', products.price,
+                'discountPrice', 
+                    CASE 
+                        WHEN products.discount_expires_at IS NOT NULL AND products.discount_expires_at < NOW() THEN 
+                            null
+                        ELSE 
+                            products.discount_price
+                    END
+              ))`
 			})
 			.from(carts)
 			.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
 			.leftJoin(products, eq(products.id, cartItems.productId))
 			.leftJoin(coupons, eq(coupons.code, carts.couponCode))
 			.where(clause)
-			// .groupBy(carts.id)
 			.groupBy(carts.id, coupons.value, coupons.type, coupons.minAmount, coupons.maxAmount)
 	)[0] as Cart;
 
 	console.log(result);
 
-	// let subtotal = 0;
-	// let discount = 0;
+	let subtotal = 0;
+	let couponDiscount = 0;
+	let productsDiscount = 0;
+	let total = 0;
 
-	// result.products.forEach(product => {
-	//     if (product.discountPrice) {
-	//         subtotal += product.price;
-	//         discount += product.price - product.discountPrice;
-	//     } else {
-	//         subtotal += product.price;
-	//     }
-	// });
+	result.products.forEach((product) => {
+		if (product.discountPrice) {
+			subtotal += product.discountPrice;
+			productsDiscount += product.price - product.discountPrice;
+		} else {
+			subtotal += product.price;
+		}
+	});
 
-	// let total = subtotal - discount;
+	// If there's a valid coupon, apply it to the total
+	const { coupon } = result;
+	if (coupon) {
+		if (!coupon.couponExpired && !coupon.couponUsed) {
+			if (!coupon.minAmount || subtotal >= coupon!.minAmount) {
+				if (!coupon.maxAmount || subtotal <= coupon!.maxAmount) {
+					if (coupon.type === 'PERCENTAGE') {
+						couponDiscount = Math.round((subtotal * coupon.value) / 100);
+					} else {
+						couponDiscount = coupon.value;
+					}
+				}
+			}
+		}
+	}
 
-	// // If there's a valid coupon, apply it to the total
-	// if (result.couponCode && !result.couponExpired && !result.couponUsed) {
-	//     // Apply coupon (this is just an example, you'll need to fetch the actual coupon details)
-	//     total -= /* coupon discount in cents */;
-	// }
+	total = subtotal - couponDiscount;
+	// console.log(`Subtotal: ${subtotal}, Discount: ${couponDiscount}, Total: ${total}`);
 
-	// console.log(`Subtotal: ${subtotal}, Discount: ${discount}, Total: ${total}`);
+	return {
+		cart: {
+			...result,
+			subtotal,
+			couponDiscount,
+			productsDiscount,
+			total
+		}
+	};
 };
 
 // const carts = await db
