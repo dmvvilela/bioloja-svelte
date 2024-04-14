@@ -22,13 +22,13 @@ export type CartCoupon = {
 export type Cart = {
 	cartId: string;
 	userId: string | null;
-	orderNumber: string | null;
+	orderNumber?: string | null;
 	couponDiscount: number | null;
 	productsDiscount: number | null;
-	coupon: CartCoupon | null;
+	coupon?: CartCoupon | null;
 	subtotal: number;
 	total: number;
 	products: CartItem[];
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt?: Date;
+	updatedAt?: Date;
 };

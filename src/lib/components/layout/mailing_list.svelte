@@ -26,11 +26,12 @@
 			<div class="relative">
 				<div class="mb-12 sm:text-center">
 					<h2 class="text-4xl font-extrabold text-white tracking-tight sm:text-4.5xl font-display">
-						Saiba quando adicionarmos novos materiais
+						<!-- Saiba quando adicionarmos novos materiais -->
+						Receba nossas promoções e novidades
 					</h2>
-					<p class="max-w-2xl mx-auto mt-6 text-lg text-bioloja-50">
-						Receba as novidades da Bioloja, recebendo ofertas exclusivas e avisos de novos materiais
-						publicados. Fique por dentro de nossas novidades!
+					<p class="max-w-xl mx-auto mt-6 text-lg text-bioloja-50">
+						Fique por dentro das novidades da Bioloja! Receba ofertas exclusivas e avisos de novos
+						materiais publicados.
 					</p>
 				</div>
 				<form class="sm:mx-auto sm:max-w-lg sm:flex">

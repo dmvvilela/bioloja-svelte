@@ -9,11 +9,10 @@ export const load = (async ({ locals, cookies }) => {
 	const user = locals.user;
 	let cartId = cookies.get('cartId') || '';
 
-	console.log('loadingCart');
-
-	// Cart will be created when an item is added.
-	if (!cartId && !user?.id) {
-		return json({ message: 'Cart is empty.' });
+	// If the user is not logged in, we use client side cart
+	// TODO: we dont need cartId anymore
+	if (!user || !cartId) {
+		return { cart: null };
 	}
 
 	// Try to recover cart from the database
