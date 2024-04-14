@@ -8,15 +8,22 @@ export type CartItem = {
 	imageUrls: string;
 };
 
+export type Coupon = {
+	code: string | null;
+	value: number | null;
+	type: string | null;
+	minAmount: number | null;
+	maxAmount: number | null;
+	couponExpired: boolean | null;
+	couponUsed: boolean | null;
+};
+
 export type Cart = {
 	cartId: string;
 	userId: string | null;
 	orderNumber: string | null;
 	discount: number;
-	couponCode: string | null;
-	couponValue: number | null;
-	couponUsed: boolean | null;
-	couponExpired: boolean | null;
+	coupon: Coupon | null;
 	subtotal: number;
 	total: number;
 	products: CartItem[];

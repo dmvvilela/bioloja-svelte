@@ -44,15 +44,15 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 				orderNumber: carts.orderNumber,
 				createdAt: carts.createdAt,
 				updatedAt: carts.updatedAt,
-				coupon: sql`json_build_object(
-          'code', carts.coupon_code, 
-          'value', coupons.value, 
-          'type', coupons.type, 
-          'minAmount', coupons.min_amount,
-          'maxAmount', coupons.max_amount,
-          'couponExpired', (SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code),
-          'couponUsed', (SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code) >= (SELECT max_uses FROM coupons WHERE code = carts.coupon_code),
-        )`,
+				coupon: sql`CASE WHEN carts.coupon_code IS NOT NULL THEN json_build_object(
+              'code', carts.coupon_code, 
+              'value', coupons.value::numeric, 
+              'type', coupons.type, 
+              'minAmount', coupons.min_amount::numeric,
+              'maxAmount', coupons.max_amount::numeric,
+              'couponExpired', (SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code),
+              'couponUsed', (SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code) >= (SELECT max_uses FROM coupons WHERE code = carts.coupon_code)
+          ) ELSE NULL END`,
 				products: sql`array_agg(json_build_object(
                   'id', products.id,
                   'slug', products.slug,
@@ -77,9 +77,9 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 			.leftJoin(products, eq(products.id, cartItems.productId))
 			.leftJoin(coupons, eq(coupons.code, carts.couponCode))
 			.where(clause)
-			.groupBy(carts.id)
-	)[0];
-	// as Cart;
+			// .groupBy(carts.id)
+			.groupBy(carts.id, coupons.value, coupons.type, coupons.minAmount, coupons.maxAmount)
+	)[0] as Cart;
 
 	console.log(result);
 
