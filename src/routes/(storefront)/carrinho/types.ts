@@ -1,10 +1,11 @@
 export type CartItem = {
-	productId: number;
-	productName: string;
-	productSlug: string;
+	id: number;
+	name: string;
+	slug: string;
 	lineId: number;
-	itemPrice: number;
-	itemDiscountPrice: number | null;
+	price: number;
+	discountPrice: number | null;
+	imageUrls: string;
 };
 
 export type Cart = {
@@ -13,9 +14,12 @@ export type Cart = {
 	orderNumber: string | null;
 	discount: number;
 	couponCode: string | null;
+	couponValue: number | null;
+	couponUsed: boolean | null;
+	couponExpired: boolean | null;
 	subtotal: number;
 	total: number;
+	products: CartItem[];
 	createdAt: Date;
 	updatedAt: Date;
-	itemProducts: CartItem[];
 };

@@ -15,6 +15,20 @@
       "when": 1713106972818,
       "tag": "0001_material_baron_strucker",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1713111514111,
+      "tag": "0002_harsh_lorna_dane",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1713111734262,
+      "tag": "0003_clean_stingray",
+      "breakpoints": true
     }
   ]
 }

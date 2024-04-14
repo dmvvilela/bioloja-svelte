@@ -3,6 +3,7 @@ import { carts, cartItems, products, coupons } from '$lib/server/db/schema';
 import { sql, and, eq, isNull, desc } from 'drizzle-orm';
 import type { PageServerLoad } from './$types';
 import { json } from '@sveltejs/kit';
+import type { Cart } from './types';
 
 export const load: PageServerLoad = async ({ locals, cookies }) => {
 	const user = locals.user;
@@ -41,11 +42,17 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 				cartId: carts.id,
 				userId: carts.userId,
 				orderNumber: carts.orderNumber,
-				couponCode: carts.couponCode,
-				couponExpired: sql`(SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code)`,
-				couponUsed: sql`(SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code) >= (SELECT max_uses FROM coupons WHERE code = carts.coupon_code)`,
 				createdAt: carts.createdAt,
 				updatedAt: carts.updatedAt,
+				coupon: sql`json_build_object(
+          'code', carts.coupon_code, 
+          'value', coupons.value, 
+          'type', coupons.type, 
+          'minAmount', coupons.min_amount,
+          'maxAmount', coupons.max_amount,
+          'couponExpired', (SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code),
+          'couponUsed', (SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code) >= (SELECT max_uses FROM coupons WHERE code = carts.coupon_code),
+        )`,
 				products: sql`array_agg(json_build_object(
                   'id', products.id,
                   'slug', products.slug,
@@ -72,8 +79,31 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
 			.where(clause)
 			.groupBy(carts.id)
 	)[0];
+	// as Cart;
 
 	console.log(result);
+
+	// let subtotal = 0;
+	// let discount = 0;
+
+	// result.products.forEach(product => {
+	//     if (product.discountPrice) {
+	//         subtotal += product.price;
+	//         discount += product.price - product.discountPrice;
+	//     } else {
+	//         subtotal += product.price;
+	//     }
+	// });
+
+	// let total = subtotal - discount;
+
+	// // If there's a valid coupon, apply it to the total
+	// if (result.couponCode && !result.couponExpired && !result.couponUsed) {
+	//     // Apply coupon (this is just an example, you'll need to fetch the actual coupon details)
+	//     total -= /* coupon discount in cents */;
+	// }
+
+	// console.log(`Subtotal: ${subtotal}, Discount: ${discount}, Total: ${total}`);
 };
 
 // const carts = await db
