@@ -1,13 +1,5 @@
 import { db } from '$lib/server/db/conn';
-import {
-	carts,
-	cartItems,
-	type Cart,
-	type CartItem,
-	type Product,
-	products,
-	coupons
-} from '$lib/server/db/schema';
+import { carts, cartItems, products, coupons } from '$lib/server/db/schema';
 import { sql, and, eq, isNull, desc } from 'drizzle-orm';
 import type { PageServerLoad } from './$types';
 import { json } from '@sveltejs/kit';
@@ -64,10 +56,13 @@ export const load: PageServerLoad = async ({ locals, cookies }) => {
           SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice})) - COALESCE(
               (
                   CASE 
-                      WHEN (SELECT type FROM coupons WHERE code = carts.coupon_code) = 'PERCENTAGE' THEN 
-                          ROUND(SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice})) * (SELECT value::numeric FROM coupons WHERE code = carts.coupon_code) / 100)
-                      WHEN (SELECT type FROM coupons WHERE code = carts.coupon_code) = 'FIXED_AMOUNT' THEN 
-                          ROUND((SELECT value::numeric FROM coupons WHERE code = carts.coupon_code))
+                      WHEN NOT (SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code) THEN
+                          CASE 
+                              WHEN (SELECT type FROM coupons WHERE code = carts.coupon_code) = 'PERCENTAGE' THEN 
+                                  ROUND(SUM(COALESCE(${cartItems.itemDiscountPrice}, ${cartItems.itemPrice})) * (SELECT value::numeric FROM coupons WHERE code = carts.coupon_code) / 100)
+                              WHEN (SELECT type FROM coupons WHERE code = carts.coupon_code) = 'FIXED_AMOUNT' THEN 
+                                  (SELECT value::numeric FROM coupons WHERE code = carts.coupon_code)
+                          END
                   END
               ), 
               0
