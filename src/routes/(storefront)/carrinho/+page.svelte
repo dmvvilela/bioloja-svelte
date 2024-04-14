@@ -116,38 +116,29 @@
 
 					<div class="flex items-center justify-between border-t border-gray-200 pt-4">
 						<dt class="flex text-sm text-gray-600">
-							<span
-								>Desconto <span class="badge badge-success badge-sm uppercase ml-1 py-2.5"
-									>biolojanota10
-									<!-- <svg
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24"
-										fill="currentColor"
-										class="w-5 h-5 ml-1.5 text-gray-600/80"
-									>
-										<path
-											fill-rule="evenodd"
-											d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-											clip-rule="evenodd"
-										/>
-									</svg> -->
-								</span></span
-							>
-							<a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-								<span class="sr-only">Remover cupom</span>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-									class="w-5 h-5 rounded-full text-gray-400 p-[1px] mt-[1px] -ml-1 hover:text-gray-600"
-								>
-									<path
-										fill-rule="evenodd"
-										d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-							</a>
+							<span>Desconto </span>
+							<span class="ml-1.5 flex">
+								{#if cart.coupon?.code}
+									<span class="badge badge-success badge-sm uppercase py-2.5"
+										>{cart.coupon.code}
+									</span>
+									<a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+										<span class="sr-only">Remover cupom</span>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											fill="currentColor"
+											class="w-5 h-5 rounded-full text-gray-400 p-[1px] mt-[1px] -ml-1 hover:text-gray-600"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+												clip-rule="evenodd"
+											/>
+										</svg>
+									</a>
+								{/if}
+							</span>
 						</dt>
 						<dd class="text-sm font-medium text-secondary">
 							-R$ {getLocalePrice(cart.couponDiscount || 0)}
@@ -183,7 +174,7 @@
 							class="text-lg font-semibold bg-transparent outline-none uppercase"
 						/>
 						<button
-							class="bg-primary text-white px-3 py-1 rounded hover:bg-white/80 font-medium hover:text-primary border border-primary focus:outline-none"
+							class="btn btn-sm bg-primary text-white px-2.5 py-1.5 rounded hover:bg-white/80 font-medium hover:text-primary border border-primary focus:outline-none"
 							>Aplicar</button
 						>
 					</div>
