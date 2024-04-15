@@ -1,17 +1,23 @@
 <script lang="ts">
 	import { loadStripe, type Stripe } from '@stripe/stripe-js';
 	import { Address, Elements, PaymentElement } from 'svelte-stripe';
-	import { onMount } from 'svelte';
+	import { beforeUpdate, onMount } from 'svelte';
 	import { PUBLIC_STRIPE_PUBLISHABLE_KEY } from '$env/static/public';
 	import { goto } from '$app/navigation';
 	import type { Cart } from '../../types';
 	import type { PageData } from './$types';
 	import { getLocalePrice, getSlideImageUrl, removeFromCart } from '$lib/utils/product';
+	import { browser } from '$app/environment';
 
 	export let data: PageData;
 
 	$: userId = data.user?.id;
 	$: cart = data.cart as Cart;
+
+	// TODO: Make this on server (check if it not cart first)
+	$: if (browser && !cart.products?.length) {
+		goto('/carrinho');
+	}
 
 	let stripe: any = null;
 	let clientSecret: any = null;
@@ -362,7 +368,7 @@
 				<div class="mt-4 rounded-lg border border-gray-200 bg-white shadow-sm">
 					<h3 class="sr-only">Items no seu carrinho</h3>
 					<ul role="list" class="divide-y divide-gray-200">
-						{#each cart.products as product}
+						{#each cart.products || [] as product}
 							<li class="flex px-4 py-6 sm:px-6">
 								<div class="flex-shrink-0 self-center">
 									<img
