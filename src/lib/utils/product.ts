@@ -19,13 +19,7 @@ export const addToCart = async (userId: string | undefined, productId: number) =
 	// If the user is not logged in we use the guest cart on client only
 	if (!userId) {
 		console.log('using client cart');
-		const response = await fetch('/api/product', {
-			method: 'GET',
-			headers: {
-				'content-type': 'application/json'
-			},
-			body: JSON.stringify({ productId })
-		});
+		const response = await fetch(`/api/product/${productId}`);
 
 		const json = await response.json();
 		if (!response.ok) throw new Error(json.message);

@@ -3,7 +3,7 @@ import { cartItems, carts } from '$lib/server/db/schema';
 import { count, and, eq } from 'drizzle-orm';
 import type { LayoutServerLoad } from './$types';
 
-export const load: LayoutServerLoad = async ({ cookies, locals }) => {
+export const load: LayoutServerLoad = async ({ locals }) => {
 	const user = locals.user;
 	let itemsCount = 0;
 

@@ -1,19 +1,18 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
-export type CartItem = {
+export type Product = {
 	id: number;
 	name: string;
 	slug: string;
 	categories: string[];
-	lineId: number;
 	price: number;
 	discountPrice: number | null;
 	imageUrls: string;
 };
 
 export type GuestCart = {
-	products: CartItem[];
+	products: Product[];
 	coupon?: {
 		code: string;
 		type: string;
@@ -45,7 +44,7 @@ const createGuestCartStore = (key: string) => {
 
 	return {
 		subscribe,
-		add: (product: CartItem) =>
+		add: (product: Product) =>
 			update((cart) => {
 				cart.products.push(product);
 				setLocalStorage(key, cart);

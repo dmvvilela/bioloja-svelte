@@ -6,7 +6,7 @@ import { error, fail, json } from '@sveltejs/kit';
 import { eq, and, isNull, desc } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
 
-// Create cart or add item to it.
+// Create cart if needed and add item to it.
 export const POST: RequestHandler = async ({ request, locals }) => {
 	const user = locals.user;
 	if (!user) {
