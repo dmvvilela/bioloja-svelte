@@ -10,7 +10,7 @@ import type { RequestHandler } from './$types';
 export const POST: RequestHandler = async ({ request, locals }) => {
 	const user = locals.user;
 	if (!user) {
-		fail(401, { error: 'user is not logged in' });
+		fail(401, { error: 'Usuário deslogado.' });
 	}
 
 	const { productId } = await request.json();
@@ -48,13 +48,13 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			.from(cartItems)
 			.where(and(eq(cartItems.cartId, cartId), eq(cartItems.productId, productId)));
 		if (cartItem.length) {
-			return json({ message: 'Item is already in the cart.' });
+			return json({ message: 'Produto já adicionado.', exists: true });
 		}
 
 		// Create cart item on the database
 		await db.insert(cartItems).values({ cartId, productId });
 
-		return json({ success: true });
+		return json({ message: 'Produto adicionado!' });
 	} catch (err: any) {
 		error(500, err.message);
 	}
@@ -64,7 +64,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 export const DELETE: RequestHandler = async ({ request, locals }) => {
 	const user = locals.user;
 	if (!user) {
-		fail(401, { error: 'user is not logged in' });
+		fail(401, { error: 'Usuário deslogado.' });
 	}
 
 	const { productId } = await request.json();
@@ -85,7 +85,7 @@ export const DELETE: RequestHandler = async ({ request, locals }) => {
 		)[0];
 
 		if (!cart) {
-			fail(404, { message: 'Cart not found.' });
+			fail(404, { message: 'Carrinho não encontrado.' });
 		}
 
 		// Remove cart item from the database

@@ -58,10 +58,19 @@ const createGuestCartStore = (key: string) => {
 		subscribe,
 		add: (product: Product) =>
 			update((cart) => {
-				cart.products.push(product);
-				cart.subtotal += product.discountPrice || product.price;
-				cart.total = cart.subtotal - cart.couponDiscount;
-				setLocalStorage(key, cart);
+				// Check if the product already exists in the cart
+				const productExists = cart.products.some(
+					(existingProduct) => existingProduct.id === product.id
+				);
+
+				// If the product doesn't exist, add it to the cart and update the totals
+				if (!productExists) {
+					cart.products.push(product);
+					cart.subtotal += product.discountPrice || product.price;
+					cart.total = cart.subtotal - cart.couponDiscount;
+					setLocalStorage(key, cart);
+				}
+
 				return cart;
 			}),
 		remove: (productId: number) =>

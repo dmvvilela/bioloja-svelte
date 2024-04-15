@@ -4,6 +4,7 @@
 	import PrivacyNotice from '$lib/components/layout/privacy_notice.svelte';
 	import { onMount } from 'svelte';
 	import { cartItemsCount, guestCart } from '$lib/stores/cart';
+	import { Toaster } from 'svelte-french-toast';
 	import type { LayoutData } from './$types';
 	import '../../app.css';
 
@@ -48,21 +49,7 @@
 
 <div class="relative">
 	<Header />
-	<!-- <button class="btn btn-primary">Button</button> -->
-	<!-- <Searchbox isOpen={isSearchOpen} {toggleSearch} /> -->
-	<!-- {#if $toasts}
-		<section class="fixed right-2.5 z-[999] mt-2.5 flex flex-col justify-center">
-			{#each $toasts as toast (toast.id)}
-				<Toast
-					type={toast.type}
-					dismissible={toast.dismissible}
-					on:dismiss={() => dismissToast(toast.id)}
-				>
-					{toast.message}
-				</Toast>
-			{/each}
-		</section>
-	{/if} -->
+	<Toaster />
 
 	<main>
 		<slot />

@@ -28,13 +28,16 @@
 						>Comprar Agora</button
 					>
 				</a>
-				<p class="mt-12 pt-4 text-sm text-gray-500 border-t border-gray-200">
-					Caso possua um carrinho em sua conta, experimente <a href="/entrar" class="link">Entrar</a
-					>.
-				</p>
-				<p class="mt-4 pt-4 text-sm text-gray-500">
-					Ainda não tem uma conta? <a href="/entrar" class="link">Cadastre-se</a>.
-				</p>
+				{#if !userId}
+					<p class="mt-12 pt-4 text-sm text-gray-500 border-t border-gray-200">
+						Caso possua um carrinho em sua conta, experimente <a href="/entrar" class="link"
+							>Entrar</a
+						>.
+					</p>
+					<p class="mt-4 pt-4 text-sm text-gray-500">
+						Ainda não tem uma conta? <a href="/entrar" class="link">Cadastre-se</a>.
+					</p>
+				{/if}
 			</div>
 		</div>
 		<MailingList />
