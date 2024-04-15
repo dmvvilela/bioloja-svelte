@@ -6,7 +6,7 @@
 	import { goto } from '$app/navigation';
 	import type { Cart } from '../../types';
 	import type { PageData } from './$types';
-	import { getLocalePrice } from '$lib/utils/product';
+	import { getLocalePrice, getSlideImageUrl, removeFromCart } from '$lib/utils/product';
 
 	export let data: PageData;
 
@@ -362,73 +362,69 @@
 				<div class="mt-4 rounded-lg border border-gray-200 bg-white shadow-sm">
 					<h3 class="sr-only">Items no seu carrinho</h3>
 					<ul role="list" class="divide-y divide-gray-200">
-						<li class="flex px-4 py-6 sm:px-6">
-							<div class="flex-shrink-0">
-								<img
-									src="https://tailwindui.com/img/ecommerce-images/checkout-page-02-product-01.jpg"
-									alt="Front of men&#039;s Basic Tee in black."
-									class="w-20 rounded-md"
-								/>
-							</div>
-
-							<div class="ml-6 flex flex-1 flex-col">
-								<div class="flex">
-									<div class="min-w-0 flex-1">
-										<h4 class="text-sm">
-											<a href="#" class="font-medium text-gray-700 hover:text-gray-800">Basic Tee</a
-											>
-										</h4>
-										<p class="mt-1 text-sm text-gray-500">Black</p>
-										<p class="mt-1 text-sm text-gray-500">Large</p>
-									</div>
-
-									<div class="ml-4 flow-root flex-shrink-0">
-										<button
-											type="button"
-											class="-m-2.5 flex items-center justify-center bg-white p-2.5 text-gray-400 hover:text-gray-500"
-										>
-											<span class="sr-only">Remover</span>
-											<svg
-												class="h-5 w-5"
-												viewBox="0 0 20 20"
-												fill="currentColor"
-												aria-hidden="true"
-											>
-												<path
-													fill-rule="evenodd"
-													d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-													clip-rule="evenodd"
-												/>
-											</svg>
-										</button>
-									</div>
+						{#each cart.products as product}
+							<li class="flex px-4 py-6 sm:px-6">
+								<div class="flex-shrink-0 self-center">
+									<img
+										src={getSlideImageUrl(product.imageUrls)}
+										alt="{product.name} capa"
+										class="w-28 rounded-sm"
+									/>
 								</div>
 
-								<div class="flex flex-1 items-end justify-between pt-2">
-									<p class="mt-1 text-sm font-medium text-gray-900">R$32.00</p>
+								<div class="ml-6 flex flex-1 flex-col">
+									<div class="flex">
+										<div class="min-w-0 flex-1">
+											<h4 class="text-base">
+												<a
+													href="/loja/produto/{product.slug}"
+													target="_blank"
+													class="font-medium text-gray-700 hover:text-gray-800">{product.name}</a
+												>
+											</h4>
+											<p class="mt-1 text-sm text-gray-500">{product.categories.join(', ')}</p>
+										</div>
 
-									<div class="ml-4">
-										<label for="quantity" class="sr-only">Quantidade</label>
-										<select
-											id="quantity"
-											name="quantity"
-											class="rounded-md border border-gray-300 text-left text-base font-medium text-gray-700 shadow-sm focus:border-bioloja-400 focus:outline-none focus:ring-1 focus:ring-bioloja-400 sm:text-sm"
-										>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-											<option value="6">6</option>
-											<option value="7">7</option>
-											<option value="8">8</option>
-										</select>
+										<div class="ml-4 flow-root flex-shrink-0">
+											<div class="tooltip" data-tip="Remover">
+												<button
+													type="button"
+													on:click={() => removeFromCart(userId, product.id)}
+													class="-m-2.5 flex items-center justify-center bg-white p-2.5 text-gray-400 hover:text-gray-500"
+												>
+													<span class="sr-only">Remover</span>
+													<svg
+														class="h-[17px] w-[17px]"
+														viewBox="0 0 20 20"
+														fill="currentColor"
+														aria-hidden="true"
+													>
+														<path
+															fill-rule="evenodd"
+															d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
+															clip-rule="evenodd"
+														/>
+													</svg>
+												</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="flex flex-1 items-end justify-between pt-2">
+										<div class="flex items-baseline space-x-2 mt-1">
+											<p class="text-sm text-primary font-semibold">
+												R${getLocalePrice(product.discountPrice || product.price)}
+											</p>
+											{#if product.discountPrice}
+												<p class="text-sm text-gray-400 line-through">
+													R${getLocalePrice(product.price)}
+												</p>
+											{/if}
+										</div>
 									</div>
 								</div>
-							</div>
-						</li>
-
-						<!-- More products... -->
+							</li>
+						{/each}
 					</ul>
 					<dl class="space-y-6 border-t border-gray-200 px-4 py-6 sm:px-6">
 						<div class="flex items-center justify-between">
@@ -436,8 +432,29 @@
 							<dd class="text-sm font-medium text-gray-900">R${getLocalePrice(cart.subtotal)}</dd>
 						</div>
 						<div class="flex items-center justify-between">
-							<dt class="text-sm">
-								Desconto {#if cart.coupon?.code}(Cupom: {cart.coupon?.code}){/if}
+							<dt class="text-sm flex">
+								Desconto <span class="ml-1.5 flex">
+									{#if cart.coupon?.code}
+										<span class="badge badge-success badge-sm uppercase py-2.5"
+											>{cart.coupon?.code}
+										</span>
+										<a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+											<span class="sr-only">Remover cupom</span>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												fill="currentColor"
+												class="w-5 h-5 rounded-full text-gray-400 p-[1px] mt-[1px] -ml-1 hover:text-gray-600"
+											>
+												<path
+													fill-rule="evenodd"
+													d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+													clip-rule="evenodd"
+												/>
+											</svg>
+										</a>
+									{/if}
+								</span>
 							</dt>
 							<dd class="text-sm font-medium text-gray-900">
 								- R${getLocalePrice(cart.couponDiscount || 0)}

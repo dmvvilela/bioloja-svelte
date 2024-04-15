@@ -55,7 +55,7 @@
 								<div class="flex-shrink-0">
 									<img
 										src={getSlideImageUrl(product.imageUrls)}
-										alt="Front of men&#039;s Basic Tee in sienna."
+										alt="{product.name} capa"
 										class="h-24 w-24 rounded-md object-contain object-center sm:h-40 sm:w-40"
 									/>
 								</div>
