@@ -1,3 +1,4 @@
+import { invalidate } from '$app/navigation';
 import { PUBLIC_IMAGES_BUCKET_URL } from '$env/static/public';
 import { cartItemsCount, guestCart } from '$lib/stores/cart';
 
@@ -40,7 +41,6 @@ export const addToCart = async (userId: string | undefined, productId: number) =
 	const json = await response.json();
 	if (!response.ok) throw new Error(json.message);
 
-	console.log(json);
 	cartItemsCount.update((count) => count + 1);
 };
 
@@ -64,6 +64,7 @@ export const removeFromCart = async (userId: string | undefined, productId: numb
 	const json = await response.json();
 	if (!response.ok) console.error(json.message);
 
-	console.log(json);
+	// Refetch cart data
+	invalidate('app:checkout');
 	cartItemsCount.update((count) => (count ? count - 1 : 0));
 };

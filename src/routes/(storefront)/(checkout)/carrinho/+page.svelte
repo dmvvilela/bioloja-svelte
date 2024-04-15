@@ -12,7 +12,7 @@
 </script>
 
 <div class="bg-white">
-	{#if !cart || !cart?.products.length}
+	{#if !cart || !cart?.products?.length}
 		<div class="mx-auto px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
 			<div class="max-w-2xl lg:max-w-3xl">
 				<h1 class="text-3xl font-bold tracking-tight text-secondary sm:text-4xl">Carrinho Vazio</h1>

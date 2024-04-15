@@ -1,6 +1,6 @@
 import { db } from '$lib/server/db/conn';
 import { cartItems, carts } from '$lib/server/db/schema';
-import { count, and, eq } from 'drizzle-orm';
+import { count, eq } from 'drizzle-orm';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ locals }) => {
@@ -14,7 +14,8 @@ export const load: LayoutServerLoad = async ({ locals }) => {
 				await db
 					.select({ count: count() })
 					.from(cartItems)
-					.where(and(eq(carts.userId, user.id), eq(carts.userId, user.id)))
+					.leftJoin(carts, eq(cartItems.cartId, carts.id))
+					.where(eq(carts.userId, user.id))
 			)[0];
 			if (result) {
 				itemsCount = result.count;

@@ -34,7 +34,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		if (cart) {
 			cartId = cart.id;
 		} else {
-			const cartId = createId();
+			cartId = createId();
 
 			await db.insert(carts).values({
 				id: cartId,
@@ -46,15 +46,15 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		const cartItem = await db
 			.select()
 			.from(cartItems)
-			.where(and(eq(cartItems.cartId, cartId!), eq(cartItems.productId, productId)));
+			.where(and(eq(cartItems.cartId, cartId), eq(cartItems.productId, productId)));
 		if (cartItem.length) {
 			return json({ message: 'Item is already in the cart.' });
 		}
 
 		// Create cart item on the database
-		await db.insert(cartItems).values({ cartId: cartId!, productId });
+		await db.insert(cartItems).values({ cartId, productId });
 
-		return json(cart);
+		return json({ success: true });
 	} catch (err: any) {
 		error(500, err.message);
 	}
@@ -93,7 +93,7 @@ export const DELETE: RequestHandler = async ({ request, locals }) => {
 			.delete(cartItems)
 			.where(and(eq(cartItems.cartId, cart.id), eq(cartItems.productId, productId)));
 
-		return json(cart);
+		return json({ success: true });
 	} catch (err: any) {
 		error(500, err.message);
 	}

@@ -1,11 +1,10 @@
 import { db } from '$lib/server/db/conn';
 import { carts, cartItems, products, coupons } from '$lib/server/db/schema';
 import { sql, and, eq, isNull, desc } from 'drizzle-orm';
-import { json } from '@sveltejs/kit';
 import type { Cart } from './types';
 import type { LayoutServerLoad } from './$types';
 
-export const load = (async ({ locals }) => {
+export const load = (async ({ locals, depends }) => {
 	const user = locals.user;
 
 	// If the user is not logged in, we use client side cart
@@ -22,9 +21,10 @@ export const load = (async ({ locals }) => {
 			.orderBy(desc(carts.createdAt))
 	)[0];
 	if (!cart) {
-		return json({ cart: null });
+		return { cart: null };
 	}
 
+	depends('app:checkout');
 	const cartId = cart.id;
 	const result = (
 		await db
@@ -43,28 +43,32 @@ export const load = (async ({ locals }) => {
               'couponExpired', (SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code),
               'couponUsed', (SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code) >= (SELECT max_uses FROM coupons WHERE code = carts.coupon_code)
           ) ELSE NULL END`,
-				products: sql`array_agg(json_build_object(
-                'id', products.id,
-                'slug', products.slug,
-                'name', products.name,
-                'categories', (SELECT array_agg(categories.name) FROM product_categories JOIN categories ON categories.id = product_categories.category_id WHERE product_categories.product_id = products.id),
-                'imageUrls', products.image_urls,
-                'lineId', cart_items.line_id,
-                'price', products.price,
-                'discountPrice', 
-                    CASE 
-                        WHEN products.discount_expires_at IS NOT NULL AND products.discount_expires_at < NOW() THEN 
-                            null
-                        ELSE 
-                            products.discount_price
-                    END
-              ))`
+				products: sql`array_agg(
+						CASE 
+							WHEN products.id IS NOT NULL THEN json_build_object(
+								'id', products.id,
+								'slug', products.slug,
+								'name', products.name,
+								'categories', (SELECT array_agg(categories.name) FROM product_categories JOIN categories ON categories.id = product_categories.category_id WHERE product_categories.product_id = products.id),
+								'imageUrls', products.image_urls,
+								'lineId', cart_items.line_id,
+								'price', products.price,
+								'discountPrice', 
+									CASE 
+										WHEN products.discount_expires_at IS NOT NULL AND products.discount_expires_at < NOW() THEN 
+											null
+										ELSE 
+											products.discount_price
+									END
+							)
+						END
+					) FILTER (WHERE products.id IS NOT NULL)`
 			})
 			.from(carts)
 			.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
 			.leftJoin(products, eq(products.id, cartItems.productId))
 			.leftJoin(coupons, eq(coupons.code, carts.couponCode))
-			.where(and(eq(carts.id, cartId), eq(carts.userId, user?.id)))
+			.where(and(eq(carts.id, cartId), eq(carts.userId, user!.id)))
 			.groupBy(carts.id, coupons.value, coupons.type, coupons.minAmount, coupons.maxAmount)
 	)[0] as Cart;
 
@@ -75,32 +79,34 @@ export const load = (async ({ locals }) => {
 	let productsDiscount = 0;
 	let total = 0;
 
-	result.products.forEach((product) => {
-		if (product.discountPrice) {
-			subtotal += product.discountPrice;
-			productsDiscount += product.price - product.discountPrice;
-		} else {
-			subtotal += product.price;
-		}
-	});
+	if (result.products) {
+		result.products.forEach((product) => {
+			if (product.discountPrice) {
+				subtotal += product.discountPrice;
+				productsDiscount += product.price - product.discountPrice;
+			} else {
+				subtotal += product.price;
+			}
+		});
 
-	// If there's a valid coupon, apply it to the total
-	const { coupon } = result;
-	if (coupon) {
-		if (!coupon.couponExpired && !coupon.couponUsed) {
-			if (!coupon.minAmount || subtotal >= coupon!.minAmount) {
-				if (!coupon.maxAmount || subtotal <= coupon!.maxAmount) {
-					if (coupon.type === 'PERCENTAGE') {
-						couponDiscount = Math.round((subtotal * coupon.value) / 100);
-					} else {
-						couponDiscount = coupon.value;
+		// If there's a valid coupon, apply it to the total
+		const { coupon } = result;
+		if (coupon) {
+			if (!coupon.couponExpired && !coupon.couponUsed) {
+				if (!coupon.minAmount || subtotal >= coupon!.minAmount) {
+					if (!coupon.maxAmount || subtotal <= coupon!.maxAmount) {
+						if (coupon.type === 'PERCENTAGE') {
+							couponDiscount = Math.round((subtotal * coupon.value) / 100);
+						} else {
+							couponDiscount = coupon.value;
+						}
 					}
 				}
 			}
 		}
-	}
 
-	total = subtotal - couponDiscount;
+		total = subtotal - couponDiscount;
+	}
 	// console.log(`Subtotal: ${subtotal}, Discount: ${couponDiscount}, Total: ${total}`);
 
 	return {
