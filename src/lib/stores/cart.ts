@@ -21,6 +21,7 @@ export type GuestCart = {
 	couponDiscount: number;
 	subtotal: number;
 	total: number;
+	createdAt: Date;
 };
 
 const getLocalStorage = (key: string) => {
@@ -37,13 +38,21 @@ const removeLocalStorage = (key: string) => {
 	browser && localStorage.removeItem(key);
 };
 
+const initCart = () => ({
+	products: [],
+	total: 0,
+	subtotal: 0,
+	couponDiscount: 0,
+	createdAt: new Date()
+});
+
 export const cartItemsCount = writable(0);
 
 const createGuestCartStore = (key: string) => {
 	const { subscribe, set, update } = writable<GuestCart>();
 
 	const cart = getLocalStorage(key);
-	set(cart || { products: [], total: 0, subtotal: 0, couponDiscount: 0 });
+	set(cart || initCart());
 
 	return {
 		subscribe,
@@ -94,7 +103,7 @@ const createGuestCartStore = (key: string) => {
 			}),
 		clear: () => {
 			removeLocalStorage(key);
-			set({ products: [], total: 0, subtotal: 0, couponDiscount: 0 });
+			set(initCart());
 		}
 	};
 };
