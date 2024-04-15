@@ -70,7 +70,8 @@ export const addToCart = async (userId: string | undefined, productId: number) =
 			error: 'Ocorreu um problema.'
 		},
 		{
-			position: 'bottom-right'
+			position: 'bottom-center',
+			style: 'border-radius: 200px; background: #333; color: #fff; padding: 12px;'
 		}
 	);
 };
@@ -115,7 +116,8 @@ export const removeFromCart = async (userId: string | undefined, productId: numb
 			error: 'Ocorreu um problema.'
 		},
 		{
-			position: 'bottom-right'
+			position: 'bottom-center',
+			style: 'border-radius: 200px; background: #333; color: #fff; padding: 12px;'
 		}
 	);
 };

@@ -1,5 +1,71 @@
 <script lang="ts">
+	import { loadStripe, type Stripe } from '@stripe/stripe-js';
+	import { Address, Elements, PaymentElement } from 'svelte-stripe';
+	import { onMount } from 'svelte';
+	import { PUBLIC_STRIPE_PUBLISHABLE_KEY } from '$env/static/public';
+	import { goto } from '$app/navigation';
+	import type { Cart } from '../../types';
+	import type { PageData } from './$types';
+	import { getLocalePrice } from '$lib/utils/product';
+
+	export let data: PageData;
+
+	$: userId = data.user?.id;
+	$: cart = data.cart as Cart;
+
+	let stripe: any = null;
+	let clientSecret: any = null;
+	let error: any = null;
+	let elements: any;
+	let processing = false;
+
 	// TODO: Remover layout. Deixar simples!
+	const createPaymentIntent = async () => {
+		const response = await fetch('/api/stripe/intent', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({})
+		});
+
+		const { clientSecret } = await response.json();
+		return clientSecret;
+	};
+
+	const submit = async () => {
+		// avoid processing duplicates
+		if (processing) return;
+
+		processing = true;
+
+		// confirm payment with stripe
+		const result = await stripe.confirmPayment({
+			elements,
+			redirect: 'if_required'
+		});
+
+		// create order
+		const orderNumber = 1234;
+
+		// log results, for debugging
+		console.log({ result });
+
+		if (result.error) {
+			// payment failed, notify user
+			error = result.error;
+			processing = false;
+		} else {
+			// payment succeeded, redirect to "thank you" page
+			goto(`/minha-conta/pedidos/${orderNumber}`);
+		}
+	};
+
+	onMount(async () => {
+		stripe = await loadStripe(PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
+		clientSecret = await createPaymentIntent();
+	});
 </script>
 
 <div class="bg-gray-50">
@@ -156,9 +222,39 @@
 
 				<!-- Payment -->
 				<div class="mt-10 border-t border-gray-200 pt-10">
-					<h2 class="text-lg font-medium text-gray-900">Pagamento</h2>
+					<h2 class="text-lg font-medium text-gray-900 mb-4">Pagamento</h2>
 
-					<fieldset class="mt-4">
+					{#if clientSecret}
+						<Elements
+							{stripe}
+							{clientSecret}
+							theme="flat"
+							labels="floating"
+							variables={{ colorPrimary: '#7895A3' }}
+							rules={{ '.Input': { border: 'solid 1px #0002' } }}
+							bind:elements
+						>
+							<form on:submit|preventDefault={submit}>
+								<PaymentElement />
+								<Address mode="billing" />
+
+								<button
+									class="mt-4 w-full uppercase font-semibold rounded-md border border-transparent bg-primary px-4 py-3 text-base text-white shadow-sm hover:bg-bioloja-700 focus:outline-none focus:ring-2 focus:ring-bioloja-400 focus:ring-offset-2 focus:ring-offset-gray-50"
+									disabled={processing}
+								>
+									{#if processing}
+										Processando...
+									{:else}
+										Confirmar pedido
+									{/if}
+								</button>
+							</form>
+						</Elements>
+					{:else}
+						Loading...
+					{/if}
+
+					<!-- <fieldset class="mt-4">
 						<legend class="sr-only">Tipo de pagamento</legend>
 						<div class="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
 							<div class="flex items-center">
@@ -254,8 +350,8 @@
 									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
 								/>
 							</div>
-						</div>
-					</div>
+						</div> 
+					</div> -->
 				</div>
 			</div>
 
@@ -337,15 +433,19 @@
 					<dl class="space-y-6 border-t border-gray-200 px-4 py-6 sm:px-6">
 						<div class="flex items-center justify-between">
 							<dt class="text-sm">Subotal</dt>
-							<dd class="text-sm font-medium text-gray-900">R$64,00</dd>
+							<dd class="text-sm font-medium text-gray-900">R${getLocalePrice(cart.subtotal)}</dd>
 						</div>
 						<div class="flex items-center justify-between">
-							<dt class="text-sm">Desconto (Cupom: BIOLOJANOTA10)</dt>
-							<dd class="text-sm font-medium text-gray-900">- R$0</dd>
+							<dt class="text-sm">
+								Desconto {#if cart.coupon?.code}(Cupom: {cart.coupon?.code}){/if}
+							</dt>
+							<dd class="text-sm font-medium text-gray-900">
+								- R${getLocalePrice(cart.couponDiscount || 0)}
+							</dd>
 						</div>
 						<div class="flex items-center justify-between border-t border-gray-200 pt-6">
 							<dt class="text-base font-medium">Total</dt>
-							<dd class="text-base font-medium text-gray-900">R$75,52</dd>
+							<dd class="text-base font-medium text-gray-900">R${getLocalePrice(cart.total)}</dd>
 						</div>
 					</dl>
 
@@ -355,6 +455,9 @@
 							class="w-full uppercase font-semibold rounded-md border border-transparent bg-primary px-4 py-3 text-base text-white shadow-sm hover:bg-bioloja-700 focus:outline-none focus:ring-2 focus:ring-bioloja-400 focus:ring-offset-2 focus:ring-offset-gray-50"
 							>Confirmar pedido</button
 						>
+						{#if error}
+							<p class="error">{error.message} Please try again.</p>
+						{/if}
 					</div>
 				</div>
 				<div class="mt-10 border-t border-gray-200 pt-10">

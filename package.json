@@ -24,6 +24,7 @@
 		"@neondatabase/serverless": "^0.9.0",
 		"@sentry/sveltekit": "^7.110.0",
 		"@splidejs/svelte-splide": "^0.2.9",
+		"@stripe/stripe-js": "^3.3.0",
 		"@sveltejs/adapter-auto": "^3.2.0",
 		"@sveltejs/kit": "^2.5.5",
 		"@sveltejs/vite-plugin-svelte": "^3.1.0",
