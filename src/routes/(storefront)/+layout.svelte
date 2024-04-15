@@ -3,7 +3,7 @@
 	import Header from '$lib/components/layout/header.svelte';
 	import PrivacyNotice from '$lib/components/layout/privacy_notice.svelte';
 	import { onMount } from 'svelte';
-	import { cartItemsCount } from '$lib/stores/cart';
+	import { cartItemsCount, guestCart } from '$lib/stores/cart';
 	import type { LayoutData } from './$types';
 	import '../../app.css';
 
@@ -14,7 +14,14 @@
 		'Aulas, apostilas, exercícios e simulados de Biologia para os Ensinos Fundamental/Médio/Superior e o Enem. Tanto para professores quanto alunos.';
 
 	onMount(() => {
-		cartItemsCount.set(data.cartItemsCount);
+		let itemsCount;
+		if (!data.user) {
+			itemsCount = guestCart.count;
+		} else {
+			itemsCount = data.cartItemsCount;
+		}
+
+		cartItemsCount.set(itemsCount);
 	});
 </script>
 

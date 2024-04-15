@@ -29,6 +29,13 @@
       "when": 1713111734262,
       "tag": "0003_clean_stingray",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1713136999756,
+      "tag": "0004_short_magus",
+      "breakpoints": true
     }
   ]
 }

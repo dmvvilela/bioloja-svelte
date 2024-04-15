@@ -5,38 +5,27 @@ import { json } from '@sveltejs/kit';
 import type { Cart } from './types';
 import type { LayoutServerLoad } from './$types';
 
-export const load = (async ({ locals, cookies }) => {
+export const load = (async ({ locals }) => {
 	const user = locals.user;
-	let cartId = cookies.get('cartId') || '';
 
 	// If the user is not logged in, we use client side cart
-	// TODO: we dont need cartId anymore
-	if (!user || !cartId) {
+	if (!user) {
 		return { cart: null };
 	}
 
-	// Try to recover cart from the database
-	if (!cartId && user?.id) {
-		const cart = (
-			await db
-				.select()
-				.from(carts)
-				.where(and(eq(carts.userId, user.id), isNull(carts.orderNumber)))
-				.orderBy(desc(carts.createdAt))
-		)[0];
-
-		if (cart) {
-			cartId = cart.id;
-			cookies.set('cartId', cartId, { path: '/' });
-		} else {
-			return json({ message: 'Cart is empty.' });
-		}
+	// Get cart from database
+	const cart = (
+		await db
+			.select()
+			.from(carts)
+			.where(and(eq(carts.userId, user.id), isNull(carts.orderNumber)))
+			.orderBy(desc(carts.createdAt))
+	)[0];
+	if (!cart) {
+		return json({ cart: null });
 	}
 
-	const clause = user
-		? and(eq(carts.id, cartId), eq(carts.userId, user?.id))
-		: eq(carts.id, cartId);
-
+	const cartId = cart.id;
 	const result = (
 		await db
 			.select({
@@ -75,7 +64,7 @@ export const load = (async ({ locals, cookies }) => {
 			.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
 			.leftJoin(products, eq(products.id, cartItems.productId))
 			.leftJoin(coupons, eq(coupons.code, carts.couponCode))
-			.where(clause)
+			.where(and(eq(carts.id, cartId), eq(carts.userId, user?.id)))
 			.groupBy(carts.id, coupons.value, coupons.type, coupons.minAmount, coupons.maxAmount)
 	)[0] as Cart;
 
@@ -124,28 +113,3 @@ export const load = (async ({ locals, cookies }) => {
 		}
 	};
 }) satisfies LayoutServerLoad;
-
-// const carts = await db
-//     .select('*')
-//     .from(carts)
-//     .leftJoin(cartItems, eq(cartItems.cartId, carts.id))
-//     .leftJoin(products, eq(products.id, cartItems.productId))
-//     .leftJoin(coupons, eq(coupons.code, carts.couponCode))
-//     .where(clause)
-//     .groupBy(carts.id);
-
-// // Perform the calculations in JavaScript
-// carts.forEach(cart => {
-//     const subtotal = cart.cartItems.reduce((sum, item) => sum + (item.itemDiscountPrice || item.itemPrice), 0);
-//     let discount = 0;
-//     if (cart.coupon && !cart.couponExpired) {
-//         if (cart.coupon.type === 'PERCENTAGE') {
-//             discount = Math.round(subtotal * cart.coupon.value / 100);
-//         } else if (cart.coupon.type === 'FIXED_AMOUNT') {
-//             discount = cart.coupon.value;
-//         }
-//     }
-//     cart.subtotal = subtotal;
-//     cart.discount = discount;
-//     cart.total = subtotal - discount;
-// });

@@ -19,13 +19,24 @@ export const addToCart = async (userId: string | undefined, productId: number) =
 	// If the user is not logged in we use the guest cart on client only
 	if (!userId) {
 		console.log('using client cart');
-		guestCart.add(productId);
+		const response = await fetch('/api/product', {
+			method: 'GET',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({ productId })
+		});
+
+		const json = await response.json();
+		if (!response.ok) throw new Error(json.message);
+
+		guestCart.add(json);
+		cartItemsCount.update((count) => count + 1);
 		return;
 	}
 
-	console.log('using database cart');
-
 	// If we have the user, we use the database's cart
+	console.log('using database cart');
 	const response = await fetch('/api/cart', {
 		method: 'POST',
 		headers: {
@@ -35,11 +46,10 @@ export const addToCart = async (userId: string | undefined, productId: number) =
 	});
 
 	const json = await response.json();
-	if (!response.ok) console.error(json.message);
+	if (!response.ok) throw new Error(json.message);
 
 	console.log(json);
 	cartItemsCount.update((count) => count + 1);
-	// throw new Error(json.message);
 };
 
 export const removeFromCart = async (userId: string | undefined, productId: number) => {
