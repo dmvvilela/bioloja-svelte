@@ -18,7 +18,6 @@ export const getLocalePrice = (price: number) => (price / 100).toFixed(2).replac
 export const addToCart = async (userId: string | undefined, productId: number) => {
 	// If the user is not logged in we use the guest cart on client only
 	if (!userId) {
-		console.log('using client cart');
 		const response = await fetch(`/api/product/${productId}`);
 
 		const json = await response.json();
@@ -30,7 +29,6 @@ export const addToCart = async (userId: string | undefined, productId: number) =
 	}
 
 	// If we have the user, we use the database's cart
-	console.log('using database cart');
 	const response = await fetch('/api/cart', {
 		method: 'POST',
 		headers: {
@@ -49,13 +47,10 @@ export const addToCart = async (userId: string | undefined, productId: number) =
 export const removeFromCart = async (userId: string | undefined, productId: number) => {
 	// If the user is not logged in we use the guest cart on client only
 	if (!userId) {
-		console.log('using client cart');
-
 		guestCart.remove(productId);
+		cartItemsCount.update((count) => (count ? count - 1 : 0));
 		return;
 	}
-
-	console.log('using database cart');
 
 	// If we have the user, we use the database's cart
 	const response = await fetch('/api/cart', {

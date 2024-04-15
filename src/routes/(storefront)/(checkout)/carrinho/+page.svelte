@@ -185,7 +185,7 @@
 					</dl>
 
 					<div class="mt-6">
-						<a href="/pedido/finalizar">
+						<a href={userId ? '/pedido/finalizar' : '/cadastrar'}>
 							<button
 								type="submit"
 								class="w-full uppercase rounded-md border border-transparent bg-primary px-4 py-3 text-base font-semibold text-white shadow-sm hover:bg-bioloja-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"

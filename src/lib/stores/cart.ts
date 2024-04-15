@@ -18,6 +18,9 @@ export type GuestCart = {
 		type: string;
 		value: number;
 	};
+	couponDiscount: number;
+	subtotal: number;
+	total: number;
 };
 
 const getLocalStorage = (key: string) => {
@@ -40,19 +43,26 @@ const createGuestCartStore = (key: string) => {
 	const { subscribe, set, update } = writable<GuestCart>();
 
 	const cart = getLocalStorage(key);
-	set(cart || { products: [] });
+	set(cart || { products: [], total: 0, subtotal: 0, couponDiscount: 0 });
 
 	return {
 		subscribe,
 		add: (product: Product) =>
 			update((cart) => {
 				cart.products.push(product);
+				cart.subtotal += product.discountPrice || product.price;
+				cart.total = cart.subtotal - cart.couponDiscount;
 				setLocalStorage(key, cart);
 				return cart;
 			}),
 		remove: (productId: number) =>
 			update((cart) => {
+				const product = cart.products.find((item) => item.id === productId);
 				const products = cart.products.filter((item) => item.id !== productId);
+				if (product) {
+					cart.subtotal -= product.discountPrice || product.price;
+					cart.total = cart.subtotal - cart.couponDiscount;
+				}
 				const newCart = { ...cart, products };
 				setLocalStorage(key, newCart);
 				return newCart;
@@ -84,7 +94,7 @@ const createGuestCartStore = (key: string) => {
 			}),
 		clear: () => {
 			removeLocalStorage(key);
-			set({ products: [] });
+			set({ products: [], total: 0, subtotal: 0, couponDiscount: 0 });
 		}
 	};
 };
