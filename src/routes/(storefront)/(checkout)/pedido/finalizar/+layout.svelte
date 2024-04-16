@@ -41,10 +41,12 @@
 			<div
 				class="container mx-auto px-6 lg:px-8 sm:flex sm:items-center sm:justify-between font-light"
 			>
-				<p class="text-bioloja-100 text-sm tracking-wide pl-2 sm:pl-0 mt-1 sm:mt-0">
+				<p
+					class="text-bioloja-100 text-sm tracking-wide pl-2 sm:pl-0 mt-1 sm:mt-0 text-center w-full"
+				>
 					&copy; Bioloja - Todos os direitos reservados.
 				</p>
-				<div class="sm:flex sm:space-x-2 font-extralight mt-4 mb-1 sm:my-0 lg:mr-4">
+				<!-- <div class="sm:flex sm:space-x-2 font-extralight mt-4 mb-1 sm:my-0 lg:mr-4">
 					<a href="/termos-e-condicoes"
 						><button class="btn btn-link btn-xs text-bioloja-400">Termos e Condições</button></a
 					>
@@ -52,7 +54,7 @@
 					<a href="/politica-de-privacidade">
 						<button class="btn btn-link btn-xs text-bioloja-400">Política de Privacidade</button></a
 					>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</footer>

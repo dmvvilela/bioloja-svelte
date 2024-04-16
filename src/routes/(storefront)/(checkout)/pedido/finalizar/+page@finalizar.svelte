@@ -307,9 +307,9 @@
 							</li>
 						{/each}
 					</ul>
-					<dl class="space-y-6 border-t border-gray-200 px-4 py-6 sm:px-6">
+					<dl class="space-y-4 border-t border-gray-200 px-4 py-6 sm:px-6">
 						<div class="flex items-center justify-between">
-							<dt class="text-sm">Subotal</dt>
+							<dt class="text-sm">Subtotal</dt>
 							<dd class="text-sm font-medium text-gray-900">R${getLocalePrice(cart.subtotal)}</dd>
 						</div>
 						<div class="flex items-center justify-between">
