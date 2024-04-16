@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { loadStripe, type Stripe } from '@stripe/stripe-js';
 	import { Address, Elements, PaymentElement } from 'svelte-stripe';
-	import { beforeUpdate, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { PUBLIC_STRIPE_PUBLISHABLE_KEY } from '$env/static/public';
 	import { goto } from '$app/navigation';
 	import type { Cart } from '../../types';
@@ -42,7 +42,6 @@
 	const submit = async () => {
 		// avoid processing duplicates
 		if (processing) return;
-
 		processing = true;
 
 		// confirm payment with stripe
@@ -51,7 +50,7 @@
 			redirect: 'if_required'
 		});
 
-		// create order
+		// create order and clear cart (add orderNumber to it, and clear storage)
 		const orderNumber = 1234;
 
 		// log results, for debugging
@@ -234,15 +233,23 @@
 						<Elements
 							{stripe}
 							{clientSecret}
-							theme="flat"
+							theme="stripe"
 							labels="floating"
-							variables={{ colorPrimary: '#7895A3' }}
+							fonts={[
+								{
+									cssSrc: 'https://fonts.googleapis.com/css?family=Poppins'
+								}
+							]}
+							variables={{
+								fontFamily: 'Poppins, Ideal Sans, system-ui, sans-serif',
+								colorPrimary: '#7895A3'
+							}}
 							rules={{ '.Input': { border: 'solid 1px #0002' } }}
 							bind:elements
 						>
 							<form on:submit|preventDefault={submit}>
 								<PaymentElement />
-								<Address mode="billing" />
+								<!-- <Address mode="billing" /> -->
 
 								<button
 									class="mt-4 w-full uppercase font-semibold rounded-md border border-transparent bg-primary px-4 py-3 text-base text-white shadow-sm hover:bg-bioloja-700 focus:outline-none focus:ring-2 focus:ring-bioloja-400 focus:ring-offset-2 focus:ring-offset-gray-50"
