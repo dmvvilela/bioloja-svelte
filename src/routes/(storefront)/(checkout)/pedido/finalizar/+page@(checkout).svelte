@@ -25,7 +25,6 @@
 	let elements: any;
 	let processing = false;
 
-	// TODO: Remover layout. Deixar simples!
 	const createPaymentIntent = async () => {
 		const response = await fetch('/api/stripe/intent', {
 			method: 'POST',
@@ -267,7 +266,7 @@
 											<p class="mt-1 text-sm text-gray-500">{product.categories.join(', ')}</p>
 										</div>
 
-										<div class="ml-4 flow-root flex-shrink-0">
+										<!-- <div class="ml-4 flow-root flex-shrink-0">
 											<div class="tooltip" data-tip="Remover">
 												<button
 													type="button"
@@ -289,7 +288,7 @@
 													</svg>
 												</button>
 											</div>
-										</div>
+										</div> -->
 									</div>
 
 									<div class="flex flex-1 items-end justify-between pt-2">
@@ -320,7 +319,7 @@
 										<span class="badge badge-success badge-sm uppercase py-2.5"
 											>{cart.coupon?.code}
 										</span>
-										<a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+										<!-- <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
 											<span class="sr-only">Remover cupom</span>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
@@ -334,7 +333,7 @@
 													clip-rule="evenodd"
 												/>
 											</svg>
-										</a>
+										</a> -->
 									{/if}
 								</span>
 							</dt>

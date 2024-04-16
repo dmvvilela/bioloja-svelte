@@ -110,6 +110,8 @@ export const load = (async ({ locals, depends }) => {
 	// console.log(`Subtotal: ${subtotal}, Discount: ${couponDiscount}, Total: ${total}`);
 
 	return {
+		user: locals.user,
+		session: locals.session,
 		cart: {
 			...result,
 			subtotal,

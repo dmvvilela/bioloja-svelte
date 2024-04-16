@@ -101,11 +101,6 @@
 </footer>
 
 <!-- copyright -->
-<!-- <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-	<p class="text-xs leading-5 text-gray-500">
-		&copy; 2020 Your Company, Inc. All rights reserved.
-	</p>
-</div> -->
 <div class="bg-secondary py-3">
 	<div class="container mx-auto px-6 lg:px-8 sm:flex sm:items-center sm:justify-between font-light">
 		<p class="text-bioloja-100 text-sm tracking-wide pl-2 sm:pl-0 mt-1 sm:mt-0">
