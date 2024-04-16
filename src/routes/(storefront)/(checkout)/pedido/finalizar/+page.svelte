@@ -90,15 +90,15 @@
 	<div class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
 		<h2 class="sr-only">Checkout</h2>
 
-		<form class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+		<form class="lg:grid lg:grid-cols-2 lg:gap-x-10 xl:gap-x-12">
 			<div>
 				<!-- Contact Info -->
 				<div>
 					<h2 class="text-lg font-medium text-gray-900">Informações de contato</h2>
 
 					<div class="mt-4">
-						<label for="email-address" class="block text-sm font-medium text-gray-700">E-mail</label
-						>
+						<!-- <label for="email-address" class="block text-sm font-medium text-gray-700">E-mail</label
+						> -->
 						<div class="mt-1">
 							<input
 								type="email"
@@ -107,15 +107,15 @@
 								autocomplete="email"
 								readonly
 								value={data.user?.email}
-								class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm disabled:bg-gray-200/80"
+								class="py-3 block w-full rounded-md border-gray-200 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 disabled:bg-gray-200/80"
 							/>
 						</div>
 					</div>
 
-					<div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-5 sm:gap-x-4">
+					<div class="mt-1.5 grid grid-cols-1 gap-y-1.5 sm:grid-cols-5 sm:gap-x-2.5">
 						<div class="col-span-3">
-							<label for="name" class="block text-sm font-medium text-gray-700">Nome completo</label
-							>
+							<!-- <label for="name" class="block text-sm font-medium text-gray-700">Nome completo</label
+							> -->
 							<div class="mt-1">
 								<input
 									type="text"
@@ -123,12 +123,13 @@
 									name="name"
 									autocomplete="name"
 									required
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
+									placeholder="Nome completo"
+									class="py-3 block w-full rounded-md border-gray-200 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400"
 								/>
 							</div>
 						</div>
 						<div class="col-span-2">
-							<label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
+							<!-- <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label> -->
 							<div class="mt-1">
 								<input
 									type="tel"
@@ -136,7 +137,8 @@
 									name="phone"
 									autocomplete="tel"
 									required
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
+									placeholder="Telefone"
+									class="py-3 block w-full rounded-md border-gray-200 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400"
 								/>
 							</div>
 						</div>
@@ -149,19 +151,9 @@
 						<legend class="text-lg font-medium text-gray-900">Informações de entrega</legend>
 
 						<div class="mt-4 max-w-md">
-							<!--
-                Checked: "border-transparent", Not Checked: "border-gray-300"
-                Active: "ring-2 ring-bioloja-400"
-              -->
-							<label class="relative flex rounded-lg bg-white p-4 shadow-sm focus:outline-none">
-								<input
-									type="radio"
-									name="delivery-method"
-									value="Standard"
-									class="sr-only"
-									aria-labelledby="delivery-method-0-label"
-									aria-describedby="delivery-method-0-description-0 delivery-method-0-description-1"
-								/>
+							<div
+								class="relative flex rounded-lg bg-white p-4 shadow-sm focus:outline-none -inset-px border-2 border-primary/80"
+							>
 								<span class="flex flex-1">
 									<span class="flex flex-col">
 										<span
@@ -181,7 +173,6 @@
 										>
 									</span>
 								</span>
-								<!-- Not Checked: "hidden" -->
 								<svg
 									class="h-5 w-5 text-bioloja-800"
 									viewBox="0 0 20 20"
@@ -194,15 +185,7 @@
 										clip-rule="evenodd"
 									/>
 								</svg>
-								<!--
-                  Active: "border", Not Active: "border-2"
-                  Checked: "border-bioloja-400", Not Checked: "border-transparent"
-                -->
-								<span
-									class="pointer-events-none absolute -inset-px rounded-lg border-2"
-									aria-hidden="true"
-								/>
-							</label>
+							</div>
 						</div>
 					</fieldset>
 				</div>

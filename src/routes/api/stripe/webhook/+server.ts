@@ -24,15 +24,16 @@ export const POST: RequestHandler = async ({ request }) => {
 	// Handle the event
 	switch (event!.type) {
 		case 'payment_intent.payment_failed':
-			const paymentIntentPaymentFailed = event.data.object;
+			// const paymentIntentPaymentFailed = event.data.object;
 			// Then define and call a function to handle the event payment_intent.payment_failed
 			break;
 		case 'payment_intent.requires_action':
-			const paymentIntentRequiresAction = event.data.object;
+			// const paymentIntentRequiresAction = event.data.object;
 			// Then define and call a function to handle the event payment_intent.requires_action
 			break;
 		case 'payment_intent.succeeded':
-			const paymentIntentSucceeded = event.data.object;
+			// TODO: If the order was boleto, we update order status here
+			// const paymentIntentSucceeded = event.data.object;
 			// Then define and call a function to handle the event payment_intent.succeeded
 			break;
 		// ... handle other event types
