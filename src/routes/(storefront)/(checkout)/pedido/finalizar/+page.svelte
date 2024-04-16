@@ -3,11 +3,11 @@
 	import { Address, Elements, PaymentElement } from 'svelte-stripe';
 	import { onMount } from 'svelte';
 	import { PUBLIC_STRIPE_PUBLISHABLE_KEY } from '$env/static/public';
-	import { goto } from '$app/navigation';
-	import type { Cart } from '../../types';
-	import type { PageData } from './$types';
+	import { goto, invalidate } from '$app/navigation';
 	import { getLocalePrice, getSlideImageUrl, removeFromCart } from '$lib/utils/product';
 	import { browser } from '$app/environment';
+	import type { Cart } from '../../types';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
 
@@ -32,7 +32,7 @@
 			headers: {
 				'content-type': 'application/json'
 			},
-			body: JSON.stringify({})
+			body: JSON.stringify({ amount: cart.total })
 		});
 
 		const { clientSecret } = await response.json();
@@ -50,9 +50,6 @@
 			redirect: 'if_required'
 		});
 
-		// create order and clear cart (add orderNumber to it, and clear storage)
-		const orderNumber = 1234;
-
 		// log results, for debugging
 		console.log({ result });
 
@@ -61,8 +58,24 @@
 			error = result.error;
 			processing = false;
 		} else {
-			// payment succeeded, redirect to "thank you" page
-			goto(`/minha-conta/pedidos/${orderNumber}`);
+			const response = await fetch('/api/order', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify({ userId, cartId: cart.cartId })
+			});
+
+			const { orderNumber } = await response.json();
+			if (orderNumber) {
+				// Cart is now empty
+				invalidate('app:checkout');
+
+				// Payment succeeded, redirect to order details page
+				goto(`/minha-conta/pedidos/${orderNumber}`);
+			} else {
+				// See what to do, cause payment was successful.. Discord was notificated
+			}
 		}
 	};
 
@@ -79,6 +92,7 @@
 
 		<form class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
 			<div>
+				<!-- Contact Info -->
 				<div>
 					<h2 class="text-lg font-medium text-gray-900">Informações de contato</h2>
 
@@ -91,133 +105,37 @@
 								id="email-address"
 								name="email-address"
 								autocomplete="email"
-								disabled
+								readonly
+								value={data.user?.email}
 								class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm disabled:bg-gray-200/80"
 							/>
 						</div>
 					</div>
 
-					<div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-						<div>
-							<label for="first-name" class="block text-sm font-medium text-gray-700"
-								>Primeiro nome</label
+					<div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-5 sm:gap-x-4">
+						<div class="col-span-3">
+							<label for="name" class="block text-sm font-medium text-gray-700">Nome completo</label
 							>
 							<div class="mt-1">
 								<input
 									type="text"
-									id="first-name"
-									name="first-name"
-									autocomplete="given-name"
+									id="name"
+									name="name"
+									autocomplete="name"
+									required
 									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
 								/>
 							</div>
 						</div>
-
-						<div>
-							<label for="last-name" class="block text-sm font-medium text-gray-700"
-								>Sobrenome</label
-							>
-							<div class="mt-1">
-								<input
-									type="text"
-									id="last-name"
-									name="last-name"
-									autocomplete="family-name"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div>
-
-						<div class="sm:col-span-2">
+						<div class="col-span-2">
 							<label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
 							<div class="mt-1">
 								<input
-									type="text"
-									name="phone"
+									type="tel"
 									id="phone"
+									name="phone"
 									autocomplete="tel"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div>
-
-						<div class="sm:col-span-2">
-							<label for="address" class="block text-sm font-medium text-gray-700">Endereço</label>
-							<div class="mt-1">
-								<input
-									type="text"
-									name="address"
-									id="address"
-									autocomplete="street-address"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div>
-
-						<div class="sm:col-span-2">
-							<label for="apartment" class="block text-sm font-medium text-gray-700"
-								>Complemento</label
-							>
-							<div class="mt-1">
-								<input
-									type="text"
-									name="apartment"
-									id="apartment"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div>
-
-						<div>
-							<label for="city" class="block text-sm font-medium text-gray-700">Cidade</label>
-							<div class="mt-1">
-								<input
-									type="text"
-									name="city"
-									id="city"
-									autocomplete="address-level2"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div>
-
-						<div>
-							<label for="country" class="block text-sm font-medium text-gray-700">País</label>
-							<div class="mt-1">
-								<select
-									id="country"
-									name="country"
-									autocomplete="country-name"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								>
-									<option>Brasil</option>
-									<option>Canada</option>
-									<option>Mexico</option>
-								</select>
-							</div>
-						</div>
-
-						<div>
-							<label for="region" class="block text-sm font-medium text-gray-700">Estado</label>
-							<div class="mt-1">
-								<input
-									type="text"
-									name="region"
-									id="region"
-									autocomplete="address-level1"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div>
-
-						<div>
-							<label for="postal-code" class="block text-sm font-medium text-gray-700">CEP</label>
-							<div class="mt-1">
-								<input
-									type="text"
-									name="postal-code"
-									id="postal-code"
-									autocomplete="postal-code"
+									required
 									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
 								/>
 							</div>
@@ -225,8 +143,72 @@
 					</div>
 				</div>
 
+				<!-- Shipping -->
+				<div class="mt-8 border-t border-gray-200 pt-8">
+					<fieldset>
+						<legend class="text-lg font-medium text-gray-900">Informações de entrega</legend>
+
+						<div class="mt-4 max-w-md">
+							<!--
+                Checked: "border-transparent", Not Checked: "border-gray-300"
+                Active: "ring-2 ring-bioloja-400"
+              -->
+							<label class="relative flex rounded-lg bg-white p-4 shadow-sm focus:outline-none">
+								<input
+									type="radio"
+									name="delivery-method"
+									value="Standard"
+									class="sr-only"
+									aria-labelledby="delivery-method-0-label"
+									aria-describedby="delivery-method-0-description-0 delivery-method-0-description-1"
+								/>
+								<span class="flex flex-1">
+									<span class="flex flex-col">
+										<span
+											id="delivery-method-0-label"
+											class="block text-sm font-medium text-gray-900"
+											>Download direto pelo site</span
+										>
+										<span
+											id="delivery-method-0-description-0"
+											class="mt-1 flex items-center text-sm text-gray-500"
+											>Senha no arquivo zip de download</span
+										>
+										<span
+											id="delivery-method-0-description-1"
+											class="mt-6 text-sm font-medium text-gray-900"
+											>7 dias para download.<br />3 downloads disponíveis.</span
+										>
+									</span>
+								</span>
+								<!-- Not Checked: "hidden" -->
+								<svg
+									class="h-5 w-5 text-bioloja-800"
+									viewBox="0 0 20 20"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path
+										fill-rule="evenodd"
+										d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+										clip-rule="evenodd"
+									/>
+								</svg>
+								<!--
+                  Active: "border", Not Active: "border-2"
+                  Checked: "border-bioloja-400", Not Checked: "border-transparent"
+                -->
+								<span
+									class="pointer-events-none absolute -inset-px rounded-lg border-2"
+									aria-hidden="true"
+								/>
+							</label>
+						</div>
+					</fieldset>
+				</div>
+
 				<!-- Payment -->
-				<div class="mt-10 border-t border-gray-200 pt-10">
+				<div class="mt-8 border-t border-gray-200 pt-8">
 					<h2 class="text-lg font-medium text-gray-900 mb-4">Pagamento</h2>
 
 					{#if clientSecret}
@@ -249,7 +231,7 @@
 						>
 							<form on:submit|preventDefault={submit}>
 								<PaymentElement />
-								<!-- <Address mode="billing" /> -->
+								<Address mode="billing" />
 
 								<button
 									class="mt-4 w-full uppercase font-semibold rounded-md border border-transparent bg-primary px-4 py-3 text-base text-white shadow-sm hover:bg-bioloja-700 focus:outline-none focus:ring-2 focus:ring-bioloja-400 focus:ring-offset-2 focus:ring-offset-gray-50"
@@ -261,110 +243,14 @@
 										Confirmar pedido
 									{/if}
 								</button>
+								{#if error}
+									<p class="error">{error.message}</p>
+								{/if}
 							</form>
 						</Elements>
 					{:else}
 						Loading...
 					{/if}
-
-					<!-- <fieldset class="mt-4">
-						<legend class="sr-only">Tipo de pagamento</legend>
-						<div class="space-y-4 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
-							<div class="flex items-center">
-								<input
-									id="credit-card"
-									name="payment-type"
-									type="radio"
-									checked
-									class="h-4 w-4 border-gray-300 text-primary focus:ring-bioloja-400"
-								/>
-								<label for="credit-card" class="ml-3 block text-sm font-medium text-gray-700"
-									>Cartão de crédito</label
-								>
-							</div>
-							<div class="flex items-center">
-								<input
-									id="pagseguro"
-									name="payment-type"
-									type="radio"
-									class="h-4 w-4 border-gray-300 text-primary focus:ring-bioloja-400"
-								/>
-								<label for="pagseguro" class="ml-3 block text-sm font-medium text-gray-700"
-									>PagSeguro / Boleto</label
-								>
-							</div>
-							<div class="flex items-center">
-								<input
-									id="paypal"
-									name="payment-type"
-									type="radio"
-									class="h-4 w-4 border-gray-300 text-primary focus:ring-bioloja-400"
-								/>
-								<label for="paypal" class="ml-3 block text-sm font-medium text-gray-700"
-									>PayPal</label
-								>
-							</div>
-						</div>
-					</fieldset>
-
-					<div class="mt-6 grid grid-cols-4 gap-x-4 gap-y-6">
-						<div class="col-span-4">
-							<label for="card-number" class="block text-sm font-medium text-gray-700"
-								>Número do cartão</label
-							>
-							<div class="mt-1">
-								<input
-									type="text"
-									id="card-number"
-									name="card-number"
-									autocomplete="cc-number"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div>
-
-						<div class="col-span-4">
-							<label for="name-on-card" class="block text-sm font-medium text-gray-700"
-								>Nome no cartão</label
-							>
-							<div class="mt-1">
-								<input
-									type="text"
-									id="name-on-card"
-									name="name-on-card"
-									autocomplete="cc-name"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div>
-
-						<div class="col-span-3">
-							<label for="expiration-date" class="block text-sm font-medium text-gray-700"
-								>Data de expiração (MM/AA)</label
-							>
-							<div class="mt-1">
-								<input
-									type="text"
-									name="expiration-date"
-									id="expiration-date"
-									autocomplete="cc-exp"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div>
-
-						<div>
-							<label for="cvc" class="block text-sm font-medium text-gray-700">CVC</label>
-							<div class="mt-1">
-								<input
-									type="text"
-									name="cvc"
-									id="cvc"
-									class="block w-full rounded-md border-gray-300 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 sm:text-sm"
-								/>
-							</div>
-						</div> 
-					</div> -->
 				</div>
 			</div>
 
@@ -478,79 +364,6 @@
 							<dd class="text-base font-medium text-gray-900">R${getLocalePrice(cart.total)}</dd>
 						</div>
 					</dl>
-
-					<div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-						<button
-							type="submit"
-							class="w-full uppercase font-semibold rounded-md border border-transparent bg-primary px-4 py-3 text-base text-white shadow-sm hover:bg-bioloja-700 focus:outline-none focus:ring-2 focus:ring-bioloja-400 focus:ring-offset-2 focus:ring-offset-gray-50"
-							>Confirmar pedido</button
-						>
-						{#if error}
-							<p class="error">{error.message} Please try again.</p>
-						{/if}
-					</div>
-				</div>
-				<div class="mt-10 border-t border-gray-200 pt-10">
-					<fieldset>
-						<legend class="text-lg font-medium text-gray-900">Informações de entrega</legend>
-
-						<div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-							<!--
-                Checked: "border-transparent", Not Checked: "border-gray-300"
-                Active: "ring-2 ring-bioloja-400"
-              -->
-							<label class="relative flex rounded-lg bg-white p-4 shadow-sm focus:outline-none">
-								<input
-									type="radio"
-									name="delivery-method"
-									value="Standard"
-									class="sr-only"
-									aria-labelledby="delivery-method-0-label"
-									aria-describedby="delivery-method-0-description-0 delivery-method-0-description-1"
-								/>
-								<span class="flex flex-1">
-									<span class="flex flex-col">
-										<span
-											id="delivery-method-0-label"
-											class="block text-sm font-medium text-gray-900"
-											>Download direto pelo site</span
-										>
-										<span
-											id="delivery-method-0-description-0"
-											class="mt-1 flex items-center text-sm text-gray-500"
-											>Senha no arquivo zip de download</span
-										>
-										<span
-											id="delivery-method-0-description-1"
-											class="mt-6 text-sm font-medium text-gray-900"
-											>7 dias para download.<br />3 downloads disponíveis.</span
-										>
-									</span>
-								</span>
-								<!-- Not Checked: "hidden" -->
-								<svg
-									class="h-5 w-5 text-bioloja-800"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										fill-rule="evenodd"
-										d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-								<!--
-                  Active: "border", Not Active: "border-2"
-                  Checked: "border-bioloja-400", Not Checked: "border-transparent"
-                -->
-								<span
-									class="pointer-events-none absolute -inset-px rounded-lg border-2"
-									aria-hidden="true"
-								/>
-							</label>
-						</div>
-					</fieldset>
 				</div>
 			</div>
 		</form>

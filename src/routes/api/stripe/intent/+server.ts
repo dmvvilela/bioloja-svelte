@@ -5,9 +5,11 @@ import type { RequestHandler } from './$types';
 
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
-export const POST: RequestHandler = async () => {
+export const POST: RequestHandler = async ({ request }) => {
+	const { amount } = await request.json();
+
 	const paymentIntent = await stripe.paymentIntents.create({
-		amount: 2000,
+		amount: amount,
 		currency: 'brl',
 		payment_method_types: ['card', 'boleto']
 		// automatic_payment_methods: {
