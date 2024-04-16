@@ -2,7 +2,7 @@ import { db } from '$lib/server/db/conn';
 import { carts, cartItems, products, coupons } from '$lib/server/db/schema';
 import { sql, and, eq, isNull, desc } from 'drizzle-orm';
 import type { Cart } from './types';
-import type { LayoutServerLoad } from './$types';
+import type { LayoutServerLoad } from '../$types';
 
 export const load = (async ({ locals, depends }) => {
 	const user = locals.user;
