@@ -7,7 +7,7 @@
 
 <mj-section mj-class="main-section-image">
 	<mj-column vertical-align="top" width="100%">
-		<mj-image src="https://bioloja.bio.br/wp-content/uploads/2018/04/Bioloja-aprovada-01.jpg" />
+		<mj-image src="https://bioimages.d2vsolutions.com/logo%2Ffull.jpg" />
 	</mj-column>
 </mj-section>
 

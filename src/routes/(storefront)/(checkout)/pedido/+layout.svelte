@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../../../../../app.css';
+	import '../../../../app.css';
 
 	const title = 'Bioloja - Materiais Didáticos de Biologia';
 	const description =

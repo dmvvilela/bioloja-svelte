@@ -50,48 +50,29 @@
 			contactError = null;
 		}
 
-		// avoid processing duplicates
+		// Avoid processing duplicates
 		if (processing) return;
 		processing = true;
 
-		// confirm payment with stripe
+		// Confirm payment with stripe
 		const result = await stripe.confirmPayment({
 			elements,
 			redirect: 'if_required'
 		});
 
-		// log results, for debugging
-		console.log({ result });
-
 		if (result.error) {
-			// payment failed, notify user
+			// Payment failed, notify user
 			error = result.error;
 			processing = false;
 		} else {
-			const response = await fetch('/api/order', {
-				method: 'POST',
-				headers: {
-					'content-type': 'application/json'
-				},
-				body: JSON.stringify({
-					userId,
-					name,
-					phone,
-					cart,
-					payment: result.paymentIntent
-				})
-			});
+			// Payment succeeded. We will create an order on the webhook
+			// We use a store to show the client the order
 
-			const { orderNumber } = await response.json();
-			if (orderNumber) {
-				// Cart is now empty
-				invalidate('app:checkout');
+			// Cart is now empty
+			invalidate('app:checkout');
 
-				// Payment succeeded, redirect to order details page
-				goto(`/minha-conta/pedidos/${orderNumber}`);
-			} else {
-				// See what to do, cause payment was successful.. Discord was notificated
-			}
+			// Payment succeeded, redirect to order details page
+			goto(`/pedido/confirmado?id=${result.paymentIntent.id}`);
 		}
 	};
 

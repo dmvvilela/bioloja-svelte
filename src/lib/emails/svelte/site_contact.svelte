@@ -64,7 +64,7 @@
 	<Section style={main}>
 		<Container style={container}>
 			<Img
-				src="https://bioloja.bio.br/wp-content/uploads/2018/04/Bioloja-aprovada-01.jpg"
+				src="https://bioimages.d2vsolutions.com/logo%2Ffull.jpg"
 				alt="Bioloja Logo"
 				style={logo}
 				width="534"

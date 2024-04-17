@@ -74,8 +74,8 @@
 	<Section style={main}>
 		<Container style={container}>
 			<Img
-				src="https://firebasestorage.googleapis.com/v0/b/anatomia-e-fisiologia-humanas.appspot.com/o/AFH_reduzida_principal.png?alt=media&token=3c661a73-463c-4fcd-a274-bc25a24cfdec"
-				alt="AFH logo"
+				src="https://bioimages.d2vsolutions.com/logo%2Ffull.jpg"
+				alt="Bioloja logo"
 				style={logo}
 				width="534"
 				height="244"

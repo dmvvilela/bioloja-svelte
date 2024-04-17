@@ -9,8 +9,8 @@
 <mj-section>
 	<mj-column width="100%">
 		<mj-image
-			href="https://anatomiaefisiologiahumana.com.br"
-			src="https://firebasestorage.googleapis.com/v0/b/anatomia-e-fisiologia-humanas.appspot.com/o/AFH_reduzida_principal.png?alt=media&token=3c661a73-463c-4fcd-a274-bc25a24cfdec"
+			href="https://bioloja.bio.br"
+			src="https://bioimages.d2vsolutions.com/logo%2Ffull.jpg"
 		/>
 	</mj-column>
 </mj-section>
