@@ -47,12 +47,7 @@
 		<!-- Image gallery -->
 		<div class="gallery group">
 			<div class="gallery--main">
-				<Splide
-					bind:this={main}
-					options={mainOptions}
-					on:active={() => console.log('Carousel active')}
-					on:updated={() => console.log('Carousel updated')}
-				>
+				<Splide bind:this={main} options={mainOptions}>
 					{#each images as image, i}
 						<SplideSlide>
 							<img
