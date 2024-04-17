@@ -21,7 +21,7 @@
 			itemsCount = data.cart?.products.length;
 		}
 
-		cartItemsCount.set(itemsCount);
+		cartItemsCount.set(itemsCount || 0);
 	});
 </script>
 

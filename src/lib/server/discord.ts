@@ -1,10 +1,10 @@
 import { PUBLIC_ENV } from '$env/static/public';
 
 export const sendNotification = (content: string) => {
-	// if (PUBLIC_ENV === 'development') {
-	// 	console.log('Discord notificado: ', content);
-	// 	return Promise.resolve('Discord notificado com sucesso');
-	// }
+	if (PUBLIC_ENV === 'development') {
+		console.log('Discord notificado: ', content);
+		return Promise.resolve('Discord notificado com sucesso');
+	}
 
 	return fetch(
 		'https://discord.com/api/webhooks/1229618278133923890/JwmR1_jDMt9NyFiR6lrcmJw37YNBaj_hLMikcuDkxepLNVKlwyYoYoCSabVFySIP8_Q3',

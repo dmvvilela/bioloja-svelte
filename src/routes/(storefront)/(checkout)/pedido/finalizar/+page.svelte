@@ -14,15 +14,12 @@
 	$: userId = data.user?.id;
 	$: cart = data.cart as Cart;
 
+	// Our form fields
 	let name = '';
 	let phone = '12345678'; // TODO: Remover
 	let contactError: string | null = null;
 
-	// TODO: Make this on server (check if it not cart first)
-	$: if (browser && !cart.products?.length) {
-		goto('/carrinho');
-	}
-
+	// Stripe fields
 	let stripe: any = null;
 	let clientSecret: any = null;
 	let error: any = null;
@@ -55,6 +52,7 @@
 		processing = true;
 
 		// Confirm payment with stripe
+		// TODO: If check for erros is needed.. add idempotency key on backend and retry..
 		const result = await stripe.confirmPayment({
 			elements,
 			redirect: 'if_required'
@@ -65,22 +63,34 @@
 			error = result.error;
 			processing = false;
 		} else {
-			// Payment succeeded. We will create an order on the webhook
-			// We use a store to show the client the order
+			// Payment succeeded. We create the order
+			const response = await fetch('/api/order', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify({ userId, name, phone, cart, payment: result.paymentIntent })
+			});
 
-			// Cart is now empty
-			invalidate('app:checkout');
+			const { orderNumber } = await response.json();
 
 			// Payment succeeded, redirect to order details page
-			goto(`/pedido/confirmado?id=${result.paymentIntent.id}`);
+			await goto(`/pedido/confirmado?order=${orderNumber}`);
+
+			// Cart should now be empty
+			invalidate('app:checkout');
 		}
 	};
 
 	onMount(async () => {
+		if (!cart) {
+			await goto('/carrinho');
+			return;
+		}
+
 		name = cart.userName || '';
 
 		stripe = await loadStripe(PUBLIC_STRIPE_PUBLISHABLE_KEY);
-
 		clientSecret = await createPaymentIntent();
 	});
 </script>
@@ -252,7 +262,7 @@
 				<div class="mt-4 rounded-lg border border-gray-200 bg-white shadow-sm">
 					<h3 class="sr-only">Items no seu carrinho</h3>
 					<ul role="list" class="divide-y divide-gray-200">
-						{#each cart.products || [] as product}
+						{#each cart?.products || [] as product}
 							<li class="flex px-4 py-6 sm:px-6">
 								<div class="flex-shrink-0 self-center">
 									<img
@@ -319,14 +329,14 @@
 					<dl class="space-y-4 border-t border-gray-200 px-4 py-6 sm:px-6">
 						<div class="flex items-center justify-between">
 							<dt class="text-sm">Subtotal</dt>
-							<dd class="text-sm font-medium text-gray-900">R${getLocalePrice(cart.subtotal)}</dd>
+							<dd class="text-sm font-medium text-gray-900">R${getLocalePrice(cart?.subtotal)}</dd>
 						</div>
 						<div class="flex items-center justify-between">
 							<dt class="text-sm flex">
 								Desconto <span class="ml-1.5 flex">
-									{#if cart.coupon?.code}
+									{#if cart?.coupon?.code}
 										<span class="badge badge-success badge-sm uppercase py-2.5"
-											>{cart.coupon?.code}
+											>{cart?.coupon?.code}
 										</span>
 										<!-- <a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
 											<span class="sr-only">Remover cupom</span>
@@ -347,12 +357,12 @@
 								</span>
 							</dt>
 							<dd class="text-sm font-medium text-gray-900">
-								- R${getLocalePrice(cart.couponDiscount || 0)}
+								- R${getLocalePrice(cart?.couponDiscount || 0)}
 							</dd>
 						</div>
 						<div class="flex items-center justify-between border-t border-gray-200 pt-6">
 							<dt class="text-base font-medium">Total</dt>
-							<dd class="text-base font-medium text-gray-900">R${getLocalePrice(cart.total)}</dd>
+							<dd class="text-base font-medium text-gray-900">R${getLocalePrice(cart?.total)}</dd>
 						</div>
 					</dl>
 				</div>

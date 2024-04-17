@@ -1,3 +1,59 @@
+export type BillingDetails = {
+	address: {
+		city: string;
+		country: string;
+		line1: string;
+		line2: null | string;
+		postal_code: string;
+		state: string;
+	};
+	email: string | null;
+	name: string;
+	phone: null | string;
+};
+
+export type Card = {
+	brand: string;
+	checks: {
+		address_line1_check: string;
+		address_postal_code_check: string;
+		cvc_check: string;
+	};
+	country: string;
+	display_brand: string;
+	exp_month: number;
+	exp_year: number;
+	fingerprint: string;
+	funding: string;
+	generated_from: string | null;
+	last4: string;
+	networks: {
+		available: string[];
+		preferred: string | null;
+	};
+	three_d_secure_usage: { supported: boolean };
+	wallet: string | null;
+};
+
+export type Boleto = {
+	fingerprint: string;
+	tax_id: string;
+};
+
+export type PaymentMethod = {
+	id: string;
+	object: string;
+	allow_redisplay?: string;
+	billing_details: BillingDetails;
+	card?: Card;
+	boleto?: Boleto;
+	created: number;
+	customer: string | null;
+	livemode: boolean;
+	metadata: Record<string, unknown>;
+	type: string;
+};
+
 export type PaymentIntent = {
 	id: string;
 	object: string;

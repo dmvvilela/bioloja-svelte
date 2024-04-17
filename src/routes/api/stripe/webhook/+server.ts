@@ -7,20 +7,6 @@ import { eq } from 'drizzle-orm';
 import type { WebhookEvent } from '$lib/types/stripe';
 import type { RequestHandler } from './$types';
 
-type BillingDetails = {
-	address: {
-		city: string;
-		country: string;
-		line1: string;
-		line2: null | string;
-		postal_code: string;
-		state: string;
-	};
-	email: string | null;
-	name: string;
-	phone: null | string;
-};
-
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
 export const POST: RequestHandler = async ({ request }) => {
@@ -34,6 +20,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			STRIPE_WEBHOOK_SECRET
 		) as WebhookEvent;
 
+		return new Response();
 		const payment = event.data.object;
 		const paymentId = payment.id;
 		const billing: BillingDetails = event.data?.object?.charges?.data?.[0]?.billing_details;
