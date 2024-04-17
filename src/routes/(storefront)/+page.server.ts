@@ -20,8 +20,10 @@ export const load = (async ({ setHeaders }) => {
 			discountExpiresAt: products.discountExpiresAt,
 			categoryId: productCategories.categoryId,
 			categoryName: categories.name,
+			categorySlug: categories.slug,
 			parentCategoryId: parentCategory.id,
-			parentCategoryName: parentCategory.name
+			parentCategoryName: parentCategory.name,
+			parentCategorySlug: parentCategory.slug
 		})
 		.from(products)
 		.innerJoin(productCategories, eq(productCategories.productId, products.id))
@@ -43,8 +45,10 @@ export const load = (async ({ setHeaders }) => {
 			discountExpiresAt: products.discountExpiresAt,
 			categoryId: productCategories.categoryId,
 			categoryName: categories.name,
+			categorySlug: categories.slug,
 			parentCategoryId: parentCategory.id,
-			parentCategoryName: parentCategory.name
+			parentCategoryName: parentCategory.name,
+			parentCategorySlug: parentCategory.slug
 		})
 		.from(products)
 		.innerJoin(productCategories, eq(productCategories.productId, products.id))

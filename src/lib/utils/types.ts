@@ -64,6 +64,7 @@ export type ProductType = {
 	discountExpiresAt?: Date | null;
 	categoryId: number;
 	categoryName: string;
+	categorySlug: string;
 	parentCategoryId?: number | null;
 	parentCategoryName?: string | null;
 };

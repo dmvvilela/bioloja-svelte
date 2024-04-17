@@ -1,28 +1,85 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { addToCart, getLocalePrice, getSlideImageUrl } from '$lib/utils/product';
+	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+	import { addToCart, getAllSlideImageUrls, getLocalePrice } from '$lib/utils/product';
+	import { onMount } from 'svelte';
 	import type { ProductType } from '$lib/utils/types';
+	import '@splidejs/svelte-splide/css';
 
 	export let product: ProductType;
 
 	$: userId = $page.data.user?.id;
 
-	// TODO: Make the fa links arrows to change slide like wimoveis
-	// TODO: reupload everything the correct way
+	const images = getAllSlideImageUrls(product.imageUrls).slice(0, 5);
+
+	// set up carousel config
+	const mainOptions = {
+		pagination: false,
+		lazyLoad: 'sequential' as 'nearby' | 'sequential',
+		type: 'loop'
+	};
+
+	// const thumbsOptions = {
+	// 	arrows: false,
+	// 	focus: 'center' as 'center',
+	// 	gap: 5,
+	// 	isNavigation: true,
+	// 	pagination: false,
+	// 	perMove: 1,
+	// 	perPage: 4,
+	// 	type: 'loop',
+	// 	updateOnMove: true
+	// };
+
+	// sync carousels
+	let main: any;
+	let thumbs: { splide: any };
+	onMount(() => {
+		if (main && thumbs) {
+			// console.log({ main, thumbs });
+			main.sync(thumbs.splide);
+		}
+	});
 </script>
 
 <div class="bg-gray-50/60 shadow-sm border rounded-md overflow-hidden group">
 	<div class="relative">
-		<img
-			src={getSlideImageUrl(product.imageUrls)}
-			alt="{product.productName} capa"
-			class="w-full aspect-video h-48 object-contain"
-		/>
+		<!-- Image gallery -->
+		<div class="gallery group">
+			<div class="gallery--main">
+				<Splide
+					bind:this={main}
+					options={mainOptions}
+					on:active={() => console.log('Carousel active')}
+					on:updated={() => console.log('Carousel updated')}
+				>
+					{#each images as image, i}
+						<SplideSlide>
+							<img
+								src={image}
+								alt="{product.productName} slide {i}"
+								class="w-full aspect-video h-48 object-contain"
+							/>
+						</SplideSlide>
+					{/each}
+				</Splide>
+			</div>
+			<!-- Image selector -->
+			<!-- <div class="gallery--thumbs mt-2">
+				<Splide id="gallery--thumbs" bind:this={thumbs} options={thumbsOptions}>
+					{#each images as image, i}
+						<SplideSlide>
+							<img src={image} alt="Thumb slide {i}" class="rounded-sm" />
+						</SplideSlide>
+					{/each}
+				</Splide>
+			</div> -->
+		</div>
 		<div
-			class="absolute inset-0 bg-black bg-opacity-40 flex items-center
+			class="absolute inset-0 bg-black bg-opacity-10 flex items-center
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
 		>
-			<a
+			<!-- <a
 				href="/loja/produto/{product.productSlug}"
 				class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
 				title="view product"
@@ -42,7 +99,6 @@
 					/>
 				</svg>
 			</a>
-			<!-- TODO: Mudar isso para ao lado do título no final -->
 			<a
 				href="#"
 				class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
@@ -62,11 +118,11 @@
 						d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
 					/>
 				</svg>
-			</a>
+			</a> -->
 		</div>
 	</div>
 	<div class="pt-4 pb-3 px-4 bg-white">
-		<a href="#">
+		<a href="/loja/categoria/{product.categorySlug}">
 			<h4
 				class="capitalize h-5 overflow-hidden leading-normal overflow-ellipsis font-medium text-sm mb-2 text-gray-400 hover:text-primary transition"
 			>
@@ -169,7 +225,7 @@
 	</div>
 	<button
 		on:click={() => addToCart(userId, product.productId)}
-		class="w-full py-1.5 lg:py-2.5 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition flex justify-center items-center"
+		class="btn btn-square w-full py-1.5 lg:py-2.5 text-center text-white bg-primary border border-primary rounded-b rounded-t-none hover:bg-transparent hover:text-primary transition flex justify-center items-center"
 	>
 		Adicionar
 		<svg
@@ -188,3 +244,30 @@
 		</svg>
 	</button>
 </div>
+
+<style>
+	/* .gallery--thumbs
+		:global(.splide__track--nav)
+		> :global(.splide__list)
+		> :global(.splide__slide.is-active) {
+		border: 2.5px solid #002336;
+		border-radius: 4px;
+	}
+
+	:global(.splide__pagination__page.is-active) {
+		background-color: #7895a3;
+	} */
+
+	:global(.splide__arrow) {
+		height: 24px !important;
+		width: 24px !important;
+		padding: 5px !important;
+		opacity: 0 !important;
+		transition: opacity 0.3s ease-in-out;
+		/* @apply !bg-primary !text-white; */
+	}
+
+	:global(.group:hover .splide__arrow) {
+		opacity: 1 !important;
+	}
+</style>

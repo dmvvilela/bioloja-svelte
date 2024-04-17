@@ -20,6 +20,7 @@ export const load = (async ({ setHeaders }) => {
 			discountExpiresAt: products.discountExpiresAt,
 			categoryId: productCategories.categoryId,
 			categoryName: categories.name,
+			categorySlug: categories.slug,
 			parentCategoryId: parentCategory.id,
 			parentCategoryName: parentCategory.name
 		})

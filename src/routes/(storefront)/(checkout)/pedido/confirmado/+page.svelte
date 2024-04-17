@@ -46,7 +46,7 @@
 			Estamos verificando o pagamento. Assim que concluído, seus downloads estarão disponíveis.
 		</p>
 	</div>
-	<div class="max-w-6xl mx-auto overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
+	<div class="max-w-6xl px-2 mx-auto overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
 		<div class="pt-4">
 			<div class="flex items-baseline">
 				<h1 class="py-2 text-4xl font-semibold text-secondary">Pedido confirmado</h1>
