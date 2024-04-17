@@ -1,5 +1,5 @@
 import { db } from '$lib/server/db/conn';
-import { carts, cartItems, products, coupons } from '$lib/server/db/schema';
+import { carts, cartItems, products, coupons, users } from '$lib/server/db/schema';
 import { sql, and, eq, isNull, desc } from 'drizzle-orm';
 import type { Cart } from './types';
 import type { LayoutServerLoad } from '../$types';
@@ -26,11 +26,14 @@ export const load = (async ({ locals, depends }) => {
 
 	depends('app:checkout');
 	const cartId = cart.id;
+
+	console.time('dbquery');
 	const result = (
 		await db
 			.select({
 				cartId: carts.id,
 				userId: carts.userId,
+				userName: users.name,
 				orderNumber: carts.orderNumber,
 				createdAt: carts.createdAt,
 				updatedAt: carts.updatedAt,
@@ -65,13 +68,21 @@ export const load = (async ({ locals, depends }) => {
 					) FILTER (WHERE products.id IS NOT NULL)`
 			})
 			.from(carts)
+			.leftJoin(users, eq(users.id, carts.userId))
 			.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
 			.leftJoin(products, eq(products.id, cartItems.productId))
 			.leftJoin(coupons, eq(coupons.code, carts.couponCode))
 			.where(and(eq(carts.id, cartId), eq(carts.userId, user!.id)))
-			.groupBy(carts.id, coupons.value, coupons.type, coupons.minAmount, coupons.maxAmount)
+			.groupBy(
+				carts.id,
+				users.name,
+				coupons.value,
+				coupons.type,
+				coupons.minAmount,
+				coupons.maxAmount
+			)
 	)[0] as Cart;
-
+	console.timeEnd('dbquery');
 	// console.log(result);
 
 	let subtotal = 0;

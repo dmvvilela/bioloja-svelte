@@ -14,6 +14,12 @@ import {
 } from 'drizzle-orm/pg-core';
 
 export type DownloadLinksType = { name: string; url: string }[];
+export type BoletoDisplayDetailsType = {
+	expires_at: number;
+	hosted_voucher_url: string;
+	number: string;
+	pdf: string;
+};
 
 export const userRoles = pgEnum('user_roles', ['USER', 'EDITOR', 'ADMIN']);
 export const couponTypes = pgEnum('coupon_types', ['PERCENTAGE', 'FIXED_AMOUNT']); // change to FLAT??
@@ -189,12 +195,17 @@ export const orders = pgTable(
 	'orders',
 	{
 		orderNumber: text('order_number').primaryKey(),
+		paymentId: text('payment_id').notNull(),
+		paymentMethodId: text('payment_method_id').notNull(),
 		userId: text('user_id')
 			.notNull()
 			.references(() => users.id),
+		userName: text('user_name').notNull(),
+		userPhone: text('user_phone').notNull(),
 		addressId: integer('address_id').references(() => addresses.id),
-		orderStatus: orderStatus('order_status').notNull().default('PROCESSING'),
+		orderStatus: orderStatus('order_status').notNull(),
 		paymentMethodTitle: text('payment_method_title'),
+		boletoDetails: jsonb('boleto_details').$type<BoletoDisplayDetailsType>(),
 		couponCode: text('coupon_code').references(() => coupons.code),
 		cartDiscount: integer('cart_discount').default(0),
 		orderSubtotal: integer('order_subtotal').notNull(),
@@ -282,14 +293,14 @@ export const addresses = pgTable(
 	'addresses',
 	{
 		id: serial('id').primaryKey(),
-		userId: text('user_id').references(() => users.id),
-		firstName: text('first_name').notNull(),
-		lastName: text('last_name').notNull(),
-		city: text('city').notNull(),
-		state: text('state').notNull(),
-		postalCode: text('postal_code').notNull(),
-		country: text('country').notNull(),
-		phone: text('phone').notNull(),
+		email: text('email'),
+		name: text('name'),
+		city: text('city'),
+		country: text('country'),
+		line1: text('line1'),
+		line2: text('line2'),
+		state: text('state'),
+		postalCode: text('postal_code'),
 		createdAt: timestamp('created_at').notNull().defaultNow(),
 		updatedAt: timestamp('updated_at').notNull().defaultNow()
 	},

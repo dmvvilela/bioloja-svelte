@@ -14,6 +14,10 @@
 	$: userId = data.user?.id;
 	$: cart = data.cart as Cart;
 
+	let name = '';
+	let phone = '12345678'; // TODO: Remover
+	let contactError: string | null = null;
+
 	// TODO: Make this on server (check if it not cart first)
 	$: if (browser && !cart.products?.length) {
 		goto('/carrinho');
@@ -39,6 +43,13 @@
 	};
 
 	const submit = async () => {
+		if (name.length < 3 || phone.length < 8) {
+			contactError = 'Insira um nome e um telefone válidos.';
+			return;
+		} else {
+			contactError = null;
+		}
+
 		// avoid processing duplicates
 		if (processing) return;
 		processing = true;
@@ -62,7 +73,13 @@
 				headers: {
 					'content-type': 'application/json'
 				},
-				body: JSON.stringify({ userId, cartId: cart.cartId })
+				body: JSON.stringify({
+					userId,
+					name,
+					phone,
+					cart,
+					payment: result.paymentIntent
+				})
 			});
 
 			const { orderNumber } = await response.json();
@@ -79,6 +96,8 @@
 	};
 
 	onMount(async () => {
+		name = cart.userName || '';
+
 		stripe = await loadStripe(PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 		clientSecret = await createPaymentIntent();
@@ -122,6 +141,7 @@
 									name="name"
 									autocomplete="name"
 									required
+									bind:value={name}
 									placeholder="Nome completo"
 									class="py-3 block w-full rounded-md border-gray-200 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400"
 								/>
@@ -137,11 +157,15 @@
 									autocomplete="tel"
 									required
 									placeholder="Telefone"
+									bind:value={phone}
 									class="py-3 block w-full rounded-md border-gray-200 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400"
 								/>
 							</div>
 						</div>
 					</div>
+					{#if contactError}
+						<p class="ml-2 mt-2 text-red-500">{contactError}</p>
+					{/if}
 				</div>
 
 				<!-- Shipping -->
@@ -226,7 +250,11 @@
 									{/if}
 								</button>
 								{#if error}
-									<p class="error">{error.message}</p>
+									<!-- <p class="error">{error.message}</p> -->
+									<p class="mt-2 text-red-500">Verifique os erros acima.</p>
+								{/if}
+								{#if contactError}
+									<p class="mt-2 text-red-500">{contactError}</p>
 								{/if}
 							</form>
 						</Elements>

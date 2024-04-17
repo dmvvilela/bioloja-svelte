@@ -15,9 +15,8 @@ export const sendNotification = (content: string) => {
 			},
 			body: JSON.stringify({
 				content,
-				username: 'Bioloja'
-				// avatar_url:
-				//   'https://d2vsolutions.com/assets/img/logo/apple-icon-152x152.png'
+				username: 'Bioloja',
+				avatar_url: 'https://bioloja.bio.br/wp-content/uploads/2018/04/Bioloja-aprovada-01.jpg'
 			})
 		}
 	)
