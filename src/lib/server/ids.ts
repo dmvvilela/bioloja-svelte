@@ -24,7 +24,7 @@ export const createOrderId = async () => {
 
 			if (id.length) continue;
 		} catch (err) {
-			console.log(err);
+			console.error(err);
 			throw new Error('An error ocurred checking IDs from DB');
 		}
 

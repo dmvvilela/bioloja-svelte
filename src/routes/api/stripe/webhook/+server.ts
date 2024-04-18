@@ -29,7 +29,6 @@ export const POST: RequestHandler = async ({ request }) => {
 			error(400, 'Order not found');
 		}
 
-		// TODO: Save log of webhooks!
 		// Handle the event
 		switch (event!.type) {
 			case 'payment_intent.payment_failed':
@@ -41,15 +40,16 @@ export const POST: RequestHandler = async ({ request }) => {
 				return new Response();
 			case 'payment_intent.succeeded':
 				// If the order was boleto, this will update the order status
-				// Also, independent of the order status, this will grab the user address
 				orderStatus = 'COMPLETED';
 				break;
 			default:
 				console.error(`Unhandled event type ${event!.type}`);
 		}
 
-		// Update the order
-		await db.update(orders).set({ orderStatus }).where(eq(orders.paymentId, orders.paymentId));
+		// Update the order status if needed
+		if (order.orderStatus != orderStatus) {
+			await db.update(orders).set({ orderStatus }).where(eq(orders.paymentId, orders.paymentId));
+		}
 	} catch (err: any) {
 		fail(400, { error: `Webhook Error: ${err.message}` });
 	}

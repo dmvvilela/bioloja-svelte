@@ -99,7 +99,7 @@ export const load = (async ({ locals, url }) => {
 			.where(and(eq(orders.userId, locals.user.id), eq(orders.orderNumber, orderNumber)))
 			.groupBy(orders.orderNumber)
 	)[0];
-	console.log(order);
+	// console.log(order);
 
 	// We need to fetch the payment method to get all the details
 	const payment = (await stripe.paymentMethods.retrieve(order.paymentMethodId)) as PaymentMethod;
