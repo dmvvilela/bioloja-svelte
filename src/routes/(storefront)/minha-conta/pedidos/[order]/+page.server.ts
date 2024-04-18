@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import { db } from '$lib/server/db/conn';
 import { orderProducts, orderProductsDownloads, orders } from '$lib/server/db/schema';
-import { and, count, eq, sql } from 'drizzle-orm';
+import { and, count, eq, inArray, sql } from 'drizzle-orm';
 import Stripe from 'stripe';
 import { STRIPE_SECRET_KEY } from '$env/static/private';
 import type { PageServerLoad } from './$types';
@@ -51,6 +51,11 @@ export type Order = {
 	updatedAt: Date;
 	orderProducts: OrderProduct[];
 };
+
+export type OrderDownloadsCount = {
+	name: string;
+	count: number;
+}[];
 
 export const load = (async ({ locals, params }) => {
 	const orderNumber = params.order;
@@ -106,22 +111,23 @@ export const load = (async ({ locals, params }) => {
 	)[0] as Order;
 	// console.log(order);
 
-	for (const product of order.orderProducts) {
-		const downloads = await db
-			.select({ name: orderProductsDownloads.linkName, count: count() })
-			.from(orderProductsDownloads)
-			.where(
-				and(
-					eq(orderProductsDownloads.orderNumber, orderNumber),
-					eq(orderProductsDownloads.productId, product.productId)
-				)
+	// Get downloads for all products
+	const productIds = order.orderProducts.map((product) => product.productId);
+	const downloads = await db
+		.select({ name: orderProductsDownloads.linkName, count: count() })
+		.from(orderProductsDownloads)
+		.where(
+			and(
+				eq(orderProductsDownloads.orderNumber, orderNumber),
+				inArray(orderProductsDownloads.productId, productIds)
 			)
-			.groupBy(orderProductsDownloads.linkName);
-		console.log(downloads);
-	}
+		)
+		.groupBy(orderProductsDownloads.linkName);
+
+	console.log(downloads);
 
 	// We need to fetch the payment method to get all the details
 	const payment = (await stripe.paymentMethods.retrieve(order.paymentMethodId)) as PaymentMethod;
 
-	return { order, payment };
+	return { order, downloads, payment };
 }) satisfies PageServerLoad;

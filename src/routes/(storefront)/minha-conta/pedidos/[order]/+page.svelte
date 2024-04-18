@@ -3,14 +3,16 @@
 	import type { DownloadLinksType } from '$lib/server/db/schema';
 	import type { PaymentMethod } from '$lib/types/stripe';
 	import { getImageUrl, getLocalePrice } from '$lib/utils/product';
+	import type { Order, OrderDownloadsCount } from './+page.server';
 	import type { PageData } from './$types';
-	import type { Order } from './+page.server';
 
 	export let data: PageData;
 
 	const order = data.order as Order;
+	const downloads = data.downloads as OrderDownloadsCount;
 	const payment = data.payment as PaymentMethod;
 
+	console.log(downloads);
 	const date = new Date(order.createdAt);
 	const formattedDate = date.toLocaleDateString('pt-BR', {
 		day: 'numeric',
@@ -41,10 +43,14 @@
 				productName: product.name,
 				linkName: downloadLink.name,
 				linkUrl: downloadLink.url,
-				lineId: product.lineId
+				lineId: product.lineId,
+				downloadsLeft:
+					3 - (downloads.find((download) => download.name === downloadLink.name)?.count || 0)
 			}))
 		)
 		.sort((a, b) => a.lineId - b.lineId);
+
+	console.log(links);
 
 	const downloadProduct = async (linkName: string, linkUrl: string, productId: number) => {
 		const response = await fetch('/api/product/download', {
@@ -221,11 +227,12 @@
 				{#each links as link}
 					<tr>
 						<th>{link.productName}</th>
-						<td>3</td>
+						<td>{link.downloadsLeft}</td>
 						<td>{link.linkName}</td>
 						<th>
 							<button
 								on:click={() => downloadProduct(link.linkName, link.linkUrl, link.productId)}
+								disabled={link.downloadsLeft <= 0}
 								class="btn btn-sm btn-success">Baixar</button
 							>
 						</th>
