@@ -197,6 +197,7 @@ export const orders = pgTable(
 		orderNumber: text('order_number').primaryKey(),
 		paymentId: text('payment_id').notNull(),
 		paymentMethodId: text('payment_method_id').notNull(),
+		paymentConfirmedAt: timestamp('payment_confirmed_at'),
 		userId: text('user_id')
 			.notNull()
 			.references(() => users.id),

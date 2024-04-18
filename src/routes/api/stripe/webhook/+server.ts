@@ -23,6 +23,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		const payment = event.data.object;
 		const paymentId = payment.id;
 		let orderStatus: any;
+		let paymentConfirmedAt: any;
 
 		const order = (await db.select().from(orders).where(eq(orders.paymentId, paymentId)))[0];
 		if (!order) {
@@ -34,6 +35,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			case 'payment_intent.payment_failed':
 				// Update the order, houston we have a problem
 				orderStatus = 'CANCELLED';
+				paymentConfirmedAt = null;
 				break;
 			case 'payment_intent.requires_action':
 				// Do nothing, we already handled it
@@ -41,6 +43,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			case 'payment_intent.succeeded':
 				// If the order was boleto, this will update the order status
 				orderStatus = 'COMPLETED';
+				paymentConfirmedAt = new Date();
 				break;
 			default:
 				console.error(`Unhandled event type ${event!.type}`);
@@ -48,7 +51,10 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		// Update the order status if needed
 		if (order.orderStatus != orderStatus) {
-			await db.update(orders).set({ orderStatus }).where(eq(orders.paymentId, orders.paymentId));
+			await db
+				.update(orders)
+				.set({ orderStatus, paymentConfirmedAt })
+				.where(eq(orders.paymentId, orders.paymentId));
 		}
 	} catch (err: any) {
 		fail(400, { error: `Webhook Error: ${err.message}` });
