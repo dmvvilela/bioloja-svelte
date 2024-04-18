@@ -1,18 +1,18 @@
 <script lang="ts">
 	import StatusBadge from '$lib/components/status_badge.svelte';
+	import { getImageUrl, getLocalePrice } from '$lib/utils/product';
 	import type { DownloadLinksType } from '$lib/server/db/schema';
 	import type { PaymentMethod } from '$lib/types/stripe';
-	import { getImageUrl, getLocalePrice } from '$lib/utils/product';
 	import type { Order, OrderDownloadsCount } from './+page.server';
 	import type { PageData } from './$types';
+	import { invalidate } from '$app/navigation';
 
 	export let data: PageData;
 
 	const order = data.order as Order;
-	const downloads = data.downloads as OrderDownloadsCount;
 	const payment = data.payment as PaymentMethod;
+	$: downloads = data.downloads as OrderDownloadsCount;
 
-	console.log(downloads);
 	const date = new Date(order.createdAt);
 	const formattedDate = date.toLocaleDateString('pt-BR', {
 		day: 'numeric',
@@ -29,14 +29,7 @@
 		year: 'numeric'
 	});
 
-	// const links = order.orderProducts.flatMap((product) =>
-	// 	(product.downloadLinks as DownloadLinksType).map((downloadLink) => ({
-	// 		productName: product.name,
-	// 		linkName: downloadLink.name,
-	// 		linkUrl: downloadLink.url
-	// 	}))
-	// );
-	const links = order.orderProducts
+	$: links = order.orderProducts
 		.flatMap((product) =>
 			(product.downloadLinks as DownloadLinksType).map((downloadLink) => ({
 				productId: product.productId,
@@ -45,12 +38,10 @@
 				linkUrl: downloadLink.url,
 				lineId: product.lineId,
 				downloadsLeft:
-					3 - (downloads.find((download) => download.name === downloadLink.name)?.count || 0)
+					3 - (downloads?.find((download) => download.name === downloadLink.name)?.count || 0)
 			}))
 		)
 		.sort((a, b) => a.lineId - b.lineId);
-
-	console.log(links);
 
 	const downloadProduct = async (linkName: string, linkUrl: string, productId: number) => {
 		const response = await fetch('/api/product/download', {
@@ -65,7 +56,10 @@
 				linkUrl
 			})
 		});
+
 		const { link } = await response.json();
+		invalidate('order:details');
+
 		window.open(link, '_blank');
 	};
 </script>

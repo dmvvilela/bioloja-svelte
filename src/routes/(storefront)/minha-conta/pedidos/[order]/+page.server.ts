@@ -57,7 +57,9 @@ export type OrderDownloadsCount = {
 	count: number;
 }[];
 
-export const load = (async ({ locals, params }) => {
+export const load = (async ({ locals, params, depends }) => {
+	depends('order:details');
+
 	const orderNumber = params.order;
 
 	if (!locals.user) {
@@ -123,8 +125,7 @@ export const load = (async ({ locals, params }) => {
 			)
 		)
 		.groupBy(orderProductsDownloads.linkName);
-
-	console.log(downloads);
+	// console.log(downloads);
 
 	// We need to fetch the payment method to get all the details
 	const payment = (await stripe.paymentMethods.retrieve(order.paymentMethodId)) as PaymentMethod;
