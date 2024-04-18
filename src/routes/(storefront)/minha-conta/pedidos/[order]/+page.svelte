@@ -22,14 +22,8 @@
 		minute: '2-digit'
 	});
 
-	date.setDate(date.getDate() + 7);
-	const downloadLimitDate = date.toLocaleDateString('pt-BR', {
-		day: 'numeric',
-		month: 'long',
-		year: 'numeric'
-	});
-
 	let downloadsExpired = !order.paymentConfirmedAt;
+	let downloadLimitFormattedDate = '';
 	if (order.paymentConfirmedAt) {
 		const now = new Date();
 		const paymentConfirmedDate = new Date(order.paymentConfirmedAt!);
@@ -39,6 +33,14 @@
 		if (!order.paymentConfirmedAt || now > downloadExpirationDate) {
 			downloadsExpired = true;
 		}
+
+		downloadLimitFormattedDate = downloadExpirationDate.toLocaleDateString('pt-BR', {
+			day: 'numeric',
+			month: 'long',
+			year: 'numeric',
+			hour: '2-digit',
+			minute: '2-digit'
+		});
 	}
 
 	$: links = order.orderProducts
@@ -218,7 +220,7 @@
 		<hr class="mt-6 mb-8" />
 		<p class="py-2 text-xl font-semibold">Downloads</p>
 		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
-			<p class="text-gray-600">Disponíveis até {downloadLimitDate}.</p>
+			<p class="text-gray-600">Disponíveis até {downloadLimitFormattedDate}.</p>
 		</div>
 		<div class="overflow-x-auto mb-6">
 			<table class="table">
@@ -239,7 +241,7 @@
 							<th>
 								<button
 									on:click={() => downloadProduct(link.linkName, link.linkUrl, link.productId)}
-									disabled={link.downloadsLeft <= 0}
+									disabled={downloadsExpired || link.downloadsLeft <= 0}
 									class="btn btn-sm btn-success">Baixar</button
 								>
 							</th>
