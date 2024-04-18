@@ -37,6 +37,7 @@
 	const links = order.orderProducts
 		.flatMap((product) =>
 			(product.downloadLinks as DownloadLinksType).map((downloadLink) => ({
+				productId: product.productId,
 				productName: product.name,
 				linkName: downloadLink.name,
 				linkUrl: downloadLink.url,
@@ -45,11 +46,20 @@
 		)
 		.sort((a, b) => a.lineId - b.lineId);
 
-	const downloadProduct = async (url: string) => {
-		const response = await fetch('/api/product/download?link=' + url);
+	const downloadProduct = async (linkName: string, linkUrl: string, productId: number) => {
+		const response = await fetch('/api/product/download', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				orderNumber: order.orderNumber,
+				productId,
+				linkName,
+				linkUrl
+			})
+		});
 		const { link } = await response.json();
-		console.log(link);
-
 		window.open(link, '_blank');
 	};
 </script>
@@ -195,7 +205,7 @@
 	<hr class="mt-6 mb-8" />
 	<p class="py-2 text-xl font-semibold">Downloads</p>
 	<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
-		<p class="text-gray-600">Disponíveis até {downloadLimitDate}</p>
+		<p class="text-gray-600">Disponíveis até {downloadLimitDate}.</p>
 	</div>
 	<div class="overflow-x-auto mb-6">
 		<table class="table">
@@ -214,8 +224,9 @@
 						<td>3</td>
 						<td>{link.linkName}</td>
 						<th>
-							<button on:click={() => downloadProduct(link.linkUrl)} class="btn btn-sm btn-success"
-								>Baixar</button
+							<button
+								on:click={() => downloadProduct(link.linkName, link.linkUrl, link.productId)}
+								class="btn btn-sm btn-success">Baixar</button
 							>
 						</th>
 					</tr>

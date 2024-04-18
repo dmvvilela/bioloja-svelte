@@ -8,6 +8,27 @@
       "when": 1713403247601,
       "tag": "0000_dazzling_barracuda",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1713461007303,
+      "tag": "0001_large_songbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1713461289193,
+      "tag": "0002_eager_loki",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1713461973290,
+      "tag": "0003_fast_jackpot",
+      "breakpoints": true
     }
   ]
 }

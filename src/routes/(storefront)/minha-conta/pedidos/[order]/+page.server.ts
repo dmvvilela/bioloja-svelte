@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import { db } from '$lib/server/db/conn';
-import { orderProducts, orders } from '$lib/server/db/schema';
-import { and, eq, sql } from 'drizzle-orm';
+import { orderProducts, orderProductsDownloads, orders } from '$lib/server/db/schema';
+import { and, count, eq, sql } from 'drizzle-orm';
 import Stripe from 'stripe';
 import { STRIPE_SECRET_KEY } from '$env/static/private';
 import type { PageServerLoad } from './$types';
@@ -103,8 +103,22 @@ export const load = (async ({ locals, params }) => {
 			.leftJoin(orderProducts, eq(orderProducts.orderNumber, orders.orderNumber))
 			.where(and(eq(orders.userId, locals.user.id), eq(orders.orderNumber, orderNumber)))
 			.groupBy(orders.orderNumber)
-	)[0];
+	)[0] as Order;
 	// console.log(order);
+
+	for (const product of order.orderProducts) {
+		const downloads = await db
+			.select({ name: orderProductsDownloads.linkName, count: count() })
+			.from(orderProductsDownloads)
+			.where(
+				and(
+					eq(orderProductsDownloads.orderNumber, orderNumber),
+					eq(orderProductsDownloads.productId, product.productId)
+				)
+			)
+			.groupBy(orderProductsDownloads.linkName);
+		console.log(downloads);
+	}
 
 	// We need to fetch the payment method to get all the details
 	const payment = (await stripe.paymentMethods.retrieve(order.paymentMethodId)) as PaymentMethod;

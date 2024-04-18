@@ -255,22 +255,22 @@ export const orderProductsDownloads = pgTable(
 	'order_products_downloads',
 	{
 		id: serial('id').primaryKey(),
-		orderProductsOrderNumber: text('order_products_order_number'),
-		orderProductsProductId: integer('order_products_product_id'),
-		downloadLink: text('download_link').notNull(),
+		orderNumber: text('order_number').notNull(),
+		productId: integer('product_id').notNull(),
+		linkName: text('link_name').notNull(),
 		downloadedAt: timestamp('downloaded_at').notNull().defaultNow()
 	},
 	(table) => ({
 		orderProductsReference: foreignKey({
-			columns: [table.orderProductsOrderNumber, table.orderProductsProductId],
+			columns: [table.orderNumber, table.productId],
 			foreignColumns: [orderProducts.orderNumber, orderProducts.productId],
 			name: 'order_products_reference'
 		}),
-		orderNumberProductIdIdx: index('idx_order_products_downloads_order_number_product_id').on(
-			table.orderProductsOrderNumber,
-			table.orderProductsProductId
-		),
-		downloadLinkIdx: index('idx_order_products_downloads_download_link').on(table.downloadLink)
+		linkNameIdx: index('idx_order_products_downloads_link_name').on(table.linkName),
+		productIdIdx: index('idx_order_products_downloads_product_id').on(
+			table.orderNumber,
+			table.productId
+		)
 	})
 );
 
