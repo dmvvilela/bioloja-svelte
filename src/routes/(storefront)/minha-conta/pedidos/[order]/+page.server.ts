@@ -52,11 +52,15 @@ export type Order = {
 	orderProducts: OrderProduct[];
 };
 
-export const load = (async ({ locals, url }) => {
-	const orderNumber = url.searchParams.get('order');
+export const load = (async ({ locals, params }) => {
+	const orderNumber = params.order;
 
-	if (!locals.user || !orderNumber) {
+	if (!locals.user) {
 		redirect(307, '/');
+	}
+
+	if (!orderNumber) {
+		redirect(307, '/minha-conta');
 	}
 
 	const order = (

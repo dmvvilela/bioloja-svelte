@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { getLocalePrice } from '$lib/utils/product';
+	import StatusBadge from '$lib/components/status_badge.svelte';
 	import type { PageData } from './$types';
 
-	// export let data: PageData;
+	export let data: PageData;
 
-	// const  user = data.user!;
-	const orders = ['a'];
+	const orders = data.orders;
 </script>
 
 <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow mt-3">
@@ -37,62 +38,24 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th>#1</th>
-						<td>20/04/2024</td>
-						<td><span class="badge badge-success badge-sm">Concluído</span></td>
-						<td>R$80,27 (3 items)</td>
-						<th>
-							<a href="/minha-conta/pedidos/8049">
-								<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
-							</a></th
-						>
-					</tr>
-					<tr>
-						<th>#2</th>
-						<td>21/04/2024</td>
-						<td><span class="badge badge-ghost badge-sm">Pagamento Pendente</span></td>
-						<td>R$8,21 (1 item)</td>
-						<th>
-							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
-						</th>
-					</tr>
-					<tr>
-						<th>#3</th>
-						<td>22/04/2024</td>
-						<td><span class="badge badge-outline badge-sm">Processando</span></td>
-						<td>R$42,30 (2 items)</td>
-						<th>
-							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
-						</th>
-					</tr>
-					<tr>
-						<th>#2</th>
-						<td>21/04/2024</td>
-						<td><span class="badge badge-error badge-sm">Cancelado</span></td>
-						<td>R$8,21 (1 item)</td>
-						<th>
-							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
-						</th>
-					</tr>
-					<tr>
-						<th>#2</th>
-						<td>21/04/2024</td>
-						<td><span class="badge badge-warning badge-sm">Aguardando</span></td>
-						<td>R$8,21 (1 item)</td>
-						<th>
-							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
-						</th>
-					</tr>
-					<tr>
-						<th>#2</th>
-						<td>21/04/2024</td>
-						<td><span class="badge badge-info badge-sm">Reembolsado</span></td>
-						<td>R$8,21 (1 item)</td>
-						<th>
-							<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
-						</th>
-					</tr>
+					{#each orders as order}
+						{@const date = new Date(order.createdAt).toLocaleDateString('pt-BR', {
+							day: 'numeric',
+							month: 'long',
+							year: 'numeric'
+						})}
+						<tr>
+							<th>#{order.orderNumber}</th>
+							<td class="min-w-24">{date}</td>
+							<td><StatusBadge status={order.orderStatus} /></td>
+							<td>R${getLocalePrice(order.total)} (3 items)</td>
+							<th>
+								<a href="/minha-conta/pedidos/{order.orderNumber}">
+									<button class="btn btn-xs btn-primary text-white">Ver pedido</button>
+								</a></th
+							>
+						</tr>
+					{/each}
 				</tbody>
 			</table>
 		</div>

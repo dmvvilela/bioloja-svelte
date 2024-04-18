@@ -95,21 +95,7 @@
 								</p>
 							</dd>
 						</div>
-						<div>
-							<dt class="font-medium text-gray-900">Endereço de cobrança</dt>
-							<dd class="mt-2 text-gray-700">
-								<p>{payment.billing_details.address.line1}</p>
-								{#if payment.billing_details.address.line2}
-									<p>{payment.billing_details.address.line2}</p>
-								{/if}
-								<p>{payment.billing_details.address.postal_code}</p>
-								<p>
-									{payment.billing_details.address.city} - {payment.billing_details.address.state}
-								</p>
-							</dd>
-						</div>
 					{/if}
-
 					{#if order.paymentMethodTitle === 'boleto'}
 						<div>
 							<dt class="font-medium text-gray-900">Método de pagamento</dt>
@@ -134,19 +120,23 @@
 								</a>
 							</dd>
 						</div>
-						<div>
-							<dt class="font-medium text-gray-900">Endereço de cobrança</dt>
-							<dd class="mt-2 text-gray-700">
-								<p>SQN 211 Bl J</p>
-								<p>70863-100</p>
-								<p>Brasília / DF</p>
-							</dd>
-						</div>
 					{/if}
+					<div>
+						<dt class="font-medium text-gray-900">Endereço de cobrança</dt>
+						<dd class="mt-2 text-gray-700">
+							<p>{payment.billing_details.address.line1}</p>
+							{#if payment.billing_details.address.line2}
+								<p>{payment.billing_details.address.line2}</p>
+							{/if}
+							<p>{payment.billing_details.address.postal_code}</p>
+							<p>
+								{payment.billing_details.address.city} - {payment.billing_details.address.state}
+							</p>
+						</dd>
+					</div>
 				</dl>
 
 				<h3 class="sr-only">Resumo do pedido</h3>
-
 				<dl class="space-y-2 border-t border-gray-200 pt-6 text-sm">
 					<div class="flex justify-between">
 						<dt class="font-medium text-gray-900">Subtotal</dt>
@@ -200,6 +190,11 @@
 			<button
 				class="mb-8 px-4 py-2 btn btn-primary glass bg-primary-focus text-white rounded hover:shadow-md"
 				>Voltar à Loja</button
+			>
+		</a>
+		<a href="/minha-conta/pedidos">
+			<button class="mb-8 px-4 py-2 btn btn-neutral bg-neutral glass rounded hover:shadow-md"
+				>Ver meus pedidos</button
 			>
 		</a>
 	</div>
