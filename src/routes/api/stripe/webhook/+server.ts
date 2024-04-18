@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 import { STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET } from '$env/static/private';
 import { error, fail } from '@sveltejs/kit';
-import { addresses, orders } from '$lib/server/db/schema';
+import { orders } from '$lib/server/db/schema';
 import { db } from '$lib/server/db/conn';
 import { eq } from 'drizzle-orm';
 import type { WebhookEvent } from '$lib/types/stripe';
@@ -20,13 +20,9 @@ export const POST: RequestHandler = async ({ request }) => {
 			STRIPE_WEBHOOK_SECRET
 		) as WebhookEvent;
 
-		return new Response();
 		const payment = event.data.object;
 		const paymentId = payment.id;
-		const billing: BillingDetails = event.data?.object?.charges?.data?.[0]?.billing_details;
 		let orderStatus: any;
-
-		console.log(billing);
 
 		const order = (await db.select().from(orders).where(eq(orders.paymentId, paymentId)))[0];
 		if (!order) {
@@ -52,30 +48,8 @@ export const POST: RequestHandler = async ({ request }) => {
 				console.error(`Unhandled event type ${event!.type}`);
 		}
 
-		// If needed, update address for the order
-		let addressId: number | null = null;
-		if (!order.addressId && billing) {
-			addressId = (
-				await db
-					.insert(addresses)
-					.values({
-						email: billing.email,
-						name: billing.name,
-						city: billing.address.city,
-						country: billing.address.country,
-						line1: billing.address.line1,
-						line2: billing.address.line2,
-						state: billing.address.state,
-						postalCode: billing.address.postal_code
-					})
-					.returning({ id: addresses.id })
-			)[0].id;
-		}
-		console.log(addressId);
-
-		// Update the order status and address
-		const set = addressId ? { orderStatus, addressId } : { orderStatus };
-		await db.update(orders).set(set).where(eq(orders.paymentId, orders.paymentId));
+		// Update the order
+		await db.update(orders).set({ orderStatus }).where(eq(orders.paymentId, orders.paymentId));
 	} catch (err: any) {
 		fail(400, { error: `Webhook Error: ${err.message}` });
 	}

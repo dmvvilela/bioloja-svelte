@@ -8,6 +8,15 @@
 
 	const order = data.order as Order;
 	const payment = data.payment as PaymentMethod;
+
+	const date = new Date(order.createdAt);
+	const formattedDate = date.toLocaleDateString('pt-BR', {
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric',
+		hour: '2-digit',
+		minute: '2-digit'
+	});
 </script>
 
 <div class="container mx-auto my-16">
@@ -23,7 +32,7 @@
 				<h1 class="py-2 text-4xl font-semibold text-secondary">Pedido confirmado</h1>
 				<!-- <span class="badge badge-success badge-sm ml-2">Concluído</span> -->
 			</div>
-			<p class="font- text-slate-600">Realizado em 26 de Abril de 2024</p>
+			<p class="font- text-slate-600">Realizado em {formattedDate}.</p>
 		</div>
 		<hr class="mt-4 mb-6" />
 		<p class="py-2 mb-2 text-2xl font-semibold text-secondary">Resumo do pedido</p>
@@ -105,11 +114,24 @@
 						<div>
 							<dt class="font-medium text-gray-900">Método de pagamento</dt>
 							<dd class="mt-2 text-gray-700">
-								<p>Boleto</p>
-								<p>{order.boletoDetails.hosted_voucher_url}</p>
-								<p>
-									<span aria-hidden="true">••••</span><span class="sr-only">Ending in </span>1545
-								</p>
+								<p>Boleto bancário</p>
+								<a href={order.boletoDetails.pdf} target="_blank" class="flex mt-3">
+									<p class="link">Clique para baixar</p>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="w-5 h-5 ml-1.5"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+										/>
+									</svg>
+								</a>
 							</dd>
 						</div>
 						<div>
