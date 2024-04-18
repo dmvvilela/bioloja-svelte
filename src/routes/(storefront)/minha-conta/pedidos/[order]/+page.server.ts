@@ -35,6 +35,7 @@ export type Order = {
 	orderNumber: string;
 	paymentId: string;
 	paymentMethodId: string;
+	paymentConfirmedAt: Date | null;
 	userId: string;
 	userName: string;
 	userPhone: string;
@@ -76,6 +77,7 @@ export const load = (async ({ locals, params, depends }) => {
 				orderNumber: orders.orderNumber,
 				paymentId: orders.paymentId,
 				paymentMethodId: orders.paymentMethodId,
+				paymentConfirmedAt: orders.paymentConfirmedAt,
 				userId: orders.userId,
 				userName: orders.userName,
 				userPhone: orders.userPhone,

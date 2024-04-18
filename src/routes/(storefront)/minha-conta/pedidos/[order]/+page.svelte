@@ -29,6 +29,18 @@
 		year: 'numeric'
 	});
 
+	let downloadsExpired = !order.paymentConfirmedAt;
+	if (order.paymentConfirmedAt) {
+		const now = new Date();
+		const paymentConfirmedDate = new Date(order.paymentConfirmedAt!);
+		const downloadExpirationDate = new Date(
+			paymentConfirmedDate.getTime() + 7 * 24 * 60 * 60 * 1000
+		);
+		if (!order.paymentConfirmedAt || now > downloadExpirationDate) {
+			downloadsExpired = true;
+		}
+	}
+
 	$: links = order.orderProducts
 		.flatMap((product) =>
 			(product.downloadLinks as DownloadLinksType).map((downloadLink) => ({
@@ -202,37 +214,39 @@
 		</div>
 	</div>
 
-	<hr class="mt-6 mb-8" />
-	<p class="py-2 text-xl font-semibold">Downloads</p>
-	<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
-		<p class="text-gray-600">Disponíveis até {downloadLimitDate}.</p>
-	</div>
-	<div class="overflow-x-auto mb-6">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>PRODUTO</th>
-					<th>RESTANDO</th>
-					<th>NOME</th>
-					<th>ACÃO</th>
-				</tr>
-			</thead>
-			<tbody>
-				{#each links as link}
+	{#if order.orderStatus === 'COMPLETED'}
+		<hr class="mt-6 mb-8" />
+		<p class="py-2 text-xl font-semibold">Downloads</p>
+		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+			<p class="text-gray-600">Disponíveis até {downloadLimitDate}.</p>
+		</div>
+		<div class="overflow-x-auto mb-6">
+			<table class="table">
+				<thead>
 					<tr>
-						<th>{link.productName}</th>
-						<td>{link.downloadsLeft}</td>
-						<td>{link.linkName}</td>
-						<th>
-							<button
-								on:click={() => downloadProduct(link.linkName, link.linkUrl, link.productId)}
-								disabled={link.downloadsLeft <= 0}
-								class="btn btn-sm btn-success">Baixar</button
-							>
-						</th>
+						<th>PRODUTO</th>
+						<th>RESTANDO</th>
+						<th>NOME</th>
+						<th>ACÃO</th>
 					</tr>
-				{/each}
-			</tbody>
-		</table>
-	</div>
+				</thead>
+				<tbody>
+					{#each links as link}
+						<tr>
+							<th>{link.productName}</th>
+							<td>{downloadsExpired ? 0 : link.downloadsLeft}</td>
+							<td>{link.linkName}</td>
+							<th>
+								<button
+									on:click={() => downloadProduct(link.linkName, link.linkUrl, link.productId)}
+									disabled={link.downloadsLeft <= 0}
+									class="btn btn-sm btn-success">Baixar</button
+								>
+							</th>
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div>
+	{/if}
 </div>
