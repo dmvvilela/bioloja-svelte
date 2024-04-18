@@ -1,5 +1,5 @@
 {
-  "id": "f1a755df-7bae-4074-b11e-bd02f62c2a40",
+  "id": "1a61e8d9-3149-4ec5-b340-1b20fcb9764c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -14,53 +14,53 @@
           "primaryKey": true,
           "notNull": true
         },
-        "user_id": {
-          "name": "user_id",
+        "email": {
+          "name": "email",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "first_name": {
-          "name": "first_name",
+        "name": {
+          "name": "name",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
-        },
-        "last_name": {
-          "name": "last_name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "city": {
           "name": "city",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
-        },
-        "state": {
-          "name": "state",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "postal_code": {
-          "name": "postal_code",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "country": {
           "name": "country",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
-        "phone": {
-          "name": "phone",
+        "line1": {
+          "name": "line1",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
+        },
+        "line2": {
+          "name": "line2",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "state": {
+          "name": "state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "postal_code": {
+          "name": "postal_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "created_at": {
           "name": "created_at",
@@ -86,21 +86,7 @@
           "isUnique": false
         }
       },
-      "foreignKeys": {
-        "addresses_user_id_users_id_fk": {
-          "name": "addresses_user_id_users_id_fk",
-          "tableFrom": "addresses",
-          "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
@@ -175,18 +161,6 @@
           "type": "serial",
           "primaryKey": false,
           "notNull": true
-        },
-        "item_price": {
-          "name": "item_price",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "item_discount_price": {
-          "name": "item_discount_price",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
         }
       },
       "indexes": {
@@ -265,7 +239,7 @@
           "name": "user_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "order_number": {
           "name": "order_number",
@@ -273,30 +247,11 @@
           "primaryKey": false,
           "notNull": false
         },
-        "discount": {
-          "name": "discount",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "default": 0
-        },
         "coupon_code": {
           "name": "coupon_code",
           "type": "text",
           "primaryKey": false,
           "notNull": false
-        },
-        "subtotal": {
-          "name": "subtotal",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "total": {
-          "name": "total",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
         },
         "created_at": {
           "name": "created_at",
@@ -548,9 +503,45 @@
           "notNull": false,
           "default": false
         },
-        "amount": {
-          "name": "amount",
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "categories": {
+          "name": "categories",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price": {
+          "name": "price",
           "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "discount_price": {
+          "name": "discount_price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "download_links": {
+          "name": "download_links",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         }
@@ -700,8 +691,32 @@
           "primaryKey": true,
           "notNull": true
         },
+        "payment_id": {
+          "name": "payment_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "payment_method_id": {
+          "name": "payment_method_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
         "user_id": {
           "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user_name": {
+          "name": "user_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user_phone": {
+          "name": "user_phone",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -716,12 +731,17 @@
           "name": "order_status",
           "type": "order_status",
           "primaryKey": false,
-          "notNull": true,
-          "default": "'PROCESSING'"
+          "notNull": true
         },
         "payment_method_title": {
           "name": "payment_method_title",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "boleto_details": {
+          "name": "boleto_details",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": false
         },

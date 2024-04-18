@@ -232,7 +232,13 @@ export const orderProducts = pgTable(
 			.references(() => products.id),
 		lineId: serial('line_id'),
 		refunded: boolean('refunded').default(false),
-		amount: integer('amount').notNull()
+		slug: text('slug').notNull(),
+		name: text('name').notNull(),
+		categories: text('categories').notNull(),
+		price: integer('price').notNull(),
+		discountPrice: integer('discount_price'),
+		image: text('image').notNull(),
+		downloadLinks: jsonb('download_links').notNull().$type<DownloadLinksType>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.orderNumber, table.productId] }),

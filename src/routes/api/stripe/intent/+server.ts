@@ -9,7 +9,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	const { amount } = await request.json();
 
 	const paymentIntent = await stripe.paymentIntents.create({
-		amount: amount,
+		amount,
 		currency: 'brl',
 		payment_method_types: ['card', 'boleto']
 		// automatic_payment_methods: {

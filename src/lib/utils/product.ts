@@ -3,6 +3,8 @@ import { PUBLIC_IMAGES_BUCKET_URL } from '$env/static/public';
 import { cartItemsCount, guestCart } from '$lib/stores/cart';
 import toast from 'svelte-french-toast';
 
+export const getImageUrl = (path: string) => PUBLIC_IMAGES_BUCKET_URL + path;
+
 export const getSlideImageUrl = (imageUrls: string, slide = 0) => {
 	const path = imageUrls.split(',')[slide].trim();
 	return PUBLIC_IMAGES_BUCKET_URL + path;

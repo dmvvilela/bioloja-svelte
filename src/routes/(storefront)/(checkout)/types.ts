@@ -7,6 +7,7 @@ export type CartItem = {
 	price: number;
 	discountPrice: number | null;
 	imageUrls: string;
+	downloadLinks: string;
 };
 
 export type CartCoupon = {

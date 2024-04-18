@@ -18,14 +18,14 @@ END $$;
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "addresses" (
 	"id" serial PRIMARY KEY NOT NULL,
-	"user_id" text,
-	"first_name" text NOT NULL,
-	"last_name" text NOT NULL,
-	"city" text NOT NULL,
-	"state" text NOT NULL,
-	"postal_code" text NOT NULL,
-	"country" text NOT NULL,
-	"phone" text NOT NULL,
+	"email" text,
+	"name" text,
+	"city" text,
+	"country" text,
+	"line1" text,
+	"line2" text,
+	"state" text,
+	"postal_code" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
@@ -42,19 +42,14 @@ CREATE TABLE IF NOT EXISTS "cart_items" (
 	"cart_id" text NOT NULL,
 	"product_id" integer NOT NULL,
 	"line_id" serial NOT NULL,
-	"item_price" integer NOT NULL,
-	"item_discount_price" integer,
 	CONSTRAINT "cart_items_cart_id_product_id_pk" PRIMARY KEY("cart_id","product_id")
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "carts" (
 	"id" text PRIMARY KEY NOT NULL,
-	"user_id" text,
+	"user_id" text NOT NULL,
 	"order_number" text,
-	"discount" integer DEFAULT 0,
 	"coupon_code" text,
-	"subtotal" integer NOT NULL,
-	"total" integer NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
@@ -84,7 +79,13 @@ CREATE TABLE IF NOT EXISTS "order_products" (
 	"product_id" integer NOT NULL,
 	"line_id" serial NOT NULL,
 	"refunded" boolean DEFAULT false,
-	"amount" integer NOT NULL,
+	"slug" text NOT NULL,
+	"name" text NOT NULL,
+	"categories" text NOT NULL,
+	"price" integer NOT NULL,
+	"discount_price" integer,
+	"image" text NOT NULL,
+	"download_links" jsonb NOT NULL,
 	CONSTRAINT "order_products_order_number_product_id_pk" PRIMARY KEY("order_number","product_id")
 );
 --> statement-breakpoint
@@ -98,10 +99,15 @@ CREATE TABLE IF NOT EXISTS "order_products_downloads" (
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "orders" (
 	"order_number" text PRIMARY KEY NOT NULL,
+	"payment_id" text NOT NULL,
+	"payment_method_id" text NOT NULL,
 	"user_id" text NOT NULL,
+	"user_name" text NOT NULL,
+	"user_phone" text NOT NULL,
 	"address_id" integer,
-	"order_status" "order_status" DEFAULT 'PROCESSING' NOT NULL,
+	"order_status" "order_status" NOT NULL,
 	"payment_method_title" text,
+	"boleto_details" jsonb,
 	"coupon_code" text,
 	"cart_discount" integer DEFAULT 0,
 	"order_subtotal" integer NOT NULL,
@@ -209,12 +215,6 @@ CREATE INDEX IF NOT EXISTS "idx_sessions_user_id" ON "sessions" ("user_id");--> 
 CREATE INDEX IF NOT EXISTS "idx_tags_slug" ON "tags" ("slug");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_users_id" ON "users" ("id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_users_email" ON "users" ("email");--> statement-breakpoint
-DO $$ BEGIN
- ALTER TABLE "addresses" ADD CONSTRAINT "addresses_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE no action ON UPDATE no action;
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "cart_items" ADD CONSTRAINT "cart_items_cart_id_carts_id_fk" FOREIGN KEY ("cart_id") REFERENCES "carts"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION

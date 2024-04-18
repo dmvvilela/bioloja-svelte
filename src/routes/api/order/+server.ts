@@ -83,7 +83,13 @@ export const POST: RequestHandler = async ({ request }) => {
 			await db.insert(orderProducts).values({
 				orderNumber,
 				productId: product.id,
-				amount: product.discountPrice || product.price
+				price: product.price,
+				discountPrice: product.discountPrice,
+				name: product.name,
+				slug: product.slug,
+				image: product.imageUrls.split(',')[0].trim(),
+				categories: product.categories.join(', '),
+				downloadLinks: product.downloadLinks as any
 			});
 		}
 

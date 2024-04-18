@@ -56,6 +56,7 @@ export const load = (async ({ locals, depends }) => {
 								'imageUrls', products.image_urls,
 								'lineId', cart_items.line_id,
 								'price', products.price,
+								'downloadLinks', products.download_links,
 								'discountPrice', 
 									CASE 
 										WHEN products.discount_expires_at IS NOT NULL AND products.discount_expires_at < NOW() THEN 
