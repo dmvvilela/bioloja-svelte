@@ -3,7 +3,6 @@
 	import type { DownloadLinksType } from '$lib/server/db/schema';
 	import type { PaymentMethod } from '$lib/types/stripe';
 	import { getImageUrl, getLocalePrice } from '$lib/utils/product';
-	import { urlAlphabet } from 'nanoid';
 	import type { PageData } from './$types';
 	import type { Order } from './+page.server';
 
@@ -28,13 +27,31 @@
 		year: 'numeric'
 	});
 
-	const links = order.orderProducts.flatMap((product) =>
-		(product.downloadLinks as DownloadLinksType).map((downloadLink) => ({
-			productName: product.name,
-			linkName: downloadLink.name,
-			linkUrl: downloadLink.url
-		}))
-	);
+	// const links = order.orderProducts.flatMap((product) =>
+	// 	(product.downloadLinks as DownloadLinksType).map((downloadLink) => ({
+	// 		productName: product.name,
+	// 		linkName: downloadLink.name,
+	// 		linkUrl: downloadLink.url
+	// 	}))
+	// );
+	const links = order.orderProducts
+		.flatMap((product) =>
+			(product.downloadLinks as DownloadLinksType).map((downloadLink) => ({
+				productName: product.name,
+				linkName: downloadLink.name,
+				linkUrl: downloadLink.url,
+				lineId: product.lineId
+			}))
+		)
+		.sort((a, b) => a.lineId - b.lineId);
+
+	const downloadProduct = async (url: string) => {
+		const response = await fetch('/api/product/download?link=' + url);
+		const { link } = await response.json();
+		console.log(link);
+
+		window.open(link, '_blank');
+	};
 </script>
 
 <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow mt-3">
@@ -185,9 +202,9 @@
 			<thead>
 				<tr>
 					<th>PRODUTO</th>
-					<th>DOWNLOADS RESTANTES</th>
-					<!-- <th>EXPIRA EM</th> -->
-					<th>BAIXAR</th>
+					<th>RESTANDO</th>
+					<th>NOME</th>
+					<th>ACÃO</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -195,9 +212,11 @@
 					<tr>
 						<th>{link.productName}</th>
 						<td>3</td>
-						<!-- <td>25 de Abril de 2024</td> -->
+						<td>{link.linkName}</td>
 						<th>
-							<button class="btn btn-sm btn-success">{link.linkName}</button>
+							<button on:click={() => downloadProduct(link.linkUrl)} class="btn btn-sm btn-success"
+								>Baixar</button
+							>
 						</th>
 					</tr>
 				{/each}
