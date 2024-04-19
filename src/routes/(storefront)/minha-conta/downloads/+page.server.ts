@@ -30,7 +30,6 @@ export const load = (async ({ locals, depends }) => {
 			orderNumber: orders.orderNumber,
 			paymentConfirmedAt: orders.paymentConfirmedAt,
 			orderStatus: orders.orderStatus,
-			orderRefund: orders.orderRefund,
 			orderProducts: sql`
 						array_agg(
 									json_build_object(

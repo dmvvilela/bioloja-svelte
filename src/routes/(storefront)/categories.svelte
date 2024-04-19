@@ -2,7 +2,7 @@
 	import { PUBLIC_SLIDES_BUCKET_URL } from '$env/static/public';
 </script>
 
-<!-- TODO: This whole thing correctly!!! -->
+<!-- TODO: This whole thing correctly on the server!!! -->
 <div class="container mx-auto py-16">
 	<h2 class="text-2xl font-bold text-secondary uppercase mb-6 ml-8 sm:ml-0">
 		Comprar por categoria
