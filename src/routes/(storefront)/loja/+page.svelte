@@ -2,10 +2,10 @@
 	import ProductCard from '$lib/components/product_card.svelte';
 	import { searchProducts, getFacetCountsWithFilters } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
-	import type { PageServerData } from './$types';
-	import promoImg from '$lib/images/promo/Compre-4-Leve-3.webp';
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
+	import promoImg from '$lib/images/promo/Compre-4-Leve-3.webp';
+	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
 
@@ -438,30 +438,7 @@
 						</form>
 					</div>
 
-					<!-- <div
-						class="container bg-gradient-to-r from-indigo-500 to-violet-500 text-white p-8 rounded-lg shadow-lg max-w-md mx-auto mt-8"
-					>
-						<div class="text-3xl font-bold mb-4">Oferta Especial!</div>
-						<div class="text-lg mb-4">
-							Receba <span class="text-yellow-400 font-bold">25% DESCONTO</span> em sua próxima compra!
-						</div>
-						<div class="text-base mb-4">Utilize o código de cupom:</div>
-						<div
-							class="bg-white text-gray-800 rounded-lg px-4 py-2 flex items-center justify-between"
-						>
-							<span class="text-2xl font-semibold">NOVABIOLOJA</span>
-							<button
-								class="bg-blue-800 text-white px-3 py-1 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-								>Copy</button
-							>
-						</div>
-						<div class="text-sm mt-4">
-							<p>Válido até <span class="font-semibold">31 de Julho de 2024.</span></p>
-							<p>Termos e condições se aplicam</p>
-						</div>
-					</div> -->
-
-					<div class="mx-auto mt-8 p-4">
+					<!-- <div class="mx-auto mt-8 p-4">
 						<a href="/loja/produto/promocao-leve-4-e-pague-3">
 							<img
 								src={promoImg}
@@ -469,6 +446,29 @@
 								class="w-full hover:scale-[1.01] transition hover:shadow"
 							/>
 						</a>
+					</div> -->
+
+					<div
+						class="container bg-gradient-to-r from-accent to-secondary/80 text-white p-8 rounded-lg shadow-lg max-w-md mx-auto mt-8"
+					>
+						<div class="text-3xl font-bold mb-4">Oferta Especial!</div>
+						<div class="text-lg mb-4">
+							Receba <span class="text-yellow-400 font-bold">15% DESCONTO</span> em sua próxima compra!
+						</div>
+						<div class="text-base mb-4">Utilize o código de cupom:</div>
+						<div
+							class="bg-white text-gray-800 rounded-lg pl-3 pr-2 py-1.5 flex items-center justify-between"
+						>
+							<span class="text-xl font-semibold tracking-tight">NOVABIOLOJA</span>
+							<button
+								class="btn btn-primary text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+								on:click={() => navigator.clipboard.writeText('NOVABIOLOJA')}>Copiar</button
+							>
+						</div>
+						<div class="text-sm mt-4">
+							<p>Válido até <span class="font-semibold">31 de Julho de 2024.</span></p>
+							<p>Termos e condições se aplicam.</p>
+						</div>
 					</div>
 				</aside>
 

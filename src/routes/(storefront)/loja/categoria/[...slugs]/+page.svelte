@@ -4,10 +4,9 @@
 
 	export let data: PageServerData;
 
-	$: category = data.category;
-
+	$: categoryData = data.category;
 	$: categoryString =
-		category.category + `${category.subcategory ? ` > ${category.subcategory}` : ''}`;
+		categoryData.category + `${categoryData.subcategory ? ` > ${categoryData.subcategory}` : ''}`;
 </script>
 
 <div>
@@ -20,8 +19,16 @@
 				</p>
 			</div>
 
-			<div
-				class="container bg-gradient-to-r from-accent to-secondary/80 text-white p-8 rounded-lg shadow-lg max-w-md mx-auto mt-8"
+			<div class="pt-0.5 lg:col-span-2 lg:mt-0 xl:col-span-3">
+				<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
+					{#each categoryData.products as product}
+						<ProductCard {product} />
+					{/each}
+				</div>
+			</div>
+
+			<!-- <div
+				class="bg-gradient-to-r from-accent to-secondary/80 text-white p-8 rounded-lg shadow-lg max-w-md mt-8"
 			>
 				<div class="text-3xl font-bold mb-4">Oferta Especial!</div>
 				<div class="text-lg mb-4">
@@ -39,15 +46,7 @@
 					<p>Válido até <span class="font-semibold">31 de Julho de 2024.</span></p>
 					<p>Termos e condições se aplicam.</p>
 				</div>
-			</div>
-
-			<div class="pt-0.5 lg:col-span-2 lg:mt-0 xl:col-span-3">
-				<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
-					<!-- {#each data.storeProducts as product}
-						<ProductCard {product} />
-					{/each} -->
-				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>

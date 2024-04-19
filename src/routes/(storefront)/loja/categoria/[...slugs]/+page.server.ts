@@ -8,25 +8,24 @@ import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params, url }) => {
 	const slugs = params.slugs.split('/');
-	let categorySlug, parentCategorySlug;
+	let categorySlug, subcategorySlug;
 
 	if (slugs.length > 0) categorySlug = slugs[0];
-	if (slugs.length > 1) parentCategorySlug = slugs[1];
+	if (slugs.length > 1) subcategorySlug = slugs[1];
 
 	const parentCategory = alias(categories, 'parentCategory');
 
 	let whereConditions;
-	if (parentCategorySlug && categorySlug) {
+	if (subcategorySlug && categorySlug) {
 		whereConditions = and(
 			eq(products.published, true),
-			eq(categories.slug, categorySlug),
-			eq(parentCategory.slug, parentCategorySlug)
+			eq(parentCategory.slug, categorySlug),
+			eq(categories.slug, subcategorySlug)
 		);
 	} else if (categorySlug) {
 		whereConditions = and(eq(products.published, true), eq(categories.slug, categorySlug));
 	}
-
-	const pageSize = 8;
+	const pageSize = 16;
 	const pageNumber = parseInt(url.searchParams.get('page') || '1');
 	const offset = (pageNumber - 1) * pageSize;
 
@@ -57,14 +56,14 @@ export const load = (async ({ params, url }) => {
 		.execute()) as ProductType[];
 	// console.log(categoryProducts);
 
-	let parentCategoryName, subcategoryName;
+	let categoryName, subcategoryName;
 	for (const category of categoriesArray) {
 		if (category.slug === categorySlug) {
-			subcategoryName = category.name;
-			if (parentCategorySlug) {
+			categoryName = category.name;
+			if (subcategorySlug) {
 				for (const subcategory of category.subcategories) {
-					if (subcategory.slug === parentCategorySlug) {
-						parentCategoryName = subcategory.name;
+					if (subcategory.slug === subcategorySlug) {
+						subcategoryName = subcategory.name;
 						break;
 					}
 				}
@@ -75,7 +74,7 @@ export const load = (async ({ params, url }) => {
 
 	return {
 		category: {
-			category: parentCategoryName,
+			category: categoryName,
 			subcategory: subcategoryName,
 			products: categoryProducts
 		}

@@ -33,7 +33,7 @@
 
 	$: product = data.product as ProductWithCategories;
 	$: relatedProducts = data.relatedProducts as ProductWithCategory[];
-	$: images = getAllSlideImageUrls(product.image_urls);
+	$: images = getAllSlideImageUrls(product?.image_urls);
 	$: tags = data.tags as Tag[];
 	$: attributes = data.attributes as Attribute[];
 
