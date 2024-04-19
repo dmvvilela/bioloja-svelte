@@ -1,7 +1,7 @@
 import { invalidate } from '$app/navigation';
 import { PUBLIC_IMAGES_BUCKET_URL } from '$env/static/public';
 import { cartItemsCount, guestCart } from '$lib/stores/cart';
-import toast from 'svelte-french-toast';
+import { showToast } from '$lib/utils/toast';
 
 export const getImageUrl = (path: string) => PUBLIC_IMAGES_BUCKET_URL + path;
 
@@ -20,7 +20,7 @@ export const getAllSlideImageUrls = (imageUrls: string) => {
 export const getLocalePrice = (price: number) => (price / 100).toFixed(2).replace('.', ',');
 
 export const addToCart = async (userId: string | undefined, productId: number) => {
-	toast.promise(
+	showToast(
 		new Promise((resolve, reject) => {
 			(async () => {
 				// If the user is not logged in we use the guest cart on client only
@@ -66,20 +66,14 @@ export const addToCart = async (userId: string | undefined, productId: number) =
 		}),
 		{
 			loading: 'Adicionando...',
-			// success: 'Produto adicionado!',
-			success: (success: any) => success.message, // Use the message from resolve
-			// error: (error) => `Ocorreu um problema: ${error.message}`
+			success: (success: any) => success.message,
 			error: 'Ocorreu um problema.'
-		},
-		{
-			position: 'bottom-center',
-			style: 'border-radius: 200px; background: #333; color: #fff; padding: 12px;'
 		}
 	);
 };
 
 export const removeFromCart = async (userId: string | undefined, productId: number) => {
-	toast.promise(
+	showToast(
 		new Promise((resolve, reject) => {
 			(async () => {
 				// If the user is not logged in we use the guest cart on client only
@@ -116,10 +110,6 @@ export const removeFromCart = async (userId: string | undefined, productId: numb
 			loading: 'Removendo...',
 			success: 'Produto removido!',
 			error: 'Ocorreu um problema.'
-		},
-		{
-			position: 'bottom-center',
-			style: 'border-radius: 200px; background: #333; color: #fff; padding: 12px;'
 		}
 	);
 };
