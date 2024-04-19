@@ -2,10 +2,10 @@
 	import MailingList from '$lib/components/layout/mailing_list.svelte';
 	import { guestCart } from '$lib/stores/cart';
 	import { getLocalePrice, getSlideImageUrl, removeFromCart } from '$lib/utils/product';
-	import toast from 'svelte-french-toast';
+	import { invalidate } from '$app/navigation';
+	import { showToast } from '$lib/utils/toast';
 	import type { Cart } from '../types';
 	import type { PageData } from './$types';
-	import { invalidate } from '$app/navigation';
 
 	export let data: PageData;
 
@@ -16,7 +16,7 @@
 
 	const applyCoupon = async () => {
 		if (userId) {
-			toast.promise(
+			showToast(
 				new Promise((resolve, reject) => {
 					(async () => {
 						try {
@@ -48,11 +48,7 @@
 				{
 					loading: 'Verificando cupom...',
 					success: 'Cupom adicionado!',
-					error: (message) => message
-				},
-				{
-					position: 'bottom-center',
-					style: 'border-radius: 200px; background: #333; color: #fff; padding: 12px;'
+					error: (message: any) => message
 				}
 			);
 		}
@@ -62,7 +58,7 @@
 
 	const removeCoupon = async () => {
 		if (userId) {
-			toast.promise(
+			showToast(
 				new Promise((resolve, reject) => {
 					(async () => {
 						try {
@@ -92,11 +88,7 @@
 				{
 					loading: 'Removendo cupom...',
 					success: 'Cupom removido!',
-					error: (message) => message
-				},
-				{
-					position: 'bottom-center',
-					style: 'border-radius: 200px; background: #333; color: #fff; padding: 12px;'
+					error: (message: any) => message
 				}
 			);
 		}
