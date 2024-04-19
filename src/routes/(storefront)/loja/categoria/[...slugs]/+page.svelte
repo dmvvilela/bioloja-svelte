@@ -1,8 +1,13 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/product_card.svelte';
-	import type { PageServerData } from '../$types';
+	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
+
+	$: category = data.category;
+
+	$: categoryString =
+		category.category + `${category.subcategory ? ` > ${category.subcategory}` : ''}`;
 </script>
 
 <div>
@@ -10,7 +15,9 @@
 		<div class="container mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
 			<div class="border-b border-gray-200 pb-10">
 				<h1 class="text-4xl font-bold tracking-tight text-secondary">Categoria</h1>
-				<p class="mt-4 text-base text-gray-500">Mostrando resultados para Xxx</p>
+				<p class="mt-4 text-base text-gray-500">
+					Mostrando resultados para: <span class="ml-1 font-semibold">{categoryString}</span>.
+				</p>
 			</div>
 
 			<div

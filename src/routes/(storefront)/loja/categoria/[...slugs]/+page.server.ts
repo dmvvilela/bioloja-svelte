@@ -1,19 +1,35 @@
 import { db } from '$lib/server/db/conn';
 import { categories, productCategories, products } from '$lib/server/db/schema';
-import { eq, and, isNull, sql } from 'drizzle-orm';
-import type { PageServerLoad } from './$types';
+import { eq, and, desc } from 'drizzle-orm';
 import { alias } from 'drizzle-orm/pg-core';
+import { categories as categoriesArray } from '$lib/utils/data';
 import type { ProductType } from '$lib/utils/types';
+import type { PageServerLoad } from './$types';
 
-export const load = (async ({ params }) => {
-	console.log(params);
+export const load = (async ({ params, url }) => {
 	const slugs = params.slugs.split('/');
-	let category, subcategory;
+	let categorySlug, parentCategorySlug;
 
-	if (slugs.length > 0) category = slugs[0];
-	if (slugs.length > 1) subcategory = slugs[1];
+	if (slugs.length > 0) categorySlug = slugs[0];
+	if (slugs.length > 1) parentCategorySlug = slugs[1];
 
 	const parentCategory = alias(categories, 'parentCategory');
+
+	let whereConditions;
+	if (parentCategorySlug && categorySlug) {
+		whereConditions = and(
+			eq(products.published, true),
+			eq(categories.slug, categorySlug),
+			eq(parentCategory.slug, parentCategorySlug)
+		);
+	} else if (categorySlug) {
+		whereConditions = and(eq(products.published, true), eq(categories.slug, categorySlug));
+	}
+
+	const pageSize = 8;
+	const pageNumber = parseInt(url.searchParams.get('page') || '1');
+	const offset = (pageNumber - 1) * pageSize;
+
 	const categoryProducts = (await db
 		.select({
 			productId: products.id,
@@ -34,10 +50,34 @@ export const load = (async ({ params }) => {
 		.innerJoin(productCategories, eq(productCategories.productId, products.id))
 		.innerJoin(categories, eq(categories.id, productCategories.categoryId))
 		.leftJoin(parentCategory, eq(parentCategory.id, categories.parentId))
-		.where(and(isNull(products.discountPrice), eq(products.published, true)))
-		.orderBy(sql`RANDOM()`) // desc(products.updatedAt))
-		.limit(8)
+		.where(whereConditions)
+		.orderBy(desc(products.updatedAt))
+		.limit(pageSize)
+		.offset(offset)
 		.execute()) as ProductType[];
+	// console.log(categoryProducts);
 
-	return {};
+	let parentCategoryName, subcategoryName;
+	for (const category of categoriesArray) {
+		if (category.slug === categorySlug) {
+			subcategoryName = category.name;
+			if (parentCategorySlug) {
+				for (const subcategory of category.subcategories) {
+					if (subcategory.slug === parentCategorySlug) {
+						parentCategoryName = subcategory.name;
+						break;
+					}
+				}
+			}
+			break;
+		}
+	}
+
+	return {
+		category: {
+			category: parentCategoryName,
+			subcategory: subcategoryName,
+			products: categoryProducts
+		}
+	};
 }) satisfies PageServerLoad;
