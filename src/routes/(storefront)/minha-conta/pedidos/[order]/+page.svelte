@@ -84,7 +84,7 @@
 			<h1 class="py-2 text-2xl font-semibold">Pedido #{order.orderNumber}</h1>
 			<span class="ml-2"><StatusBadge status={order.orderStatus} /></span>
 		</div>
-		<p class="font- text-slate-600">Pedido realizado em {formattedDate}.</p>
+		<p class="text-slate-600">Pedido realizado em {formattedDate}.</p>
 	</div>
 	<hr class="mt-4 mb-6" />
 	<p class="py-2 mb-2 text-xl font-semibold">Resumo</p>

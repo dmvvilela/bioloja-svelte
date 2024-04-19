@@ -32,7 +32,7 @@
 				<h1 class="py-2 text-4xl font-semibold text-secondary">Pedido confirmado</h1>
 				<!-- <span class="badge badge-success badge-sm ml-2">Concluído</span> -->
 			</div>
-			<p class="font- text-slate-600">Realizado em {formattedDate}.</p>
+			<p class="text-slate-600">Realizado em {formattedDate}.</p>
 		</div>
 		<hr class="mt-4 mb-6" />
 		<p class="py-2 mb-2 text-2xl font-semibold text-secondary">Resumo do pedido</p>
