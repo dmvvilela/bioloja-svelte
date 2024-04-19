@@ -1,10 +1,12 @@
 import { db } from '$lib/server/db/conn';
 import { categories, productCategories, products } from '$lib/server/db/schema';
-import { eq, and, desc } from 'drizzle-orm';
+import { eq, and, desc, sql } from 'drizzle-orm';
 import { alias } from 'drizzle-orm/pg-core';
 import { categories as categoriesArray } from '$lib/utils/data';
 import type { ProductType } from '$lib/utils/types';
 import type { PageServerLoad } from './$types';
+
+export type ProductWithCount = ProductType & { totalCount: number };
 
 export const load = (async ({ params, url }) => {
 	const slugs = params.slugs.split('/');
@@ -43,7 +45,8 @@ export const load = (async ({ params, url }) => {
 			categorySlug: categories.slug,
 			parentCategoryId: parentCategory.id,
 			parentCategoryName: parentCategory.name,
-			parentCategorySlug: parentCategory.slug
+			parentCategorySlug: parentCategory.slug,
+			totalCount: sql`COUNT(*) OVER()`
 		})
 		.from(products)
 		.innerJoin(productCategories, eq(productCategories.productId, products.id))
@@ -53,7 +56,7 @@ export const load = (async ({ params, url }) => {
 		.orderBy(desc(products.updatedAt))
 		.limit(pageSize)
 		.offset(offset)
-		.execute()) as ProductType[];
+		.execute()) as ProductWithCount[];
 	// console.log(categoryProducts);
 
 	let categoryName, subcategoryName;
@@ -72,10 +75,17 @@ export const load = (async ({ params, url }) => {
 		}
 	}
 
+	const totalCount = categoryProducts.length > 0 ? Number(categoryProducts[0].totalCount) : 0;
+	const totalPages = Math.ceil(totalCount / pageSize);
+
 	return {
 		category: {
-			category: categoryName,
-			subcategory: subcategoryName,
+			categorySlug,
+			subcategorySlug,
+			categoryName,
+			subcategoryName,
+			pageNumber,
+			totalPages,
 			products: categoryProducts
 		}
 	};

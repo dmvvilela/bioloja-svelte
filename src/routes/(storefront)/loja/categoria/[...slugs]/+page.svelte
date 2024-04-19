@@ -5,9 +5,15 @@
 
 	export let data: PageServerData;
 
+	// TODO: Add animation on page change.. is TOO FAST IS HARD TO SEE!!
 	$: categoryData = data.category;
 	$: categoryString =
-		categoryData.category + `${categoryData.subcategory ? ` > ${categoryData.subcategory}` : ''}`;
+		categoryData.categoryName +
+		`${categoryData.subcategoryName ? ` > ${categoryData.subcategoryName}` : ''}`;
+	$: categoryUrl =
+		categoryData.categorySlug +
+		`${categoryData.subcategorySlug ? `/${categoryData.subcategorySlug}` : ''}`;
+	$: currentPage = categoryData.pageNumber;
 </script>
 
 <div>
@@ -20,7 +26,7 @@
 				</p>
 			</div>
 
-			<div class="pt-0.5 lg:col-span-2 lg:mt-0 xl:col-span-3">
+			<div class="mt-16 lg:col-span-2 xl:col-span-3">
 				<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
 					{#each categoryData.products as product}
 						<ProductCard {product} />
@@ -49,8 +55,12 @@
 				</div>
 			</div> -->
 
-			<div class="mt-14">
-				<Pagination />
+			<div class="mt-16">
+				<Pagination
+					{currentPage}
+					totalPages={categoryData.totalPages}
+					baseUrl="/loja/categoria/{categoryUrl}"
+				/>
 			</div>
 		</div>
 	</div>

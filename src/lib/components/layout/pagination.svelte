@@ -1,7 +1,52 @@
+<script lang="ts">
+	export let totalPages: number;
+	export let currentPage: number;
+	export let baseUrl: string;
+
+	const totalVisible = 10;
+	const startPage = 1;
+
+	let pages = range();
+	$: {
+		totalPages, (pages = range());
+	}
+
+	function createRange(totalPages: number, start = 1): number[] {
+		return Array.from({ length: totalPages }, (v, k) => start + k);
+	}
+
+	function range() {
+		if (totalPages <= 0 || isNaN(totalPages) || totalPages > Number.MAX_SAFE_INTEGER) return [];
+		if (totalVisible <= 1) return [currentPage];
+
+		if (totalPages <= totalVisible) {
+			return createRange(totalPages, startPage);
+		}
+
+		const even = totalVisible % 2 === 0;
+		const middle = even ? totalVisible / 2 : Math.floor(totalVisible / 2);
+		const left = even ? middle : middle + 1;
+		const right = totalPages - middle;
+
+		if (left - currentPage >= 0) {
+			return [...createRange(Math.max(1, totalVisible - 1), startPage), '...', totalPages];
+		} else if (currentPage - right >= (even ? 1 : 0)) {
+			const rangeLength = totalVisible - 1;
+			const rangeStart = totalPages - rangeLength + startPage;
+			return [startPage, '...', ...createRange(rangeLength, rangeStart)];
+		} else {
+			const rangeLength = Math.max(1, totalVisible - 3);
+			const rangeStart =
+				rangeLength === 1 ? currentPage : currentPage - Math.ceil(rangeLength / 2) + startPage;
+			return [startPage, '...', ...createRange(rangeLength, rangeStart), '...', totalPages];
+		}
+	}
+</script>
+
 <nav class="flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
 	<div class="-mt-px flex w-0 flex-1">
 		<a
-			href="#"
+			href={currentPage <= 1 ? '#' : `${baseUrl}?page=${currentPage - 1}`}
 			class="inline-flex items-center border-t-2 border-transparent pr-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
 		>
 			<svg
@@ -20,45 +65,32 @@
 		</a>
 	</div>
 	<div class="hidden md:-mt-px md:flex">
-		<a
-			href="#"
-			class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-			>1</a
-		>
-		<!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
-		<a
-			href="#"
-			class="inline-flex items-center border-t-2 border-indigo-500 px-4 pt-4 text-sm font-medium text-indigo-600"
-			aria-current="page">2</a
-		>
-		<a
-			href="#"
-			class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-			>3</a
-		>
-		<span
-			class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500"
-			>...</span
-		>
-		<a
-			href="#"
-			class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-			>8</a
-		>
-		<a
-			href="#"
-			class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-			>9</a
-		>
-		<a
-			href="#"
-			class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-			>10</a
-		>
+		{#each pages as page}
+			{#if page === '...'}
+				<span
+					class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500"
+					>...</span
+				>
+			{:else if page === currentPage}
+				<span
+					aria-current="page"
+					class="inline-flex items-center border-t-2 border-indigo-500 px-4 pt-4 text-sm font-medium text-indigo-600"
+				>
+					{page}
+				</span>
+			{:else}
+				<a
+					href={`${baseUrl}?page=${page}`}
+					class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+				>
+					{page}
+				</a>
+			{/if}
+		{/each}
 	</div>
 	<div class="-mt-px flex w-0 flex-1 justify-end">
 		<a
-			href="#"
+			href={currentPage >= totalPages ? '#' : `${baseUrl}?page=${currentPage + 1}`}
 			class="inline-flex items-center border-t-2 border-transparent pl-1 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
 		>
 			Próximo
