@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Pagination from '$lib/components/layout/pagination.svelte';
 	import ProductCard from '$lib/components/product_card.svelte';
 	import type { PageServerData } from './$types';
 
@@ -47,6 +48,10 @@
 					<p>Termos e condições se aplicam.</p>
 				</div>
 			</div> -->
+
+			<div class="mt-14">
+				<Pagination />
+			</div>
 		</div>
 	</div>
 </div>
