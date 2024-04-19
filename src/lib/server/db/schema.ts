@@ -279,7 +279,7 @@ export const coupons = pgTable(
 	'coupons',
 	{
 		code: text('code').primaryKey(),
-		value: text('value').notNull(),
+		value: integer('value').notNull(),
 		type: couponTypes('type').notNull().default('PERCENTAGE'),
 		minAmount: integer('min_amount'),
 		maxAmount: integer('max_amount'),

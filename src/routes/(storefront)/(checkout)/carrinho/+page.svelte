@@ -2,8 +2,10 @@
 	import MailingList from '$lib/components/layout/mailing_list.svelte';
 	import { guestCart } from '$lib/stores/cart';
 	import { getLocalePrice, getSlideImageUrl, removeFromCart } from '$lib/utils/product';
+	import toast from 'svelte-french-toast';
 	import type { Cart } from '../types';
 	import type { PageData } from './$types';
+	import { invalidate } from '$app/navigation';
 
 	export let data: PageData;
 
@@ -12,21 +14,92 @@
 
 	let couponCode = '';
 
-	const applyCoupon = () => {
+	const applyCoupon = async () => {
 		if (userId) {
-			fetch(`/api/cart/coupon/${couponCode}`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
+			toast.promise(
+				new Promise((resolve, reject) => {
+					(async () => {
+						try {
+							const response = await fetch(`/api/cart/coupon`, {
+								method: 'POST',
+								headers: {
+									'Content-Type': 'application/json'
+								},
+								body: JSON.stringify({
+									cartId: (cart as Cart).cartId,
+									subtotal: (cart as Cart).subtotal,
+									couponCode
+								})
+							});
+
+							if (!response.ok) {
+								const json = await response.json();
+								reject(json.message);
+								return;
+							}
+
+							resolve({});
+							invalidate('app:checkout');
+						} catch (err: any) {
+							reject(err.message);
+						}
+					})();
+				}),
+				{
+					loading: 'Verificando cupom...',
+					success: 'Cupom adicionado!',
+					error: (message) => message
 				},
-				body: JSON.stringify({
-					cartId: (cart as Cart).cartId,
-					couponCode
-				})
-			});
+				{
+					position: 'bottom-center',
+					style: 'border-radius: 200px; background: #333; color: #fff; padding: 12px;'
+				}
+			);
 		}
 
 		couponCode = '';
+	};
+
+	const removeCoupon = async () => {
+		if (userId) {
+			toast.promise(
+				new Promise((resolve, reject) => {
+					(async () => {
+						try {
+							const response = await fetch(`/api/cart/coupon`, {
+								method: 'DELETE',
+								headers: {
+									'Content-Type': 'application/json'
+								},
+								body: JSON.stringify({
+									cartId: (cart as Cart).cartId
+								})
+							});
+
+							if (!response.ok) {
+								const json = await response.json();
+								reject(json.message);
+								return;
+							}
+
+							resolve({});
+							invalidate('app:checkout');
+						} catch (err: any) {
+							reject(err.message);
+						}
+					})();
+				}),
+				{
+					loading: 'Removendo cupom...',
+					success: 'Cupom removido!',
+					error: (message) => message
+				},
+				{
+					position: 'bottom-center',
+					style: 'border-radius: 200px; background: #333; color: #fff; padding: 12px;'
+				}
+			);
+		}
 	};
 </script>
 
@@ -176,21 +249,26 @@
 										<span class="badge badge-success badge-sm uppercase py-2.5"
 											>{cart.coupon.code}
 										</span>
-										<a href="#" class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-											<span class="sr-only">Remover cupom</span>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												viewBox="0 0 24 24"
-												fill="currentColor"
-												class="w-5 h-5 rounded-full text-gray-400 p-[1px] mt-[1px] -ml-1 hover:text-gray-600"
+										<div class="tooltip" data-tip="Remover cupom">
+											<button
+												on:click={removeCoupon}
+												class="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500"
 											>
-												<path
-													fill-rule="evenodd"
-													d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-													clip-rule="evenodd"
-												/>
-											</svg>
-										</a>
+												<span class="sr-only">Remover cupom</span>
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 24 24"
+													fill="currentColor"
+													class="w-5 h-5 rounded-full text-gray-400 p-[1px] mt-[1px] -ml-1 hover:text-gray-600"
+												>
+													<path
+														fill-rule="evenodd"
+														d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+														clip-rule="evenodd"
+													/>
+												</svg>
+											</button>
+										</div>
 									{/if}
 								</span>
 							</dt>
