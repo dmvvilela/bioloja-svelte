@@ -2,6 +2,7 @@
 	import { PUBLIC_SLIDES_BUCKET_URL } from '$env/static/public';
 </script>
 
+<!-- TODO: This whole thing correctly!!! -->
 <div class="container mx-auto py-16">
 	<h2 class="text-2xl font-bold text-secondary uppercase mb-6 ml-8 sm:ml-0">
 		Comprar por categoria
@@ -14,7 +15,7 @@
 				class="w-full"
 			/>
 			<a
-				href="/loja/genetica"
+				href="/loja/categoria/genetica"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
 				>Genética</a
 			>
@@ -26,7 +27,7 @@
 				class="w-full"
 			/>
 			<a
-				href="/loja/ecologia"
+				href="/loja/categoria/ecologia"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
 				>Ecologia</a
 			>
@@ -38,7 +39,7 @@
 				class="w-full"
 			/>
 			<a
-				href="/loja/seres-vivos/microbiologia"
+				href="/loja/categoria/seres-vivos/microbiologia"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
 				>Microbiologia
 			</a>
@@ -50,7 +51,7 @@
 				class="w-full"
 			/>
 			<a
-				href="#"
+				href="/loja/categoria/anatomia-e-fisiologia"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
 				>Anatomia e Fisiologia</a
 			>
@@ -62,7 +63,7 @@
 				class="w-full"
 			/>
 			<a
-				href="#"
+				href="/loja/categoria/bioquimica"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
 				>Bioquímica</a
 			>
@@ -74,11 +75,10 @@
 				class="w-full"
 			/>
 			<a
-				href="#"
+				href="/loja/categoria/evolucao"
 				class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
 				>Evolução</a
 			>
 		</div>
 	</div>
 </div>
-<!-- ./categories -->

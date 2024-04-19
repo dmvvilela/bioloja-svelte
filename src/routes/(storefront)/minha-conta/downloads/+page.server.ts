@@ -36,12 +36,9 @@ export const load = (async ({ locals, depends }) => {
 									json_build_object(
 													'orderNumber', order_products.order_number, 
 													'productId', order_products.product_id, 
+													'name', order_products.name,
 													'lineId', order_products.line_id, 
 													'refunded', order_products.refunded, 
-													'slug', order_products.slug,
-													'name', order_products.name,
-													'categories', order_products.categories,
-													'image', order_products.image,
 													'downloadLinks', order_products.download_links
 									)
 						)`

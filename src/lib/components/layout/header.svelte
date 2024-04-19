@@ -167,7 +167,7 @@
 				{#each categories as category}
 					<div class="group/child relative">
 						<a
-							href="/categorias/{category.slug}"
+							href="/loja/categoria/{category.slug}"
 							class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
 						>
 							<span class="ml-6 text-gray-600 text-sm">{category.name}</span>
@@ -195,7 +195,7 @@
 							>
 								{#each category.subcategories as subcategory}
 									<a
-										href="/categorias/{category.slug}/{subcategory.slug}"
+										href="/loja/categoria/{category.slug}/{subcategory.slug}"
 										class="flex items-center px-6 py-3 hover:bg-gray-100 transition"
 									>
 										<span class="ml-6 text-gray-600 text-sm">{subcategory.name}</span>
@@ -210,7 +210,7 @@
 
 		<div class="flex items-center justify-between flex-grow pl-6 lg:pl-0 py-5">
 			<div class="items-center space-x-6 capitalize text-[15px] text-slate-200 flex">
-				<a href="#" class="md:ml-0 lg:hidden">
+				<span class="md:ml-0 lg:hidden">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -225,7 +225,7 @@
 							d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
 						/>
 					</svg>
-				</a>
+				</span>
 				<a href="/" class=" hover:text-white transition hidden lg:block">Início</a>
 				<a href="/loja" class=" hover:text-white transition">Loja</a>
 				<a href="/sobre-nos" class=" hover:text-white transition hidden md:block">Sobre Nós</a>

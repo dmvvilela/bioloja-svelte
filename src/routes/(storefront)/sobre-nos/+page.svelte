@@ -111,8 +111,7 @@
 							<strong>Daniel de M. V. Vilela</strong> é Formado em Engenharia Mecatrônica pela UnB, possui
 							MBA em Gestão Estratégica e Econômica de Negócios pela FGV. Trabalha como desenvolvedor
 							a mais de 12 anos, tendo experiência nos Estados Unidos (vale do silício) e Europa, em
-							empresas como a Rivian e grandes e-commerces europeus e hoje é o atual desenvolvedor da
-							Bioloja.
+							empresas como Rivian e grandes e-commerces europeus. Hoje é o atual desenvolvedor da Bioloja.
 						</p>
 					</div>
 				</div>

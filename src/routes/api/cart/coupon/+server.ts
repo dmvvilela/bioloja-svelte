@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { db } from '$lib/server/db/conn';
-import { carts, coupons, users } from '$lib/server/db/schema';
+import { carts, coupons } from '$lib/server/db/schema';
 import { sql, and, eq } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
 
@@ -34,7 +34,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			.from(coupons)
 			.where(eq(coupons.code, couponCode))
 	)[0];
-	console.log(coupon);
+	// console.log(coupon);
 
 	if (!coupon) {
 		error(400, { message: 'Cupom não encontrado.' });
