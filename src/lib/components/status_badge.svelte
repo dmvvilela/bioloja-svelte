@@ -7,7 +7,7 @@
 		| 'AWAITING'
 		| 'REFUNDED';
 
-	let statusMap = {
+	const statusMap = {
 		COMPLETED: { class: 'badge-success', text: 'Concluído' },
 		PAYMENT_PENDING: { class: 'badge-ghost', text: 'Pagamento Pendente' },
 		PROCESSING: { class: 'badge-outline', text: 'Processando' },

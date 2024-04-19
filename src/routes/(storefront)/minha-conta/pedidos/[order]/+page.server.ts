@@ -40,7 +40,13 @@ export type Order = {
 	userName: string;
 	userPhone: string;
 	addressId: number;
-	orderStatus: string;
+	orderStatus:
+		| 'COMPLETED'
+		| 'PAYMENT_PENDING'
+		| 'PROCESSING'
+		| 'CANCELLED'
+		| 'AWAITING'
+		| 'REFUNDED';
 	paymentMethodTitle: string;
 	boletoDetails: BoletoDetails;
 	couponCode: string;

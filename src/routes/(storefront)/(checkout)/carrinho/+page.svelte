@@ -9,6 +9,25 @@
 
 	$: userId = data.user?.id;
 	$: cart = userId ? (data.cart as Cart) : $guestCart;
+
+	let couponCode = '';
+
+	const applyCoupon = () => {
+		if (userId) {
+			fetch(`/api/cart/coupon/${couponCode}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					cartId: (cart as Cart).cartId,
+					couponCode
+				})
+			});
+		}
+
+		couponCode = '';
+	};
 </script>
 
 <div class="bg-white">
@@ -207,10 +226,12 @@
 								type="coupon"
 								name="code"
 								id="coupon"
+								bind:value={couponCode}
 								placeholder="biolojanota10"
 								class="text-lg font-semibold bg-transparent outline-none uppercase"
 							/>
 							<button
+								on:click={applyCoupon}
 								class="btn btn-sm bg-primary text-white px-2.5 py-1.5 rounded hover:bg-white/80 font-medium hover:text-primary border border-primary focus:outline-none"
 								>Aplicar</button
 							>
