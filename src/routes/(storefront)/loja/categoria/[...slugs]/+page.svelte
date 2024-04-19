@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Pagination from '$lib/components/layout/pagination.svelte';
 	import ProductCard from '$lib/components/product_card.svelte';
+	import { fade } from 'svelte/transition';
+
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -17,24 +19,29 @@
 </script>
 
 <div>
-	<div>
-		<div class="container mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-			<div class="border-b border-gray-200 pb-10">
-				<h1 class="text-4xl font-bold tracking-tight text-secondary">Categoria</h1>
-				<p class="mt-4 text-base text-gray-500">
-					Mostrando resultados para: <span class="ml-1 font-semibold">{categoryString}</span>.
-				</p>
-			</div>
+	<div class="container mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+		<div class="border-b border-gray-200 pb-10">
+			<h1 class="text-4xl font-bold tracking-tight text-secondary">Categoria</h1>
+			<p class="mt-4 text-base text-gray-500">
+				Mostrando resultados para: <span class="ml-1 font-semibold">{categoryString}</span>.
+			</p>
+		</div>
 
-			<div class="mt-16 lg:col-span-2 xl:col-span-3">
+		{#key categoryData.pageNumber}
+			<div
+				in:fade={{ duration: 300, delay: 400 }}
+				out:fade={{ duration: 300 }}
+				class="mt-16 lg:col-span-2 xl:col-span-3"
+			>
 				<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
 					{#each categoryData.products as product}
 						<ProductCard {product} />
 					{/each}
 				</div>
 			</div>
+		{/key}
 
-			<!-- <div
+		<!-- <div
 				class="bg-gradient-to-r from-accent to-secondary/80 text-white p-8 rounded-lg shadow-lg max-w-md mt-8"
 			>
 				<div class="text-3xl font-bold mb-4">Oferta Especial!</div>
@@ -55,13 +62,12 @@
 				</div>
 			</div> -->
 
-			<div class="mt-16">
-				<Pagination
-					{currentPage}
-					totalPages={categoryData.totalPages}
-					baseUrl="/loja/categoria/{categoryUrl}"
-				/>
-			</div>
+		<div class="mt-16">
+			<Pagination
+				{currentPage}
+				totalPages={categoryData.totalPages}
+				baseUrl="/loja/categoria/{categoryUrl}"
+			/>
 		</div>
 	</div>
 </div>
