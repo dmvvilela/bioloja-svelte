@@ -7,7 +7,6 @@
 
 	export let data: PageServerData;
 
-	// TODO: Add animation on page change.. is TOO FAST IS HARD TO SEE!!
 	$: categoryData = data.category;
 	$: categoryString =
 		categoryData.categoryName +
@@ -33,7 +32,13 @@
 				out:fade={{ duration: 300 }}
 				class="mt-16 lg:col-span-2 xl:col-span-3"
 			>
-				<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
+				<div class="mt-16 mb-72 ml-2">
+					{#if !categoryData.products?.length}
+						<p class="italic text-sm text-gray-400">
+							Não foram encontrados materiais para esta categoria. Deseja algum material específico?
+							Envie-nos uma <a href="/contato" class="link">mensagem</a>!
+						</p>
+					{/if}
 					{#each categoryData.products as product}
 						<ProductCard {product} />
 					{/each}
