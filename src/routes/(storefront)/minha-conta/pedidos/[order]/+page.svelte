@@ -172,6 +172,13 @@
 									</svg>
 								</a>
 							{/if}
+							{#if order.orderStatus === 'COMPLETED'}
+								<div class="flex mt-2">
+									<p class="text-xs text-gray-500">
+										Pagamento confirmado em {order.paymentConfirmedAt?.toLocaleDateString()}.
+									</p>
+								</div>
+							{/if}
 						</dd>
 					</div>
 				{/if}

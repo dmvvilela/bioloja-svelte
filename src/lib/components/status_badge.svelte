@@ -1,19 +1,22 @@
-<script>
-	export let status = '';
+<script lang="ts">
+	export let status:
+		| 'COMPLETED'
+		| 'PAYMENT_PENDING'
+		| 'PROCESSING'
+		| 'CANCELLED'
+		| 'AWAITING'
+		| 'REFUNDED';
+
+	let statusMap = {
+		COMPLETED: { class: 'badge-success', text: 'Concluído' },
+		PAYMENT_PENDING: { class: 'badge-ghost', text: 'Pagamento Pendente' },
+		PROCESSING: { class: 'badge-outline', text: 'Processando' },
+		CANCELLED: { class: 'badge-error', text: 'Cancelado' },
+		AWAITING: { class: 'badge-warning', text: 'Aguardando' },
+		REFUNDED: { class: 'badge-info', text: 'Reembolsado' }
+	};
 </script>
 
-<span
-	class={status === 'Concluído'
-		? 'badge badge-success badge-sm'
-		: status === 'Pagamento Pendente'
-		? 'badge badge-ghost badge-sm'
-		: status === 'Processando'
-		? 'badge badge-outline badge-sm'
-		: status === 'Cancelado'
-		? 'badge badge-error badge-sm'
-		: status === 'Aguardando'
-		? 'badge badge-warning badge-sm'
-		: 'badge badge-info badge-sm'}
->
-	{status}
+<span class="badge badge-sm font-medium py-2.5 {statusMap[status].class}">
+	{statusMap[status].text}
 </span>
