@@ -122,6 +122,7 @@ export const load = (async ({ locals, params, depends }) => {
 	// console.log(order);
 
 	// Get downloads for all products
+	// TODO: Disable refunded items here or on frontend...
 	const productIds = order.orderProducts.map((product) => product.productId);
 	const downloads = await db
 		.select({ name: orderProductsDownloads.linkName, count: count() })

@@ -1,10 +1,36 @@
 <script lang="ts">
+	import { invalidate } from '$app/navigation';
 	import type { PageData } from './$types';
+	import type { DownloadLink } from './+page.server';
 
-	// export let data: PageData;
+	export let data: PageData;
 
-	// const  user = data.user!;
-	const downloads = ['a'];
+	$: downloads = data.downloadLinks as DownloadLink[];
+
+	const downloadProduct = async (
+		orderNumber: string,
+		productId: number,
+		linkName: string,
+		linkUrl: string
+	) => {
+		const response = await fetch('/api/product/download', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				orderNumber,
+				productId,
+				linkName,
+				linkUrl
+			})
+		});
+
+		const { link } = await response.json();
+		invalidate('my-downloads');
+
+		window.open(link, '_blank');
+	};
 </script>
 
 <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow mt-3">
@@ -13,7 +39,7 @@
 		<p class="font- text-slate-600">Verifique seus downloads disponíveis.</p>
 	</div>
 	<hr class="mt-4 mb-8" />
-	{#if downloads.length == 0}
+	{#if !downloads?.length}
 		<div class="mb-8">
 			<p class="text-gray-600 text-sm mb-7 italic">Você ainda não realizou nenhum pedido.</p>
 			<a href="/loja">
@@ -23,35 +49,40 @@
 				>
 			</a>
 		</div>
-	{/if}
-	{#if downloads.length > 0}
+	{:else if downloads.length > 0}
 		<div class="overflow-x-auto mb-6">
 			<table class="table">
 				<thead>
 					<tr>
 						<th>PRODUTO</th>
-						<th>DOWNLOADS RESTANTES</th>
 						<th>EXPIRA EM</th>
-						<th>BAIXAR</th>
+						<th>RESTANTES</th>
+						<th>NOME</th>
+						<th>AÇÃO</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th>Algas</th>
-						<td>3</td>
-						<td>25 de Abril de 2024</td>
-						<th>
-							<button class="btn btn-sm btn-success">Algas.zip</button>
-						</th>
-					</tr>
-					<tr>
-						<th>Homeostase</th>
-						<td>0</td>
-						<td>21 de Abril de 2024</td>
-						<th>
-							<button class="btn btn-sm btn-disabled">Algas.zip</button>
-						</th>
-					</tr>
+					{#each downloads as download}
+						<tr>
+							<th class="text-[13px]">{download.productName}</th>
+							<td>{download.expirationDate.toLocaleDateString()}</td>
+							<td>{download.remaining}</td>
+							<th class="text-[13px]">{download.linkName}</th>
+							<th>
+								<button
+									disabled={download.expired}
+									on:click={() =>
+										downloadProduct(
+											download.orderNumber,
+											download.productId,
+											download.linkName,
+											download.linkUrl
+										)}
+									class="btn btn-sm btn-success">Download</button
+								>
+							</th>
+						</tr>
+					{/each}
 				</tbody>
 			</table>
 		</div>

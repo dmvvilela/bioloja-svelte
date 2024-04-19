@@ -48,7 +48,7 @@
 							<th>#{order.orderNumber}</th>
 							<td class="min-w-24">{date}</td>
 							<td><StatusBadge status={order.orderStatus} /></td>
-							<td>R${getLocalePrice(order.total)} (3 items)</td>
+							<td>R${getLocalePrice(order.total)}</td>
 							<th>
 								<a href="/minha-conta/pedidos/{order.orderNumber}">
 									<button class="btn btn-xs btn-primary text-white">Ver pedido</button>

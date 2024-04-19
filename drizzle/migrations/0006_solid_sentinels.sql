@@ -1,0 +1,1 @@
+ALTER TABLE "order_products_downloads" ADD COLUMN "link_url" text;

@@ -1,0 +1,1 @@
+ALTER TABLE "order_products_downloads" DROP COLUMN IF EXISTS "link_url";
