@@ -26,27 +26,29 @@
 			</p>
 		</div>
 
-		{#key categoryData.pageNumber}
-			<div
-				in:fade={{ duration: 300, delay: 400 }}
-				out:fade={{ duration: 300 }}
-				class="mt-16 lg:col-span-2 xl:col-span-3"
-			>
-				<div class="mt-16 mb-72 ml-2">
-					{#if !categoryData.products?.length}
-						<p class="italic text-sm text-gray-400">
-							Não foram encontrados materiais para esta categoria. Deseja algum material específico?
-							Envie-nos uma <a href="/contato" class="link">mensagem</a>!
-						</p>
-					{/if}
-					{#each categoryData.products as product}
-						<ProductCard {product} />
-					{/each}
-				</div>
+		{#if !categoryData.products?.length}
+			<div class="mt-16 mb-56 ml-2">
+				<p class="italic text-sm text-gray-400 pb-28 border-b">
+					Não foram encontrados materiais para esta categoria. Deseja algum material específico?
+					Envie-nos uma <a href="/contato" class="link">mensagem!</a>
+				</p>
 			</div>
-		{/key}
+		{:else}
+			{#key categoryData.pageNumber}
+				<div
+					in:fade={{ duration: 300, delay: 400 }}
+					out:fade={{ duration: 300 }}
+					class="mt-16 lg:col-span-2 xl:col-span-3"
+				>
+					<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
+						{#each categoryData.products as product}
+							<ProductCard {product} />
+						{/each}
+					</div>
+				</div>
+			{/key}
 
-		<!-- <div
+			<!-- <div
 				class="bg-gradient-to-r from-accent to-secondary/80 text-white p-8 rounded-lg shadow-lg max-w-md mt-8"
 			>
 				<div class="text-3xl font-bold mb-4">Oferta Especial!</div>
@@ -67,12 +69,13 @@
 				</div>
 			</div> -->
 
-		<div class="mt-16">
-			<Pagination
-				{currentPage}
-				totalPages={categoryData.totalPages}
-				baseUrl="/loja/categoria/{categoryUrl}"
-			/>
-		</div>
+			<div class="mt-16">
+				<Pagination
+					{currentPage}
+					totalPages={categoryData.totalPages}
+					baseUrl="/loja/categoria/{categoryUrl}"
+				/>
+			</div>
+		{/if}
 	</div>
 </div>
