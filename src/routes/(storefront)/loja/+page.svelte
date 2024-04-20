@@ -5,10 +5,9 @@
 	import { categories, tags } from '$lib/utils/data';
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
+	import { algoliaToProductType } from '$lib/utils/product';
 	import promoImg from '$lib/images/promo/Compre-4-Leve-3.webp';
-	import type { PageServerData } from './$types';
-
-	export let data: PageServerData;
+	import MailingList from '$lib/components/layout/mailing_list.svelte';
 
 	let checked = false;
 	const toggleMenu = () => (checked = !checked);
@@ -37,6 +36,9 @@
 	afterNavigate(() => {
 		query = $page.url.searchParams.get('q') || '';
 	});
+
+	// Just to remove svelte type error
+	const algoliaToProduct = (product: any) => algoliaToProductType(product);
 </script>
 
 <div>
@@ -476,19 +478,20 @@
 				<!-- Product grid -->
 				<div class="pt-0.5 lg:col-span-2 lg:mt-0 xl:col-span-3">
 					<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
-						<Spinner />
-						<!-- {#await promise}
+						{#await promise}
 							<Spinner />
 						{:then products}
-							{#each data.storeProducts as product}
+							{#each products as algolia}
+								{@const product = algoliaToProduct(algolia)}
 								<ProductCard {product} />
 							{/each}
 						{:catch error}
 							<p style="color: red">{error.message}</p>
-						{/await} -->
+						{/await}
 					</div>
 				</div>
 			</div>
 		</div>
+		<MailingList />
 	</div>
 </div>

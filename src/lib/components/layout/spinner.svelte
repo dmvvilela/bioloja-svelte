@@ -4,7 +4,7 @@
 
 <div class="wrapper" transition:fade>
 	<h1>
-		Carregando...
+		<!-- Carregando... -->
 		<div class="loader" />
 	</h1>
 </div>
@@ -15,18 +15,13 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		color: rebeccapurple;
-		background: rgb(255 255 255 / 0.9);
+		color: #00594f;
+		padding: auto;
 	}
 
 	/* spinner from https://projects.lukehaas.me/css-loaders/ */
 	.loader {
-		color: rebeccapurple;
+		color: #00594f;
 		font-size: 10px;
 		margin: 3rem auto 0;
 		width: 1em;

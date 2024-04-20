@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ProductCard from '$lib/components/product_card.svelte';
-	import type { ProductType } from '$lib/utils/types';
+	import type { ProductType } from '$lib/types/product';
 
 	export let promotions: ProductType[];
 </script>

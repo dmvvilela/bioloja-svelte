@@ -54,21 +54,6 @@ export type ProductWithCategory = {
 	product_categories: ProductCategory;
 };
 
-export type ProductType = {
-	productId: number;
-	productName: string;
-	productSlug: string;
-	imageUrls: string;
-	price: number;
-	discountPrice?: number | null;
-	discountExpiresAt?: Date | null;
-	categoryId: number;
-	categoryName: string;
-	categorySlug: string;
-	parentCategoryId?: number | null;
-	parentCategoryName?: string | null;
-};
-
 // Raw SQL queries
 export type ProductWithCategories = {
 	id: number;

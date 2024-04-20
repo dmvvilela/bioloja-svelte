@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { addToCart, getAllSlideImageUrls, getLocalePrice } from '$lib/utils/product';
-	import type { ProductType } from '$lib/utils/types';
+	import type { ProductType } from '$lib/types/product';
 	import '@splidejs/svelte-splide/css';
 
 	export let product: ProductType;

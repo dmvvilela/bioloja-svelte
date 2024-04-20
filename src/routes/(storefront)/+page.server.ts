@@ -3,8 +3,8 @@ import { db } from '$lib/server/db/conn';
 import { categories, productCategories, products } from '$lib/server/db/schema';
 import { isNull, isNotNull, not, sql, desc, eq, and } from 'drizzle-orm';
 import { alias } from 'drizzle-orm/pg-core';
+import type { ProductType } from '$lib/types/product';
 import type { PageServerLoad } from './$types';
-import type { ProductType } from '$lib/utils/types';
 
 export const load = (async ({ setHeaders }) => {
 	// setHeaders({ 'cache-control': 'max-age=3600' });

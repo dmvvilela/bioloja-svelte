@@ -40,6 +40,7 @@ const index = client.initIndex('products');
 // 	});
 // };
 
+// TODO: Paginate
 export const searchProducts = async (query = '', filters: Filters) => {
 	// Convert the slider values from dollars to cents
 	const minPrice = (filters.prices.min || 0) * 100;

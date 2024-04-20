@@ -12,7 +12,7 @@
 		ProductWithCategories,
 		ProductWithCategory,
 		Tag
-	} from '$lib/utils/types';
+	} from '$lib/types/product';
 	import '@splidejs/svelte-splide/css';
 
 	export let data: PageData;

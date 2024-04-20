@@ -3,7 +3,7 @@ import { categories, productCategories, products } from '$lib/server/db/schema';
 import { eq, and, desc, sql } from 'drizzle-orm';
 import { alias } from 'drizzle-orm/pg-core';
 import { categories as categoriesArray } from '$lib/utils/data';
-import type { ProductType } from '$lib/utils/types';
+import type { ProductType } from '$lib/types/product';
 import type { PageServerLoad } from './$types';
 
 export type ProductWithCount = ProductType & { totalCount: number };
