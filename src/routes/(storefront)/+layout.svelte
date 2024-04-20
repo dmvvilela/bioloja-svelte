@@ -2,22 +2,13 @@
 	import Footer from '$lib/components/layout/footer.svelte';
 	import Header from '$lib/components/layout/header.svelte';
 	import PrivacyNotice from '$lib/components/layout/privacy_notice.svelte';
-	import { onMount } from 'svelte';
-	import { cartItemsCount } from '$lib/stores/cart';
 	import { Toaster } from 'svelte-french-toast';
 	import { onNavigate } from '$app/navigation';
-	import type { LayoutData } from './$types';
 	import '../../app.css';
-
-	export let data: LayoutData;
 
 	const title = 'Bioloja - Materiais Didáticos de Biologia';
 	const description =
 		'Aulas, apostilas, exercícios e simulados de Biologia para os Ensinos Fundamental/Médio/Superior e o Enem. Tanto para professores quanto alunos.';
-
-	onMount(() => {
-		cartItemsCount.set(data.cartItemsCount);
-	});
 
 	onNavigate((navigation) => {
 		if (!(document as any).startViewTransition) return;

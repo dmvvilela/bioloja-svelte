@@ -3,9 +3,9 @@
 	import { categories } from '$lib/utils/data';
 	import { page } from '$app/stores';
 	import { goto, invalidateAll } from '$app/navigation';
-	import { cartItemsCount } from '$lib/stores/cart';
 
 	$: isLoggedIn = !!$page.data.user;
+	$: cartItemsCount = $page.data.cartItemsCount;
 
 	let query = '';
 
@@ -107,11 +107,11 @@
 				</svg>
 
 				<div class="text-xs leading-3 mt-1">Carrinho</div>
-				{#if $cartItemsCount}
+				{#if cartItemsCount}
 					<div
 						class="absolute right-0.5 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs"
 					>
-						{$cartItemsCount}
+						{cartItemsCount}
 					</div>
 				{/if}
 			</a>

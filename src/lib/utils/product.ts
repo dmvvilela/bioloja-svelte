@@ -1,6 +1,5 @@
 import { invalidate } from '$app/navigation';
 import { PUBLIC_IMAGES_BUCKET_URL } from '$env/static/public';
-import { cartItemsCount } from '$lib/stores/cart';
 import { showToast } from '$lib/utils/toast';
 
 export const getImageUrl = (path: string) => PUBLIC_IMAGES_BUCKET_URL + path;
@@ -38,9 +37,8 @@ export const addToCart = async (productId: number) => {
 					return;
 				}
 
-				if (!json.exists) {
-					cartItemsCount.update((count) => count + 1);
-				}
+				// Refetch cart data (items count)
+				invalidate('layout:load');
 				resolve(json);
 			})();
 		}),
@@ -71,9 +69,8 @@ export const removeFromCart = async (productId: number) => {
 					return;
 				}
 
-				// Refetch cart data
+				// Refetch cart data - we can only remove on cart/checkout layout
 				invalidate('app:checkout');
-				cartItemsCount.update((count) => (count ? count - 1 : 0));
 				resolve(json);
 			})();
 		}),

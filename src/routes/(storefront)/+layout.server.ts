@@ -3,11 +3,12 @@ import { cartItems, carts } from '$lib/server/db/schema';
 import { count, and, eq, isNull } from 'drizzle-orm';
 import type { LayoutServerLoad } from './$types';
 
-export const load: LayoutServerLoad = async ({ locals, cookies }) => {
+export const load: LayoutServerLoad = async ({ locals, cookies, depends }) => {
 	const user = locals.user;
 	let itemsCount = 0;
 
 	// If we have a database cart, grab the item count for the header.
+	depends('layout:load');
 	try {
 		if (user) {
 			const result = (
