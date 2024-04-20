@@ -3,11 +3,11 @@
 	import Header from '$lib/components/layout/header.svelte';
 	import PrivacyNotice from '$lib/components/layout/privacy_notice.svelte';
 	import { onMount } from 'svelte';
-	import { cartItemsCount, guestCart } from '$lib/stores/cart';
+	import { cartItemsCount } from '$lib/stores/cart';
 	import { Toaster } from 'svelte-french-toast';
+	import { onNavigate } from '$app/navigation';
 	import type { LayoutData } from './$types';
 	import '../../app.css';
-	import { onNavigate } from '$app/navigation';
 
 	export let data: LayoutData;
 
