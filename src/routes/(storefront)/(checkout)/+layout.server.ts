@@ -35,7 +35,7 @@ export const load = (async ({ locals, cookies, depends }) => {
 
 	depends('app:checkout');
 
-	console.time('dbquery');
+	// console.time('dbquery');
 	const result = (
 		await db
 			.select({
@@ -81,10 +81,10 @@ export const load = (async ({ locals, cookies, depends }) => {
 			.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
 			.leftJoin(products, eq(products.id, cartItems.productId))
 			.leftJoin(coupons, eq(coupons.code, carts.couponCode))
-			.where(eq(carts.id, cartId)) // Check if the cart belongs to user after on checkout
+			.where(eq(carts.id, cartId)) // TODO: Check if the cart belongs to user after on checkout
 			.groupBy(carts.id, coupons.value, coupons.type, coupons.minAmount, coupons.maxAmount)
 	)[0] as Cart;
-	console.timeEnd('dbquery');
+	// console.timeEnd('dbquery');
 	// console.log(result);
 
 	// let userCouponUsed = false;

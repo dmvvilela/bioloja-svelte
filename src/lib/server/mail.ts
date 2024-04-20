@@ -5,6 +5,7 @@ import { render as renderMjmlEmail } from '$lib/utils/mail';
 import { render as renderSvelteEmail } from 'svelte-email';
 import { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SES_REGION } from '$env/static/private';
 import AWS from 'aws-sdk';
+const modules = import.meta.glob('$lib/emails/*/*.svelte');
 const convert = html2text.convert;
 
 new AWS.Config({
@@ -28,31 +29,10 @@ export const templateNameToSubject = (template: string) => {
 	}
 };
 
-// Define a mapping of templates to their import functions
-const componentImports = {
-	mjml: {
-		helloWorld: () => import('$lib/emails/mjml/hello-world.svelte'),
-		newPlus: () => import('$lib/emails/mjml/new_plus.svelte'),
-		cancelPlus: () => import('$lib/emails/mjml/cancel_plus.svelte'),
-		resetPassword: () => import('$lib/emails/mjml/reset_password.svelte')
-	},
-	svelte: {
-		welcome: () => import('$lib/emails/svelte/welcome.svelte'),
-		siteContact: () => import('$lib/emails/svelte/site_contact.svelte'),
-		signUp: () => import('$lib/emails/svelte/sign_up.svelte')
-	}
-};
-
 // Dynamically select the import function based on the template and type
 export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
-	// @ts-ignore
-	const importFunction = componentImports[type][template];
-	if (importFunction) {
-		const module = await importFunction();
-		return module.default;
-	}
-
-	return (await import(`../../emails/${type}/${template}.svelte`)).default;
+	const path = `/src/lib/emails/${type}/${template}.svelte`;
+	return (await (modules as any)[path]()).default;
 };
 
 export const renderEmailBody = async (

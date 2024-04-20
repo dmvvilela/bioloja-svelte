@@ -63,7 +63,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 			)[0].id;
 		}
 
-		// TODO: Grab the cart and double-check values.
+		// TODO: Grab the cart and double-check values (and if belongs to the user since we removed that with guest cart)
 		// Create new order (address can only be grabbed on webhook)
 		const orderNumber = await createOrderId();
 		await db.insert(orders).values({
