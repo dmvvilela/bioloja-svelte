@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Spinner from '$lib/components/layout/spinner.svelte';
 	import ProductCard from '$lib/components/product_card.svelte';
 	import { searchProducts, getFacetCountsWithFilters } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
@@ -22,7 +23,7 @@
 	};
 	$: filters.prices.max = range;
 
-	$: searchProducts(query, filters);
+	$: promise = searchProducts(query, filters);
 
 	let categoriesCounts: any;
 	let tagsCounts: any;
@@ -475,9 +476,16 @@
 				<!-- Product grid -->
 				<div class="pt-0.5 lg:col-span-2 lg:mt-0 xl:col-span-3">
 					<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
-						{#each data.storeProducts as product}
-							<ProductCard {product} />
-						{/each}
+						<Spinner />
+						<!-- {#await promise}
+							<Spinner />
+						{:then products}
+							{#each data.storeProducts as product}
+								<ProductCard {product} />
+							{/each}
+						{:catch error}
+							<p style="color: red">{error.message}</p>
+						{/await} -->
 					</div>
 				</div>
 			</div>

@@ -28,9 +28,9 @@ export const load = (async ({ setHeaders }) => {
 		.innerJoin(productCategories, eq(productCategories.productId, products.id))
 		.innerJoin(categories, eq(categories.id, productCategories.categoryId))
 		.leftJoin(parentCategory, eq(parentCategory.id, categories.parentId))
-		.where(and(isNotNull(products.discountPrice), eq(products.published, true)))
+		.where(eq(products.published, true))
 		.orderBy(sql`RANDOM()`) // desc(products.updatedAt))
-		.limit(8)
+		.limit(16)
 		.execute()) as ProductType[];
 
 	return { storeProducts };
