@@ -18,6 +18,7 @@ export type CartCoupon = {
 	maxAmount: number | null;
 	couponUsed: boolean | null;
 	couponExpired: boolean;
+	userCouponUsed: boolean;
 };
 
 export type Cart = {

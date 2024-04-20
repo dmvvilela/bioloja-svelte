@@ -13,8 +13,13 @@ import { STRIPE_SECRET_KEY } from '$env/static/private';
 
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
-export const POST: RequestHandler = async ({ request }) => {
-	const { userId, name, phone, cart, payment } = await request.json();
+export const POST: RequestHandler = async ({ locals, request }) => {
+	const user = locals.user;
+	if (!user) {
+		error(401, { message: 'Usuário deslogado.' });
+	}
+
+	const { name, phone, cart, payment } = await request.json();
 
 	try {
 		const {
@@ -65,7 +70,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			orderNumber,
 			paymentId,
 			paymentMethodId,
-			userId,
+			userId: user.id,
 			userName: name,
 			userPhone: phone,
 			orderStatus,

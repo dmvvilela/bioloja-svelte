@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
+import { customAlphabet } from 'nanoid';
 
 export type Product = {
 	id: number;
@@ -12,6 +13,7 @@ export type Product = {
 };
 
 export type GuestCart = {
+	cartId: string;
 	products: Product[];
 	coupon?: {
 		code: string;
@@ -23,6 +25,9 @@ export type GuestCart = {
 	total: number;
 	createdAt: Date;
 };
+
+const LONG_ALPHABET = '123467890ABCDEFGHJKLMNPQRTUVWXYZ';
+const createId = () => customAlphabet(LONG_ALPHABET, 8)();
 
 const getLocalStorage = (key: string) => {
 	const data = browser && localStorage.getItem(key);
@@ -39,6 +44,7 @@ const removeLocalStorage = (key: string) => {
 };
 
 const initCart = () => ({
+	cartId: createId(),
 	products: [],
 	total: 0,
 	subtotal: 0,

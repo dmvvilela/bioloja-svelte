@@ -177,7 +177,7 @@
 											<div class="absolute right-0 top-0">
 												<button
 													type="button"
-													on:click={() => removeFromCart(userId, product.id)}
+													on:click={() => removeFromCart(product.id)}
 													class="-m-2 inline-flex p-2 text-gray-400/80 hover:text-gray-500"
 												>
 													<span class="sr-only">Remover</span>

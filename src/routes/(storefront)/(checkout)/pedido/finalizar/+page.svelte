@@ -5,18 +5,16 @@
 	import { PUBLIC_STRIPE_PUBLISHABLE_KEY } from '$env/static/public';
 	import { goto, invalidate } from '$app/navigation';
 	import { getLocalePrice, getSlideImageUrl, removeFromCart } from '$lib/utils/product';
-	import { browser } from '$app/environment';
 	import type { Cart } from '../../types';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	$: userId = data.user?.id;
 	$: cart = data.cart as Cart;
 
 	// Our form fields
 	let name = '';
-	let phone = '12345678'; // TODO: Remover
+	let phone = '';
 	let contactError: string | null = null;
 
 	// Stripe fields
@@ -69,7 +67,7 @@
 				headers: {
 					'content-type': 'application/json'
 				},
-				body: JSON.stringify({ userId, name, phone, cart, payment: result.paymentIntent })
+				body: JSON.stringify({ name, phone, cart, payment: result.paymentIntent })
 			});
 
 			const { orderNumber } = await response.json();

@@ -1,6 +1,6 @@
 import { invalidate } from '$app/navigation';
 import { PUBLIC_IMAGES_BUCKET_URL } from '$env/static/public';
-import { cartItemsCount, guestCart } from '$lib/stores/cart';
+import { cartItemsCount } from '$lib/stores/cart';
 import { showToast } from '$lib/utils/toast';
 
 export const getImageUrl = (path: string) => PUBLIC_IMAGES_BUCKET_URL + path;
@@ -19,30 +19,10 @@ export const getAllSlideImageUrls = (imageUrls: string) => {
 
 export const getLocalePrice = (price: number) => (price / 100).toFixed(2).replace('.', ',');
 
-export const addToCart = async (userId: string | undefined, productId: number) => {
+export const addToCart = async (productId: number) => {
 	showToast(
 		new Promise((resolve, reject) => {
 			(async () => {
-				// If the user is not logged in we use the guest cart on client only
-				if (!userId) {
-					const response = await fetch(`/api/product/${productId}`);
-
-					const json = await response.json();
-					if (!response.ok) {
-						console.error(json);
-						reject(json);
-						return;
-					}
-
-					// TODO: Check if exists before fetching.. and how to exit here?
-					guestCart.add(json);
-					cartItemsCount.update((count) => count + 1);
-
-					resolve(json);
-					return;
-				}
-
-				// If we have the user, we use the database's cart
 				const response = await fetch('/api/cart', {
 					method: 'POST',
 					headers: {
@@ -72,19 +52,10 @@ export const addToCart = async (userId: string | undefined, productId: number) =
 	);
 };
 
-export const removeFromCart = async (userId: string | undefined, productId: number) => {
+export const removeFromCart = async (productId: number) => {
 	showToast(
 		new Promise((resolve, reject) => {
 			(async () => {
-				// If the user is not logged in we use the guest cart on client only
-				if (!userId) {
-					guestCart.remove(productId);
-					cartItemsCount.update((count) => (count ? count - 1 : 0));
-					resolve(true);
-					return;
-				}
-
-				// If we have the user, we use the database's cart
 				const response = await fetch('/api/cart', {
 					method: 'DELETE',
 					headers: {
