@@ -17,8 +17,6 @@
 
 	export let data: PageData;
 
-	$: userId = data.user?.id;
-
 	// Restart carousel on new data
 	$: if (data) {
 		if (main) {

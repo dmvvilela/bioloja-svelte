@@ -1,14 +1,10 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { addToCart, getAllSlideImageUrls, getLocalePrice } from '$lib/utils/product';
-	import { onMount } from 'svelte';
 	import type { ProductType } from '$lib/utils/types';
 	import '@splidejs/svelte-splide/css';
 
 	export let product: ProductType;
-
-	$: userId = $page.data.user?.id;
 
 	const images = getAllSlideImageUrls(product.imageUrls).slice(0, 5);
 
@@ -18,36 +14,13 @@
 		lazyLoad: 'sequential' as 'nearby' | 'sequential',
 		type: 'loop'
 	};
-
-	// const thumbsOptions = {
-	// 	arrows: false,
-	// 	focus: 'center' as 'center',
-	// 	gap: 5,
-	// 	isNavigation: true,
-	// 	pagination: false,
-	// 	perMove: 1,
-	// 	perPage: 4,
-	// 	type: 'loop',
-	// 	updateOnMove: true
-	// };
-
-	// sync carousels
-	let main: any;
-	let thumbs: { splide: any };
-	onMount(() => {
-		if (main && thumbs) {
-			// console.log({ main, thumbs });
-			main.sync(thumbs.splide);
-		}
-	});
 </script>
 
 <div class="bg-gray-50/60 shadow-sm border rounded-md overflow-hidden group">
 	<div class="relative">
-		<!-- Image gallery -->
-		<div class="gallery group">
-			<div class="gallery--main">
-				<Splide bind:this={main} options={mainOptions}>
+		<div class="gallery--product group">
+			<div class="gallery--product--main">
+				<Splide options={mainOptions}>
 					{#each images as image, i}
 						<SplideSlide>
 							<img
@@ -59,16 +32,6 @@
 					{/each}
 				</Splide>
 			</div>
-			<!-- Image selector -->
-			<!-- <div class="gallery--thumbs mt-2">
-				<Splide id="gallery--thumbs" bind:this={thumbs} options={thumbsOptions}>
-					{#each images as image, i}
-						<SplideSlide>
-							<img src={image} alt="Thumb slide {i}" class="rounded-sm" />
-						</SplideSlide>
-					{/each}
-				</Splide>
-			</div> -->
 		</div>
 		<div
 			class="absolute inset-0 bg-black bg-opacity-10 flex items-center
@@ -241,25 +204,12 @@
 </div>
 
 <style>
-	/* .gallery--thumbs
-		:global(.splide__track--nav)
-		> :global(.splide__list)
-		> :global(.splide__slide.is-active) {
-		border: 2.5px solid #002336;
-		border-radius: 4px;
-	}
-
-	:global(.splide__pagination__page.is-active) {
-		background-color: #7895a3;
-	} */
-
-	:global(.splide__arrow) {
+	.gallery--product--main :global(.splide__arrow) {
 		height: 24px !important;
 		width: 24px !important;
 		padding: 5px !important;
 		opacity: 0 !important;
 		transition: opacity 0.3s ease-in-out;
-		/* @apply !bg-primary !text-white; */
 	}
 
 	:global(.group:hover .splide__arrow) {
