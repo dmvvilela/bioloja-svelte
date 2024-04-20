@@ -34,7 +34,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			.from(coupons)
 			.where(eq(coupons.code, couponCode))
 	)[0];
-	console.log(coupon);
+	// console.log(coupon);
 
 	if (!coupon) {
 		error(400, { message: 'Cupom não encontrado.' });

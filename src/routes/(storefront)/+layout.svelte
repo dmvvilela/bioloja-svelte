@@ -7,6 +7,7 @@
 	import { Toaster } from 'svelte-french-toast';
 	import type { LayoutData } from './$types';
 	import '../../app.css';
+	import { onNavigate } from '$app/navigation';
 
 	export let data: LayoutData;
 
@@ -16,6 +17,17 @@
 
 	onMount(() => {
 		cartItemsCount.set(data.cartItemsCount);
+	});
+
+	onNavigate((navigation) => {
+		if (!(document as any).startViewTransition) return;
+
+		return new Promise((resolve) => {
+			(document as any).startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
 	});
 </script>
 
