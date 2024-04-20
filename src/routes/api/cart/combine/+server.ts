@@ -1,5 +1,5 @@
 import { db } from '$lib/server/db/conn';
-import { carts } from '$lib/server/db/schema';
+import { cartItems, carts } from '$lib/server/db/schema';
 import { error } from '@sveltejs/kit';
 import { eq, and, isNull, desc, sql } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
@@ -47,29 +47,26 @@ export const POST: RequestHandler = async ({ locals, cookies }) => {
 		}
 
 		// Both cart exists, copy items from guest to user.
-		const response = await db.execute(sql`
-				INSERT INTO cart_items (cart_id, product_id, quantity)
-				SELECT ${userCart.id}, product_id, quantity
+		await db.execute(sql`
+				INSERT INTO cart_items (cart_id, product_id)
+				SELECT ${userCart.id}, product_id
 				FROM cart_items
 				WHERE cart_id = ${guestCart.id}
-				AND NOT EXISTS (
-						SELECT 1
+				AND product_id NOT IN (
+						SELECT product_id
 						FROM cart_items
-						WHERE cart_id = ${userCart.id} AND product_id IN (
-								SELECT product_id
-								FROM cart_items
-								WHERE cart_id = ${guestCart.id}
-						)
+						WHERE cart_id = ${userCart.id}
 				)
 		`);
-		console.log(response);
 
 		// Delete the guest cart.
 		cookies.delete('cartId', { path: '/' });
+		await db.delete(cartItems).where(eq(cartItems.cartId, guestCart.id));
 		await db.delete(carts).where(eq(carts.id, guestCartId));
 
 		return new Response();
 	} catch (err: any) {
+		console.error(err);
 		error(500, err.message);
 	}
 };

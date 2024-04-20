@@ -14,7 +14,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 };
 
 export const actions: Actions = {
-	default: async ({ request, cookies, url }) => {
+	default: async ({ request, cookies, url, fetch }) => {
 		const formData = await request.formData();
 		const email = formData.get('email') as string;
 		const password = formData.get('password') as string;
@@ -60,6 +60,9 @@ export const actions: Actions = {
 			path: '.',
 			...sessionCookie.attributes
 		});
+
+		// Combine guest cart with user's cart.
+		await fetch('/api/cart/combine', { method: 'POST' });
 
 		if (url.searchParams.has('redirectTo')) {
 			redirect(303, url.searchParams.get('redirectTo') as string);
