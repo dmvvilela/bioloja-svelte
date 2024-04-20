@@ -287,7 +287,7 @@
 											<div class="tooltip" data-tip="Remover">
 												<button
 													type="button"
-													on:click={() => removeFromCart(userId, product.id)}
+													on:click={() => removeFromCart(product.id)}
 													class="-m-2.5 flex items-center justify-center bg-white p-2.5 text-gray-400 hover:text-gray-500"
 												>
 													<span class="sr-only">Remover</span>

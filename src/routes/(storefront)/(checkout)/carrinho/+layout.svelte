@@ -2,27 +2,11 @@
 	import Footer from '$lib/components/layout/footer.svelte';
 	import Header from '$lib/components/layout/header.svelte';
 	import PrivacyNotice from '$lib/components/layout/privacy_notice.svelte';
-	import { onMount } from 'svelte';
-	import { cartItemsCount, guestCart } from '$lib/stores/cart';
 	import { Toaster } from 'svelte-french-toast';
-	import type { LayoutData } from './$types';
 	import '../../../../app.css';
-
-	export let data: LayoutData;
 
 	const title = 'Bioloja - Carrinho';
 	const description = 'Finalize sua compra.';
-
-	onMount(() => {
-		let itemsCount;
-		if (!data.user) {
-			itemsCount = guestCart.count;
-		} else {
-			itemsCount = data.cart?.products.length;
-		}
-
-		cartItemsCount.set(itemsCount || 0);
-	});
 </script>
 
 <!-- TODO: Fix this -->

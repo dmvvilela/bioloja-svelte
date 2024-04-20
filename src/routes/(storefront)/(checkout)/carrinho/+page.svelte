@@ -1,6 +1,5 @@
 <script lang="ts">
 	import MailingList from '$lib/components/layout/mailing_list.svelte';
-	import { guestCart } from '$lib/stores/cart';
 	import { getLocalePrice, getSlideImageUrl, removeFromCart } from '$lib/utils/product';
 	import { invalidate } from '$app/navigation';
 	import { showToast } from '$lib/utils/toast';
@@ -10,88 +9,84 @@
 	export let data: PageData;
 
 	$: userId = data.user?.id;
-	$: cart = userId ? (data.cart as Cart) : $guestCart;
+	$: cart = data.cart;
 
 	let couponCode = '';
 
 	const applyCoupon = async () => {
-		if (userId) {
-			showToast(
-				new Promise((resolve, reject) => {
-					(async () => {
-						try {
-							const response = await fetch(`/api/cart/coupon`, {
-								method: 'POST',
-								headers: {
-									'Content-Type': 'application/json'
-								},
-								body: JSON.stringify({
-									cartId: (cart as Cart).cartId,
-									subtotal: (cart as Cart).subtotal,
-									couponCode
-								})
-							});
+		showToast(
+			new Promise((resolve, reject) => {
+				(async () => {
+					try {
+						const response = await fetch(`/api/cart/coupon`, {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({
+								cartId: (cart as Cart).cartId,
+								subtotal: (cart as Cart).subtotal,
+								couponCode
+							})
+						});
 
-							if (!response.ok) {
-								const json = await response.json();
-								reject(json.message);
-								return;
-							}
-
-							resolve({});
-							invalidate('app:checkout');
-						} catch (err: any) {
-							reject(err.message);
+						if (!response.ok) {
+							const json = await response.json();
+							reject(json.message);
+							return;
 						}
-					})();
-				}),
-				{
-					loading: 'Verificando cupom...',
-					success: 'Cupom adicionado!',
-					error: (message: any) => message
-				}
-			);
-		}
+
+						resolve({});
+						invalidate('app:checkout');
+					} catch (err: any) {
+						reject(err.message);
+					}
+				})();
+			}),
+			{
+				loading: 'Verificando cupom...',
+				success: 'Cupom adicionado!',
+				error: (message: any) => message
+			}
+		);
 
 		couponCode = '';
 	};
 
 	const removeCoupon = async () => {
-		if (userId) {
-			showToast(
-				new Promise((resolve, reject) => {
-					(async () => {
-						try {
-							const response = await fetch(`/api/cart/coupon`, {
-								method: 'DELETE',
-								headers: {
-									'Content-Type': 'application/json'
-								},
-								body: JSON.stringify({
-									cartId: (cart as Cart).cartId
-								})
-							});
+		showToast(
+			new Promise((resolve, reject) => {
+				(async () => {
+					try {
+						const response = await fetch(`/api/cart/coupon`, {
+							method: 'DELETE',
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({
+								cartId: (cart as Cart).cartId
+							})
+						});
 
-							if (!response.ok) {
-								const json = await response.json();
-								reject(json.message);
-								return;
-							}
-
-							resolve({});
-							invalidate('app:checkout');
-						} catch (err: any) {
-							reject(err.message);
+						if (!response.ok) {
+							const json = await response.json();
+							reject(json.message);
+							return;
 						}
-					})();
-				}),
-				{
-					loading: 'Removendo cupom...',
-					success: 'Cupom removido!',
-					error: (message: any) => message
-				}
-			);
-		}
+
+						resolve({});
+						invalidate('app:checkout');
+					} catch (err: any) {
+						reject(err.message);
+					}
+				})();
+			}),
+			{
+				loading: 'Removendo cupom...',
+				success: 'Cupom removido!',
+				error: (message: any) => message
+			}
+		);
 	};
 </script>
 

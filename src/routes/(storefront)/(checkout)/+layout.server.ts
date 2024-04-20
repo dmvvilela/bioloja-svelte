@@ -1,5 +1,5 @@
 import { db } from '$lib/server/db/conn';
-import { carts, cartItems, products, coupons, users } from '$lib/server/db/schema';
+import { carts, cartItems, products, coupons } from '$lib/server/db/schema';
 import { sql, and, eq, isNull, desc } from 'drizzle-orm';
 import type { Cart } from './types';
 import type { LayoutServerLoad } from '../$types';
@@ -43,20 +43,18 @@ export const load = (async ({ locals, cookies, depends }) => {
 				orderNumber: carts.orderNumber,
 				createdAt: carts.createdAt,
 				updatedAt: carts.updatedAt,
-				coupon: sql`CASE WHEN carts.coupon_code IS NOT NULL THEN json_build_object(
-						'code', carts.coupon_code, 
-						'value', coupons.value::numeric, 
-						'type', coupons.type, 
-						'minAmount', coupons.min_amount::numeric,
-						'maxAmount', coupons.max_amount::numeric,
-						'couponExpired', (SELECT expires_at IS NOT NULL AND expires_at < NOW() FROM coupons WHERE code = carts.coupon_code),
-						'couponUsed', (SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code) >= (SELECT max_uses FROM coupons WHERE code = carts.coupon_code),
-						'userCouponUsed', ${
-							user
-								? `(SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code AND user_id = ${user.id}) > 0`
-								: `false`
-						}
-				) ELSE NULL END`,
+				coupon: sql`CASE WHEN carts.coupon_code IS NOT NULL THEN (
+					SELECT json_build_object(
+							'code', carts.coupon_code, 
+							'value', coupons.value::numeric, 
+							'type', coupons.type, 
+							'minAmount', coupons.min_amount::numeric,
+							'maxAmount', coupons.max_amount::numeric,
+							'couponExpired', expires_at IS NOT NULL AND expires_at < NOW(),
+							'couponUsed', (SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code) >= max_uses
+					)
+					FROM coupons WHERE code = carts.coupon_code
+			) ELSE NULL END`,
 				products: sql`array_agg(
 						CASE 
 							WHEN products.id IS NOT NULL THEN json_build_object(
@@ -83,11 +81,22 @@ export const load = (async ({ locals, cookies, depends }) => {
 			.leftJoin(cartItems, eq(cartItems.cartId, carts.id))
 			.leftJoin(products, eq(products.id, cartItems.productId))
 			.leftJoin(coupons, eq(coupons.code, carts.couponCode))
-			.where(eq(carts.id, cartId)) // Check if the cart belongs to user on real checkout
+			.where(eq(carts.id, cartId)) // Check if the cart belongs to user after on checkout
 			.groupBy(carts.id, coupons.value, coupons.type, coupons.minAmount, coupons.maxAmount)
 	)[0] as Cart;
 	console.timeEnd('dbquery');
-	console.log(result);
+	// console.log(result);
+
+	// let userCouponUsed = false;
+	// if (user) {
+	// 	const count = await db.execute(
+	// 		sql`SELECT COUNT(*) FROM orders WHERE coupon_code = carts.coupon_code AND user_id = ${user.id}`
+	// 	);
+	// 	console.log('COUNT: ', count);
+	// 	// userCouponUsed = count > 0;
+	// } else {
+	// 	userCouponUsed = false;
+	// }
 
 	let subtotal = 0;
 	let couponDiscount = 0;
@@ -123,11 +132,12 @@ export const load = (async ({ locals, cookies, depends }) => {
 
 		total = subtotal - couponDiscount;
 	}
-	console.log(`Subtotal: ${subtotal}, Discount: ${couponDiscount}, Total: ${total}`);
+	// console.log(`Subtotal: ${subtotal}, Discount: ${couponDiscount}, Total: ${total}`);
 
 	return {
 		user: locals.user,
 		session: locals.session,
+		cartItemsCount: result.products ? result.products.length : 0,
 		cart: {
 			...result,
 			subtotal,

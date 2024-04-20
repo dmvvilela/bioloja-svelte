@@ -15,14 +15,7 @@
 		'Aulas, apostilas, exercícios e simulados de Biologia para os Ensinos Fundamental/Médio/Superior e o Enem. Tanto para professores quanto alunos.';
 
 	onMount(() => {
-		let itemsCount;
-		if (!data.user) {
-			itemsCount = guestCart.count;
-		} else {
-			itemsCount = data.cartItemsCount;
-		}
-
-		cartItemsCount.set(itemsCount);
+		cartItemsCount.set(data.cartItemsCount);
 	});
 </script>
 

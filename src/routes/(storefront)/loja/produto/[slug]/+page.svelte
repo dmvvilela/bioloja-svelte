@@ -229,7 +229,7 @@
 
 					<div class="mt-10 flex">
 						<button
-							on:click={() => addToCart(userId, product.id)}
+							on:click={() => addToCart(product.id)}
 							type="button"
 							class="btn btn-primary btn-md flex max-w-xs flex-1 items-center justify-center glass bg-primary-focus text-base border border-primary text-white px-8 py-3 font-medium border-transparent sm:w-full rounded-md hover:shadow-lg"
 							>Adicionar <svg

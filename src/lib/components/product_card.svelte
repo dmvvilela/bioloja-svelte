@@ -219,7 +219,7 @@
 		</div>-->
 	</div>
 	<button
-		on:click={() => addToCart(userId, product.productId)}
+		on:click={() => addToCart(product.productId)}
 		class="btn btn-square w-full py-1.5 lg:py-2.5 text-center text-white bg-primary border border-primary rounded-b rounded-t-none hover:bg-transparent hover:text-primary transition flex justify-center items-center"
 	>
 		Adicionar
