@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { invalidateAll } from '$app/navigation';
+	import { showToast } from '$lib/utils/toast';
 
 	$: path = $page.route.id;
 
@@ -11,10 +12,23 @@
 	}
 
 	const logOut = async () => {
-		await fetch('/sair', { method: 'POST' });
-		invalidateAll();
+		showToast(
+			new Promise((resolve, reject) => {
+				(async () => {
+					await fetch('/sair', { method: 'POST' });
+					invalidateAll();
+					resolve({});
+				})();
+			}),
+			{
+				loading: 'Saindo...',
+				success: 'Deslogado!',
+				error: 'Ocorreu um problema.'
+			}
+		);
 	};
 
+	// TODO: Add "Suporte" and show Bioloja email.
 	const menus = [
 		{
 			title: 'Detalhes',

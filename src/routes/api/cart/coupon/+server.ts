@@ -15,8 +15,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		});
 	}
 
-	console.log(couponCode, cartId, subtotal);
-	// TODO: Check if the user already used the coupon
+	const code = couponCode.toUpperCase();
 	const coupon = (
 		await db
 			.select({
@@ -32,9 +31,8 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 					: sql`false`
 			})
 			.from(coupons)
-			.where(eq(coupons.code, couponCode))
+			.where(eq(coupons.code, code))
 	)[0];
-	// console.log(coupon);
 
 	if (!coupon) {
 		error(400, { message: 'Cupom não encontrado.' });
@@ -61,7 +59,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 	}
 
 	// Coupon is valid, add to cart
-	await db.update(carts).set({ couponCode }).where(eq(carts.id, cartId));
+	await db.update(carts).set({ couponCode: code }).where(eq(carts.id, cartId));
 
 	return new Response();
 };

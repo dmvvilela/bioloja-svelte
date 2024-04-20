@@ -128,9 +128,14 @@ export const load = (async ({ locals, cookies, depends }) => {
 			} else {
 				couponDiscount = coupon.value;
 			}
+		} else if (coupon) {
+			// Coupon is not valid, remove it from cart
+			result.coupon = null;
+			await db.update(carts).set({ couponCode: null }).where(eq(carts.id, cartId));
 		}
 
 		total = subtotal - couponDiscount;
+		if (total < 0) total = 0; // TODO: Enable free orders?
 	}
 	// console.log(`Subtotal: ${subtotal}, Discount: ${couponDiscount}, Total: ${total}`);
 

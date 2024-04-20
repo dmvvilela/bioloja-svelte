@@ -3,6 +3,7 @@
 	import { categories } from '$lib/utils/data';
 	import { page } from '$app/stores';
 	import { goto, invalidateAll } from '$app/navigation';
+	import { showToast } from '$lib/utils/toast';
 
 	$: isLoggedIn = !!$page.data.user;
 	$: cartItemsCount = $page.data.cartItemsCount;
@@ -10,8 +11,20 @@
 	let query = '';
 
 	const logOut = async () => {
-		await fetch('/sair', { method: 'POST' });
-		invalidateAll();
+		showToast(
+			new Promise((resolve, reject) => {
+				(async () => {
+					await fetch('/sair', { method: 'POST' });
+					invalidateAll();
+					resolve({});
+				})();
+			}),
+			{
+				loading: 'Saindo...',
+				success: 'Deslogado!',
+				error: 'Ocorreu um problema.'
+			}
+		);
 	};
 </script>
 

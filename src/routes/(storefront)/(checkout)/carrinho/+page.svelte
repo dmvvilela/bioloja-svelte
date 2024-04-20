@@ -9,7 +9,7 @@
 	export let data: PageData;
 
 	$: userId = data.user?.id;
-	$: cart = data.cart;
+	$: cart = data.cart as Cart;
 
 	let couponCode = '';
 
@@ -18,14 +18,17 @@
 			new Promise((resolve, reject) => {
 				(async () => {
 					try {
+						if (!couponCode.length) {
+							reject('Insira um cupom.');
+						}
 						const response = await fetch(`/api/cart/coupon`, {
 							method: 'POST',
 							headers: {
 								'Content-Type': 'application/json'
 							},
 							body: JSON.stringify({
-								cartId: (cart as Cart).cartId,
-								subtotal: (cart as Cart).subtotal,
+								cartId: cart.cartId,
+								subtotal: cart.subtotal,
 								couponCode
 							})
 						});
@@ -281,7 +284,7 @@
 						>
 					</div>
 					<div class="border-t border-gray-200 mt-8" />
-					<div class="container text-primary p-5 rounded-lg bg-white max-w-md mx-auto mt-8">
+					<div class="text-primary p-5 rounded-lg bg-white max-w-md mx-auto mt-8">
 						<div class="text-xl font-bold mb-4 uppercase tracking-[-0.01em]">Cupom de desconto</div>
 						<div class="text-sm mb-4">Possui um cupom? Use-o aqui:</div>
 						<div
@@ -292,19 +295,16 @@
 								name="code"
 								id="coupon"
 								bind:value={couponCode}
-								placeholder="biolojanota10"
-								class="text-lg font-semibold bg-transparent outline-none uppercase"
+								placeholder="bionota10"
+								class="text-lg font-semibold bg-transparent outline-none uppercase w-full"
 							/>
 							<button
 								on:click={applyCoupon}
+								type="button"
 								class="btn btn-sm bg-primary text-white px-2.5 py-1.5 rounded hover:bg-white/80 font-medium hover:text-primary border border-primary focus:outline-none"
 								>Aplicar</button
 							>
 						</div>
-						<!-- <div class="text-sm mt-4">
-						<p>Valid until <span class="font-semibold">December 31, 2023</span></p>
-						<p>Terms and conditions apply.</p>
-					</div> -->
 					</div>
 				</section>
 			</form>

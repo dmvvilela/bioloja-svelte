@@ -5,7 +5,7 @@ import { eq, and, isNull, desc, sql } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
 
 // Combine guest cart with user's cart.
-export const POST: RequestHandler = async ({ locals, cookies }) => {
+export const POST: RequestHandler = async ({ locals, cookies, fetch }) => {
 	const user = locals.user;
 	const guestCartId = cookies.get('cartId');
 
@@ -58,6 +58,37 @@ export const POST: RequestHandler = async ({ locals, cookies }) => {
 						WHERE cart_id = ${userCart.id}
 				)
 		`);
+
+		// If there was a coupon envolved, we apply them to see if it still works.
+		if (guestCart.couponCode || userCart.couponCode) {
+			// WHERE cart_id IN (${userCart.id}, ${guestCart.id})
+			const subtotal = (
+				await db.execute(sql`
+					SELECT cart_id, SUM(COALESCE((CASE WHEN discount_expires_at IS NULL OR discount_expires_at > NOW() THEN discount_price END), price)) as subtotal
+					FROM cart_items
+					JOIN products ON cart_items.product_id = products.id
+					WHERE cart_id = ${userCart.id}
+					GROUP BY cart_id
+			`)
+			).rows[0].subtotal;
+
+			// TODO: I mean, we could fetch both to see which is better.. but that sounds like too much for now..
+			try {
+				await fetch(`/api/cart/coupon`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						cartId: userCart.id,
+						couponCode: guestCart.couponCode || userCart.couponCode,
+						subtotal: subtotal
+					})
+				});
+			} catch (e) {
+				/* empty */
+			}
+		}
 
 		// Delete the guest cart.
 		cookies.delete('cartId', { path: '/' });
