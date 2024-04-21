@@ -71,6 +71,13 @@
       "when": 1713567281099,
       "tag": "0009_early_sandman",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1713742922064,
+      "tag": "0010_sharp_viper",
+      "breakpoints": true
     }
   ]
 }

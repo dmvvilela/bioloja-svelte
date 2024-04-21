@@ -1,3 +1,41 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+	import { showToast } from '$lib/utils/toast';
+
+	let email = '';
+
+	// TODO: Show info/warning toast instead of error
+	const submit = async () => {
+		showToast(
+			new Promise((resolve, reject) => {
+				(async () => {
+					const response = await fetch('/api/subscribe', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({
+							email: email,
+							from: $page.url.pathname
+						})
+					});
+
+					if (response.ok) {
+						resolve({});
+					} else {
+						reject(await response.json());
+					}
+				})();
+			}),
+			{
+				loading: 'Enviando...',
+				success: 'E-mail cadastrado!',
+				error: (error: any) => error.message
+			}
+		);
+	};
+</script>
+
 <div class="relative sm:py-16 bg-gray-50">
 	<div class="relative max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
 		<div
@@ -34,7 +72,7 @@
 						materiais publicados.
 					</p>
 				</div>
-				<form class="sm:mx-auto sm:max-w-lg sm:flex">
+				<form class="sm:mx-auto sm:max-w-lg sm:flex" on:submit|preventDefault={submit}>
 					<div class="relative w-full max-w-xl mx-auto bg-white rounded-full h-14 lg:max-w-none">
 						<input
 							class="rounded-full w-full h-14 bg-transparent py-0 text-bioloja-700 sm:pl-6 pl-5 pr-16 sm:pr-32 outline-none border-2 border-gray-100 shadow-md hover:outline-none focus:ring-bioloja-200 focus:border-bioloja-200"
@@ -43,6 +81,7 @@
 							type="email"
 							name="email"
 							id="email"
+							bind:value={email}
 							required
 						/>
 						<button

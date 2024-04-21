@@ -97,8 +97,6 @@ export async function getFacetCountsWithFilters(query = '', filters: Filters) {
 	// Create a numeric filter based on the slider values
 	const priceFilter = `price:${minPrice} TO ${maxPrice}`;
 
-	console.log(filters);
-
 	// Create an array of facet filters based on the categories and tags arrays
 	const facetFilters: string[] = [
 		...filters.categories.map((category) => `categories.slug:${category.slug}`),

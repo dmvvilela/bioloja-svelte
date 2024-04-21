@@ -350,10 +350,18 @@ export const cartItems = pgTable(
 			name: 'cartItems',
 			columns: [table.cartId, table.productId]
 		}),
-		orderNumberIdx: index('idx_cart_items_cart_id').on(table.cartId),
+		cartIdIdx: index('idx_cart_items_cart_id').on(table.cartId),
 		productIdIdx: index('idx_cart_items_product_id').on(table.productId)
 	})
 );
+
+// TODO: Add status like sub, unsub or bounced.
+export const subscribers = pgTable('subscribers', {
+	email: text('email').primaryKey(),
+	from: text('from').notNull(),
+	subscribedAt: timestamp('subscribed_at').notNull().defaultNow(),
+	unsubscribedAt: timestamp('unsubscribed_at')
+});
 
 export type User = typeof users.$inferSelect;
 export type Sessions = typeof sessions.$inferSelect;
@@ -372,6 +380,7 @@ export type Coupon = typeof coupons.$inferSelect;
 export type Address = typeof addresses.$inferSelect;
 export type Cart = typeof carts.$inferSelect;
 export type CartItem = typeof cartItems.$inferSelect;
+export type Subscriber = typeof subscribers.$inferSelect;
 
 export type UserRoles = (typeof userRoles.enumValues)[number];
 export type CouponTypes = (typeof couponTypes.enumValues)[number];
