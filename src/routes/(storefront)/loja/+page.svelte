@@ -8,11 +8,12 @@
 	import { algoliaToProductType } from '$lib/utils/product';
 	import promoImg from '$lib/images/promo/Compre-4-Leve-3.webp';
 	import MailingList from '$lib/components/layout/mailing_list.svelte';
+	import { fade } from 'svelte/transition';
 
 	let checked = false;
 	const toggleMenu = () => (checked = !checked);
 
-	// TODO: Add clear button to query input
+	// TODO: Add clear button to query input and message of no results
 	let query = '';
 	let range = 0;
 	let filters = {
@@ -170,7 +171,7 @@
 													>{category.name}</label
 												>
 												<div class="ml-auto text-gray-400 text-sm">
-													({categoriesCounts?.[category.name] || 0})
+													({categoriesCounts?.[category.slug] || 0})
 												</div>
 											</div>
 										{/each}
@@ -376,7 +377,7 @@
 													>{category.name}</label
 												>
 												<div class="ml-auto text-gray-400 text-sm">
-													({categoriesCounts?.[category.name] || 0})
+													({categoriesCounts?.[category.slug] || 0})
 												</div>
 											</div>
 										{/each}
@@ -441,7 +442,7 @@
 						</form>
 					</div>
 
-					<div class="mx-auto mt-8 p-4">
+					<div class="mx-auto mt-8 p-4 max-w-sm">
 						<a href="/loja/produto/promocao-leve-4-e-pague-3">
 							<img
 								src={promoImg}
@@ -476,20 +477,26 @@
 				</aside>
 
 				<!-- Product grid -->
-				<div class="pt-0.5 lg:col-span-2 lg:mt-0 xl:col-span-3">
-					<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
-						{#await promise}
-							<Spinner />
-						{:then products}
+				{#await promise}
+					<div class="lg:col-span-2 lg:mt-0 xl:col-span-3">
+						<Spinner />
+					</div>
+				{:then products}
+					<div class="lg:col-span-2 lg:mt-0 xl:col-span-3 mx-auto">
+						<div
+							in:fade={{ duration: 300, delay: 400 }}
+							out:fade={{ duration: 300 }}
+							class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6 items-center"
+						>
 							{#each products as algolia}
 								{@const product = algoliaToProduct(algolia)}
 								<ProductCard {product} />
 							{/each}
-						{:catch error}
-							<p style="color: red">{error.message}</p>
-						{/await}
+						</div>
 					</div>
-				</div>
+				{:catch error}
+					<p style="color: red">{error.message}</p>
+				{/await}
 			</div>
 		</div>
 		<MailingList />

@@ -19,20 +19,20 @@ export const getAllSlideImageUrls = (imageUrls: string) => {
 
 export const getLocalePrice = (price: number) => (price / 100).toFixed(2).replace('.', ',');
 
-// TODO: Accept more categories.. and fix issues
 export const algoliaToProductType = (data: AlgoliaProductType): ProductType => {
 	return {
 		productId: data.id,
 		productName: data.name,
 		productSlug: data.slug,
-		imageUrls: data.imageUrls.join(','), // Convert array of URLs to comma-separated string
+		imageUrls: data.imageUrls.join(','),
 		price: data.price,
 		discountPrice: data.discountPrice,
 		discountExpiresAt: data.discountExpiresAt ? new Date(data.discountExpiresAt) : null,
-		categoryId: 1, // You'll need to determine how to map categories from Algolia to your categoryId
-		categoryName: data.categories[0], // Assuming the first category is the main one
-		categorySlug: data.categories[0].toLowerCase().replace(/ /g, '-') // Convert category name to slug
-		// parentCategoryId and parentCategoryName are not available in the Algolia data
+		categoryId: data.categories[0].id,
+		categoryName: data.categories[0].name,
+		categorySlug: data.categories[0].slug,
+		parentCategoryId: data.categories?.[1]?.id,
+		parentCategoryName: data.categories?.[1]?.name
 	};
 };
 

@@ -18,8 +18,13 @@
       "uploads/2018/05/Slide5.jpg",
       "uploads/2018/05/Slide6.jpg"
     ],
+    "objectID": "VPFNDW4V",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -53,8 +58,13 @@
       "uploads/2018/05/Slide5-1.jpg",
       "uploads/2018/05/Slide6-1.jpg"
     ],
+    "objectID": "8WDHQMLY",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -92,10 +102,23 @@
       "uploads/2018/05/Slide9.jpg",
       "uploads/2018/05/Slide10.jpg"
     ],
+    "objectID": "VUJE8RXH",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Biologia Celular e Molecular",
-      "Outros"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      },
+      {
+        "id": 28,
+        "slug": "outros",
+        "name": "Outros"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -127,8 +150,13 @@
       "uploads/2018/05/Slide6-3.jpg",
       "uploads/2018/05/Slide7-1.jpg"
     ],
+    "objectID": "GBTCAE2X",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -160,8 +188,13 @@
       "uploads/2018/05/Slide5-4.jpg",
       "uploads/2018/05/Slide6-4.jpg"
     ],
+    "objectID": "F0H1NDZM",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -179,7 +212,7 @@
     "name": "Promoção: Leve 4 e pague 3!!",
     "published": true,
     "featured": true,
-    "shortDescription": "Leve os materiais:\n\n- <a href=\"https://bioloja.bio.br/loja/produto/membrana-plasmatica-e-transporte/\">Membrana Plasmática e Transporte</a>\n- <a href=\"https://bioloja.bio.br/loja/produto/citoplasma/\">Citoplasma</a>\n- <a href=\"https://bioloja.bio.br/loja/produto/citoesqueleto/\">Citoesqueleto</a>\n\nE leve inteiramente grátis o material:\n\n- <a href=\"https://bioloja.bio.br/loja/produto/introducao-ao-estudo-das-celulas/\">Introdução ao Estudo das Células</a>",
+    "shortDescription": "Leve os materiais:\n\n- <a href=\"https://bioloja.bio.br/loja/biologia-celular-e-molecular/membrana-plasmatica-e-transporte/\">Membrana Plasmática e Transporte</a>\n- <a href=\"https://bioloja.bio.br/loja/biologia-celular-e-molecular/citoplasma/\">Citoplasma</a>\n- <a href=\"https://bioloja.bio.br/loja/biologia-celular-e-molecular/citoesqueleto/\">Citoesqueleto</a>\n\nE leve inteiramente grátis o material:\n\n- <a href=\"https://bioloja.bio.br/loja/biologia-celular-e-molecular/introducao-ao-estudo-das-celulas/\">Introdução ao Estudo das Células</a>",
     "description": "Promoção por <strong>tempo limitado</strong>!!\n\nAproveite!\n\n<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PPSX (Apresentação auto-executável) e PDF.",
     "price": 8665,
     "discountPrice": null,
@@ -203,9 +236,18 @@
       "uploads/2018/05/Slide4-1.jpg",
       "uploads/2018/05/Slide2-1.jpg"
     ],
+    "objectID": "RU87ZH1F",
     "categories": [
-      "Biologia Celular e Molecular",
-      "Promoções"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      },
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -238,8 +280,13 @@
       "uploads/2018/05/Slide4-6.jpg",
       "uploads/2018/05/Slide5-6.jpg"
     ],
+    "objectID": "6YGYMYXN",
     "categories": [
-      "Bioquímica"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -271,8 +318,13 @@
       "uploads/2018/05/Slide6-5.jpg",
       "uploads/2018/05/Slide7-2.jpg"
     ],
+    "objectID": "MZ9HFCEJ",
     "categories": [
-      "Bioquímica"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -305,8 +357,13 @@
       "uploads/2018/05/Slide7-3.jpg",
       "uploads/2018/05/Slide8-1.jpg"
     ],
+    "objectID": "Z2J0G0YM",
     "categories": [
-      "Bioquímica"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -341,9 +398,18 @@
       "uploads/2018/05/Slide8-13.jpg",
       "uploads/2018/05/Slide9-7.jpg"
     ],
+    "objectID": "EAMCWYYY",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Endócrino"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 19,
+        "slug": "sistema-endocrino",
+        "name": "Sistema Endócrino"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -374,8 +440,13 @@
       "uploads/2018/05/Slide5-7.jpg",
       "uploads/2018/05/Slide6-6.jpg"
     ],
+    "objectID": "TG3E4EZG",
     "categories": [
-      "Bioquímica"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -407,8 +478,13 @@
       "uploads/2018/05/Slide5-9.jpg",
       "uploads/2018/05/Slide6-8.jpg"
     ],
+    "objectID": "VD3P7344",
     "categories": [
-      "Ecologia"
+      {
+        "id": 7,
+        "slug": "ecologia",
+        "name": "Ecologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -439,10 +515,23 @@
       "uploads/2018/05/Slide5-10.jpg",
       "uploads/2018/05/Slide6-9.jpg"
     ],
+    "objectID": "81DR4C9G",
     "categories": [
-      "Ecologia",
-      "Evolução",
-      "Genética"
+      {
+        "id": 7,
+        "slug": "ecologia",
+        "name": "Ecologia"
+      },
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      },
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -473,8 +562,13 @@
       "uploads/2018/05/Slide5-12.jpg",
       "uploads/2018/05/Slide6-11.jpg"
     ],
+    "objectID": "8YAQ6MFB",
     "categories": [
-      "Especiais"
+      {
+        "id": 4,
+        "slug": "especiais",
+        "name": "Especiais"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -504,8 +598,13 @@
       "uploads/2018/05/Slide4-14.jpg",
       "uploads/2018/05/Slide5-14.jpg"
     ],
+    "objectID": "F69ZF6VR",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -539,9 +638,18 @@
       "uploads/2018/05/Slide7-26.jpg",
       "uploads/2018/05/Slide8-19.jpg"
     ],
+    "objectID": "M4ALY4CQ",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Reprodutor"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 22,
+        "slug": "sistema-reprodutor",
+        "name": "Sistema Reprodutor"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -574,8 +682,13 @@
       "uploads/2018/05/Slide6-12.jpg",
       "uploads/2018/05/Slide7-5.jpg"
     ],
+    "objectID": "XEKKA9E8",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -609,8 +722,13 @@
       "uploads/2018/05/Slide7-6.jpg",
       "uploads/2018/05/Slide8-3.jpg"
     ],
+    "objectID": "6AECE4CD",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -645,8 +763,13 @@
       "uploads/2018/05/Slide8-4.jpg",
       "uploads/2018/05/Slide9-2.jpg"
     ],
+    "objectID": "EKUFAEY8",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -679,9 +802,18 @@
       "uploads/2018/05/Slide6-15.jpg",
       "uploads/2018/05/Slide7-8.jpg"
     ],
+    "objectID": "LX37FRHR",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Outros"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 28,
+        "slug": "outros",
+        "name": "Outros"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -714,10 +846,23 @@
       "uploads/2018/05/Slide7-9.jpg",
       "uploads/2018/05/Slide8-5.jpg"
     ],
+    "objectID": "73HH20TG",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Biologia Celular e Molecular",
-      "Outros"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      },
+      {
+        "id": 28,
+        "slug": "outros",
+        "name": "Outros"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -752,9 +897,18 @@
       "uploads/2018/05/Slide9-4.jpg",
       "uploads/2018/05/Slide10-1.jpg"
     ],
+    "objectID": "369UTPCY",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistemas de Sustentação"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 26,
+        "slug": "sistemas-de-sustentacao",
+        "name": "Sistemas de Sustentação"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -788,9 +942,18 @@
       "uploads/2018/05/Slide8-6.jpg",
       "uploads/2018/05/Slide9-3.jpg"
     ],
+    "objectID": "CLFP17JL",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Outros"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 28,
+        "slug": "outros",
+        "name": "Outros"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -824,9 +987,18 @@
       "uploads/2018/05/Slide7-12.jpg",
       "uploads/2018/05/Slide8-8.jpg"
     ],
+    "objectID": "JMMFB024",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Outros"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 28,
+        "slug": "outros",
+        "name": "Outros"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -859,9 +1031,18 @@
       "uploads/2018/05/Slide6-34.jpg",
       "uploads/2018/05/Slide7-27.jpg"
     ],
+    "objectID": "F03GAEP4",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Reprodutor"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 22,
+        "slug": "sistema-reprodutor",
+        "name": "Sistema Reprodutor"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -894,10 +1075,23 @@
       "uploads/2018/05/Slide6-20.jpg",
       "uploads/2018/05/Slide7-13.jpg"
     ],
+    "objectID": "9M6TMTPR",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Biologia Celular e Molecular",
-      "Outros"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      },
+      {
+        "id": 28,
+        "slug": "outros",
+        "name": "Outros"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -930,9 +1124,18 @@
       "uploads/2018/05/Slide7-14.jpg",
       "uploads/2018/05/Slide8-9.jpg"
     ],
+    "objectID": "YK8HVZE0",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Endócrino"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 19,
+        "slug": "sistema-endocrino",
+        "name": "Sistema Endócrino"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -965,9 +1168,18 @@
       "uploads/2018/05/Slide7-15.jpg",
       "uploads/2018/05/Slide8-10.jpg"
     ],
+    "objectID": "VTYWDTAY",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Endócrino"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 19,
+        "slug": "sistema-endocrino",
+        "name": "Sistema Endócrino"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1001,9 +1213,18 @@
       "uploads/2018/05/Slide8-11.jpg",
       "uploads/2018/05/Slide9-5.jpg"
     ],
+    "objectID": "YTMMJM3X",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Endócrino"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 19,
+        "slug": "sistema-endocrino",
+        "name": "Sistema Endócrino"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1035,9 +1256,18 @@
       "uploads/2018/05/Slide6-24.jpg",
       "uploads/2018/05/Slide7-17.jpg"
     ],
+    "objectID": "D9T0W1CN",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Endócrino"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 19,
+        "slug": "sistema-endocrino",
+        "name": "Sistema Endócrino"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1072,9 +1302,18 @@
       "uploads/2018/05/Slide9-6.jpg",
       "uploads/2018/05/Slide10-2.jpg"
     ],
+    "objectID": "7D4GNGTC",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Endócrino"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 19,
+        "slug": "sistema-endocrino",
+        "name": "Sistema Endócrino"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1114,9 +1353,18 @@
       "uploads/2018/05/Slide14.jpg",
       "uploads/2018/05/Slide15.jpg"
     ],
+    "objectID": "CJPMXNTW",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Hematologia"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 16,
+        "slug": "hematologia",
+        "name": "Hematologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1151,9 +1399,18 @@
       "uploads/2018/05/Slide9-9.jpg",
       "uploads/2018/05/Slide10-3.jpg"
     ],
+    "objectID": "3WKHD6A3",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Circulatório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 17,
+        "slug": "sistema-circulatorio",
+        "name": "Sistema Circulatório"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1187,9 +1444,18 @@
       "uploads/2018/05/Slide8-16.jpg",
       "uploads/2018/05/Slide9-10.jpg"
     ],
+    "objectID": "7VECFNM0",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Circulatório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 17,
+        "slug": "sistema-circulatorio",
+        "name": "Sistema Circulatório"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1223,9 +1489,18 @@
       "uploads/2018/05/Slide4-32.jpg",
       "uploads/2018/05/Slide3-32.jpg"
     ],
+    "objectID": "4EVFEV9E",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1261,10 +1536,23 @@
       "uploads/2018/05/Slide10-4.jpg",
       "uploads/2018/05/Slide11.jpg"
     ],
+    "objectID": "UG264F3T",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Farmacologia",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 10,
+        "slug": "farmacologia",
+        "name": "Farmacologia"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1296,9 +1584,18 @@
       "uploads/2018/05/Slide6-32.jpg",
       "uploads/2018/05/Slide7-25.jpg"
     ],
+    "objectID": "Q38HCDR8",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Reprodutor"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 22,
+        "slug": "sistema-reprodutor",
+        "name": "Sistema Reprodutor"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1328,10 +1625,23 @@
       "uploads/2018/06/Slide3.jpg",
       "uploads/2018/06/Slide4.jpg"
     ],
+    "objectID": "U08RCR93",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Promoções",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1364,9 +1674,18 @@
       "uploads/2018/06/Slide6.jpg",
       "uploads/2018/06/Slide7.jpg"
     ],
+    "objectID": "8QHUY499",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1398,9 +1717,18 @@
       "uploads/2018/06/Slide6-1.jpg",
       "uploads/2018/06/Slide7-1.jpg"
     ],
+    "objectID": "P2947CL2",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Respiratório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 23,
+        "slug": "sistema-respiratorio",
+        "name": "Sistema Respiratório"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1434,9 +1762,18 @@
       "uploads/2018/06/Slide8.jpg",
       "uploads/2018/06/Slide9.jpg"
     ],
+    "objectID": "GEMPNNLR",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Respiratório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 23,
+        "slug": "sistema-respiratorio",
+        "name": "Sistema Respiratório"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1468,9 +1805,18 @@
       "uploads/2018/06/Slide6-3.jpg",
       "uploads/2018/06/Slide7-3.jpg"
     ],
+    "objectID": "XHBCYH80",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Respiratório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 23,
+        "slug": "sistema-respiratorio",
+        "name": "Sistema Respiratório"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1505,9 +1851,18 @@
       "uploads/2018/06/Slide9-4.jpg",
       "uploads/2018/06/Slide10-1.jpg"
     ],
+    "objectID": "2069HAQ2",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Sensorial"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 24,
+        "slug": "sistema-sensorial",
+        "name": "Sistema Sensorial"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1541,9 +1896,18 @@
       "uploads/2018/06/Slide8-1.jpg",
       "uploads/2018/06/Slide9-1.jpg"
     ],
+    "objectID": "AQ06EEUX",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Sensorial"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 24,
+        "slug": "sistema-sensorial",
+        "name": "Sistema Sensorial"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1577,9 +1941,18 @@
       "uploads/2018/06/Slide8-2.jpg",
       "uploads/2018/06/Slide9-2.jpg"
     ],
+    "objectID": "YK7DWLZT",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Sensorial"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 24,
+        "slug": "sistema-sensorial",
+        "name": "Sistema Sensorial"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1615,9 +1988,18 @@
       "uploads/2018/06/Slide10.jpg",
       "uploads/2018/06/Slide11.jpg"
     ],
+    "objectID": "MWHRMGBD",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Tegumentar"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 25,
+        "slug": "sistema-tegumentar",
+        "name": "Sistema Tegumentar"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1647,8 +2029,13 @@
       "uploads/2018/07/Slide4-14.jpg",
       "uploads/2018/07/Slide5-14.jpg"
     ],
+    "objectID": "N2PQ1A0P",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1685,8 +2072,13 @@
       "uploads/2018/07/Slide10-9.jpg",
       "uploads/2018/07/Slide11-8.jpg"
     ],
+    "objectID": "G8QPPAQU",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1723,8 +2115,13 @@
       "uploads/2018/07/Slide10-8.jpg",
       "uploads/2018/07/Slide11-7.jpg"
     ],
+    "objectID": "K0YD8NBA",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1734,38 +2131,6 @@
       "Número de slides": 84,
       "Anotações do apresentador": true,
       "Apostila em PDF": true
-    }
-  },
-  {
-    "id": 186,
-    "slug": "apostila-quebra-do-equilibrio-ambiental",
-    "name": "Apostila Quebra do equilíbrio ambiental",
-    "published": true,
-    "featured": true,
-    "shortDescription": "Material voltado para os ensinos médio e superior. Aborda, de maneira geral, as alterações bióticas e abióticas provocadas pelo homem que implicam em desequilíbrio no ecossistema, além de uma introdução ao desenvolvimento sustentável. <u>Conteúdo específico</u>: <strong>1-</strong> Alterações bióticas: introdução de espécies e extinção (eliminação) de espécies; <strong>2-</strong> Alterações abióticas: poluição sonora; poluição por elementos radioativos; poluição do ar (incluindo chuva ácida, inversão térmica, efeito estufa e aquecimento global, destruição da camada de ozônio); poluição por substâncias não-biodegradáveis; poluição por derramamento de petróleo; poluição por eutroficação; poluição térmica e <a name=\"_Toc23097341\"></a>a problemática ambiental associada aos grandes empreendimentos hidrelétricos; o lixo; <strong>3-</strong> Desenvolvimento sustentável: definição; Eco-92 e Agenda-21; Rio 5; Rio 10, Protocolo de Kyoto; Rio 20. Material com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos (fornecidos em outro arquivo).\n\nNúmero de páginas: 39 (excluindo a página de sumário)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Apostila Quebra do equilíbrio ambiental\n- Biodiversidade vegetal e sua importância ecológica e econômica\n- Conceitos e estimativas de biodiversidade\n- Consequências do processo evolutivo: adaptação, especiação e extinção\n- Evolução da interação entre as espécies\n- Fotossíntese e quimiossíntese\n- Metabolismo energético: uma visão ecológica\n- Princípios de evolução: variabilidade, seleção e adaptação\n- Respiração celular e fermentação",
-    "price": 5850,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_1.jpg",
-      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_2.jpg",
-      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_3.jpg",
-      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_4.jpg",
-      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_5.jpg"
-    ],
-    "categories": [
-      "Ecologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Número de páginas": 39,
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true
     }
   },
   {
@@ -1792,8 +2157,13 @@
       "uploads/2018/07/Slide10-7.jpg",
       "uploads/2018/07/Slide11-6.jpg"
     ],
+    "objectID": "JC844TT1",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1826,9 +2196,18 @@
       "uploads/2018/07/Slide7-10.jpg",
       "uploads/2018/07/Slide8-9.jpg"
     ],
+    "objectID": "N7UB9HJP",
     "categories": [
-      "Evolução",
-      "Genética"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      },
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1866,8 +2245,13 @@
       "uploads/2018/07/Slide12-3.jpg",
       "uploads/2018/07/Slide13-1.jpg"
     ],
+    "objectID": "GN40600Z",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1903,8 +2287,13 @@
       "uploads/2018/07/Slide10-5.jpg",
       "uploads/2018/07/Slide11-4.jpg"
     ],
+    "objectID": "A0UAR6NA",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1941,8 +2330,13 @@
       "uploads/2018/07/Slide11-3.jpg",
       "uploads/2018/07/Slide12-2.jpg"
     ],
+    "objectID": "C462PGVJ",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -1978,9 +2372,18 @@
       "uploads/2018/07/Slide10-3.jpg",
       "uploads/2018/07/Slide11-2.jpg"
     ],
+    "objectID": "PC4HW8XZ",
     "categories": [
-      "Evolução",
-      "Genética"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      },
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2012,9 +2415,18 @@
       "uploads/2018/07/Slide6-5.jpg",
       "uploads/2018/07/Slide7-5.jpg"
     ],
+    "objectID": "L237LJ24",
     "categories": [
-      "Biologia Celular e Molecular",
-      "Evolução"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      },
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2048,8 +2460,13 @@
       "uploads/2018/07/Slide8-4.jpg",
       "uploads/2018/07/Slide9-3.jpg"
     ],
+    "objectID": "MJQG68BH",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2086,9 +2503,18 @@
       "uploads/2018/07/Slide11-1.jpg",
       "uploads/2018/07/Slide12-1.jpg"
     ],
+    "objectID": "GUPTUTDA",
     "categories": [
-      "Evolução",
-      "Seres Vivos"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2124,9 +2550,18 @@
       "uploads/2018/07/Slide10-16.jpg",
       "uploads/2018/07/Slide11-13.jpg"
     ],
+    "objectID": "1M18YGRZ",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2165,8 +2600,13 @@
       "uploads/2018/07/Slide12.jpg",
       "uploads/2018/07/Slide13.jpg"
     ],
+    "objectID": "KMPWH8X0",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2201,8 +2641,13 @@
       "uploads/2018/07/Slide9-1.jpg",
       "uploads/2018/07/Slide10-1.jpg"
     ],
+    "objectID": "0F2WBC1E",
     "categories": [
-      "Evolução"
+      {
+        "id": 9,
+        "slug": "evolucao",
+        "name": "Evolução"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2247,10 +2692,23 @@
       "uploads/2018/07/Slide19.jpg",
       "uploads/2018/07/Slide20.jpg"
     ],
+    "objectID": "40Q8JWJN",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Promoções",
-      "Sistema Digestório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 18,
+        "slug": "sistema-digestorio",
+        "name": "Sistema Digestório"
+      }
     ],
     "tags": [
       "Acompanha Vídeos",
@@ -2283,9 +2741,18 @@
       "uploads/2018/07/Slide5-29.jpg",
       "uploads/2018/07/Slide6-28.jpg"
     ],
+    "objectID": "37EJ1U1A",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2322,9 +2789,18 @@
       "uploads/2018/07/Slide10-61.jpg",
       "uploads/2018/07/Slide11-46.jpg"
     ],
+    "objectID": "Y706NTCP",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2361,9 +2837,18 @@
       "uploads/2018/07/Slide10-60.jpg",
       "uploads/2018/07/Slide11-45.jpg"
     ],
+    "objectID": "F27QV3EN",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2400,9 +2885,18 @@
       "uploads/2018/07/Slide10-62.jpg",
       "uploads/2018/07/Slide11-47.jpg"
     ],
+    "objectID": "LHKLPUDQ",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2438,9 +2932,18 @@
       "uploads/2018/07/Slide9-79.jpg",
       "uploads/2018/07/Slide10-63.jpg"
     ],
+    "objectID": "U7W6939P",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2479,9 +2982,18 @@
       "uploads/2018/07/Slide12-21.jpg",
       "uploads/2018/07/Slide13-10.jpg"
     ],
+    "objectID": "D1XD8P8W",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2517,9 +3029,18 @@
       "uploads/2018/07/Slide9-19.jpg",
       "uploads/2018/07/Slide10-17.jpg"
     ],
+    "objectID": "HNDAQGZF",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2556,9 +3077,18 @@
       "uploads/2018/07/Slide10-15.jpg",
       "uploads/2018/07/Slide11-12.jpg"
     ],
+    "objectID": "0G1M9RRX",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2593,9 +3123,18 @@
       "uploads/2018/07/Slide8-19.jpg",
       "uploads/2018/07/Slide9-17.jpg"
     ],
+    "objectID": "BH1MAD4F",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2632,9 +3171,18 @@
       "uploads/2018/07/Slide10-14.jpg",
       "uploads/2018/07/Slide11-11.jpg"
     ],
+    "objectID": "NBPE1NP2",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2670,9 +3218,18 @@
       "uploads/2018/07/Slide9-14.jpg",
       "uploads/2018/07/Slide10-13.jpg"
     ],
+    "objectID": "6PLXH2FZ",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2709,9 +3266,18 @@
       "uploads/2018/07/Slide10-11.jpg",
       "uploads/2018/07/Slide11-10.jpg"
     ],
+    "objectID": "76AVHL0R",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2722,6 +3288,52 @@
       "Número de slides": 36,
       "Anotações do apresentador": true,
       "Apostila em PDF": true
+    }
+  },
+  {
+    "id": 169,
+    "slug": "apostila-drogas-conceitos-e-efeitos-no-organismo",
+    "name": "Apostila Drogas: conceitos e efeitos no organismo",
+    "published": true,
+    "featured": true,
+    "shortDescription": "Material voltado para os ensinos médio e superior, e também para profissionais da saúde. Apostila em pdf que aborda: <strong>1-</strong> aspectos relevantes da questão sobre drogas: conceitos (farmacológico, drogas psicotrópicas e da Lei nº 11.343, de 23 de agosto de 2006); abuso x uso indevido; <a name=\"_Toc453159719\"></a>fatores de risco para o abuso ou uso indevido de drogas; tolerância x sensibilização; mecanismos de tolerância (inata; adquirida: farmacocinética, farmacodinâmica ou aprendida); dependência (psicológica e física) e adicção; tipos de usuários de drogas; outros conceitos (uso controlado, uso social, uso em <em>binge</em>, poliusuário, <em>overdose</em>, escalada qualitativa e quantitativa); 2- classificação das drogas: quanto aos efeitos farmacológicos, quanto ao potencial de uso nocivo e utilidade clínica, quanto ao <em>status</em> legal das substâncias e quanto à origem; <strong>3-</strong> as drogas e o sistema nervoso: divisões do SNC, sinapses químicas, neurotransmissores e seu envolvimento com drogas de abuso; <strong>4-</strong> características farmacológicas das drogas de abuso: via dopaminérgica mesolímbica; recompensa e dependência; farmacocinética das drogas psicotrópicas; neuroadaptações a longo prazo; sistemas classificatórios mais utilizados: Código Internacional de Doenças (CID), desenvolvido pela Organização Mundial da Saúde (OMS), e Manual Diagnóstico e Estatístico de Saúde Mental (DSM, do inglês <em>Diagnostic and Statistical Manual of Mental Disorders</em>) da Associação Psiquiátrica Americana (<em>American Psychiatric Association </em>– APA); <strong>5-</strong> principais drogas psicotrópicas, usadas de maneira abusiva, de acordo com a classificação quanto ao efeito farmacológico: depressoras do SNC (álcool, barbitúricos e benzodiazepínicos, ópio e derivados, substâncias voláteis), estimulantes do SNC (nicotina, cocaína, anfetaminas e drogas relacionadas, esteroides anabolizantes) e perturbadoras do SNC (THC, cogumelos e plantas alucinógenos, LCD, ecstasy, fenciclidina e cetamina, anticolinérgicos): forma utilizada, mecanismo primário de ação e tolerância/abstinência. Material com ilustração preto e branco/escala de cinza.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 20",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea\n- Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário.\n- Apostila Fisiologia de órgãos e sistema III: sistema respiratório\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Drogas depressoras do SNC- parte 2\n- Drogas estimulantes do SNC- parte 3\n- Drogas perturbadoras do SNC - parte 4\n- Drogas: conceitos e efeitos no organismo - parte 1\n- Drogas: mecanismos de tolerância, dependência e adicção",
+    "price": 3000,
+    "discountPrice": 2550,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2019/04/Drogas1.jpg",
+      "uploads/2019/04/Drogas2.jpg",
+      "uploads/2019/04/Drogas3.jpg",
+      "uploads/2019/04/Drogas4.jpg"
+    ],
+    "objectID": "T06R7M6G",
+    "categories": [
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 10,
+        "slug": "farmacologia",
+        "name": "Farmacologia"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true,
+      "Número de páginas": 20
     }
   },
   {
@@ -2747,9 +3359,18 @@
       "uploads/2018/07/Slide9-13.jpg",
       "uploads/2018/07/Slide10-12.jpg"
     ],
+    "objectID": "7LNW423Z",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2784,9 +3405,18 @@
       "uploads/2018/07/Slide8-30.jpg",
       "uploads/2018/07/Slide9-28.jpg"
     ],
+    "objectID": "7NN9NVT9",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2824,9 +3454,18 @@
       "uploads/2018/07/Slide11-17.jpg",
       "uploads/2018/07/Slide12-5.jpg"
     ],
+    "objectID": "UZXHLPL9",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2865,9 +3504,18 @@
       "uploads/2018/07/Slide12-20.jpg",
       "uploads/2018/07/Slide13-9.jpg"
     ],
+    "objectID": "NRLYHNHE",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2909,8 +3557,13 @@
       "uploads/2018/07/Slide15-2.jpg",
       "uploads/2018/07/Slide16-2.jpg"
     ],
+    "objectID": "UQD4B9X9",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2945,9 +3598,18 @@
       "uploads/2018/07/Slide9-25.jpg",
       "uploads/2018/07/Slide10-23.jpg"
     ],
+    "objectID": "QHZ24GGZ",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -2985,9 +3647,18 @@
       "uploads/2018/07/Slide11-19.jpg",
       "uploads/2018/07/Slide12-7.jpg"
     ],
+    "objectID": "QBUVJRGK",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Acompanha Vídeos",
@@ -3023,9 +3694,18 @@
       "uploads/2018/07/Slide8-36.jpg",
       "uploads/2018/07/Slide9-33.jpg"
     ],
+    "objectID": "LGHRKBVN",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3059,9 +3739,18 @@
       "uploads/2018/07/Slide7-37.jpg",
       "uploads/2018/07/Slide8-35.jpg"
     ],
+    "objectID": "4Y82E363",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3094,9 +3783,18 @@
       "uploads/2018/07/Slide6-37.jpg",
       "uploads/2018/07/Slide7-36.jpg"
     ],
+    "objectID": "F32YC8RT",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3131,9 +3829,18 @@
       "uploads/2018/07/Slide8-34.jpg",
       "uploads/2018/07/Slide9-32.jpg"
     ],
+    "objectID": "WLL2PH1G",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3169,9 +3876,18 @@
       "uploads/2018/07/Slide9-31.jpg",
       "uploads/2018/07/Slide10-26.jpg"
     ],
+    "objectID": "4UEMGFV4",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3211,9 +3927,18 @@
       "uploads/2018/07/Slide13-3.jpg",
       "uploads/2018/07/Slide14-1.jpg"
     ],
+    "objectID": "BJYAVBYY",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3251,8 +3976,13 @@
       "uploads/2018/07/Slide11-33.jpg",
       "uploads/2018/07/Slide12-15.jpg"
     ],
+    "objectID": "X1M2GG0D",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3288,8 +4018,13 @@
       "uploads/2018/07/Slide10-50.jpg",
       "uploads/2018/07/Slide11-35.jpg"
     ],
+    "objectID": "86BZTY32",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3323,8 +4058,13 @@
       "uploads/2018/07/Slide8-64.jpg",
       "uploads/2018/07/Slide9-60.jpg"
     ],
+    "objectID": "VXJXH7GM",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3370,8 +4110,13 @@
       "uploads/2018/07/Slide20-1.jpg",
       "uploads/2018/07/Slide21.jpg"
     ],
+    "objectID": "CDHGZTHF",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3410,8 +4155,13 @@
       "uploads/2018/07/Slide13-5.jpg",
       "uploads/2018/07/Slide14-3.jpg"
     ],
+    "objectID": "HBAJKLR0",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3446,9 +4196,18 @@
       "uploads/2018/07/Slide9-57.jpg",
       "uploads/2018/07/Slide10-45.jpg"
     ],
+    "objectID": "YVYJ3XKL",
     "categories": [
-      "Biologia Celular e Molecular",
-      "Genética"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      },
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3482,8 +4241,13 @@
       "uploads/2018/07/Slide8-62.jpg",
       "uploads/2018/07/Slide9-58.jpg"
     ],
+    "objectID": "2YD8T799",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3517,8 +4281,13 @@
       "uploads/2018/07/Slide8-63.jpg",
       "uploads/2018/07/Slide9-59.jpg"
     ],
+    "objectID": "6TA7M4DT",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3554,8 +4323,13 @@
       "uploads/2018/07/Slide10-44.jpg",
       "uploads/2018/07/Slide11-30.jpg"
     ],
+    "objectID": "8CNGG04Z",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3589,8 +4363,13 @@
       "uploads/2018/07/Slide8-60.jpg",
       "uploads/2018/07/Slide9-56.jpg"
     ],
+    "objectID": "6KLH31CY",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3624,8 +4403,13 @@
       "uploads/2018/07/Slide8-38.jpg",
       "uploads/2018/07/Slide9-35.jpg"
     ],
+    "objectID": "9G0MLJTH",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3658,8 +4442,13 @@
       "uploads/2018/07/Slide7-61.jpg",
       "uploads/2018/07/Slide8-59.jpg"
     ],
+    "objectID": "ZNVEVGLN",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3696,8 +4485,13 @@
       "uploads/2018/07/Slide11-28.jpg",
       "uploads/2018/07/Slide12-12.jpg"
     ],
+    "objectID": "BZXGCGH6",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3733,8 +4527,13 @@
       "uploads/2018/07/Slide10-43.jpg",
       "uploads/2018/07/Slide11-29.jpg"
     ],
+    "objectID": "TWBFVUH2",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3768,8 +4567,13 @@
       "uploads/2018/07/Slide8-56.jpg",
       "uploads/2018/07/Slide9-53.jpg"
     ],
+    "objectID": "QVEZUBJQ",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3803,8 +4607,13 @@
       "uploads/2018/07/Slide8-54.jpg",
       "uploads/2018/07/Slide9-51.jpg"
     ],
+    "objectID": "7W8Y20VK",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3840,8 +4649,13 @@
       "uploads/2018/07/Slide10-41.jpg",
       "uploads/2018/07/Slide11-27.jpg"
     ],
+    "objectID": "BKV1ZM8U",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Acompanha Vídeos",
@@ -3877,9 +4691,18 @@
       "uploads/2018/07/Slide9-47.jpg",
       "uploads/2018/07/Slide10-38.jpg"
     ],
+    "objectID": "T7G0G6L2",
     "categories": [
-      "Farmacologia",
-      "Genética"
+      {
+        "id": 10,
+        "slug": "farmacologia",
+        "name": "Farmacologia"
+      },
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3915,8 +4738,13 @@
       "uploads/2018/07/Slide10-40.jpg",
       "uploads/2018/07/Slide11-26.jpg"
     ],
+    "objectID": "XX79BWJX",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3954,9 +4782,18 @@
       "uploads/2018/11/Slide12.jpg",
       "uploads/2018/11/Slide13.jpg"
     ],
+    "objectID": "Y0GEP0TY",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -3992,8 +4829,13 @@
       "uploads/2018/07/Slide9-48.jpg",
       "uploads/2018/07/Slide10-39.jpg"
     ],
+    "objectID": "9AXXEXPC",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4030,8 +4872,13 @@
       "uploads/2018/07/Slide11-24.jpg",
       "uploads/2018/07/Slide12-10.jpg"
     ],
+    "objectID": "RVQZB2DJ",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4068,8 +4915,13 @@
       "uploads/2018/07/Slide11-25.jpg",
       "uploads/2018/07/Slide12-11.jpg"
     ],
+    "objectID": "URANEWG8",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4106,8 +4958,13 @@
       "uploads/2018/07/Slide11-23.jpg",
       "uploads/2018/07/Slide12-9.jpg"
     ],
+    "objectID": "ZDA0QLJ3",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4144,8 +5001,13 @@
       "uploads/2018/07/Slide11-22.jpg",
       "uploads/2018/07/Slide12-8.jpg"
     ],
+    "objectID": "URRV238B",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4179,8 +5041,13 @@
       "uploads/2018/07/Slide8-45.jpg",
       "uploads/2018/07/Slide9-42.jpg"
     ],
+    "objectID": "CYXN9VBE",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4215,8 +5082,13 @@
       "uploads/2018/07/Slide9-43.jpg",
       "uploads/2018/07/Slide10-34.jpg"
     ],
+    "objectID": "7LZU37X8",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4251,8 +5123,13 @@
       "uploads/2018/07/Slide9-38.jpg",
       "uploads/2018/07/Slide10-30.jpg"
     ],
+    "objectID": "HVVAKEBN",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4288,8 +5165,13 @@
       "uploads/2018/07/Slide10-32.jpg",
       "uploads/2018/07/Slide11-21.jpg"
     ],
+    "objectID": "VG94C1GB",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4324,8 +5206,13 @@
       "uploads/2018/07/Slide9-39.jpg",
       "uploads/2018/07/Slide10-31.jpg"
     ],
+    "objectID": "FUWHKBBM",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4361,8 +5248,13 @@
       "uploads/2018/07/Slide10-29.jpg",
       "uploads/2018/07/Slide11-20.jpg"
     ],
+    "objectID": "0L4MZTP4",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4397,8 +5289,13 @@
       "uploads/2018/07/Slide9-36.jpg",
       "uploads/2018/07/Slide10-28.jpg"
     ],
+    "objectID": "EDP2Z2ZM",
     "categories": [
-      "Genética"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4431,8 +5328,13 @@
       "uploads/2018/07/Slide7-77.jpg",
       "uploads/2018/07/Slide8-75.jpg"
     ],
+    "objectID": "P710RU1N",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4471,8 +5373,13 @@
       "uploads/2018/07/Slide13-8.jpg",
       "uploads/2018/07/Slide14-5.jpg"
     ],
+    "objectID": "3NPE42UZ",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4509,8 +5416,13 @@
       "uploads/2018/07/Slide11-42.jpg",
       "uploads/2018/07/Slide12-19.jpg"
     ],
+    "objectID": "BANA9E4T",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4542,8 +5454,13 @@
       "uploads/2018/07/Slide6-81.jpg",
       "uploads/2018/07/Slide7-80.jpg"
     ],
+    "objectID": "B86QHHE7",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4584,10 +5501,23 @@
       "uploads/2019/02/Slide15-5.jpg",
       "uploads/2019/02/Slide16-4.jpg"
     ],
+    "objectID": "EN9CNK7T",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Farmacologia",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 10,
+        "slug": "farmacologia",
+        "name": "Farmacologia"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4622,8 +5552,13 @@
       "uploads/2018/07/Slide8-78.jpg",
       "uploads/2018/07/Slide9-73.jpg"
     ],
+    "objectID": "MTVJ6MBL",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4660,8 +5595,13 @@
       "uploads/2018/07/Slide10-54.jpg",
       "uploads/2018/07/Slide11-39.jpg"
     ],
+    "objectID": "XLUFN4L4",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4699,8 +5639,13 @@
       "uploads/2018/07/Slide12-17.jpg",
       "uploads/2018/07/Slide13-7.jpg"
     ],
+    "objectID": "AJEAFV4K",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4736,8 +5681,13 @@
       "uploads/2018/07/Slide10-52.jpg",
       "uploads/2018/07/Slide11-37.jpg"
     ],
+    "objectID": "F74DJ12B",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4777,8 +5727,13 @@
       "uploads/2019/11/Slide14.jpg",
       "uploads/2019/11/Slide15.jpg"
     ],
+    "objectID": "FZXKVBBP",
     "categories": [
-      "Ecologia"
+      {
+        "id": 7,
+        "slug": "ecologia",
+        "name": "Ecologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4815,8 +5770,13 @@
       "uploads/2018/07/Slide10-53.jpg",
       "uploads/2018/07/Slide11-38.jpg"
     ],
+    "objectID": "1TULD4XM",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4852,8 +5812,13 @@
       "uploads/2018/07/Slide10-51.jpg",
       "uploads/2018/07/Slide11-36.jpg"
     ],
+    "objectID": "9GYNL46J",
     "categories": [
-      "Biologia Celular e Molecular"
+      {
+        "id": 5,
+        "slug": "biologia-celular-e-molecular",
+        "name": "Biologia Celular e Molecular"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4904,8 +5869,13 @@
       "uploads/2018/08/Slide24.jpg",
       "uploads/2018/08/Slide25.jpg"
     ],
+    "objectID": "GPP2K119",
     "categories": [
-      "Parasitologia"
+      {
+        "id": 14,
+        "slug": "parasitologia",
+        "name": "Parasitologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4939,8 +5909,13 @@
       "uploads/2018/08/Slide7-1.jpg",
       "uploads/2018/08/Slide8-1.jpg"
     ],
+    "objectID": "ZP3HBVZU",
     "categories": [
-      "Parasitologia"
+      {
+        "id": 14,
+        "slug": "parasitologia",
+        "name": "Parasitologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -4972,9 +5947,18 @@
       "uploads/2018/08/Slide5-2.jpg",
       "uploads/2018/08/Slide6-2.jpg"
     ],
+    "objectID": "K7DVQNNG",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Digestório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 18,
+        "slug": "sistema-digestorio",
+        "name": "Sistema Digestório"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5011,8 +5995,13 @@
       "uploads/2018/08/Slide10-6.jpg",
       "uploads/2018/08/Slide11-4.jpg"
     ],
+    "objectID": "DFDNT0LY",
     "categories": [
-      "Histologia"
+      {
+        "id": 12,
+        "slug": "histologia",
+        "name": "Histologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5049,8 +6038,13 @@
       "uploads/2018/08/Slide10-4.jpg",
       "uploads/2018/08/Slide11-3.jpg"
     ],
+    "objectID": "9WPCHV3W",
     "categories": [
-      "Histologia"
+      {
+        "id": 12,
+        "slug": "histologia",
+        "name": "Histologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5086,8 +6080,13 @@
       "uploads/2018/08/Slide9-2.jpg",
       "uploads/2018/08/Slide10-2.jpg"
     ],
+    "objectID": "4N36Y84U",
     "categories": [
-      "Histologia"
+      {
+        "id": 12,
+        "slug": "histologia",
+        "name": "Histologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5119,8 +6118,13 @@
       "uploads/2018/08/Slide5-4.jpg",
       "uploads/2018/08/Slide6-4.jpg"
     ],
+    "objectID": "QAWNW1YC",
     "categories": [
-      "Histologia"
+      {
+        "id": 12,
+        "slug": "histologia",
+        "name": "Histologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5160,8 +6164,13 @@
       "uploads/2018/08/Slide13-1.jpg",
       "uploads/2018/08/Slide14-1.jpg"
     ],
+    "objectID": "R0RG4PE2",
     "categories": [
-      "Histologia"
+      {
+        "id": 12,
+        "slug": "histologia",
+        "name": "Histologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5198,10 +6207,23 @@
       "uploads/2018/08/Slide10-3.jpg",
       "uploads/2018/08/Slide11-2.jpg"
     ],
+    "objectID": "C4RU339U",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Imunologia",
-      "Sistemas Imune e Linfático"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 13,
+        "slug": "imunologia",
+        "name": "Imunologia"
+      },
+      {
+        "id": 27,
+        "slug": "sistemas-imune-e-linfatico",
+        "name": "Sistemas Imune e Linfático"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5237,8 +6259,13 @@
       "uploads/2018/08/Slide9-5.jpg",
       "uploads/2018/08/Slide10-5.jpg"
     ],
+    "objectID": "J20BV882",
     "categories": [
-      "Imunologia"
+      {
+        "id": 13,
+        "slug": "imunologia",
+        "name": "Imunologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5274,10 +6301,23 @@
       "uploads/2018/08/Slide9-10.jpg",
       "uploads/2018/08/Slide10-10.jpg"
     ],
+    "objectID": "L8WP0JEY",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Promoções",
-      "Sistema Digestório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 18,
+        "slug": "sistema-digestorio",
+        "name": "Sistema Digestório"
+      }
     ],
     "tags": [
       "Acompanha Vídeos",
@@ -5314,9 +6354,18 @@
       "uploads/2018/08/Slide9-9.jpg",
       "uploads/2018/08/Slide10-9.jpg"
     ],
+    "objectID": "W3XDUTKV",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Respiratório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 23,
+        "slug": "sistema-respiratorio",
+        "name": "Sistema Respiratório"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5352,9 +6401,18 @@
       "uploads/2018/08/Slide10-8.jpg",
       "uploads/2018/08/Slide11-5.jpg"
     ],
+    "objectID": "3712U1VN",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Circulatório"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 17,
+        "slug": "sistema-circulatorio",
+        "name": "Sistema Circulatório"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5389,9 +6447,18 @@
       "uploads/2018/08/Slide9-7.jpg",
       "uploads/2018/08/Slide10-7.jpg"
     ],
+    "objectID": "W2R1HZ3E",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Excretor"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 20,
+        "slug": "sistema-excretor",
+        "name": "Sistema Excretor"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5428,9 +6495,18 @@
       "uploads/2018/08/Slide10-11.jpg",
       "uploads/2018/08/Slide11-6.jpg"
     ],
+    "objectID": "Z0F4U9PL",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5465,9 +6541,18 @@
       "uploads/2018/08/Slide9-12.jpg",
       "uploads/2018/08/Slide10-12.jpg"
     ],
+    "objectID": "11L307WB",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Sensorial"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 24,
+        "slug": "sistema-sensorial",
+        "name": "Sistema Sensorial"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5503,9 +6588,18 @@
       "uploads/2018/08/Slide9-13.jpg",
       "uploads/2018/08/Slide10-13.jpg"
     ],
+    "objectID": "HDT3XTXG",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Endócrino"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 19,
+        "slug": "sistema-endocrino",
+        "name": "Sistema Endócrino"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5545,9 +6639,18 @@
       "uploads/2018/09/Slide14.jpg",
       "uploads/2018/09/Slide15.jpg"
     ],
+    "objectID": "H1VH1DJ6",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistemas de Sustentação"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 26,
+        "slug": "sistemas-de-sustentacao",
+        "name": "Sistemas de Sustentação"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5588,9 +6691,18 @@
       "uploads/2018/10/Slide14.jpg",
       "uploads/2018/10/Slide15.jpg"
     ],
+    "objectID": "66MYZPAT",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistemas de Sustentação"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 26,
+        "slug": "sistemas-de-sustentacao",
+        "name": "Sistemas de Sustentação"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5628,9 +6740,18 @@
       "uploads/2018/10/Slide12-1.jpg",
       "uploads/2018/10/Slide13-1.jpg"
     ],
+    "objectID": "3HX70X01",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Hematologia"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 16,
+        "slug": "hematologia",
+        "name": "Hematologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5668,8 +6789,13 @@
       "uploads/2018/10/Slide12-2.jpg",
       "uploads/2018/10/Slide13-2.jpg"
     ],
+    "objectID": "Z03RHND3",
     "categories": [
-      "Bioquímica"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5709,8 +6835,13 @@
       "uploads/2018/10/Slide13-3.jpg",
       "uploads/2018/10/Slide14-1.jpg"
     ],
+    "objectID": "90FDWC3J",
     "categories": [
-      "Bioquímica"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      }
     ],
     "tags": [
       "Acompanha Vídeos",
@@ -5738,10 +6869,23 @@
     "imageUrls": [
       "uploads/2018/10/15.png"
     ],
+    "objectID": "T6Z809V4",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Promoções",
-      "Sistemas de Sustentação"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 26,
+        "slug": "sistemas-de-sustentacao",
+        "name": "Sistemas de Sustentação"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5768,10 +6912,23 @@
     "imageUrls": [
       "uploads/2018/10/15-1.png"
     ],
+    "objectID": "47RAKPYY",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Hematologia",
-      "Promoções"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 16,
+        "slug": "hematologia",
+        "name": "Hematologia"
+      },
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5798,9 +6955,18 @@
     "imageUrls": [
       "uploads/2018/10/Cópia-de-15.png"
     ],
+    "objectID": "639H60G1",
     "categories": [
-      "Bioquímica",
-      "Promoções"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      },
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5827,9 +6993,18 @@
     "imageUrls": [
       "uploads/2018/10/Cópia-de-15-1.png"
     ],
+    "objectID": "L1CAB1X8",
     "categories": [
-      "Bioquímica",
-      "Promoções"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      },
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5871,9 +7046,18 @@
       "uploads/2018/11/Slide15.jpg",
       "uploads/2018/11/Slide16.jpg"
     ],
+    "objectID": "PN788B10",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5913,9 +7097,18 @@
       "uploads/2018/11/Slide13-2.jpg",
       "uploads/2018/11/Slide14-1.jpg"
     ],
+    "objectID": "X8627XKC",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5958,9 +7151,18 @@
       "uploads/2018/12/Slide17.jpg",
       "uploads/2018/12/Slide18.jpg"
     ],
+    "objectID": "7EKLZRYP",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -5998,9 +7200,18 @@
       "uploads/2019/02/Slide12-4.jpg",
       "uploads/2019/02/Slide13-4.jpg"
     ],
+    "objectID": "KVJ42Q1B",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6052,9 +7263,18 @@
       "uploads/2019/02/Slide24-1.jpg",
       "uploads/2019/02/Slide25-1.jpg"
     ],
+    "objectID": "Z24R3L2T",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6104,9 +7324,18 @@
       "uploads/2019/02/Slide23-2.jpg",
       "uploads/2019/02/Slide24-2.jpg"
     ],
+    "objectID": "M6DWJNY8",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6150,9 +7379,18 @@
       "uploads/2019/02/Slide17-1.jpg",
       "uploads/2019/02/Slide18-1.jpg"
     ],
+    "objectID": "ZJHD1NZA",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6203,9 +7441,18 @@
       "uploads/2019/02/Slide24.jpg",
       "uploads/2019/02/Slide25.jpg"
     ],
+    "objectID": "UM40M81M",
     "categories": [
-      "Microbiologia",
-      "Seres Vivos"
+      {
+        "id": 29,
+        "slug": "microbiologia",
+        "name": "Microbiologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6246,11 +7493,28 @@
       "uploads/2019/02/Slide14-4.jpg",
       "uploads/2019/02/Slide15-4.jpg"
     ],
+    "objectID": "VHFFKZ8G",
     "categories": [
-      "Promoções",
-      "Farmacologia",
-      "Sistema Nervoso",
-      "Anatomia e Fisiologia Humana"
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 10,
+        "slug": "farmacologia",
+        "name": "Farmacologia"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      },
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6282,10 +7546,23 @@
       "uploads/2019/02/Slide4-6.jpg",
       "uploads/2019/02/Slide5-6.jpg"
     ],
+    "objectID": "9H8A32KH",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Farmacologia",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 10,
+        "slug": "farmacologia",
+        "name": "Farmacologia"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6326,10 +7603,23 @@
       "uploads/2019/03/Slide15.jpg",
       "uploads/2019/03/Slide16.jpg"
     ],
+    "objectID": "JGXPA6GQ",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Farmacologia",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 10,
+        "slug": "farmacologia",
+        "name": "Farmacologia"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6368,10 +7658,23 @@
       "uploads/2019/03/Slide15-1.jpg",
       "uploads/2019/03/Slide16-1.jpg"
     ],
+    "objectID": "JB7UD2JH",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Farmacologia",
-      "Sistema Nervoso"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 10,
+        "slug": "farmacologia",
+        "name": "Farmacologia"
+      },
+      {
+        "id": 21,
+        "slug": "sistema-nervoso",
+        "name": "Sistema Nervoso"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6382,108 +7685,6 @@
       "Número de slides": 106,
       "Anotações do apresentador": true,
       "Apostila em PDF": true
-    }
-  },
-  {
-    "id": 169,
-    "slug": "apostila-drogas-conceitos-e-efeitos-no-organismo",
-    "name": "Apostila Drogas: conceitos e efeitos no organismo",
-    "published": true,
-    "featured": true,
-    "shortDescription": "Material voltado para os ensinos médio e superior, e também para profissionais da saúde. Apostila em pdf que aborda: <strong>1-</strong> aspectos relevantes da questão sobre drogas: conceitos (farmacológico, drogas psicotrópicas e da Lei nº 11.343, de 23 de agosto de 2006); abuso x uso indevido; <a name=\"_Toc453159719\"></a>fatores de risco para o abuso ou uso indevido de drogas; tolerância x sensibilização; mecanismos de tolerância (inata; adquirida: farmacocinética, farmacodinâmica ou aprendida); dependência (psicológica e física) e adicção; tipos de usuários de drogas; outros conceitos (uso controlado, uso social, uso em <em>binge</em>, poliusuário, <em>overdose</em>, escalada qualitativa e quantitativa); 2- classificação das drogas: quanto aos efeitos farmacológicos, quanto ao potencial de uso nocivo e utilidade clínica, quanto ao <em>status</em> legal das substâncias e quanto à origem; <strong>3-</strong> as drogas e o sistema nervoso: divisões do SNC, sinapses químicas, neurotransmissores e seu envolvimento com drogas de abuso; <strong>4-</strong> características farmacológicas das drogas de abuso: via dopaminérgica mesolímbica; recompensa e dependência; farmacocinética das drogas psicotrópicas; neuroadaptações a longo prazo; sistemas classificatórios mais utilizados: Código Internacional de Doenças (CID), desenvolvido pela Organização Mundial da Saúde (OMS), e Manual Diagnóstico e Estatístico de Saúde Mental (DSM, do inglês <em>Diagnostic and Statistical Manual of Mental Disorders</em>) da Associação Psiquiátrica Americana (<em>American Psychiatric Association </em>– APA); <strong>5-</strong> principais drogas psicotrópicas, usadas de maneira abusiva, de acordo com a classificação quanto ao efeito farmacológico: depressoras do SNC (álcool, barbitúricos e benzodiazepínicos, ópio e derivados, substâncias voláteis), estimulantes do SNC (nicotina, cocaína, anfetaminas e drogas relacionadas, esteroides anabolizantes) e perturbadoras do SNC (THC, cogumelos e plantas alucinógenos, LCD, ecstasy, fenciclidina e cetamina, anticolinérgicos): forma utilizada, mecanismo primário de ação e tolerância/abstinência. Material com ilustração preto e branco/escala de cinza.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 20",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea\n- Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário.\n- Apostila Fisiologia de órgãos e sistema III: sistema respiratório\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Drogas depressoras do SNC- parte 2\n- Drogas estimulantes do SNC- parte 3\n- Drogas perturbadoras do SNC - parte 4\n- Drogas: conceitos e efeitos no organismo - parte 1\n- Drogas: mecanismos de tolerância, dependência e adicção",
-    "price": 3000,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2019/04/Drogas1.jpg",
-      "uploads/2019/04/Drogas2.jpg",
-      "uploads/2019/04/Drogas3.jpg",
-      "uploads/2019/04/Drogas4.jpg"
-    ],
-    "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Farmacologia",
-      "Sistema Nervoso"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true,
-      "Número de páginas": 20
-    }
-  },
-  {
-    "id": 170,
-    "slug": "apostila-fisiologia-de-orgaos-e-sistema-i-sistema-circulatorio-sangue-e-coagulacao-sanguinea",
-    "name": "Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea",
-    "published": true,
-    "featured": true,
-    "shortDescription": "Material voltado para os ensinos médio e superior. Apostila em pdf que aborda: <strong>1-</strong> Descrição, divisões e funções do sistema circulatório;<strong> 2- </strong>Distrito sanguíneo ou sistema vascular sanguíneo: <strong>vasos sanguíneos</strong> (artérias, veias e capilares contínuos e fenestrados): características, camadas ou túnicas, funções; <strong>coração</strong>: descrição, localização, camadas (pericárdio fibroso e seroso, epicárdio, miocárdio e endocárdio), câmaras e valvas cardíacas (anatomia funcional), trajeto do sangue através do coração (circuitos pulmonar e sistêmico), circulação coronariana, músculos cardíacos (atrial, ventricular e fibras especializadas excitatórias e condutoras), <a name=\"_Toc5906709\"></a>ciclo, frequência e débito cardíacos, <a name=\"_Toc5906710\"></a>controle da frequência cardíaca (atividade elétrica e controle nervoso do coração), <a name=\"_Toc5906713\"></a>eletrocardiograma (ECG), <a name=\"_Toc5906714\"></a>pressão arterial e pulso ou pulsação, retorno venoso; <strong>3- sangue</strong>: hematopoese, plasma, elementos figurados: eritrócitos (descrição, funções, hemoglobina, eritropoese, hemocaterese, eritropenia/anemias e parâmetros avaliados no eritrograma com seus respectivos valores de referência, eritrocitose/policitemia);  leucócitos [descrição; funções gerais; leucopenia e leucocitose (incluindo para cada subtipo específico de leucócito); leucócitos granulócitos (neutrófilos, eosinófilos e basófilos) e leucócitos agranulócitos (linfócitos e monócitos): características, funções específicas, valores de referência)]; plaquetas ou trombócitos (características, funções, valores de referência, trombocitopenia e trombocitose, estrutura interna); <strong>4- coagulação sanguínea</strong>: hemostasia primária (papel do endotélio vascular e das plaquetas) e secundária (cascata de coagulação sanguínea; inclui as vias intrínseca e extrínseca passo-a-passo, com o papel de cada componente); <a name=\"_Toc5906736\"></a>mecanismos reguladores da coagulação sanguínea (antitrombina TFPI, proteína C e proteína S); <a name=\"_Toc5906737\"></a>sistema de fibrinólise (sistema plasminogênio/plasmina). Material com ilustração colorida e esquemas para entender os processos de coagulação sanguínea e fibrinólise passo-a-passo.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 32 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário.\n- Apostila Fisiologia de órgãos e sistema III: sistema respiratório\n- Drogas: conceitos e efeitos no organismo\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Hematopoese\n- Hemostasia\n- Introdução à Hematologia\n- Mecanismos Reguladores cardiovasculares\n- Sistema cardiovascular humano\n- Sistema circulatório: visão geral",
-    "price": 4800,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_1-1.jpg",
-      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_2-1.jpg",
-      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_3-1.jpg",
-      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_4-1.jpg",
-      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_5-1.jpg"
-    ],
-    "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Circulatório"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true,
-      "Número de páginas": 32
-    }
-  },
-  {
-    "id": 171,
-    "slug": "apostila-fisiologia-de-orgaos-e-sistema-ii-sistemas-linfatico-e-imunitario",
-    "name": "Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário",
-    "published": true,
-    "featured": true,
-    "shortDescription": "Material voltado para os ensinos médio e superior. Apostila em pdf que aborda: <strong>1-</strong> <strong>Sistema linfático:</strong> distrito linfático ou sistema vascular linfático: definição; funções gerais; componentes: linfa, capilares e vasos linfáticos, órgãos linfoides: linfonodos, tonsilas, timo e baço (morfologia, localização e funções); <strong>2-</strong> <strong>Sistema imunitário:</strong> visão geral; funções gerais do sistema imunitário; órgãos e células envolvidos no sistema imunitário: hematopoese, leucócitos granulócitos e agranulócitos, <a name=\"_Toc9023855\"></a>outras células que participam do sistema imunitário (células do sistema mononuclear fagocitário, mastócitos, plasmócitos, linfócitos NK); tipos básicos de resposta imunitária: <u>imunidade inata</u>: componentes; primeira e segunda linhas de defesa: barreiras naturais, inflamação; citocinas; sistema do complemento; <u>imunidade adquirida</u>: terceira linha de defesa: principais aspectos das respostas imunes adquiridas; componentes; respostas humoral e celular, incluindo subpopulações funcionalmente distintas de linfócitos T e suas funções, células apresentadoras de antígenos (APCs), anticorpos (classes e funções específicas), imunização (ativa e passiva), propriedades da resposta imunológica adquirida (especificidade, diversidade, memória, expansão clonal, especialização ou sensibilização, autolimitação e não-reatividade ao próprio), fases das respostas imunes adquiridas (reconhecimento do antígeno por linfócitos específicos, ativação dos linfócitos e eliminação do antígeno ou fase efetora), <a name=\"_Toc9023873\"></a>enxertos e transplantes de órgãos. Material com ilustração colorida e esquemas para entender os processos passo-a-passo.\n\n<u>INCLUI</u>: lista de exercícios (questões de vestibulares, do Enade e de concursos públicos) com gabaritos (fornecidos em outro arquivo).\n\nNúmero de páginas: 38 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea\n- Apostila Fisiologia de órgãos e sistema III: sistema respiratório\n- Drogas: conceitos e efeitos no organismo\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Histologia Humana 1: tecido epitelial\n- Histologia Humana 2: tecido conjuntivo\n- Interações patógeno-hospedeiro\n- Introdução à Fisiologia de órgãos e sistemas\n- Introdução à fisiologia humana\n- Introdução à hematologia\n- Sistema cardiovascular humano\n- Sistema digestório humano\n- Sistema respiratório humano\n- Sistema tegumentar: a pele humana\n- Sistemas linfático e imunitário",
-    "price": 5700,
-    "discountPrice": 4560,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_1.jpg",
-      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_2.jpg",
-      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_3.jpg",
-      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_4.jpg",
-      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_5.jpg",
-      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_6.jpg",
-      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_7.jpg"
-    ],
-    "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Imunologia",
-      "Sistemas Imune e Linfático"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true,
-      "Número de páginas": 38
     }
   },
   {
@@ -6508,9 +7709,18 @@
       "uploads/2019/05/Slide8.jpg",
       "uploads/2019/05/Slide9.jpg"
     ],
+    "objectID": "XV387LEJ",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Hematologia"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 16,
+        "slug": "hematologia",
+        "name": "Hematologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6521,104 +7731,6 @@
       "Número de slides": 26,
       "Anotações do apresentador": true,
       "Apostila em PDF": true
-    }
-  },
-  {
-    "id": 173,
-    "slug": "apostila-fisiologia-de-orgaos-e-sistema-iii-sistema-respiratorio",
-    "name": "Apostila Fisiologia de órgãos e sistema III: sistema respiratório",
-    "published": true,
-    "featured": false,
-    "shortDescription": "Material voltado para os ensinos médio e superior. Para o ensino superior, funciona principalmente como material de revisão. Apostila em pdf que aborda: <strong>1-</strong> introdução: metabolismo aeróbio, respiração externa e interna; <strong>2-</strong> sistema respiratório: divisão estrutural (superior e inferior); divisão funcional (porções condutora e respiratória); componentes das vias aéreas superiores (boca e cavidade oral, nariz, faringe, laringe); componentes das vias aéreas inferiores (traqueia e pulmões, incluindo árvore bronquial,  alvéolos e pleuras): estrutura e funções; <strong>3-</strong> fisiologia da respiração: ventilação pulmonar; transporte de gases respiratórios; saturação da hemoglobina; intoxicação por monóxido de carbono; <strong>4-</strong> controle da respiração; reflexos da tosse e do espirro; <strong>5-</strong> capacidades e volumes respiratórios; <strong>6-</strong> distúrbios ciliares; <strong>7- </strong>os mergulhadores e a “respiração sob pressão positiva”. Material com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos (fornecidos em outro arquivo).\n\nNúmero de páginas: 21 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea\n- Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário.\n- Drogas: conceitos e efeitos no organismo\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Difusão, transporte de gases e pH\n- Hemoglobinas e hemoglobinopatias\n- Introdução à estrutura e mecânica pulmonar\n- Introdução à estrutura e mecânica pulmonar\n- Introdução à fisiologia de órgãos e sistemas\n- Introdução à fisiologia humana\n- Regulação da respiração\n- Sistema Respiratório humano",
-    "price": 3150,
-    "discountPrice": 2520,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_1.jpg",
-      "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_2.jpg",
-      "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_3.jpg",
-      "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_4.jpg"
-    ],
-    "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Respiratório"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true,
-      "Número de páginas": 21
-    }
-  },
-  {
-    "id": 174,
-    "slug": "promocao-40porcento-de-desconto-apostila-fisiologia-de-orgaos-e-sistema-i-ii-iii-e-iv",
-    "name": "Promoção - 40% de desconto: Apostila Fisiologia de órgãos e sistema (I, II, III e IV)",
-    "published": true,
-    "featured": true,
-    "shortDescription": "Leve as apostilas (clique nos links abaixo para ver as descrições de cada uma):\n<ol>\n \t<li><a href=\"https://bioloja.bio.br/loja/anatomia-e-fisiologia-humanas/apostila-fisiologia-de-orgaos-e-sistema-i-sistema-circulatorio-sangue-e-coagulacao-sanguinea/\">Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea</a></li>\n \t<li><a href=\"https://bioloja.bio.br/loja/anatomia-e-fisiologia-humanas/apostila-fisiologia-de-orgaos-e-sistema-ii-sistemas-linfatico-e-imunitario/\">Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário</a></li>\n \t<li><a href=\"https://bioloja.bio.br/loja/anatomia-e-fisiologia-humanas/apostila-fisiologia-de-orgaos-e-sistema-iii-sistema-respiratorio/\">Apostila Fisiologia de órgãos e sistema III: sistema respiratório</a></li>\n \t<li><a href=\"https://bioloja.bio.br/loja/anatomia-e-fisiologia-humanas/apostila-fisiologia-de-orgaos-e-sistema-iv-sistema-digestorio/\">Apostila Fisiologia de órgãos e sistema IV: sistema digestório</a></li>\n</ol>\nCom 40% de DESCONTO. Por tempo limitado.\nAproveite!",
-    "description": "Promocão para nossas novas apostilas por tempo limitado!!\nAproveite!!",
-    "price": 18750,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2019/07/Cópia-de-Cópia-de-152.png"
-    ],
-    "categories": [
-      "Promoções",
-      "Sistema Circulatório",
-      "Sistema Respiratório",
-      "Sistemas Imune e Linfático",
-      "Anatomia e Fisiologia Humana"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
-    ],
-    "attributes": {
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true
-    }
-  },
-  {
-    "id": 175,
-    "slug": "apostila-fisiologia-de-orgaos-e-sistema-iv-sistema-digestorio",
-    "name": "Apostila Fisiologia de órgãos e sistema IV: sistema digestório",
-    "published": true,
-    "featured": false,
-    "shortDescription": "Material voltado para os ensinos médio e superior. Para o ensino superior, funciona principalmente como material de revisão. Aborda, de maneira geral, a anatomia funcional de cada região do trato gastrointestinal (TGI) humano (boca, faringe, esôfago, estômago, intestino delgado e intestino grosso) e órgãos acessórios da digestão (dentes, língua, glândulas salivares, pâncreas, fígado e vesícula biliar), os processos físicos e químicos da digestão, etapas da digestão química e controle dos processos digestivos pelo sistema nervoso autônomo e hormônios. <u>Conteúdo resumido</u>: <strong>1-</strong> órgãos do trato gastrintestinal e órgãos acessórios da digestão; funções básicas do sistema digestório; histologia do TGI (túnicas ou camadas mucosa, submucosa, muscular e serosa ou adventícia); sistema nervoso entérico (SNE); <strong>2-</strong> segmento digestório superior I: boca e órgãos acessórios, faringe e esôfago: anatomia funcional (anatomia e funções na digestão mecânica e/ou química de cada região); <strong> 3-</strong> segmento digestório superior II: estômago: anatomia, histologia e fisiologia; <strong>4-</strong> segmento digestório inferior I: intestino delgado (duodeno, jejuno, íleo) e órgãos acessórios (pâncreas, fígado e vesícula biliar): anatomia e fisiologia, incluindo funções endócrina e na digestão (mecânica/química) (exceto pâncreas, que contém apenas a fisiologia relacionada ao processo digestório; pâncreas endócrino será abordado em outra aula específica); <strong>5-</strong> segmento digestório inferior II: intestino grosso: anatomia e fisiologia. Material com ilustração colorida, que <u>INCLUI</u>: lista de exercícios com gabaritos (fornecidos em outro arquivo).\n\nNúmero de páginas: 34 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea\n- Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário.\n- Apostila Fisiologia de órgãos e sistema III: sistema respiratório.\n- Drogas: conceitos e efeitos no organismo\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Colesterol\n- Histologia Humana 1: tecido epitelial\n- Histologia Humana 2: tecido conjuntivo\n- Histologia Humana 3: tecido muscular\n- Histologia Humana: visão geral\n- Introdução à fisiologia de órgãos e sistemas\n- Introdução à fisiologia humana\n- Pâncreas endócrino\n- Sistema cardiovascular humano\n- Sistema circulatório: visão geral\n- Sistema nervoso periférico: receptores adrenérgicos e colinérgicos",
-    "price": 5100,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_1.jpg",
-      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_2.jpg",
-      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_3.jpg",
-      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_4.jpg",
-      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_5.jpg",
-      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_6.jpg"
-    ],
-    "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Digestório"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true,
-      "Número de páginas": 34
     }
   },
   {
@@ -6641,8 +7753,13 @@
       "uploads/2019/08/Slide6.jpg",
       "uploads/2019/08/Slide7.jpg"
     ],
+    "objectID": "HGAA0YDD",
     "categories": [
-      "Parasitologia"
+      {
+        "id": 14,
+        "slug": "parasitologia",
+        "name": "Parasitologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6680,9 +7797,18 @@
       "uploads/2019/08/Slide11.jpg",
       "uploads/2019/08/Slide12.jpg"
     ],
+    "objectID": "WRLAM794",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Sistema Reprodutor"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 22,
+        "slug": "sistema-reprodutor",
+        "name": "Sistema Reprodutor"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6719,9 +7845,18 @@
       "uploads/2019/08/Slide10-1.jpg",
       "uploads/2019/08/Slide11-1.jpg"
     ],
+    "objectID": "QH2CYYQH",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6761,9 +7896,18 @@
       "uploads/2019/09/Slide13.jpg",
       "uploads/2019/09/Slide14.jpg"
     ],
+    "objectID": "EHKLEC7Y",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Acompanha Vídeos",
@@ -6803,9 +7947,18 @@
       "uploads/2019/09/Slide13-1.jpg",
       "uploads/2019/09/Slide14-1.jpg"
     ],
+    "objectID": "KV478F7F",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6843,9 +7996,18 @@
       "uploads/2019/09/Slide12-2.jpg",
       "uploads/2019/09/Slide13-2.jpg"
     ],
+    "objectID": "6THJ6CQV",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6885,9 +8047,18 @@
       "uploads/2019/10/Slide14.jpg",
       "uploads/2019/10/Slide15.jpg"
     ],
+    "objectID": "9UXPLE4V",
     "categories": [
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6928,10 +8099,23 @@
       "uploads/2019/10/Slide15-1.jpg",
       "uploads/2019/10/Slide16.jpg"
     ],
+    "objectID": "PH73UWK6",
     "categories": [
-      "Botânica",
-      "Ecologia",
-      "Seres Vivos"
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 7,
+        "slug": "ecologia",
+        "name": "Ecologia"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -6970,10 +8154,23 @@
       "uploads/2019/10/Slide12-2.jpg",
       "uploads/2019/10/Slide13-2.jpg"
     ],
+    "objectID": "7BHB1N82",
     "categories": [
-      "Bioquímica",
-      "Botânica",
-      "Seres Vivos"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      },
+      {
+        "id": 30,
+        "slug": "botanica",
+        "name": "Botânica"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7008,8 +8205,13 @@
       "uploads/2019/10/Slide8-4.jpg",
       "uploads/2019/10/Slide9-3.jpg"
     ],
+    "objectID": "T4HTXL2E",
     "categories": [
-      "Bioquímica"
+      {
+        "id": 6,
+        "slug": "bioquimica",
+        "name": "Bioquímica"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7047,9 +8249,18 @@
       "uploads/2019/11/Slide11-1.jpg",
       "uploads/2019/11/Slide12-1.jpg"
     ],
+    "objectID": "X610LBKN",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7088,9 +8299,18 @@
       "uploads/2020/01/Slide12-1.jpg",
       "uploads/2020/01/Slide13-1.jpg"
     ],
+    "objectID": "0JNKWYW9",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7132,9 +8352,18 @@
       "uploads/2020/04/Slide15.jpg",
       "uploads/2020/04/Slide16.jpg"
     ],
+    "objectID": "KJBEJRQY",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7145,140 +8374,6 @@
       "Número de slides": 101,
       "Anotações do apresentador": true,
       "Apostila em PDF": true
-    }
-  },
-  {
-    "id": 191,
-    "slug": "apostila-sistema-nervoso-comparado",
-    "name": "Apostila Sistema nervoso comparado",
-    "published": true,
-    "featured": false,
-    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>: <strong>1-</strong> Introdução: sistemas de coordenação e regulação das funções corporais (nervoso e endócrino), suas principais diferenças em termos de unidades funcionais, ação e duração; <strong>2-</strong> Sistema nervoso: propriedades; neurônio (estrutura, classificação quanto à função e quanto à morfologia); sinapse (descrição, sinapses elétricas e químicas); neurônios e evolução; <strong>3-</strong> Evolução dos sistemas nervosos: invertebrados não-cordados (cnidários; platelmintos; nematodos; moluscos; anelídeos; artrópodes; equinodermos); cordados invertebrados (urocordados e cefalocordados); cordados vertebrados: plano básico do sistema nervoso (incluindo contraste com sistema nervoso de animais bilatérios invertebrados); encefalização; embriogênese do sistema nervoso e funções dos componentes do encéfalo dos vertebrados; anatomia comparada do sistema nervoso de vertebrados: peixes (cartilaginosos e ósseos), anfíbios, répteis, aves e mamíferos. Material em pdf com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 35 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Histologia humana 4:  tecido nervoso\n- Sistema nervoso (ensino médio)\n- Sistema nervoso 1: neurônios, sinapses, neurotransmissores e glia\n- Sistema nervoso comparado\n- Sistema sensorial comparado\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada \n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema respiratório comparado\n- Sistema sensorial comparado",
-    "price": 5250,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/04/Nervoso-comparado-1.jpg",
-      "uploads/2020/04/Nervoso-comparado-2.jpg",
-      "uploads/2020/04/Nervoso-comparado-3.jpg",
-      "uploads/2020/04/Nervoso-comparado-4.jpg",
-      "uploads/2020/04/Nervoso-comparado-5.jpg"
-    ],
-    "categories": [
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Número de páginas": 35,
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true
-    }
-  },
-  {
-    "id": 192,
-    "slug": "apostila-sistema-sensorial-comparado",
-    "name": "Apostila Sistema sensorial comparado",
-    "published": true,
-    "featured": true,
-    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>: <strong>1-</strong>Como os animais obtêm informações acerca de seu meio e como elas são usadas: sistema sensorial, receptores sensoriais (classificação quanto à localização e origem dos estímulos, quanto ao tipo de estímulo que detectam, modalidades sensitivas); qualidades sensoriais (estímulos ambientais significativos na percepção sensorial; sequência geral de eventos); princípios gerais (determinação da direção e da distância da fonte de um estímulo); <strong>2-</strong> Os receptores sensoriais nos filos animais: invertebrados não-cordados: Cnidários, Platelmintos, Nematódeos, Moluscos, Anelídeos, Artrópodes e Equinodermos (grupos, características, tipos de receptores sensoriais: estrutura e função); cordados invertebrados: Urocordados e Cefalocordados (classificação, características gerais, receptores sensoriais); cordados vertebrados: Peixes, Anfíbios, Répteis, Aves e Mamíferos (modalidades sensoriais, estímulos, tipo de receptor, célula receptora e estrutura; organização do sistema nervoso sensorial; evolução do sistema sensorial em cada grupo de vertebrado). Material em pdf com ilustração colorida, quadros e esquemas para ajudar na compreensão do tema.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 39 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Sistema nervoso comparado\n- Sistema sensorial 1- olfação, gustação e paladar\n- Sistema sensorial 2- audição, equilíbrio e visão\n- Sistema sensorial 3- os sentidos somáticos\n- Sistema sensorial comparado\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada \n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado",
-    "price": 5850,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/04/Sensorial-comparado-1.jpg",
-      "uploads/2020/04/Sensorial-comparado-2.jpg",
-      "uploads/2020/04/Sensorial-comparado-3.jpg",
-      "uploads/2020/04/Sensorial-comparado-4.jpg",
-      "uploads/2020/04/Sensorial-comparado-5.jpg",
-      "uploads/2020/04/Sensorial-comparado-6.jpg"
-    ],
-    "categories": [
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Número de páginas": 39,
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true
-    }
-  },
-  {
-    "id": 193,
-    "slug": "apostila-excrecao-comparada",
-    "name": "Apostila Excreção comparada",
-    "published": true,
-    "featured": false,
-    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>:<strong> 1-</strong>Homeostasia; metabolismo e excreção; papel da excreção na manutenção da homeostasia; destino das proteínas da dieta; excretas nitrogenadas (amônia, ureia e ácido úrico); <strong>2-</strong> Ambiente e tipo principal de excreta nitrogenada; classificação dos animais de acordo com a excreta nitrogenada predominante; excretas nitrogenadas nos principais filos de invertebrados e em vertebrados; <strong>3-</strong> Osmorregulação: processo e ocorrência nos diversos filos animais; <strong>4-</strong> Estruturas/órgãos excretores nos diversos filos animais (invertebrados e vertebrados); tipos de rins dos vertebrados (características, ocorrência, ancestralidade e embriologia); <strong>5-</strong> Rins metanefros: ureteres e urina; funções; estrutura do rim humano; néfron (estrutura e processos básicos na produção de urina); 6- Introdução à regulação da função renal (ADH e aldosterona). Material em pdf com ilustração colorida e quadros comparativos para ajudar na compreensão do tema.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 31 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Anelídeos\n- Anfíbios\n- Artrópodes\n- Aves\n- Cordados\n- Equinodermos\n- Excreção comparada\n- Helmintos\n- Introdução aos animais\n- Mamíferos\n- Membrana plasmática e transporte\n- Moluscos\n- Peixes\n- Poríferos e cnidários\n- Répteis\n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema nervoso comparado\n- Sistema sensorial comparado\n- Sistema urinário\n\n<strong>Veja também (apostilas):</strong>\n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado\n- Sistema sensorial comparado",
-    "price": 4650,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/04/Excreção-comparada-1.jpg",
-      "uploads/2020/04/Excreção-comparada-2.jpg",
-      "uploads/2020/04/Excreção-comparada-3.jpg",
-      "uploads/2020/04/Excreção-comparada-4.jpg",
-      "uploads/2020/04/Excreção-comparada-5.jpg",
-      "uploads/2020/04/Excreção-comparada-6.jpg"
-    ],
-    "categories": [
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Número de páginas": 31,
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true
-    }
-  },
-  {
-    "id": 194,
-    "slug": "apostila-sistema-circulatorio-comparado",
-    "name": "Apostila Sistema circulatório comparado",
-    "published": true,
-    "featured": true,
-    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>:<strong> 1-</strong> Introdução: meio interno, composição dos fluidos corporais; <strong>2-</strong> <a name=\"_Toc37635212\"></a>Circulação comparada em invertebrados não-cordados (poríferos, cnidários, platelmintos, nematelmintos, moluscos, anelídeos, artrópodes, equinodermos); <strong>3-</strong> <a name=\"_Toc37635226\"></a>Circulação comparada em cordados vertebrados (peixes, anfíbios, répteis, aves e mamíferos); <strong>4-</strong> Circulação linfática nos mamíferos. O material também aborda e compara sangue, coração, vasos sanguíneos, tipos de sistemas circulatórios (aberto e fechado), circulação completa e incompleta, simples e dupla nos diversos filos animais. Material em pdf com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 22 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Anelídeos\n- Anfíbios\n- Artrópodes\n- Aves\n- Cordados\n- Equinodermos\n- Excreção comparada\n- Helmintos\n- Introdução aos animais\n- Mamíferos\n- Moluscos\n- Peixes\n- Poríferos e cnidários\n- Répteis\n- Sistema cardiovascular humano (ensino médio)\n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema digestório humano (ensino médio)\n- Sistema endócrino (ensino médio)\n- Sistema respiratório comparado\n- Sistema urinário (ensino médio)\n- Sistemas linfático e imunitário (ensino médio)\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada\n- Sistema digestório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado\n- Sistema sensorial comparado",
-    "price": 3300,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/04/Sistema-circulatório-1.jpg",
-      "uploads/2020/04/Sistema-circulatório-2.jpg",
-      "uploads/2020/04/Sistema-circulatório-3.jpg",
-      "uploads/2020/04/Sistema-circulatório-4.jpg",
-      "uploads/2020/04/Sistema-circulatório-5.jpg"
-    ],
-    "categories": [
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Número de páginas": 22,
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true
     }
   },
   {
@@ -7307,9 +8402,18 @@
       "uploads/2020/04/Slide12-1.jpg",
       "uploads/2020/04/Slide13-1.jpg"
     ],
+    "objectID": "6688B1N8",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7318,130 +8422,6 @@
     ],
     "attributes": {
       "Número de slides": 50,
-      "Anotações do apresentador": true,
-      "Apostila em PDF": true
-    }
-  },
-  {
-    "id": 196,
-    "slug": "promocao-15porcento-de-desconto-sistema-circulatorio-comparado-apostila",
-    "name": "Promoção - 15% de desconto: Sistema Circulatório Comparado   Apostila",
-    "published": true,
-    "featured": false,
-    "shortDescription": "Leve os materiais (clique neles para ver as descrições de cada um):\n<p style=\"text-align: left;\">1. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/sistema-circulatorio-comparado/\">Sistema circulatório comparado</a>\n2. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/apostila-sistema-circulatorio-comparado/\">Apostila Sistema circulatório comparado</a></p>\nCom 15% de DESCONTO. Por tempo limitado.\nAproveite!",
-    "description": "Promocão para nossos novos materiais por tempo limitado!!\nAproveite!!",
-    "price": 4845,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/04/Sistema-e-Apostila-Promo.png"
-    ],
-    "categories": [
-      "Promoções",
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
-    ],
-    "attributes": {
-      "Anotações do apresentador": true,
-      "Apostila em PDF": true
-    }
-  },
-  {
-    "id": 197,
-    "slug": "promocao-15porcento-de-desconto-excrecao-comparada-apostila",
-    "name": "Promoção - 15% de desconto: Excreção Comparada   Apostila",
-    "published": true,
-    "featured": false,
-    "shortDescription": "Leve os materiais (clique neles para ver as descrições de cada um):\n\n1. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/excrecao-comparada/\">Excreção comparada</a>\n2. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/apostila-excrecao-comparada/\">Apostila Excreção comparada</a>\n\nCom 15% de DESCONTO. Por tempo limitado.\nAproveite!",
-    "description": "Promocão para nossos novos materiais por tempo limitado!!\nAproveite!!",
-    "price": 6477,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/04/Cópia-de-Sistema-e-Apostila-Promo.png"
-    ],
-    "categories": [
-      "Promoções",
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
-    ],
-    "attributes": {
-      "Anotações do apresentador": true,
-      "Apostila em PDF": true
-    }
-  },
-  {
-    "id": 198,
-    "slug": "promocao-15porcento-de-desconto-sistema-sensorial-comparado-apostila",
-    "name": "Promoção - 15% de desconto: Sistema Sensorial Comparado   Apostila",
-    "published": true,
-    "featured": true,
-    "shortDescription": "Leve os materiais (clique neles para ver as descrições de cada um):\n\n1. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/sistema-sensorial-comparado/\">Sistema sensorial comparado</a>\n2. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/apostila-sistema-sensorial-comparado/\">Apostila Sistema sensorial comparado</a>\n\nCom 15% de DESCONTO. Por tempo limitado.\nAproveite!",
-    "description": "Promocão para nossos novos materiais por tempo limitado!!\nAproveite!!",
-    "price": 8789,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/04/Cópia-de-Cópia-de-Cópia-de-Sistema-e-Apostila-Promo.png"
-    ],
-    "categories": [
-      "Promoções",
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
-    ],
-    "attributes": {
-      "Anotações do apresentador": true,
-      "Apostila em PDF": true
-    }
-  },
-  {
-    "id": 199,
-    "slug": "promocao-15porcento-de-desconto-sistema-nervoso-comparado-apostila",
-    "name": "Promoção - 15% de desconto: Sistema Nervoso Comparado   Apostila",
-    "published": true,
-    "featured": false,
-    "shortDescription": "Leve os materiais (clique neles para ver as descrições de cada um):\n\n1. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/sistema-nervoso-comparado/\">Sistema nervoso comparado</a>\n2. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/apostila-sistema-nervoso-comparado/\">Apostila Sistema nervoso comparado</a>\n\nCom 15% de DESCONTO. Por tempo limitado.\nAproveite!",
-    "description": "Promocão para nossos novos materiais por tempo limitado!!\nAproveite!!",
-    "price": 6810,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/04/Cópia-de-Cópia-de-Sistema-e-Apostila-Promo.png"
-    ],
-    "categories": [
-      "Promoções",
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
-    ],
-    "attributes": {
       "Anotações do apresentador": true,
       "Apostila em PDF": true
     }
@@ -7475,9 +8455,18 @@
       "uploads/2020/05/Slide15.jpg",
       "uploads/2020/05/Slide16.jpg"
     ],
+    "objectID": "XVBCE9KV",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7488,74 +8477,6 @@
       "Número de slides": 94,
       "Anotações do apresentador": true,
       "Apostila em PDF": true
-    }
-  },
-  {
-    "id": 201,
-    "slug": "apostila-sistema-respiratorio-comparado",
-    "name": "Apostila Sistema respiratório comparado",
-    "published": true,
-    "featured": false,
-    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>:<strong> 1- </strong>Introdução: metabolismo aeróbico e processos fundamentais da respiração: respiração externa e respiração celular ou interna; sistema respiratório: principais funções; problemas da respiração aérea e aquática; superfícies respiratórias; <strong>2-</strong> Órgãos respiratórios: trocas gasosas por difusão simples; trocas gasosas eficientes na água: brânquias; trocas gasosas através de tubos: sistemas traqueais; pulmões; <strong>3-</strong> Respiração comparada ‒ invertebrados não-cordados: poríferos, cnidários e helmintos; moluscos (órgãos respiratórios de animais aquáticos: ctenídios, incluindo estrutura, fisiologia e fluxo contracorrente; pulmão; brânquias secundárias); anelídeos (Polychaeta: brânquias associadas e não-associadas aos parapódios; ventilação; Clitellata: trocas gasosas nos Oligochaeta e Hirudinomorpha: respiração cutâneas; brânquias nas poucas espécies aquáticas); artrópodes: trocas gasosas efetuadas por meios diferentes em diversos grupos: aquáticos (sistema de brânquias; difusão de gases através da fina cutícula; brânquias foliáceas); terrestres (sistema traqueal; difusão de gases através da fina cutícula; filotraqueias ou pulmões foliáceos; túbulos em apêndices abdominais ou pseudotraqueias); equinodermos (superfícies de trocas gasosas em asteroides, ofiuroides, equinoides, holoturoides e crinoides); <strong>4-</strong> Respiração comparada ‒ Cordados vertebrados: peixes (brânquias e variações no sistema branquial entre ágnatas, peixes cartilaginosos e peixes ósseos; fluxo contracorrente; obtenção de oxigênio do ar: pulmões e outras estruturas respiratórias); anfíbios (fase larval e adulta; ventilação pulmonar); répteis (estrutura pulmonar geral e de alguns grupos específicos; comparação com anfíbios adultos e mamíferos; ventilação pulmonar); aves (pulmões e sacos aéreos; ventilação; adaptações das aves que mergulham); mamíferos (vias aéreas superiores e inferiores; trajeto do ar; pulmões; zona condutora, incluindo revestimento e funções; zona respiratória; volume pulmonar e massa corpórea; adaptações de mamíferos mergulhadores; pleuras; ventilação pulmonar; volumes e capacidades respiratórios). Material em pdf com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 38 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Anelídeos\n- Anfíbios\n- Artrópodes\n- Aves\n- Cordados\n- Difusão, transporte de gases e pH\n- Equinodermos\n- Helmintos\n- Introdução à estrutura e mecânica pulmonar\n- Introdução aos animais\n- Mamíferos\n- Membrana plasmática e transporte\n- Moluscos\n- Peixes\n- Poríferos e cnidários\n- Répteis\n- Sistema respiratório humano\n\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada\n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado\n- Sistema sensorial comparado",
-    "price": 5700,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/05/Sistema-respiratório-1.jpg",
-      "uploads/2020/05/Sistema-respiratório-2.jpg",
-      "uploads/2020/05/Sistema-respiratório-3.jpg",
-      "uploads/2020/05/Sistema-respiratório-4.jpg",
-      "uploads/2020/05/Sistema-respiratório-5.jpg",
-      "uploads/2020/05/Sistema-respiratório-6.jpg"
-    ],
-    "categories": [
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Número de páginas": 38,
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true
-    }
-  },
-  {
-    "id": 202,
-    "slug": "apostila-sistema-digestorio-comparado",
-    "name": "Apostila Sistema digestório comparado",
-    "published": true,
-    "featured": true,
-    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>:<strong> 1- </strong>Digestão e funções do sistema digestório; <strong>2-</strong> Sistema digestório e digestão comparados: Poríferos; demais animais: cnidários e platelmintos; demais invertebrados e cordados: Nematódeos (Nematelmintos), Moluscos (apresentação generalizada e por táxons), Anelídeos (apresentação generalizada e por táxons), Artrópodes (apresentação generalizada e por táxons), Equinodermos (apresentação generalizada e por táxons), Cordados invertebrados (subfilos Urochordata e Cephalochordata) e Cordados vertebrados (peixes, anfíbios, répteis, aves e mamíferos). Material em pdf com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 41 (excluindo o índice)",
-    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Anelídeos\n- Anfíbios\n- Artrópodes\n- Aves\n- Cordados\n- Equinodermos\n- Helmintos\n- Introdução aos animais\n- Mamíferos\n- Moluscos\n- Peixes\n- Poríferos e cnidários\n- Répteis\n- Sistema digestório comparado\n- Sistema digestório humano\n- Sistema digestório: visão geral\n- Sistema sensorial comparado\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada\n- Sistema circulatório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado\n- Sistema sensorial comparado",
-    "price": 6150,
-    "discountPrice": null,
-    "discountExpiresAt": null,
-    "imageUrls": [
-      "uploads/2020/06/Sistema-digestório-1.jpg",
-      "uploads/2020/06/Sistema-digestório-2.jpg",
-      "uploads/2020/06/Sistema-digestório-3.jpg",
-      "uploads/2020/06/Sistema-digestório-4.jpg",
-      "uploads/2020/06/Sistema-digestório-5.jpg",
-      "uploads/2020/06/Sistema-digestório-6.jpg"
-    ],
-    "categories": [
-      "Seres Vivos",
-      "Zoologia"
-    ],
-    "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
-    ],
-    "attributes": {
-      "Número de páginas": 41,
-      "Apostila em PDF": true,
-      "Gabarito em PDF": true
     }
   },
   {
@@ -7587,9 +8508,18 @@
       "uploads/2020/06/Slide15.jpg",
       "uploads/2020/06/Slide16.jpg"
     ],
+    "objectID": "DVUGRLGP",
     "categories": [
-      "Seres Vivos",
-      "Zoologia"
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7631,11 +8561,28 @@
       "uploads/2020/07/Slide15-1.jpg",
       "uploads/2020/07/Slide16-1.jpg"
     ],
+    "objectID": "AK6U8GLK",
     "categories": [
-      "Anatomia e Fisiologia Humana",
-      "Genética",
-      "Hematologia",
-      "Imunologia"
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      },
+      {
+        "id": 16,
+        "slug": "hematologia",
+        "name": "Hematologia"
+      },
+      {
+        "id": 13,
+        "slug": "imunologia",
+        "name": "Imunologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7676,9 +8623,18 @@
       "uploads/2020/08/Slide15.jpg",
       "uploads/2020/08/Slide16.jpg"
     ],
+    "objectID": "CMMT9KFM",
     "categories": [
-      "Genética",
-      "Imunologia"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      },
+      {
+        "id": 13,
+        "slug": "imunologia",
+        "name": "Imunologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7718,9 +8674,18 @@
       "uploads/2020/09/Slide14.jpg",
       "uploads/2020/09/Slide15.jpg"
     ],
+    "objectID": "U7YP07KA",
     "categories": [
-      "Genética",
-      "Imunologia"
+      {
+        "id": 11,
+        "slug": "genetica",
+        "name": "Genética"
+      },
+      {
+        "id": 13,
+        "slug": "imunologia",
+        "name": "Imunologia"
+      }
     ],
     "tags": [
       "Apresentações",
@@ -7730,6 +8695,703 @@
       "Número de slides": 69,
       "Anotações do apresentador": true,
       "Apostila em PDF": true
+    }
+  },
+  {
+    "id": 170,
+    "slug": "apostila-fisiologia-de-orgaos-e-sistema-i-sistema-circulatorio-sangue-e-coagulacao-sanguinea",
+    "name": "Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea",
+    "published": true,
+    "featured": true,
+    "shortDescription": "Material voltado para os ensinos médio e superior. Apostila em pdf que aborda: <strong>1-</strong> Descrição, divisões e funções do sistema circulatório;<strong> 2- </strong>Distrito sanguíneo ou sistema vascular sanguíneo: <strong>vasos sanguíneos</strong> (artérias, veias e capilares contínuos e fenestrados): características, camadas ou túnicas, funções; <strong>coração</strong>: descrição, localização, camadas (pericárdio fibroso e seroso, epicárdio, miocárdio e endocárdio), câmaras e valvas cardíacas (anatomia funcional), trajeto do sangue através do coração (circuitos pulmonar e sistêmico), circulação coronariana, músculos cardíacos (atrial, ventricular e fibras especializadas excitatórias e condutoras), <a name=\"_Toc5906709\"></a>ciclo, frequência e débito cardíacos, <a name=\"_Toc5906710\"></a>controle da frequência cardíaca (atividade elétrica e controle nervoso do coração), <a name=\"_Toc5906713\"></a>eletrocardiograma (ECG), <a name=\"_Toc5906714\"></a>pressão arterial e pulso ou pulsação, retorno venoso; <strong>3- sangue</strong>: hematopoese, plasma, elementos figurados: eritrócitos (descrição, funções, hemoglobina, eritropoese, hemocaterese, eritropenia/anemias e parâmetros avaliados no eritrograma com seus respectivos valores de referência, eritrocitose/policitemia);  leucócitos [descrição; funções gerais; leucopenia e leucocitose (incluindo para cada subtipo específico de leucócito); leucócitos granulócitos (neutrófilos, eosinófilos e basófilos) e leucócitos agranulócitos (linfócitos e monócitos): características, funções específicas, valores de referência)]; plaquetas ou trombócitos (características, funções, valores de referência, trombocitopenia e trombocitose, estrutura interna); <strong>4- coagulação sanguínea</strong>: hemostasia primária (papel do endotélio vascular e das plaquetas) e secundária (cascata de coagulação sanguínea; inclui as vias intrínseca e extrínseca passo-a-passo, com o papel de cada componente); <a name=\"_Toc5906736\"></a>mecanismos reguladores da coagulação sanguínea (antitrombina TFPI, proteína C e proteína S); <a name=\"_Toc5906737\"></a>sistema de fibrinólise (sistema plasminogênio/plasmina). Material com ilustração colorida e esquemas para entender os processos de coagulação sanguínea e fibrinólise passo-a-passo.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 32 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário.\n- Apostila Fisiologia de órgãos e sistema III: sistema respiratório\n- Drogas: conceitos e efeitos no organismo\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Hematopoese\n- Hemostasia\n- Introdução à Hematologia\n- Mecanismos Reguladores cardiovasculares\n- Sistema cardiovascular humano\n- Sistema circulatório: visão geral",
+    "price": 4800,
+    "discountPrice": 4080,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_1-1.jpg",
+      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_2-1.jpg",
+      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_3-1.jpg",
+      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_4-1.jpg",
+      "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_5-1.jpg"
+    ],
+    "objectID": "F08FRZM8",
+    "categories": [
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 17,
+        "slug": "sistema-circulatorio",
+        "name": "Sistema Circulatório"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true,
+      "Número de páginas": 32
+    }
+  },
+  {
+    "id": 171,
+    "slug": "apostila-fisiologia-de-orgaos-e-sistema-ii-sistemas-linfatico-e-imunitario",
+    "name": "Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário",
+    "published": true,
+    "featured": true,
+    "shortDescription": "Material voltado para os ensinos médio e superior. Apostila em pdf que aborda: <strong>1-</strong> <strong>Sistema linfático:</strong> distrito linfático ou sistema vascular linfático: definição; funções gerais; componentes: linfa, capilares e vasos linfáticos, órgãos linfoides: linfonodos, tonsilas, timo e baço (morfologia, localização e funções); <strong>2-</strong> <strong>Sistema imunitário:</strong> visão geral; funções gerais do sistema imunitário; órgãos e células envolvidos no sistema imunitário: hematopoese, leucócitos granulócitos e agranulócitos, <a name=\"_Toc9023855\"></a>outras células que participam do sistema imunitário (células do sistema mononuclear fagocitário, mastócitos, plasmócitos, linfócitos NK); tipos básicos de resposta imunitária: <u>imunidade inata</u>: componentes; primeira e segunda linhas de defesa: barreiras naturais, inflamação; citocinas; sistema do complemento; <u>imunidade adquirida</u>: terceira linha de defesa: principais aspectos das respostas imunes adquiridas; componentes; respostas humoral e celular, incluindo subpopulações funcionalmente distintas de linfócitos T e suas funções, células apresentadoras de antígenos (APCs), anticorpos (classes e funções específicas), imunização (ativa e passiva), propriedades da resposta imunológica adquirida (especificidade, diversidade, memória, expansão clonal, especialização ou sensibilização, autolimitação e não-reatividade ao próprio), fases das respostas imunes adquiridas (reconhecimento do antígeno por linfócitos específicos, ativação dos linfócitos e eliminação do antígeno ou fase efetora), <a name=\"_Toc9023873\"></a>enxertos e transplantes de órgãos. Material com ilustração colorida e esquemas para entender os processos passo-a-passo.\n\n<u>INCLUI</u>: lista de exercícios (questões de vestibulares, do Enade e de concursos públicos) com gabaritos (fornecidos em outro arquivo).\n\nNúmero de páginas: 38 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea\n- Apostila Fisiologia de órgãos e sistema III: sistema respiratório\n- Drogas: conceitos e efeitos no organismo\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Histologia Humana 1: tecido epitelial\n- Histologia Humana 2: tecido conjuntivo\n- Interações patógeno-hospedeiro\n- Introdução à Fisiologia de órgãos e sistemas\n- Introdução à fisiologia humana\n- Introdução à hematologia\n- Sistema cardiovascular humano\n- Sistema digestório humano\n- Sistema respiratório humano\n- Sistema tegumentar: a pele humana\n- Sistemas linfático e imunitário",
+    "price": 5700,
+    "discountPrice": 4845,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_1.jpg",
+      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_2.jpg",
+      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_3.jpg",
+      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_4.jpg",
+      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_5.jpg",
+      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_6.jpg",
+      "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_7.jpg"
+    ],
+    "objectID": "HDL6E0Q8",
+    "categories": [
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 13,
+        "slug": "imunologia",
+        "name": "Imunologia"
+      },
+      {
+        "id": 27,
+        "slug": "sistemas-imune-e-linfatico",
+        "name": "Sistemas Imune e Linfático"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true,
+      "Número de páginas": 38
+    }
+  },
+  {
+    "id": 173,
+    "slug": "apostila-fisiologia-de-orgaos-e-sistema-iii-sistema-respiratorio",
+    "name": "Apostila Fisiologia de órgãos e sistema III: sistema respiratório",
+    "published": true,
+    "featured": false,
+    "shortDescription": "Material voltado para os ensinos médio e superior. Para o ensino superior, funciona principalmente como material de revisão. Apostila em pdf que aborda: <strong>1-</strong> introdução: metabolismo aeróbio, respiração externa e interna; <strong>2-</strong> sistema respiratório: divisão estrutural (superior e inferior); divisão funcional (porções condutora e respiratória); componentes das vias aéreas superiores (boca e cavidade oral, nariz, faringe, laringe); componentes das vias aéreas inferiores (traqueia e pulmões, incluindo árvore bronquial,  alvéolos e pleuras): estrutura e funções; <strong>3-</strong> fisiologia da respiração: ventilação pulmonar; transporte de gases respiratórios; saturação da hemoglobina; intoxicação por monóxido de carbono; <strong>4-</strong> controle da respiração; reflexos da tosse e do espirro; <strong>5-</strong> capacidades e volumes respiratórios; <strong>6-</strong> distúrbios ciliares; <strong>7- </strong>os mergulhadores e a “respiração sob pressão positiva”. Material com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos (fornecidos em outro arquivo).\n\nNúmero de páginas: 21 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea\n- Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário.\n- Drogas: conceitos e efeitos no organismo\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Difusão, transporte de gases e pH\n- Hemoglobinas e hemoglobinopatias\n- Introdução à estrutura e mecânica pulmonar\n- Introdução à estrutura e mecânica pulmonar\n- Introdução à fisiologia de órgãos e sistemas\n- Introdução à fisiologia humana\n- Regulação da respiração\n- Sistema Respiratório humano",
+    "price": 3150,
+    "discountPrice": 2678,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_1.jpg",
+      "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_2.jpg",
+      "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_3.jpg",
+      "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_4.jpg"
+    ],
+    "objectID": "ZCV3K2MC",
+    "categories": [
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 23,
+        "slug": "sistema-respiratorio",
+        "name": "Sistema Respiratório"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true,
+      "Número de páginas": 21
+    }
+  },
+  {
+    "id": 174,
+    "slug": "promocao-40porcento-de-desconto-apostila-fisiologia-de-orgaos-e-sistema-i-ii-iii-e-iv",
+    "name": "Promoção - 40% de desconto: Apostila Fisiologia de órgãos e sistema (I, II, III e IV)",
+    "published": true,
+    "featured": true,
+    "shortDescription": "Leve as apostilas (clique nos links abaixo para ver as descrições de cada uma):\n<ol>\n \t<li><a href=\"https://bioloja.bio.br/loja/anatomia-e-fisiologia-humanas/apostila-fisiologia-de-orgaos-e-sistema-i-sistema-circulatorio-sangue-e-coagulacao-sanguinea/\">Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea</a></li>\n \t<li><a href=\"https://bioloja.bio.br/loja/anatomia-e-fisiologia-humanas/apostila-fisiologia-de-orgaos-e-sistema-ii-sistemas-linfatico-e-imunitario/\">Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário</a></li>\n \t<li><a href=\"https://bioloja.bio.br/loja/anatomia-e-fisiologia-humanas/apostila-fisiologia-de-orgaos-e-sistema-iii-sistema-respiratorio/\">Apostila Fisiologia de órgãos e sistema III: sistema respiratório</a></li>\n \t<li><a href=\"https://bioloja.bio.br/loja/anatomia-e-fisiologia-humanas/apostila-fisiologia-de-orgaos-e-sistema-iv-sistema-digestorio/\">Apostila Fisiologia de órgãos e sistema IV: sistema digestório</a></li>\n</ol>\nCom 40% de DESCONTO. Por tempo limitado.\nAproveite!",
+    "description": "Promocão para nossas novas apostilas por tempo limitado!!\nAproveite!!",
+    "price": 18750,
+    "discountPrice": 15938,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2019/07/Cópia-de-Cópia-de-152.png"
+    ],
+    "objectID": "MUK4DDU0",
+    "categories": [
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 17,
+        "slug": "sistema-circulatorio",
+        "name": "Sistema Circulatório"
+      },
+      {
+        "id": 23,
+        "slug": "sistema-respiratorio",
+        "name": "Sistema Respiratório"
+      },
+      {
+        "id": 27,
+        "slug": "sistemas-imune-e-linfatico",
+        "name": "Sistemas Imune e Linfático"
+      },
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior",
+      "Super Promoções"
+    ],
+    "attributes": {
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true
+    }
+  },
+  {
+    "id": 175,
+    "slug": "apostila-fisiologia-de-orgaos-e-sistema-iv-sistema-digestorio",
+    "name": "Apostila Fisiologia de órgãos e sistema IV: sistema digestório",
+    "published": true,
+    "featured": false,
+    "shortDescription": "Material voltado para os ensinos médio e superior. Para o ensino superior, funciona principalmente como material de revisão. Aborda, de maneira geral, a anatomia funcional de cada região do trato gastrointestinal (TGI) humano (boca, faringe, esôfago, estômago, intestino delgado e intestino grosso) e órgãos acessórios da digestão (dentes, língua, glândulas salivares, pâncreas, fígado e vesícula biliar), os processos físicos e químicos da digestão, etapas da digestão química e controle dos processos digestivos pelo sistema nervoso autônomo e hormônios. <u>Conteúdo resumido</u>: <strong>1-</strong> órgãos do trato gastrintestinal e órgãos acessórios da digestão; funções básicas do sistema digestório; histologia do TGI (túnicas ou camadas mucosa, submucosa, muscular e serosa ou adventícia); sistema nervoso entérico (SNE); <strong>2-</strong> segmento digestório superior I: boca e órgãos acessórios, faringe e esôfago: anatomia funcional (anatomia e funções na digestão mecânica e/ou química de cada região); <strong> 3-</strong> segmento digestório superior II: estômago: anatomia, histologia e fisiologia; <strong>4-</strong> segmento digestório inferior I: intestino delgado (duodeno, jejuno, íleo) e órgãos acessórios (pâncreas, fígado e vesícula biliar): anatomia e fisiologia, incluindo funções endócrina e na digestão (mecânica/química) (exceto pâncreas, que contém apenas a fisiologia relacionada ao processo digestório; pâncreas endócrino será abordado em outra aula específica); <strong>5-</strong> segmento digestório inferior II: intestino grosso: anatomia e fisiologia. Material com ilustração colorida, que <u>INCLUI</u>: lista de exercícios com gabaritos (fornecidos em outro arquivo).\n\nNúmero de páginas: 34 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (apostilas):</strong>\n- Apostila Fisiologia de órgãos e sistema I: sistema circulatório, sangue e coagulação sanguínea\n- Apostila Fisiologia de órgãos e sistema II: sistemas linfático e imunitário.\n- Apostila Fisiologia de órgãos e sistema III: sistema respiratório.\n- Drogas: conceitos e efeitos no organismo\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Colesterol\n- Histologia Humana 1: tecido epitelial\n- Histologia Humana 2: tecido conjuntivo\n- Histologia Humana 3: tecido muscular\n- Histologia Humana: visão geral\n- Introdução à fisiologia de órgãos e sistemas\n- Introdução à fisiologia humana\n- Pâncreas endócrino\n- Sistema cardiovascular humano\n- Sistema circulatório: visão geral\n- Sistema nervoso periférico: receptores adrenérgicos e colinérgicos",
+    "price": 5100,
+    "discountPrice": 4335,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_1.jpg",
+      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_2.jpg",
+      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_3.jpg",
+      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_4.jpg",
+      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_5.jpg",
+      "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_6.jpg"
+    ],
+    "objectID": "6MUTCXPJ",
+    "categories": [
+      {
+        "id": 1,
+        "slug": "anatomia-e-fisiologia",
+        "name": "Anatomia e Fisiologia Humana"
+      },
+      {
+        "id": 18,
+        "slug": "sistema-digestorio",
+        "name": "Sistema Digestório"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true,
+      "Número de páginas": 34
+    }
+  },
+  {
+    "id": 186,
+    "slug": "apostila-quebra-do-equilibrio-ambiental",
+    "name": "Apostila Quebra do equilíbrio ambiental",
+    "published": true,
+    "featured": true,
+    "shortDescription": "Material voltado para os ensinos médio e superior. Aborda, de maneira geral, as alterações bióticas e abióticas provocadas pelo homem que implicam em desequilíbrio no ecossistema, além de uma introdução ao desenvolvimento sustentável. <u>Conteúdo específico</u>: <strong>1-</strong> Alterações bióticas: introdução de espécies e extinção (eliminação) de espécies; <strong>2-</strong> Alterações abióticas: poluição sonora; poluição por elementos radioativos; poluição do ar (incluindo chuva ácida, inversão térmica, efeito estufa e aquecimento global, destruição da camada de ozônio); poluição por substâncias não-biodegradáveis; poluição por derramamento de petróleo; poluição por eutroficação; poluição térmica e <a name=\"_Toc23097341\"></a>a problemática ambiental associada aos grandes empreendimentos hidrelétricos; o lixo; <strong>3-</strong> Desenvolvimento sustentável: definição; Eco-92 e Agenda-21; Rio 5; Rio 10, Protocolo de Kyoto; Rio 20. Material com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos (fornecidos em outro arquivo).\n\nNúmero de páginas: 39 (excluindo a página de sumário)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Apostila Quebra do equilíbrio ambiental\n- Biodiversidade vegetal e sua importância ecológica e econômica\n- Conceitos e estimativas de biodiversidade\n- Consequências do processo evolutivo: adaptação, especiação e extinção\n- Evolução da interação entre as espécies\n- Fotossíntese e quimiossíntese\n- Metabolismo energético: uma visão ecológica\n- Princípios de evolução: variabilidade, seleção e adaptação\n- Respiração celular e fermentação",
+    "price": 5850,
+    "discountPrice": 4973,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_1.jpg",
+      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_2.jpg",
+      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_3.jpg",
+      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_4.jpg",
+      "uploads/2019/11/Quebra-do-equilíbrio-ambiental_5.jpg"
+    ],
+    "objectID": "9QMDZ912",
+    "categories": [
+      {
+        "id": 7,
+        "slug": "ecologia",
+        "name": "Ecologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Número de páginas": 39,
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true
+    }
+  },
+  {
+    "id": 196,
+    "slug": "promocao-15porcento-de-desconto-sistema-circulatorio-comparado-apostila",
+    "name": "Promoção - 15% de desconto: Sistema Circulatório Comparado   Apostila",
+    "published": true,
+    "featured": false,
+    "shortDescription": "Leve os materiais (clique neles para ver as descrições de cada um):\n<p style=\"text-align: left;\">1. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/sistema-circulatorio-comparado/\">Sistema circulatório comparado</a>\n2. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/apostila-sistema-circulatorio-comparado/\">Apostila Sistema circulatório comparado</a></p>\nCom 15% de DESCONTO. Por tempo limitado.\nAproveite!",
+    "description": "Promocão para nossos novos materiais por tempo limitado!!\nAproveite!!",
+    "price": 4845,
+    "discountPrice": 4118,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/04/Sistema-e-Apostila-Promo.png"
+    ],
+    "objectID": "MFLH64E1",
+    "categories": [
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Apresentações",
+      "Ensino Médio",
+      "Ensino Superior",
+      "Super Promoções"
+    ],
+    "attributes": {
+      "Anotações do apresentador": true,
+      "Apostila em PDF": true
+    }
+  },
+  {
+    "id": 191,
+    "slug": "apostila-sistema-nervoso-comparado",
+    "name": "Apostila Sistema nervoso comparado",
+    "published": true,
+    "featured": false,
+    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>: <strong>1-</strong> Introdução: sistemas de coordenação e regulação das funções corporais (nervoso e endócrino), suas principais diferenças em termos de unidades funcionais, ação e duração; <strong>2-</strong> Sistema nervoso: propriedades; neurônio (estrutura, classificação quanto à função e quanto à morfologia); sinapse (descrição, sinapses elétricas e químicas); neurônios e evolução; <strong>3-</strong> Evolução dos sistemas nervosos: invertebrados não-cordados (cnidários; platelmintos; nematodos; moluscos; anelídeos; artrópodes; equinodermos); cordados invertebrados (urocordados e cefalocordados); cordados vertebrados: plano básico do sistema nervoso (incluindo contraste com sistema nervoso de animais bilatérios invertebrados); encefalização; embriogênese do sistema nervoso e funções dos componentes do encéfalo dos vertebrados; anatomia comparada do sistema nervoso de vertebrados: peixes (cartilaginosos e ósseos), anfíbios, répteis, aves e mamíferos. Material em pdf com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 35 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Histologia humana 4:  tecido nervoso\n- Sistema nervoso (ensino médio)\n- Sistema nervoso 1: neurônios, sinapses, neurotransmissores e glia\n- Sistema nervoso comparado\n- Sistema sensorial comparado\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada \n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema respiratório comparado\n- Sistema sensorial comparado",
+    "price": 5250,
+    "discountPrice": 4463,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/04/Nervoso-comparado-1.jpg",
+      "uploads/2020/04/Nervoso-comparado-2.jpg",
+      "uploads/2020/04/Nervoso-comparado-3.jpg",
+      "uploads/2020/04/Nervoso-comparado-4.jpg",
+      "uploads/2020/04/Nervoso-comparado-5.jpg"
+    ],
+    "objectID": "LFMM2BL7",
+    "categories": [
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Número de páginas": 35,
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true
+    }
+  },
+  {
+    "id": 192,
+    "slug": "apostila-sistema-sensorial-comparado",
+    "name": "Apostila Sistema sensorial comparado",
+    "published": true,
+    "featured": true,
+    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>: <strong>1-</strong>Como os animais obtêm informações acerca de seu meio e como elas são usadas: sistema sensorial, receptores sensoriais (classificação quanto à localização e origem dos estímulos, quanto ao tipo de estímulo que detectam, modalidades sensitivas); qualidades sensoriais (estímulos ambientais significativos na percepção sensorial; sequência geral de eventos); princípios gerais (determinação da direção e da distância da fonte de um estímulo); <strong>2-</strong> Os receptores sensoriais nos filos animais: invertebrados não-cordados: Cnidários, Platelmintos, Nematódeos, Moluscos, Anelídeos, Artrópodes e Equinodermos (grupos, características, tipos de receptores sensoriais: estrutura e função); cordados invertebrados: Urocordados e Cefalocordados (classificação, características gerais, receptores sensoriais); cordados vertebrados: Peixes, Anfíbios, Répteis, Aves e Mamíferos (modalidades sensoriais, estímulos, tipo de receptor, célula receptora e estrutura; organização do sistema nervoso sensorial; evolução do sistema sensorial em cada grupo de vertebrado). Material em pdf com ilustração colorida, quadros e esquemas para ajudar na compreensão do tema.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 39 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Sistema nervoso comparado\n- Sistema sensorial 1- olfação, gustação e paladar\n- Sistema sensorial 2- audição, equilíbrio e visão\n- Sistema sensorial 3- os sentidos somáticos\n- Sistema sensorial comparado\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada \n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado",
+    "price": 5850,
+    "discountPrice": 4973,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/04/Sensorial-comparado-1.jpg",
+      "uploads/2020/04/Sensorial-comparado-2.jpg",
+      "uploads/2020/04/Sensorial-comparado-3.jpg",
+      "uploads/2020/04/Sensorial-comparado-4.jpg",
+      "uploads/2020/04/Sensorial-comparado-5.jpg",
+      "uploads/2020/04/Sensorial-comparado-6.jpg"
+    ],
+    "objectID": "7XFMU4WB",
+    "categories": [
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Número de páginas": 39,
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true
+    }
+  },
+  {
+    "id": 193,
+    "slug": "apostila-excrecao-comparada",
+    "name": "Apostila Excreção comparada",
+    "published": true,
+    "featured": false,
+    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>:<strong> 1-</strong>Homeostasia; metabolismo e excreção; papel da excreção na manutenção da homeostasia; destino das proteínas da dieta; excretas nitrogenadas (amônia, ureia e ácido úrico); <strong>2-</strong> Ambiente e tipo principal de excreta nitrogenada; classificação dos animais de acordo com a excreta nitrogenada predominante; excretas nitrogenadas nos principais filos de invertebrados e em vertebrados; <strong>3-</strong> Osmorregulação: processo e ocorrência nos diversos filos animais; <strong>4-</strong> Estruturas/órgãos excretores nos diversos filos animais (invertebrados e vertebrados); tipos de rins dos vertebrados (características, ocorrência, ancestralidade e embriologia); <strong>5-</strong> Rins metanefros: ureteres e urina; funções; estrutura do rim humano; néfron (estrutura e processos básicos na produção de urina); 6- Introdução à regulação da função renal (ADH e aldosterona). Material em pdf com ilustração colorida e quadros comparativos para ajudar na compreensão do tema.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 31 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Anelídeos\n- Anfíbios\n- Artrópodes\n- Aves\n- Cordados\n- Equinodermos\n- Excreção comparada\n- Helmintos\n- Introdução aos animais\n- Mamíferos\n- Membrana plasmática e transporte\n- Moluscos\n- Peixes\n- Poríferos e cnidários\n- Répteis\n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema nervoso comparado\n- Sistema sensorial comparado\n- Sistema urinário\n\n<strong>Veja também (apostilas):</strong>\n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado\n- Sistema sensorial comparado",
+    "price": 4650,
+    "discountPrice": 3953,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/04/Excreção-comparada-1.jpg",
+      "uploads/2020/04/Excreção-comparada-2.jpg",
+      "uploads/2020/04/Excreção-comparada-3.jpg",
+      "uploads/2020/04/Excreção-comparada-4.jpg",
+      "uploads/2020/04/Excreção-comparada-5.jpg",
+      "uploads/2020/04/Excreção-comparada-6.jpg"
+    ],
+    "objectID": "AKMJ398T",
+    "categories": [
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Número de páginas": 31,
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true
+    }
+  },
+  {
+    "id": 194,
+    "slug": "apostila-sistema-circulatorio-comparado",
+    "name": "Apostila Sistema circulatório comparado",
+    "published": true,
+    "featured": true,
+    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>:<strong> 1-</strong> Introdução: meio interno, composição dos fluidos corporais; <strong>2-</strong> <a name=\"_Toc37635212\"></a>Circulação comparada em invertebrados não-cordados (poríferos, cnidários, platelmintos, nematelmintos, moluscos, anelídeos, artrópodes, equinodermos); <strong>3-</strong> <a name=\"_Toc37635226\"></a>Circulação comparada em cordados vertebrados (peixes, anfíbios, répteis, aves e mamíferos); <strong>4-</strong> Circulação linfática nos mamíferos. O material também aborda e compara sangue, coração, vasos sanguíneos, tipos de sistemas circulatórios (aberto e fechado), circulação completa e incompleta, simples e dupla nos diversos filos animais. Material em pdf com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 22 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Anelídeos\n- Anfíbios\n- Artrópodes\n- Aves\n- Cordados\n- Equinodermos\n- Excreção comparada\n- Helmintos\n- Introdução aos animais\n- Mamíferos\n- Moluscos\n- Peixes\n- Poríferos e cnidários\n- Répteis\n- Sistema cardiovascular humano (ensino médio)\n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema digestório humano (ensino médio)\n- Sistema endócrino (ensino médio)\n- Sistema respiratório comparado\n- Sistema urinário (ensino médio)\n- Sistemas linfático e imunitário (ensino médio)\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada\n- Sistema digestório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado\n- Sistema sensorial comparado",
+    "price": 3300,
+    "discountPrice": 2805,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/04/Sistema-circulatório-1.jpg",
+      "uploads/2020/04/Sistema-circulatório-2.jpg",
+      "uploads/2020/04/Sistema-circulatório-3.jpg",
+      "uploads/2020/04/Sistema-circulatório-4.jpg",
+      "uploads/2020/04/Sistema-circulatório-5.jpg"
+    ],
+    "objectID": "PG3AKME2",
+    "categories": [
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Número de páginas": 22,
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true
+    }
+  },
+  {
+    "id": 197,
+    "slug": "promocao-15porcento-de-desconto-excrecao-comparada-apostila",
+    "name": "Promoção - 15% de desconto: Excreção Comparada   Apostila",
+    "published": true,
+    "featured": false,
+    "shortDescription": "Leve os materiais (clique neles para ver as descrições de cada um):\n\n1. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/excrecao-comparada/\">Excreção comparada</a>\n2. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/apostila-excrecao-comparada/\">Apostila Excreção comparada</a>\n\nCom 15% de DESCONTO. Por tempo limitado.\nAproveite!",
+    "description": "Promocão para nossos novos materiais por tempo limitado!!\nAproveite!!",
+    "price": 6477,
+    "discountPrice": 5505,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/04/Cópia-de-Sistema-e-Apostila-Promo.png"
+    ],
+    "objectID": "ZVHNFUQ3",
+    "categories": [
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Apresentações",
+      "Ensino Médio",
+      "Ensino Superior",
+      "Super Promoções"
+    ],
+    "attributes": {
+      "Anotações do apresentador": true,
+      "Apostila em PDF": true
+    }
+  },
+  {
+    "id": 198,
+    "slug": "promocao-15porcento-de-desconto-sistema-sensorial-comparado-apostila",
+    "name": "Promoção - 15% de desconto: Sistema Sensorial Comparado   Apostila",
+    "published": true,
+    "featured": true,
+    "shortDescription": "Leve os materiais (clique neles para ver as descrições de cada um):\n\n1. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/sistema-sensorial-comparado/\">Sistema sensorial comparado</a>\n2. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/apostila-sistema-sensorial-comparado/\">Apostila Sistema sensorial comparado</a>\n\nCom 15% de DESCONTO. Por tempo limitado.\nAproveite!",
+    "description": "Promocão para nossos novos materiais por tempo limitado!!\nAproveite!!",
+    "price": 8789,
+    "discountPrice": 7471,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/04/Cópia-de-Cópia-de-Cópia-de-Sistema-e-Apostila-Promo.png"
+    ],
+    "objectID": "MKR7P393",
+    "categories": [
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Apresentações",
+      "Ensino Médio",
+      "Ensino Superior",
+      "Super Promoções"
+    ],
+    "attributes": {
+      "Anotações do apresentador": true,
+      "Apostila em PDF": true
+    }
+  },
+  {
+    "id": 199,
+    "slug": "promocao-15porcento-de-desconto-sistema-nervoso-comparado-apostila",
+    "name": "Promoção - 15% de desconto: Sistema Nervoso Comparado   Apostila",
+    "published": true,
+    "featured": false,
+    "shortDescription": "Leve os materiais (clique neles para ver as descrições de cada um):\n\n1. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/sistema-nervoso-comparado/\">Sistema nervoso comparado</a>\n2. <a href=\"https://bioloja.bio.br/loja/seres-vivos/zoologia/apostila-sistema-nervoso-comparado/\">Apostila Sistema nervoso comparado</a>\n\nCom 15% de DESCONTO. Por tempo limitado.\nAproveite!",
+    "description": "Promocão para nossos novos materiais por tempo limitado!!\nAproveite!!",
+    "price": 6810,
+    "discountPrice": 5789,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/04/Cópia-de-Cópia-de-Sistema-e-Apostila-Promo.png"
+    ],
+    "objectID": "6U37NVZY",
+    "categories": [
+      {
+        "id": 3,
+        "slug": "promocoes",
+        "name": "Promoções"
+      },
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Apresentações",
+      "Ensino Médio",
+      "Ensino Superior",
+      "Super Promoções"
+    ],
+    "attributes": {
+      "Anotações do apresentador": true,
+      "Apostila em PDF": true
+    }
+  },
+  {
+    "id": 201,
+    "slug": "apostila-sistema-respiratorio-comparado",
+    "name": "Apostila Sistema respiratório comparado",
+    "published": true,
+    "featured": false,
+    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>:<strong> 1- </strong>Introdução: metabolismo aeróbico e processos fundamentais da respiração: respiração externa e respiração celular ou interna; sistema respiratório: principais funções; problemas da respiração aérea e aquática; superfícies respiratórias; <strong>2-</strong> Órgãos respiratórios: trocas gasosas por difusão simples; trocas gasosas eficientes na água: brânquias; trocas gasosas através de tubos: sistemas traqueais; pulmões; <strong>3-</strong> Respiração comparada ‒ invertebrados não-cordados: poríferos, cnidários e helmintos; moluscos (órgãos respiratórios de animais aquáticos: ctenídios, incluindo estrutura, fisiologia e fluxo contracorrente; pulmão; brânquias secundárias); anelídeos (Polychaeta: brânquias associadas e não-associadas aos parapódios; ventilação; Clitellata: trocas gasosas nos Oligochaeta e Hirudinomorpha: respiração cutâneas; brânquias nas poucas espécies aquáticas); artrópodes: trocas gasosas efetuadas por meios diferentes em diversos grupos: aquáticos (sistema de brânquias; difusão de gases através da fina cutícula; brânquias foliáceas); terrestres (sistema traqueal; difusão de gases através da fina cutícula; filotraqueias ou pulmões foliáceos; túbulos em apêndices abdominais ou pseudotraqueias); equinodermos (superfícies de trocas gasosas em asteroides, ofiuroides, equinoides, holoturoides e crinoides); <strong>4-</strong> Respiração comparada ‒ Cordados vertebrados: peixes (brânquias e variações no sistema branquial entre ágnatas, peixes cartilaginosos e peixes ósseos; fluxo contracorrente; obtenção de oxigênio do ar: pulmões e outras estruturas respiratórias); anfíbios (fase larval e adulta; ventilação pulmonar); répteis (estrutura pulmonar geral e de alguns grupos específicos; comparação com anfíbios adultos e mamíferos; ventilação pulmonar); aves (pulmões e sacos aéreos; ventilação; adaptações das aves que mergulham); mamíferos (vias aéreas superiores e inferiores; trajeto do ar; pulmões; zona condutora, incluindo revestimento e funções; zona respiratória; volume pulmonar e massa corpórea; adaptações de mamíferos mergulhadores; pleuras; ventilação pulmonar; volumes e capacidades respiratórios). Material em pdf com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 38 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Anelídeos\n- Anfíbios\n- Artrópodes\n- Aves\n- Cordados\n- Difusão, transporte de gases e pH\n- Equinodermos\n- Helmintos\n- Introdução à estrutura e mecânica pulmonar\n- Introdução aos animais\n- Mamíferos\n- Membrana plasmática e transporte\n- Moluscos\n- Peixes\n- Poríferos e cnidários\n- Répteis\n- Sistema respiratório humano\n\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada\n- Sistema circulatório comparado\n- Sistema digestório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado\n- Sistema sensorial comparado",
+    "price": 5700,
+    "discountPrice": 4845,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/05/Sistema-respiratório-1.jpg",
+      "uploads/2020/05/Sistema-respiratório-2.jpg",
+      "uploads/2020/05/Sistema-respiratório-3.jpg",
+      "uploads/2020/05/Sistema-respiratório-4.jpg",
+      "uploads/2020/05/Sistema-respiratório-5.jpg",
+      "uploads/2020/05/Sistema-respiratório-6.jpg"
+    ],
+    "objectID": "PYF4VK9H",
+    "categories": [
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Número de páginas": 38,
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true
+    }
+  },
+  {
+    "id": 202,
+    "slug": "apostila-sistema-digestorio-comparado",
+    "name": "Apostila Sistema digestório comparado",
+    "published": true,
+    "featured": true,
+    "shortDescription": "Material voltado para os ensinos médio e superior. <u>Conteúdo</u>:<strong> 1- </strong>Digestão e funções do sistema digestório; <strong>2-</strong> Sistema digestório e digestão comparados: Poríferos; demais animais: cnidários e platelmintos; demais invertebrados e cordados: Nematódeos (Nematelmintos), Moluscos (apresentação generalizada e por táxons), Anelídeos (apresentação generalizada e por táxons), Artrópodes (apresentação generalizada e por táxons), Equinodermos (apresentação generalizada e por táxons), Cordados invertebrados (subfilos Urochordata e Cephalochordata) e Cordados vertebrados (peixes, anfíbios, répteis, aves e mamíferos). Material em pdf com ilustração colorida.\n\n<u>INCLUI</u>: lista de exercícios com gabaritos comentados (fornecidos em outro arquivo).\n\nNúmero de páginas: 41 (excluindo o índice)",
+    "description": "<b>Autor: </b>Ana Luisa Miranda-Vilela\n\n<b>Arquivo</b>: PDF (Apostila e Gabarito).\n\n<strong>Veja também (aulas em Powerpoint):</strong>\n- Anelídeos\n- Anfíbios\n- Artrópodes\n- Aves\n- Cordados\n- Equinodermos\n- Helmintos\n- Introdução aos animais\n- Mamíferos\n- Moluscos\n- Peixes\n- Poríferos e cnidários\n- Répteis\n- Sistema digestório comparado\n- Sistema digestório humano\n- Sistema digestório: visão geral\n- Sistema sensorial comparado\n\n<strong>Veja também (apostilas):</strong>\n- Excreção comparada\n- Sistema circulatório comparado\n- Sistema nervoso comparado \n- Sistema respiratório comparado\n- Sistema sensorial comparado",
+    "price": 6150,
+    "discountPrice": 5228,
+    "discountExpiresAt": null,
+    "imageUrls": [
+      "uploads/2020/06/Sistema-digestório-1.jpg",
+      "uploads/2020/06/Sistema-digestório-2.jpg",
+      "uploads/2020/06/Sistema-digestório-3.jpg",
+      "uploads/2020/06/Sistema-digestório-4.jpg",
+      "uploads/2020/06/Sistema-digestório-5.jpg",
+      "uploads/2020/06/Sistema-digestório-6.jpg"
+    ],
+    "objectID": "C0L12T8X",
+    "categories": [
+      {
+        "id": 2,
+        "slug": "seres-vivos",
+        "name": "Seres Vivos"
+      },
+      {
+        "id": 31,
+        "slug": "zoologia",
+        "name": "Zoologia"
+      }
+    ],
+    "tags": [
+      "Apostilas",
+      "Ensino Médio",
+      "Ensino Superior"
+    ],
+    "attributes": {
+      "Número de páginas": 41,
+      "Apostila em PDF": true,
+      "Gabarito em PDF": true
     }
   }
 ]

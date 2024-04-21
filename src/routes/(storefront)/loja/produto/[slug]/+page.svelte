@@ -6,14 +6,14 @@
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
+	import '@splidejs/svelte-splide/css';
 	import type {
 		Attribute,
-		ProductType,
 		ProductWithCategories,
 		ProductWithCategory,
 		Tag
-	} from '$lib/types/product';
-	import '@splidejs/svelte-splide/css';
+	} from '$lib/utils/types';
+	import type { ProductType } from '$lib/types/product';
 
 	export let data: PageData;
 

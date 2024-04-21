@@ -10,7 +10,7 @@ import {
 	tags
 } from '$lib/server/db/schema';
 import type { PageServerLoad } from './$types';
-import type { ProductWithCategories } from '$lib/types/product';
+import type { ProductWithCategories } from '$lib/utils/types';
 
 export const load = (async ({ params }) => {
 	// const product = (await db.select().from(products).where(eq(products.slug, params.slug)))[0];

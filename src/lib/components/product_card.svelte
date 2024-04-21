@@ -8,6 +8,7 @@
 
 	const images = getAllSlideImageUrls(product.imageUrls).slice(0, 5);
 
+	// TODO: parent category is not used.. maybe remove it from db query..
 	// set up carousel config
 	const mainOptions = {
 		pagination: false,
@@ -16,7 +17,7 @@
 	};
 </script>
 
-<div class="bg-gray-50/60 shadow-sm border rounded-md overflow-hidden group">
+<div class="bg-gray-50/60 shadow-sm border rounded-md overflow-hidden group max-w-sm">
 	<div class="relative">
 		<div class="gallery--product group">
 			<div class="gallery--product--main">

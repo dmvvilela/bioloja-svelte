@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// hello_algolia.js
 import algoliasearch from 'algoliasearch';
 import { db } from './utils/database';
 import {
@@ -12,6 +10,7 @@ import {
 	tags
 } from '../../src/lib/server/db/schema';
 import { eq } from 'drizzle-orm';
+import { customAlphabet } from 'nanoid';
 
 // Connect and authenticate with your Algolia app
 // const client = algoliasearch(Bun.env.ALGOLIA_APP_ID || '', Bun.env.ALGOLIA_API_KEY || '');
@@ -41,6 +40,7 @@ const qproducts = await db
 // For each product, get categories and add them to the record
 for (const product of qproducts) {
 	const record: any = product; // init record
+	record.objectID = customAlphabet('123467890ABCDEFGHJKLMNPQRTUVWXYZ', 8)();
 
 	const qcategories = await db
 		.select({
@@ -90,7 +90,7 @@ for (const product of qproducts) {
 	// console.log(record.attributes);
 
 	// Flatten categories into an array of names
-	record.categories = record.categories.map((category: any) => category.name);
+	// record.categories = record.categories.map((category: any) => category.name);
 
 	// Flatten tags into an array of names
 	record.tags = record.tags.map((tag: any) => tag.name);

@@ -52,8 +52,9 @@ export const searchProducts = async (query = '', filters: Filters) => {
 
 	// Create an array of facet filters based on the categories and tags arrays
 	const facetFilters: string[] = [
-		...filters.categories.map((category) => `categories:${category.slug}`),
-		...filters.tags.map((tag) => `tags:${tag.slug}`)
+		...filters.categories.map((category) => `categories.slug:${category.slug}`),
+		...filters.tags.map((tag) => `tags:${tag.name}`),
+		'published:true'
 	];
 
 	// Perform separate searches for products with a discountPrice and products without a discountPrice
@@ -78,11 +79,11 @@ export const searchProducts = async (query = '', filters: Filters) => {
 export async function getFacetCounts(query = '') {
 	// Perform a search without a query
 	const result = await index.search(query, {
-		facets: ['categories', 'tags']
+		facets: ['categories.slug', 'tags']
 	});
 
 	// The facets property of the result contains the count of each category and tag
-	const categoryCounts = result.facets?.categories;
+	const categoryCounts = result.facets?.['categories.slug'];
 	const tagCounts = result.facets?.tags;
 
 	return { categoryCounts, tagCounts };
@@ -96,21 +97,24 @@ export async function getFacetCountsWithFilters(query = '', filters: Filters) {
 	// Create a numeric filter based on the slider values
 	const priceFilter = `price:${minPrice} TO ${maxPrice}`;
 
+	console.log(filters);
+
 	// Create an array of facet filters based on the categories and tags arrays
 	const facetFilters: string[] = [
-		...filters.categories.map((category) => `categories:${category.name}`),
-		...filters.tags.map((tag) => `tags:${tag.name}`)
+		...filters.categories.map((category) => `categories.slug:${category.slug}`),
+		...filters.tags.map((tag) => `tags:${tag.name}`),
+		'published:true'
 	];
 
 	// Perform a search with the numeric filter and facet filters, and request the categories and tags facets
 	const result = await index.search(query, {
 		numericFilters: [priceFilter],
 		facetFilters: facetFilters,
-		facets: ['categories', 'tags']
+		facets: ['categories.slug', 'tags']
 	});
 
 	// The facets property of the result contains the count of each category and tag
-	const categoryCounts = result.facets?.categories;
+	const categoryCounts = result.facets?.['categories.slug'];
 	const tagCounts = result.facets?.tags;
 
 	return { categoryCounts, tagCounts };

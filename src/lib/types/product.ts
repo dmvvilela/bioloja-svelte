@@ -10,7 +10,11 @@ export type AlgoliaProductType = {
 	discountPrice: number;
 	discountExpiresAt: Date | null;
 	imageUrls: string[];
-	categories: string[];
+	categories: {
+		name: string;
+		slug: string;
+		id: number;
+	}[];
 	tags: string[];
 	attributes: {
 		[key: string]: boolean | number;

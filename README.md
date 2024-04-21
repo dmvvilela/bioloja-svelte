@@ -133,3 +133,12 @@ Autores têm uma área própria no site da Bioloja onde podem consultar e altera
 A submissão dos materiais a princípio deve ser feita por e-mail. Caso não seja possível devido ao tamanho do arquivo, uma opção é usar uma conta em um serviço de correio com grande capacidade de armazenamento, como o GMail, e informar à Bioloja os dados de acesso. Caso o autor tenha um site, pode criar uma página para download ou fornecer dados para acesso por FTP. Podemos também fornecer instruções para uso de FTP em nosso site.
 
 A Bioloja se reserva o direito de alterar a qualquer momento quaisquer termos e condições de autoria, ou incluir novos, por seu livre e pleno arbítrio, sem prejuízo de direitos adquiridos.
+
+
+### Get lines of code
+
+```bash
+find . -name '*.ts' -o -name '*.svelte' | xargs wc -l | tail -n 1
+```
+
+As of today: 16710 total (run in src: 9938)

@@ -2,7 +2,6 @@
 	import Pagination from '$lib/components/layout/pagination.svelte';
 	import ProductCard from '$lib/components/product_card.svelte';
 	import { fade } from 'svelte/transition';
-
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
