@@ -99,7 +99,7 @@ export const load = (async ({ locals, depends }) => {
 				});
 			});
 		})
-		.sort((a: any, b: any) => a.lineId - b.lineId);
+		.sort((a: any, b: any) => b.lineId - a.lineId);
 	// console.log(downloadLinks);
 
 	return { downloadLinks };
