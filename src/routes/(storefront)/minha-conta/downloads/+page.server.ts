@@ -58,16 +58,19 @@ export const load = (async ({ locals, depends }) => {
 	const productIds = completedOrders.flatMap((order: any) =>
 		order.orderProducts.map((product: any) => product.productId)
 	);
-	const downloads = await db
-		.select({
-			productId: orderProductsDownloads.productId,
-			name: orderProductsDownloads.linkName,
-			count: count()
-		})
-		.from(orderProductsDownloads)
-		.where(inArray(orderProductsDownloads.productId, productIds))
-		.groupBy(orderProductsDownloads.linkName, orderProductsDownloads.productId);
-	// console.log(downloads);
+	let downloads: any[] = [];
+	if (productIds?.length) {
+		downloads = await db
+			.select({
+				productId: orderProductsDownloads.productId,
+				name: orderProductsDownloads.linkName,
+				count: count()
+			})
+			.from(orderProductsDownloads)
+			.where(inArray(orderProductsDownloads.productId, productIds))
+			.groupBy(orderProductsDownloads.linkName, orderProductsDownloads.productId);
+		// console.log(downloads);
+	}
 
 	const downloadLinks = completedOrders
 		.flatMap((order: any) => {
