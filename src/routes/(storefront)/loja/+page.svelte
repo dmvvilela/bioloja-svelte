@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Spinner from '$lib/components/layout/spinner.svelte';
 	import ProductCard from '$lib/components/product_card.svelte';
-	import { searchProducts, getFacetCountsWithFilters } from '$lib/utils/algolia';
+	import { searchProducts, getFacetCountsWithFilters, type Filters } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
@@ -14,9 +14,10 @@
 	const toggleMenu = () => (checked = !checked);
 
 	// TODO: Add clear button to query input and message of no results
+	// TODO: add another slider.. we'll have both, min and max price normally separated by border
 	let query = '';
 	let range = 0;
-	let filters = {
+	let filters: Filters = {
 		categories: [],
 		tags: [],
 		prices: { min: 0, max: range }
@@ -32,10 +33,26 @@
 		const { categoryCounts, tagCounts } = await getFacetCountsWithFilters(query, filters);
 		categoriesCounts = categoryCounts;
 		tagsCounts = tagCounts;
+
+		console.log(filters);
 	})();
 
 	afterNavigate(() => {
 		query = $page.url.searchParams.get('q') || '';
+
+		const cat = $page.url.searchParams.get('cat');
+		const tag = $page.url.searchParams.get('tag');
+		const min = $page.url.searchParams.get('min');
+		const max = $page.url.searchParams.get('max');
+
+		filters = {
+			categories: cat ? [cat] : [],
+			tags: tag ? [tag] : [],
+			prices: {
+				min: min ? Number(min) : 0,
+				max: max ? Number(max) : 0
+			}
+		};
 	});
 
 	// Just to remove svelte type error
@@ -162,7 +179,7 @@
 												<input
 													id="category-{i}-mobile"
 													name="category[]"
-													value={category}
+													value={category.slug}
 													type="checkbox"
 													bind:group={filters.categories}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
@@ -218,7 +235,7 @@
 												<input
 													id="tag-{i}-mobile"
 													name="tag[]"
-													value={tag}
+													value={tag.slug}
 													type="checkbox"
 													bind:group={filters.tags}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
@@ -227,7 +244,7 @@
 													>{tag.name}</label
 												>
 												<div class="ml-auto text-gray-400 text-sm">
-													({tagsCounts?.[tag.name] || 0})
+													({tagsCounts?.[tag.slug] || 0})
 												</div>
 											</div>
 										{/each}
@@ -368,7 +385,7 @@
 												<input
 													id="category-{i}"
 													name="category[]"
-													value={category}
+													value={category.slug}
 													type="checkbox"
 													bind:group={filters.categories}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
@@ -393,14 +410,14 @@
 												<input
 													id="tag-{i}"
 													name="tag[]"
-													value={tag}
+													value={tag.slug}
 													type="checkbox"
 													bind:group={filters.tags}
 													class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-bioloja-300"
 												/>
 												<label for="tag-{i}" class="ml-3 text-sm text-gray-600">{tag.name}</label>
 												<div class="ml-auto text-gray-400 text-sm">
-													({tagsCounts?.[tag.name] || 0})
+													({tagsCounts?.[tag.slug] || 0})
 												</div>
 											</div>
 										{/each}

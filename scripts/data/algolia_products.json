@@ -18,7 +18,7 @@
       "uploads/2018/05/Slide5.jpg",
       "uploads/2018/05/Slide6.jpg"
     ],
-    "objectID": "VPFNDW4V",
+    "objectID": "1W7WWJJ1",
     "categories": [
       {
         "id": 5,
@@ -27,10 +27,26 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Atividades Extras",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 3,
+        "slug": "atividades-extras",
+        "name": "Atividades Extras"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -58,7 +74,7 @@
       "uploads/2018/05/Slide5-1.jpg",
       "uploads/2018/05/Slide6-1.jpg"
     ],
-    "objectID": "8WDHQMLY",
+    "objectID": "BHK8K8WE",
     "categories": [
       {
         "id": 5,
@@ -67,10 +83,26 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Atividades Extras",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 3,
+        "slug": "atividades-extras",
+        "name": "Atividades Extras"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -102,7 +134,7 @@
       "uploads/2018/05/Slide9.jpg",
       "uploads/2018/05/Slide10.jpg"
     ],
-    "objectID": "VUJE8RXH",
+    "objectID": "FV2YQCW0",
     "categories": [
       {
         "id": 1,
@@ -121,8 +153,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 100,
@@ -150,7 +190,7 @@
       "uploads/2018/05/Slide6-3.jpg",
       "uploads/2018/05/Slide7-1.jpg"
     ],
-    "objectID": "GBTCAE2X",
+    "objectID": "KT6P2AKQ",
     "categories": [
       {
         "id": 5,
@@ -159,9 +199,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 54,
@@ -188,7 +240,7 @@
       "uploads/2018/05/Slide5-4.jpg",
       "uploads/2018/05/Slide6-4.jpg"
     ],
-    "objectID": "F0H1NDZM",
+    "objectID": "X7HPD336",
     "categories": [
       {
         "id": 5,
@@ -197,8 +249,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 33,
@@ -236,7 +296,7 @@
       "uploads/2018/05/Slide4-1.jpg",
       "uploads/2018/05/Slide2-1.jpg"
     ],
-    "objectID": "RU87ZH1F",
+    "objectID": "H80WD697",
     "categories": [
       {
         "id": 5,
@@ -250,11 +310,31 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Atividades Extras",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 3,
+        "slug": "atividades-extras",
+        "name": "Atividades Extras"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -280,7 +360,7 @@
       "uploads/2018/05/Slide4-6.jpg",
       "uploads/2018/05/Slide5-6.jpg"
     ],
-    "objectID": "6YGYMYXN",
+    "objectID": "60TGV1RX",
     "categories": [
       {
         "id": 6,
@@ -289,8 +369,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 52,
@@ -318,7 +406,7 @@
       "uploads/2018/05/Slide6-5.jpg",
       "uploads/2018/05/Slide7-2.jpg"
     ],
-    "objectID": "MZ9HFCEJ",
+    "objectID": "Q3CNQGKD",
     "categories": [
       {
         "id": 6,
@@ -327,8 +415,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 80,
@@ -357,7 +453,7 @@
       "uploads/2018/05/Slide7-3.jpg",
       "uploads/2018/05/Slide8-1.jpg"
     ],
-    "objectID": "Z2J0G0YM",
+    "objectID": "EYMTVC7M",
     "categories": [
       {
         "id": 6,
@@ -366,9 +462,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 88,
@@ -398,7 +506,7 @@
       "uploads/2018/05/Slide8-13.jpg",
       "uploads/2018/05/Slide9-7.jpg"
     ],
-    "objectID": "EAMCWYYY",
+    "objectID": "FTX8GLQ9",
     "categories": [
       {
         "id": 1,
@@ -412,8 +520,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 82,
@@ -440,7 +556,7 @@
       "uploads/2018/05/Slide5-7.jpg",
       "uploads/2018/05/Slide6-6.jpg"
     ],
-    "objectID": "TG3E4EZG",
+    "objectID": "60JB0HFU",
     "categories": [
       {
         "id": 6,
@@ -449,9 +565,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 36,
@@ -478,7 +606,7 @@
       "uploads/2018/05/Slide5-9.jpg",
       "uploads/2018/05/Slide6-8.jpg"
     ],
-    "objectID": "VD3P7344",
+    "objectID": "4KL7X7B4",
     "categories": [
       {
         "id": 7,
@@ -487,8 +615,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 60,
@@ -515,7 +651,7 @@
       "uploads/2018/05/Slide5-10.jpg",
       "uploads/2018/05/Slide6-9.jpg"
     ],
-    "objectID": "81DR4C9G",
+    "objectID": "V79MTTZX",
     "categories": [
       {
         "id": 7,
@@ -534,8 +670,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 43,
@@ -562,7 +706,7 @@
       "uploads/2018/05/Slide5-12.jpg",
       "uploads/2018/05/Slide6-11.jpg"
     ],
-    "objectID": "8YAQ6MFB",
+    "objectID": "8PZMNXGF",
     "categories": [
       {
         "id": 4,
@@ -571,8 +715,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 37,
@@ -598,7 +750,7 @@
       "uploads/2018/05/Slide4-14.jpg",
       "uploads/2018/05/Slide5-14.jpg"
     ],
-    "objectID": "F69ZF6VR",
+    "objectID": "E82XB18X",
     "categories": [
       {
         "id": 11,
@@ -607,9 +759,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 17,
@@ -638,7 +802,7 @@
       "uploads/2018/05/Slide7-26.jpg",
       "uploads/2018/05/Slide8-19.jpg"
     ],
-    "objectID": "M4ALY4CQ",
+    "objectID": "90FHCGNX",
     "categories": [
       {
         "id": 1,
@@ -652,9 +816,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 54,
@@ -682,7 +858,7 @@
       "uploads/2018/05/Slide6-12.jpg",
       "uploads/2018/05/Slide7-5.jpg"
     ],
-    "objectID": "XEKKA9E8",
+    "objectID": "8CQ6EHRP",
     "categories": [
       {
         "id": 11,
@@ -691,9 +867,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 56,
@@ -722,7 +910,7 @@
       "uploads/2018/05/Slide7-6.jpg",
       "uploads/2018/05/Slide8-3.jpg"
     ],
-    "objectID": "6AECE4CD",
+    "objectID": "APENT1Q7",
     "categories": [
       {
         "id": 11,
@@ -731,9 +919,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 36,
@@ -763,7 +963,7 @@
       "uploads/2018/05/Slide8-4.jpg",
       "uploads/2018/05/Slide9-2.jpg"
     ],
-    "objectID": "EKUFAEY8",
+    "objectID": "U1U3ZRU6",
     "categories": [
       {
         "id": 11,
@@ -772,9 +972,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 45,
@@ -802,7 +1014,7 @@
       "uploads/2018/05/Slide6-15.jpg",
       "uploads/2018/05/Slide7-8.jpg"
     ],
-    "objectID": "LX37FRHR",
+    "objectID": "K9Y8NMHJ",
     "categories": [
       {
         "id": 1,
@@ -816,8 +1028,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 61,
@@ -846,7 +1066,7 @@
       "uploads/2018/05/Slide7-9.jpg",
       "uploads/2018/05/Slide8-5.jpg"
     ],
-    "objectID": "73HH20TG",
+    "objectID": "4VFBYE2F",
     "categories": [
       {
         "id": 1,
@@ -865,8 +1085,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 59,
@@ -897,7 +1125,7 @@
       "uploads/2018/05/Slide9-4.jpg",
       "uploads/2018/05/Slide10-1.jpg"
     ],
-    "objectID": "369UTPCY",
+    "objectID": "N0Y1NFLH",
     "categories": [
       {
         "id": 1,
@@ -911,8 +1139,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 114,
@@ -942,7 +1178,7 @@
       "uploads/2018/05/Slide8-6.jpg",
       "uploads/2018/05/Slide9-3.jpg"
     ],
-    "objectID": "CLFP17JL",
+    "objectID": "UEVC9L18",
     "categories": [
       {
         "id": 1,
@@ -956,9 +1192,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 43,
@@ -987,7 +1235,7 @@
       "uploads/2018/05/Slide7-12.jpg",
       "uploads/2018/05/Slide8-8.jpg"
     ],
-    "objectID": "JMMFB024",
+    "objectID": "AY3YHFA4",
     "categories": [
       {
         "id": 1,
@@ -1001,9 +1249,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 43,
@@ -1031,7 +1291,7 @@
       "uploads/2018/05/Slide6-34.jpg",
       "uploads/2018/05/Slide7-27.jpg"
     ],
-    "objectID": "F03GAEP4",
+    "objectID": "PVDHM9ZJ",
     "categories": [
       {
         "id": 1,
@@ -1045,9 +1305,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 54,
@@ -1075,7 +1347,7 @@
       "uploads/2018/05/Slide6-20.jpg",
       "uploads/2018/05/Slide7-13.jpg"
     ],
-    "objectID": "9M6TMTPR",
+    "objectID": "GFUZ9ZCE",
     "categories": [
       {
         "id": 1,
@@ -1094,8 +1366,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 52,
@@ -1124,7 +1404,7 @@
       "uploads/2018/05/Slide7-14.jpg",
       "uploads/2018/05/Slide8-9.jpg"
     ],
-    "objectID": "YK8HVZE0",
+    "objectID": "32BZ26KQ",
     "categories": [
       {
         "id": 1,
@@ -1138,8 +1418,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 58,
@@ -1168,7 +1456,7 @@
       "uploads/2018/05/Slide7-15.jpg",
       "uploads/2018/05/Slide8-10.jpg"
     ],
-    "objectID": "VTYWDTAY",
+    "objectID": "8V6C9V6G",
     "categories": [
       {
         "id": 1,
@@ -1182,8 +1470,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 62,
@@ -1213,7 +1509,7 @@
       "uploads/2018/05/Slide8-11.jpg",
       "uploads/2018/05/Slide9-5.jpg"
     ],
-    "objectID": "YTMMJM3X",
+    "objectID": "MKTNPJWE",
     "categories": [
       {
         "id": 1,
@@ -1227,8 +1523,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 68,
@@ -1256,7 +1560,7 @@
       "uploads/2018/05/Slide6-24.jpg",
       "uploads/2018/05/Slide7-17.jpg"
     ],
-    "objectID": "D9T0W1CN",
+    "objectID": "4FKLV6UH",
     "categories": [
       {
         "id": 1,
@@ -1270,8 +1574,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 48,
@@ -1302,7 +1614,7 @@
       "uploads/2018/05/Slide9-6.jpg",
       "uploads/2018/05/Slide10-2.jpg"
     ],
-    "objectID": "7D4GNGTC",
+    "objectID": "10KDPUDF",
     "categories": [
       {
         "id": 1,
@@ -1316,8 +1628,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 84,
@@ -1353,7 +1673,7 @@
       "uploads/2018/05/Slide14.jpg",
       "uploads/2018/05/Slide15.jpg"
     ],
-    "objectID": "CJPMXNTW",
+    "objectID": "PA79FJGX",
     "categories": [
       {
         "id": 1,
@@ -1367,9 +1687,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 76,
@@ -1399,7 +1731,7 @@
       "uploads/2018/05/Slide9-9.jpg",
       "uploads/2018/05/Slide10-3.jpg"
     ],
-    "objectID": "3WKHD6A3",
+    "objectID": "CJHV4BPG",
     "categories": [
       {
         "id": 1,
@@ -1413,8 +1745,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 99,
@@ -1444,7 +1784,7 @@
       "uploads/2018/05/Slide8-16.jpg",
       "uploads/2018/05/Slide9-10.jpg"
     ],
-    "objectID": "7VECFNM0",
+    "objectID": "ZEN3TYYB",
     "categories": [
       {
         "id": 1,
@@ -1458,8 +1798,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 109,
@@ -1489,7 +1837,7 @@
       "uploads/2018/05/Slide4-32.jpg",
       "uploads/2018/05/Slide3-32.jpg"
     ],
-    "objectID": "4EVFEV9E",
+    "objectID": "JAFXYFW0",
     "categories": [
       {
         "id": 1,
@@ -1503,8 +1851,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 80,
@@ -1536,7 +1892,7 @@
       "uploads/2018/05/Slide10-4.jpg",
       "uploads/2018/05/Slide11.jpg"
     ],
-    "objectID": "UG264F3T",
+    "objectID": "GQC6RZXD",
     "categories": [
       {
         "id": 1,
@@ -1555,8 +1911,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 56,
@@ -1584,7 +1948,7 @@
       "uploads/2018/05/Slide6-32.jpg",
       "uploads/2018/05/Slide7-25.jpg"
     ],
-    "objectID": "Q38HCDR8",
+    "objectID": "WT7VEZPK",
     "categories": [
       {
         "id": 1,
@@ -1598,9 +1962,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 39,
@@ -1625,7 +2001,7 @@
       "uploads/2018/06/Slide3.jpg",
       "uploads/2018/06/Slide4.jpg"
     ],
-    "objectID": "U08RCR93",
+    "objectID": "1RJBVHNU",
     "categories": [
       {
         "id": 1,
@@ -1644,9 +2020,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Número de slides": 11,
@@ -1674,7 +2062,7 @@
       "uploads/2018/06/Slide6.jpg",
       "uploads/2018/06/Slide7.jpg"
     ],
-    "objectID": "8QHUY499",
+    "objectID": "L199H3AG",
     "categories": [
       {
         "id": 1,
@@ -1688,8 +2076,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 38,
@@ -1717,7 +2113,7 @@
       "uploads/2018/06/Slide6-1.jpg",
       "uploads/2018/06/Slide7-1.jpg"
     ],
-    "objectID": "P2947CL2",
+    "objectID": "N83H9JMT",
     "categories": [
       {
         "id": 1,
@@ -1731,8 +2127,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 97,
@@ -1762,7 +2166,7 @@
       "uploads/2018/06/Slide8.jpg",
       "uploads/2018/06/Slide9.jpg"
     ],
-    "objectID": "GEMPNNLR",
+    "objectID": "8AL2FXYL",
     "categories": [
       {
         "id": 1,
@@ -1776,8 +2180,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 137,
@@ -1805,7 +2217,7 @@
       "uploads/2018/06/Slide6-3.jpg",
       "uploads/2018/06/Slide7-3.jpg"
     ],
-    "objectID": "XHBCYH80",
+    "objectID": "HMD9GQG8",
     "categories": [
       {
         "id": 1,
@@ -1819,8 +2231,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 74,
@@ -1851,7 +2271,7 @@
       "uploads/2018/06/Slide9-4.jpg",
       "uploads/2018/06/Slide10-1.jpg"
     ],
-    "objectID": "2069HAQ2",
+    "objectID": "FGH9U7Y6",
     "categories": [
       {
         "id": 1,
@@ -1865,8 +2285,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 49,
@@ -1896,7 +2324,7 @@
       "uploads/2018/06/Slide8-1.jpg",
       "uploads/2018/06/Slide9-1.jpg"
     ],
-    "objectID": "AQ06EEUX",
+    "objectID": "3MWCCHTL",
     "categories": [
       {
         "id": 1,
@@ -1910,8 +2338,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 91,
@@ -1941,7 +2377,7 @@
       "uploads/2018/06/Slide8-2.jpg",
       "uploads/2018/06/Slide9-2.jpg"
     ],
-    "objectID": "YK7DWLZT",
+    "objectID": "WRWQGNEA",
     "categories": [
       {
         "id": 1,
@@ -1955,8 +2391,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 60,
@@ -1988,7 +2432,7 @@
       "uploads/2018/06/Slide10.jpg",
       "uploads/2018/06/Slide11.jpg"
     ],
-    "objectID": "MWHRMGBD",
+    "objectID": "4UDL3T83",
     "categories": [
       {
         "id": 1,
@@ -2002,8 +2446,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 130,
@@ -2029,7 +2481,7 @@
       "uploads/2018/07/Slide4-14.jpg",
       "uploads/2018/07/Slide5-14.jpg"
     ],
-    "objectID": "N2PQ1A0P",
+    "objectID": "PMAE6FP3",
     "categories": [
       {
         "id": 9,
@@ -2038,9 +2490,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 10,
@@ -2072,7 +2536,7 @@
       "uploads/2018/07/Slide10-9.jpg",
       "uploads/2018/07/Slide11-8.jpg"
     ],
-    "objectID": "G8QPPAQU",
+    "objectID": "6PVXCK7E",
     "categories": [
       {
         "id": 9,
@@ -2081,9 +2545,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 69,
@@ -2115,7 +2591,7 @@
       "uploads/2018/07/Slide10-8.jpg",
       "uploads/2018/07/Slide11-7.jpg"
     ],
-    "objectID": "K0YD8NBA",
+    "objectID": "02KW3A92",
     "categories": [
       {
         "id": 9,
@@ -2124,8 +2600,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 84,
@@ -2157,7 +2641,7 @@
       "uploads/2018/07/Slide10-7.jpg",
       "uploads/2018/07/Slide11-6.jpg"
     ],
-    "objectID": "JC844TT1",
+    "objectID": "9ETQU7B6",
     "categories": [
       {
         "id": 9,
@@ -2166,8 +2650,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 81,
@@ -2196,7 +2688,7 @@
       "uploads/2018/07/Slide7-10.jpg",
       "uploads/2018/07/Slide8-9.jpg"
     ],
-    "objectID": "N7UB9HJP",
+    "objectID": "Y29J7MGT",
     "categories": [
       {
         "id": 9,
@@ -2210,8 +2702,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 32,
@@ -2245,7 +2745,7 @@
       "uploads/2018/07/Slide12-3.jpg",
       "uploads/2018/07/Slide13-1.jpg"
     ],
-    "objectID": "GN40600Z",
+    "objectID": "BTLEU7QL",
     "categories": [
       {
         "id": 9,
@@ -2254,8 +2754,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 118,
@@ -2287,7 +2795,7 @@
       "uploads/2018/07/Slide10-5.jpg",
       "uploads/2018/07/Slide11-4.jpg"
     ],
-    "objectID": "A0UAR6NA",
+    "objectID": "QZ7EKQUK",
     "categories": [
       {
         "id": 9,
@@ -2296,8 +2804,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 53,
@@ -2330,7 +2846,7 @@
       "uploads/2018/07/Slide11-3.jpg",
       "uploads/2018/07/Slide12-2.jpg"
     ],
-    "objectID": "C462PGVJ",
+    "objectID": "U9EH22DA",
     "categories": [
       {
         "id": 9,
@@ -2339,8 +2855,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 72,
@@ -2372,7 +2896,7 @@
       "uploads/2018/07/Slide10-3.jpg",
       "uploads/2018/07/Slide11-2.jpg"
     ],
-    "objectID": "PC4HW8XZ",
+    "objectID": "XJJQF9RP",
     "categories": [
       {
         "id": 9,
@@ -2386,8 +2910,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 55,
@@ -2415,7 +2947,7 @@
       "uploads/2018/07/Slide6-5.jpg",
       "uploads/2018/07/Slide7-5.jpg"
     ],
-    "objectID": "L237LJ24",
+    "objectID": "7NELGBQW",
     "categories": [
       {
         "id": 5,
@@ -2429,8 +2961,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 26,
@@ -2460,7 +3000,7 @@
       "uploads/2018/07/Slide8-4.jpg",
       "uploads/2018/07/Slide9-3.jpg"
     ],
-    "objectID": "MJQG68BH",
+    "objectID": "E6TQ7EZJ",
     "categories": [
       {
         "id": 9,
@@ -2469,8 +3009,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 51,
@@ -2503,7 +3051,7 @@
       "uploads/2018/07/Slide11-1.jpg",
       "uploads/2018/07/Slide12-1.jpg"
     ],
-    "objectID": "GUPTUTDA",
+    "objectID": "2776B9Z0",
     "categories": [
       {
         "id": 9,
@@ -2517,8 +3065,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 101,
@@ -2550,7 +3106,7 @@
       "uploads/2018/07/Slide10-16.jpg",
       "uploads/2018/07/Slide11-13.jpg"
     ],
-    "objectID": "1M18YGRZ",
+    "objectID": "BTGAKNJT",
     "categories": [
       {
         "id": 2,
@@ -2564,9 +3120,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 49,
@@ -2600,7 +3168,7 @@
       "uploads/2018/07/Slide12.jpg",
       "uploads/2018/07/Slide13.jpg"
     ],
-    "objectID": "KMPWH8X0",
+    "objectID": "11QMAZVB",
     "categories": [
       {
         "id": 9,
@@ -2609,8 +3177,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 93,
@@ -2641,7 +3217,7 @@
       "uploads/2018/07/Slide9-1.jpg",
       "uploads/2018/07/Slide10-1.jpg"
     ],
-    "objectID": "0F2WBC1E",
+    "objectID": "LHECUPM8",
     "categories": [
       {
         "id": 9,
@@ -2650,8 +3226,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 76,
@@ -2692,7 +3276,7 @@
       "uploads/2018/07/Slide19.jpg",
       "uploads/2018/07/Slide20.jpg"
     ],
-    "objectID": "40Q8JWJN",
+    "objectID": "GMNLFBKC",
     "categories": [
       {
         "id": 1,
@@ -2711,10 +3295,26 @@
       }
     ],
     "tags": [
-      "Acompanha Vídeos",
-      "Apresentações",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 4,
+        "slug": "acompanha-videos",
+        "name": "Acompanha Vídeos"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Número de slides": 265,
@@ -2741,7 +3341,7 @@
       "uploads/2018/07/Slide5-29.jpg",
       "uploads/2018/07/Slide6-28.jpg"
     ],
-    "objectID": "37EJ1U1A",
+    "objectID": "CJCD6LE4",
     "categories": [
       {
         "id": 2,
@@ -2755,9 +3355,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 15,
@@ -2789,7 +3401,7 @@
       "uploads/2018/07/Slide10-61.jpg",
       "uploads/2018/07/Slide11-46.jpg"
     ],
-    "objectID": "Y706NTCP",
+    "objectID": "E4TU6WJJ",
     "categories": [
       {
         "id": 2,
@@ -2803,9 +3415,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 42,
@@ -2837,7 +3461,7 @@
       "uploads/2018/07/Slide10-60.jpg",
       "uploads/2018/07/Slide11-45.jpg"
     ],
-    "objectID": "F27QV3EN",
+    "objectID": "799PPL1B",
     "categories": [
       {
         "id": 2,
@@ -2851,9 +3475,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 42,
@@ -2885,7 +3521,7 @@
       "uploads/2018/07/Slide10-62.jpg",
       "uploads/2018/07/Slide11-47.jpg"
     ],
-    "objectID": "LHKLPUDQ",
+    "objectID": "G8UDL91M",
     "categories": [
       {
         "id": 2,
@@ -2899,9 +3535,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 39,
@@ -2932,7 +3580,7 @@
       "uploads/2018/07/Slide9-79.jpg",
       "uploads/2018/07/Slide10-63.jpg"
     ],
-    "objectID": "U7W6939P",
+    "objectID": "QWV1F7JJ",
     "categories": [
       {
         "id": 2,
@@ -2946,9 +3594,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 39,
@@ -2982,7 +3642,7 @@
       "uploads/2018/07/Slide12-21.jpg",
       "uploads/2018/07/Slide13-10.jpg"
     ],
-    "objectID": "D1XD8P8W",
+    "objectID": "DE7BPAT2",
     "categories": [
       {
         "id": 2,
@@ -2996,9 +3656,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 68,
@@ -3029,7 +3701,7 @@
       "uploads/2018/07/Slide9-19.jpg",
       "uploads/2018/07/Slide10-17.jpg"
     ],
-    "objectID": "HNDAQGZF",
+    "objectID": "FXUHRTJA",
     "categories": [
       {
         "id": 2,
@@ -3043,9 +3715,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 37,
@@ -3077,7 +3761,7 @@
       "uploads/2018/07/Slide10-15.jpg",
       "uploads/2018/07/Slide11-12.jpg"
     ],
-    "objectID": "0G1M9RRX",
+    "objectID": "NH0L7RXK",
     "categories": [
       {
         "id": 2,
@@ -3091,9 +3775,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 54,
@@ -3123,7 +3819,7 @@
       "uploads/2018/07/Slide8-19.jpg",
       "uploads/2018/07/Slide9-17.jpg"
     ],
-    "objectID": "BH1MAD4F",
+    "objectID": "NZVYGJ2K",
     "categories": [
       {
         "id": 2,
@@ -3137,9 +3833,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 29,
@@ -3171,7 +3879,7 @@
       "uploads/2018/07/Slide10-14.jpg",
       "uploads/2018/07/Slide11-11.jpg"
     ],
-    "objectID": "NBPE1NP2",
+    "objectID": "JPGMLP9R",
     "categories": [
       {
         "id": 2,
@@ -3185,9 +3893,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 52,
@@ -3218,7 +3938,7 @@
       "uploads/2018/07/Slide9-14.jpg",
       "uploads/2018/07/Slide10-13.jpg"
     ],
-    "objectID": "6PLXH2FZ",
+    "objectID": "9WKGCPN1",
     "categories": [
       {
         "id": 2,
@@ -3232,9 +3952,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 38,
@@ -3266,7 +3998,7 @@
       "uploads/2018/07/Slide10-11.jpg",
       "uploads/2018/07/Slide11-10.jpg"
     ],
-    "objectID": "76AVHL0R",
+    "objectID": "DQBG83HN",
     "categories": [
       {
         "id": 2,
@@ -3280,9 +4012,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 36,
@@ -3307,7 +4051,7 @@
       "uploads/2019/04/Drogas3.jpg",
       "uploads/2019/04/Drogas4.jpg"
     ],
-    "objectID": "T06R7M6G",
+    "objectID": "6R97209X",
     "categories": [
       {
         "id": 1,
@@ -3326,9 +4070,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Apostila em PDF": true,
@@ -3359,7 +4115,7 @@
       "uploads/2018/07/Slide9-13.jpg",
       "uploads/2018/07/Slide10-12.jpg"
     ],
-    "objectID": "7LNW423Z",
+    "objectID": "K41TA629",
     "categories": [
       {
         "id": 2,
@@ -3373,9 +4129,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 36,
@@ -3405,7 +4173,7 @@
       "uploads/2018/07/Slide8-30.jpg",
       "uploads/2018/07/Slide9-28.jpg"
     ],
-    "objectID": "7NN9NVT9",
+    "objectID": "AJKPTFX6",
     "categories": [
       {
         "id": 29,
@@ -3419,9 +4187,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 32,
@@ -3454,7 +4234,7 @@
       "uploads/2018/07/Slide11-17.jpg",
       "uploads/2018/07/Slide12-5.jpg"
     ],
-    "objectID": "UZXHLPL9",
+    "objectID": "KLHX3YK4",
     "categories": [
       {
         "id": 29,
@@ -3468,9 +4248,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 85,
@@ -3504,7 +4296,7 @@
       "uploads/2018/07/Slide12-20.jpg",
       "uploads/2018/07/Slide13-9.jpg"
     ],
-    "objectID": "NRLYHNHE",
+    "objectID": "JV00866R",
     "categories": [
       {
         "id": 29,
@@ -3518,9 +4310,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 42,
@@ -3557,7 +4361,7 @@
       "uploads/2018/07/Slide15-2.jpg",
       "uploads/2018/07/Slide16-2.jpg"
     ],
-    "objectID": "UQD4B9X9",
+    "objectID": "0QDFPXD6",
     "categories": [
       {
         "id": 11,
@@ -3566,8 +4370,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 101,
@@ -3598,7 +4410,7 @@
       "uploads/2018/07/Slide9-25.jpg",
       "uploads/2018/07/Slide10-23.jpg"
     ],
-    "objectID": "QHZ24GGZ",
+    "objectID": "FJRJD0W8",
     "categories": [
       {
         "id": 29,
@@ -3612,9 +4424,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 45,
@@ -3647,7 +4471,7 @@
       "uploads/2018/07/Slide11-19.jpg",
       "uploads/2018/07/Slide12-7.jpg"
     ],
-    "objectID": "QBUVJRGK",
+    "objectID": "YFE20NT3",
     "categories": [
       {
         "id": 30,
@@ -3661,10 +4485,26 @@
       }
     ],
     "tags": [
-      "Acompanha Vídeos",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 4,
+        "slug": "acompanha-videos",
+        "name": "Acompanha Vídeos"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 88,
@@ -3694,7 +4534,7 @@
       "uploads/2018/07/Slide8-36.jpg",
       "uploads/2018/07/Slide9-33.jpg"
     ],
-    "objectID": "LGHRKBVN",
+    "objectID": "U86EDDY4",
     "categories": [
       {
         "id": 30,
@@ -3708,9 +4548,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 27,
@@ -3739,7 +4591,7 @@
       "uploads/2018/07/Slide7-37.jpg",
       "uploads/2018/07/Slide8-35.jpg"
     ],
-    "objectID": "4Y82E363",
+    "objectID": "T4X0L9AH",
     "categories": [
       {
         "id": 30,
@@ -3753,9 +4605,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 26,
@@ -3783,7 +4647,7 @@
       "uploads/2018/07/Slide6-37.jpg",
       "uploads/2018/07/Slide7-36.jpg"
     ],
-    "objectID": "F32YC8RT",
+    "objectID": "UB101XGB",
     "categories": [
       {
         "id": 30,
@@ -3797,9 +4661,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 20,
@@ -3829,7 +4705,7 @@
       "uploads/2018/07/Slide8-34.jpg",
       "uploads/2018/07/Slide9-32.jpg"
     ],
-    "objectID": "WLL2PH1G",
+    "objectID": "AWEM19LY",
     "categories": [
       {
         "id": 30,
@@ -3843,9 +4719,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 41,
@@ -3876,7 +4764,7 @@
       "uploads/2018/07/Slide9-31.jpg",
       "uploads/2018/07/Slide10-26.jpg"
     ],
-    "objectID": "4UEMGFV4",
+    "objectID": "F9G8GTD3",
     "categories": [
       {
         "id": 30,
@@ -3890,9 +4778,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 67,
@@ -3927,7 +4827,7 @@
       "uploads/2018/07/Slide13-3.jpg",
       "uploads/2018/07/Slide14-1.jpg"
     ],
-    "objectID": "BJYAVBYY",
+    "objectID": "F6FBCMG0",
     "categories": [
       {
         "id": 30,
@@ -3941,9 +4841,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 108,
@@ -3976,7 +4888,7 @@
       "uploads/2018/07/Slide11-33.jpg",
       "uploads/2018/07/Slide12-15.jpg"
     ],
-    "objectID": "X1M2GG0D",
+    "objectID": "8Q7NM712",
     "categories": [
       {
         "id": 11,
@@ -3985,8 +4897,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 86,
@@ -4018,7 +4938,7 @@
       "uploads/2018/07/Slide10-50.jpg",
       "uploads/2018/07/Slide11-35.jpg"
     ],
-    "objectID": "86BZTY32",
+    "objectID": "2DA0JLKW",
     "categories": [
       {
         "id": 11,
@@ -4027,8 +4947,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 53,
@@ -4058,7 +4986,7 @@
       "uploads/2018/07/Slide8-64.jpg",
       "uploads/2018/07/Slide9-60.jpg"
     ],
-    "objectID": "VXJXH7GM",
+    "objectID": "6UU760H1",
     "categories": [
       {
         "id": 11,
@@ -4067,8 +4995,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 37,
@@ -4110,7 +5046,7 @@
       "uploads/2018/07/Slide20-1.jpg",
       "uploads/2018/07/Slide21.jpg"
     ],
-    "objectID": "CDHGZTHF",
+    "objectID": "CJ2RDK74",
     "categories": [
       {
         "id": 11,
@@ -4119,8 +5055,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 271,
@@ -4155,7 +5099,7 @@
       "uploads/2018/07/Slide13-5.jpg",
       "uploads/2018/07/Slide14-3.jpg"
     ],
-    "objectID": "HBAJKLR0",
+    "objectID": "V10H74CZ",
     "categories": [
       {
         "id": 11,
@@ -4164,8 +5108,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 71,
@@ -4196,7 +5148,7 @@
       "uploads/2018/07/Slide9-57.jpg",
       "uploads/2018/07/Slide10-45.jpg"
     ],
-    "objectID": "YVYJ3XKL",
+    "objectID": "C04GQ023",
     "categories": [
       {
         "id": 5,
@@ -4210,8 +5162,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 38,
@@ -4241,7 +5201,7 @@
       "uploads/2018/07/Slide8-62.jpg",
       "uploads/2018/07/Slide9-58.jpg"
     ],
-    "objectID": "2YD8T799",
+    "objectID": "J21NQU46",
     "categories": [
       {
         "id": 11,
@@ -4250,8 +5210,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 40,
@@ -4281,7 +5249,7 @@
       "uploads/2018/07/Slide8-63.jpg",
       "uploads/2018/07/Slide9-59.jpg"
     ],
-    "objectID": "6TA7M4DT",
+    "objectID": "43TLF6B1",
     "categories": [
       {
         "id": 11,
@@ -4290,8 +5258,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 49,
@@ -4323,7 +5299,7 @@
       "uploads/2018/07/Slide10-44.jpg",
       "uploads/2018/07/Slide11-30.jpg"
     ],
-    "objectID": "8CNGG04Z",
+    "objectID": "P68323EG",
     "categories": [
       {
         "id": 11,
@@ -4332,8 +5308,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 68,
@@ -4363,7 +5347,7 @@
       "uploads/2018/07/Slide8-60.jpg",
       "uploads/2018/07/Slide9-56.jpg"
     ],
-    "objectID": "6KLH31CY",
+    "objectID": "QXU1JYFQ",
     "categories": [
       {
         "id": 11,
@@ -4372,8 +5356,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 35,
@@ -4403,7 +5395,7 @@
       "uploads/2018/07/Slide8-38.jpg",
       "uploads/2018/07/Slide9-35.jpg"
     ],
-    "objectID": "9G0MLJTH",
+    "objectID": "4V8UKJZG",
     "categories": [
       {
         "id": 11,
@@ -4412,8 +5404,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 38,
@@ -4442,7 +5442,7 @@
       "uploads/2018/07/Slide7-61.jpg",
       "uploads/2018/07/Slide8-59.jpg"
     ],
-    "objectID": "ZNVEVGLN",
+    "objectID": "17H39JU7",
     "categories": [
       {
         "id": 11,
@@ -4451,8 +5451,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 27,
@@ -4485,7 +5493,7 @@
       "uploads/2018/07/Slide11-28.jpg",
       "uploads/2018/07/Slide12-12.jpg"
     ],
-    "objectID": "BZXGCGH6",
+    "objectID": "HYEP1TMN",
     "categories": [
       {
         "id": 11,
@@ -4494,8 +5502,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 70,
@@ -4527,7 +5543,7 @@
       "uploads/2018/07/Slide10-43.jpg",
       "uploads/2018/07/Slide11-29.jpg"
     ],
-    "objectID": "TWBFVUH2",
+    "objectID": "F6P0XD4T",
     "categories": [
       {
         "id": 11,
@@ -4536,8 +5552,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 65,
@@ -4567,7 +5591,7 @@
       "uploads/2018/07/Slide8-56.jpg",
       "uploads/2018/07/Slide9-53.jpg"
     ],
-    "objectID": "QVEZUBJQ",
+    "objectID": "PGH7ELJR",
     "categories": [
       {
         "id": 11,
@@ -4576,8 +5600,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 41,
@@ -4607,7 +5639,7 @@
       "uploads/2018/07/Slide8-54.jpg",
       "uploads/2018/07/Slide9-51.jpg"
     ],
-    "objectID": "7W8Y20VK",
+    "objectID": "Z2QUHK6D",
     "categories": [
       {
         "id": 11,
@@ -4616,8 +5648,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 50,
@@ -4649,7 +5689,7 @@
       "uploads/2018/07/Slide10-41.jpg",
       "uploads/2018/07/Slide11-27.jpg"
     ],
-    "objectID": "BKV1ZM8U",
+    "objectID": "JAHML1R2",
     "categories": [
       {
         "id": 11,
@@ -4658,9 +5698,21 @@
       }
     ],
     "tags": [
-      "Acompanha Vídeos",
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 4,
+        "slug": "acompanha-videos",
+        "name": "Acompanha Vídeos"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 64,
@@ -4691,7 +5743,7 @@
       "uploads/2018/07/Slide9-47.jpg",
       "uploads/2018/07/Slide10-38.jpg"
     ],
-    "objectID": "T7G0G6L2",
+    "objectID": "4AWZ7DCK",
     "categories": [
       {
         "id": 10,
@@ -4705,8 +5757,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 53,
@@ -4738,7 +5798,7 @@
       "uploads/2018/07/Slide10-40.jpg",
       "uploads/2018/07/Slide11-26.jpg"
     ],
-    "objectID": "XX79BWJX",
+    "objectID": "4V0UMFP3",
     "categories": [
       {
         "id": 11,
@@ -4747,8 +5807,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 57,
@@ -4782,7 +5850,7 @@
       "uploads/2018/11/Slide12.jpg",
       "uploads/2018/11/Slide13.jpg"
     ],
-    "objectID": "Y0GEP0TY",
+    "objectID": "BB64KZPN",
     "categories": [
       {
         "id": 29,
@@ -4796,9 +5864,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 56,
@@ -4829,7 +5909,7 @@
       "uploads/2018/07/Slide9-48.jpg",
       "uploads/2018/07/Slide10-39.jpg"
     ],
-    "objectID": "9AXXEXPC",
+    "objectID": "L6BWQRC6",
     "categories": [
       {
         "id": 11,
@@ -4838,8 +5918,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 54,
@@ -4872,7 +5960,7 @@
       "uploads/2018/07/Slide11-24.jpg",
       "uploads/2018/07/Slide12-10.jpg"
     ],
-    "objectID": "RVQZB2DJ",
+    "objectID": "GVQ3XJAA",
     "categories": [
       {
         "id": 11,
@@ -4881,8 +5969,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 71,
@@ -4915,7 +6011,7 @@
       "uploads/2018/07/Slide11-25.jpg",
       "uploads/2018/07/Slide12-11.jpg"
     ],
-    "objectID": "URANEWG8",
+    "objectID": "UU72YMK4",
     "categories": [
       {
         "id": 11,
@@ -4924,8 +6020,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 71,
@@ -4958,7 +6062,7 @@
       "uploads/2018/07/Slide11-23.jpg",
       "uploads/2018/07/Slide12-9.jpg"
     ],
-    "objectID": "ZDA0QLJ3",
+    "objectID": "U333PWGT",
     "categories": [
       {
         "id": 11,
@@ -4967,8 +6071,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 77,
@@ -5001,7 +6113,7 @@
       "uploads/2018/07/Slide11-22.jpg",
       "uploads/2018/07/Slide12-8.jpg"
     ],
-    "objectID": "URRV238B",
+    "objectID": "JZCXK32W",
     "categories": [
       {
         "id": 11,
@@ -5010,8 +6122,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 140,
@@ -5041,7 +6161,7 @@
       "uploads/2018/07/Slide8-45.jpg",
       "uploads/2018/07/Slide9-42.jpg"
     ],
-    "objectID": "CYXN9VBE",
+    "objectID": "3Z0PMADH",
     "categories": [
       {
         "id": 11,
@@ -5050,8 +6170,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 44,
@@ -5082,7 +6210,7 @@
       "uploads/2018/07/Slide9-43.jpg",
       "uploads/2018/07/Slide10-34.jpg"
     ],
-    "objectID": "7LZU37X8",
+    "objectID": "TZKTVLW0",
     "categories": [
       {
         "id": 11,
@@ -5091,8 +6219,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 50,
@@ -5123,7 +6259,7 @@
       "uploads/2018/07/Slide9-38.jpg",
       "uploads/2018/07/Slide10-30.jpg"
     ],
-    "objectID": "HVVAKEBN",
+    "objectID": "NQYRDR3Y",
     "categories": [
       {
         "id": 11,
@@ -5132,8 +6268,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 55,
@@ -5165,7 +6309,7 @@
       "uploads/2018/07/Slide10-32.jpg",
       "uploads/2018/07/Slide11-21.jpg"
     ],
-    "objectID": "VG94C1GB",
+    "objectID": "8HVAQ63C",
     "categories": [
       {
         "id": 11,
@@ -5174,8 +6318,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 52,
@@ -5206,7 +6358,7 @@
       "uploads/2018/07/Slide9-39.jpg",
       "uploads/2018/07/Slide10-31.jpg"
     ],
-    "objectID": "FUWHKBBM",
+    "objectID": "0WT6WU69",
     "categories": [
       {
         "id": 11,
@@ -5215,8 +6367,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 48,
@@ -5248,7 +6408,7 @@
       "uploads/2018/07/Slide10-29.jpg",
       "uploads/2018/07/Slide11-20.jpg"
     ],
-    "objectID": "0L4MZTP4",
+    "objectID": "BJ1TEQTJ",
     "categories": [
       {
         "id": 11,
@@ -5257,8 +6417,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 50,
@@ -5289,7 +6457,7 @@
       "uploads/2018/07/Slide9-36.jpg",
       "uploads/2018/07/Slide10-28.jpg"
     ],
-    "objectID": "EDP2Z2ZM",
+    "objectID": "NRZ0MDDK",
     "categories": [
       {
         "id": 11,
@@ -5298,8 +6466,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 44,
@@ -5328,7 +6504,7 @@
       "uploads/2018/07/Slide7-77.jpg",
       "uploads/2018/07/Slide8-75.jpg"
     ],
-    "objectID": "P710RU1N",
+    "objectID": "2ABLBX1C",
     "categories": [
       {
         "id": 5,
@@ -5337,8 +6513,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 34,
@@ -5373,7 +6557,7 @@
       "uploads/2018/07/Slide13-8.jpg",
       "uploads/2018/07/Slide14-5.jpg"
     ],
-    "objectID": "3NPE42UZ",
+    "objectID": "PZKN1ZRU",
     "categories": [
       {
         "id": 5,
@@ -5382,8 +6566,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 119,
@@ -5416,7 +6608,7 @@
       "uploads/2018/07/Slide11-42.jpg",
       "uploads/2018/07/Slide12-19.jpg"
     ],
-    "objectID": "BANA9E4T",
+    "objectID": "6YHA9VNM",
     "categories": [
       {
         "id": 5,
@@ -5425,8 +6617,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 106,
@@ -5454,7 +6654,7 @@
       "uploads/2018/07/Slide6-81.jpg",
       "uploads/2018/07/Slide7-80.jpg"
     ],
-    "objectID": "B86QHHE7",
+    "objectID": "EV388NTD",
     "categories": [
       {
         "id": 5,
@@ -5463,8 +6663,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 22,
@@ -5501,7 +6709,7 @@
       "uploads/2019/02/Slide15-5.jpg",
       "uploads/2019/02/Slide16-4.jpg"
     ],
-    "objectID": "EN9CNK7T",
+    "objectID": "CDPEUPKY",
     "categories": [
       {
         "id": 1,
@@ -5520,9 +6728,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 89,
@@ -5552,7 +6772,7 @@
       "uploads/2018/07/Slide8-78.jpg",
       "uploads/2018/07/Slide9-73.jpg"
     ],
-    "objectID": "MTVJ6MBL",
+    "objectID": "E7AFL9RT",
     "categories": [
       {
         "id": 5,
@@ -5561,9 +6781,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 52,
@@ -5595,7 +6827,7 @@
       "uploads/2018/07/Slide10-54.jpg",
       "uploads/2018/07/Slide11-39.jpg"
     ],
-    "objectID": "XLUFN4L4",
+    "objectID": "DPTKHM4N",
     "categories": [
       {
         "id": 5,
@@ -5604,8 +6836,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 74,
@@ -5639,7 +6879,7 @@
       "uploads/2018/07/Slide12-17.jpg",
       "uploads/2018/07/Slide13-7.jpg"
     ],
-    "objectID": "AJEAFV4K",
+    "objectID": "6R3EBQA4",
     "categories": [
       {
         "id": 5,
@@ -5648,8 +6888,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 105,
@@ -5681,7 +6929,7 @@
       "uploads/2018/07/Slide10-52.jpg",
       "uploads/2018/07/Slide11-37.jpg"
     ],
-    "objectID": "F74DJ12B",
+    "objectID": "BW3U62YX",
     "categories": [
       {
         "id": 5,
@@ -5690,8 +6938,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 66,
@@ -5727,7 +6983,7 @@
       "uploads/2019/11/Slide14.jpg",
       "uploads/2019/11/Slide15.jpg"
     ],
-    "objectID": "FZXKVBBP",
+    "objectID": "EKJWU1AZ",
     "categories": [
       {
         "id": 7,
@@ -5736,9 +6992,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 94,
@@ -5770,7 +7038,7 @@
       "uploads/2018/07/Slide10-53.jpg",
       "uploads/2018/07/Slide11-38.jpg"
     ],
-    "objectID": "1TULD4XM",
+    "objectID": "E0XL7B6Y",
     "categories": [
       {
         "id": 5,
@@ -5779,8 +7047,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 65,
@@ -5812,7 +7088,7 @@
       "uploads/2018/07/Slide10-51.jpg",
       "uploads/2018/07/Slide11-36.jpg"
     ],
-    "objectID": "9GYNL46J",
+    "objectID": "LFNMKRF4",
     "categories": [
       {
         "id": 5,
@@ -5821,8 +7097,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 82,
@@ -5869,7 +7153,7 @@
       "uploads/2018/08/Slide24.jpg",
       "uploads/2018/08/Slide25.jpg"
     ],
-    "objectID": "GPP2K119",
+    "objectID": "6PDLE0FB",
     "categories": [
       {
         "id": 14,
@@ -5878,9 +7162,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 128,
@@ -5909,7 +7205,7 @@
       "uploads/2018/08/Slide7-1.jpg",
       "uploads/2018/08/Slide8-1.jpg"
     ],
-    "objectID": "ZP3HBVZU",
+    "objectID": "4FGTJATP",
     "categories": [
       {
         "id": 14,
@@ -5918,9 +7214,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 32,
@@ -5947,7 +7255,7 @@
       "uploads/2018/08/Slide5-2.jpg",
       "uploads/2018/08/Slide6-2.jpg"
     ],
-    "objectID": "K7DVQNNG",
+    "objectID": "P0QNYPTU",
     "categories": [
       {
         "id": 1,
@@ -5961,9 +7269,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 19,
@@ -5995,7 +7315,7 @@
       "uploads/2018/08/Slide10-6.jpg",
       "uploads/2018/08/Slide11-4.jpg"
     ],
-    "objectID": "DFDNT0LY",
+    "objectID": "6CJEVT37",
     "categories": [
       {
         "id": 12,
@@ -6004,9 +7324,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 58,
@@ -6038,7 +7370,7 @@
       "uploads/2018/08/Slide10-4.jpg",
       "uploads/2018/08/Slide11-3.jpg"
     ],
-    "objectID": "9WPCHV3W",
+    "objectID": "HKFUQCZ0",
     "categories": [
       {
         "id": 12,
@@ -6047,9 +7379,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 39,
@@ -6080,7 +7424,7 @@
       "uploads/2018/08/Slide9-2.jpg",
       "uploads/2018/08/Slide10-2.jpg"
     ],
-    "objectID": "4N36Y84U",
+    "objectID": "RLQCQRQE",
     "categories": [
       {
         "id": 12,
@@ -6089,9 +7433,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 31,
@@ -6118,7 +7474,7 @@
       "uploads/2018/08/Slide5-4.jpg",
       "uploads/2018/08/Slide6-4.jpg"
     ],
-    "objectID": "QAWNW1YC",
+    "objectID": "EDHEU9WC",
     "categories": [
       {
         "id": 12,
@@ -6127,9 +7483,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 16,
@@ -6164,7 +7532,7 @@
       "uploads/2018/08/Slide13-1.jpg",
       "uploads/2018/08/Slide14-1.jpg"
     ],
-    "objectID": "R0RG4PE2",
+    "objectID": "8C0232VN",
     "categories": [
       {
         "id": 12,
@@ -6173,9 +7541,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 106,
@@ -6207,7 +7587,7 @@
       "uploads/2018/08/Slide10-3.jpg",
       "uploads/2018/08/Slide11-2.jpg"
     ],
-    "objectID": "C4RU339U",
+    "objectID": "13Q69D7Z",
     "categories": [
       {
         "id": 1,
@@ -6226,9 +7606,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 55,
@@ -6259,7 +7651,7 @@
       "uploads/2018/08/Slide9-5.jpg",
       "uploads/2018/08/Slide10-5.jpg"
     ],
-    "objectID": "J20BV882",
+    "objectID": "0TUXCQ7H",
     "categories": [
       {
         "id": 13,
@@ -6268,9 +7660,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 40,
@@ -6301,7 +7705,7 @@
       "uploads/2018/08/Slide9-10.jpg",
       "uploads/2018/08/Slide10-10.jpg"
     ],
-    "objectID": "L8WP0JEY",
+    "objectID": "8YC2RYFF",
     "categories": [
       {
         "id": 1,
@@ -6320,10 +7724,26 @@
       }
     ],
     "tags": [
-      "Acompanha Vídeos",
-      "Apresentações",
-      "Ensino Médio",
-      "Super Promoções"
+      {
+        "id": 4,
+        "slug": "acompanha-videos",
+        "name": "Acompanha Vídeos"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Número de slides": 41,
@@ -6354,7 +7774,7 @@
       "uploads/2018/08/Slide9-9.jpg",
       "uploads/2018/08/Slide10-9.jpg"
     ],
-    "objectID": "W3XDUTKV",
+    "objectID": "F7CA2MFW",
     "categories": [
       {
         "id": 1,
@@ -6368,8 +7788,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      }
     ],
     "attributes": {
       "Número de slides": 32,
@@ -6401,7 +7829,7 @@
       "uploads/2018/08/Slide10-8.jpg",
       "uploads/2018/08/Slide11-5.jpg"
     ],
-    "objectID": "3712U1VN",
+    "objectID": "0XY3GP6Y",
     "categories": [
       {
         "id": 1,
@@ -6415,8 +7843,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      }
     ],
     "attributes": {
       "Número de slides": 41,
@@ -6447,7 +7883,7 @@
       "uploads/2018/08/Slide9-7.jpg",
       "uploads/2018/08/Slide10-7.jpg"
     ],
-    "objectID": "W2R1HZ3E",
+    "objectID": "RT1YTEKY",
     "categories": [
       {
         "id": 1,
@@ -6461,9 +7897,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 30,
@@ -6495,7 +7943,7 @@
       "uploads/2018/08/Slide10-11.jpg",
       "uploads/2018/08/Slide11-6.jpg"
     ],
-    "objectID": "Z0F4U9PL",
+    "objectID": "PK96V2CW",
     "categories": [
       {
         "id": 1,
@@ -6509,9 +7957,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 52,
@@ -6541,7 +8001,7 @@
       "uploads/2018/08/Slide9-12.jpg",
       "uploads/2018/08/Slide10-12.jpg"
     ],
-    "objectID": "11L307WB",
+    "objectID": "MHCQDVA9",
     "categories": [
       {
         "id": 1,
@@ -6555,9 +8015,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 64,
@@ -6588,7 +8060,7 @@
       "uploads/2018/08/Slide9-13.jpg",
       "uploads/2018/08/Slide10-13.jpg"
     ],
-    "objectID": "HDT3XTXG",
+    "objectID": "JCVTB9ZU",
     "categories": [
       {
         "id": 1,
@@ -6602,8 +8074,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      }
     ],
     "attributes": {
       "Número de slides": 48,
@@ -6639,7 +8119,7 @@
       "uploads/2018/09/Slide14.jpg",
       "uploads/2018/09/Slide15.jpg"
     ],
-    "objectID": "H1VH1DJ6",
+    "objectID": "0PTMTFAV",
     "categories": [
       {
         "id": 1,
@@ -6653,9 +8133,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 97,
@@ -6691,7 +8183,7 @@
       "uploads/2018/10/Slide14.jpg",
       "uploads/2018/10/Slide15.jpg"
     ],
-    "objectID": "66MYZPAT",
+    "objectID": "DVD2WJ9L",
     "categories": [
       {
         "id": 1,
@@ -6705,8 +8197,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 78,
@@ -6740,7 +8240,7 @@
       "uploads/2018/10/Slide12-1.jpg",
       "uploads/2018/10/Slide13-1.jpg"
     ],
-    "objectID": "3HX70X01",
+    "objectID": "RG83476X",
     "categories": [
       {
         "id": 1,
@@ -6754,8 +8254,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 46,
@@ -6789,7 +8297,7 @@
       "uploads/2018/10/Slide12-2.jpg",
       "uploads/2018/10/Slide13-2.jpg"
     ],
-    "objectID": "Z03RHND3",
+    "objectID": "47XY9UJ4",
     "categories": [
       {
         "id": 6,
@@ -6798,9 +8306,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 47,
@@ -6835,7 +8355,7 @@
       "uploads/2018/10/Slide13-3.jpg",
       "uploads/2018/10/Slide14-1.jpg"
     ],
-    "objectID": "90FDWC3J",
+    "objectID": "92FGE4HM",
     "categories": [
       {
         "id": 6,
@@ -6844,10 +8364,26 @@
       }
     ],
     "tags": [
-      "Acompanha Vídeos",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 4,
+        "slug": "acompanha-videos",
+        "name": "Acompanha Vídeos"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 68,
@@ -6869,7 +8405,7 @@
     "imageUrls": [
       "uploads/2018/10/15.png"
     ],
-    "objectID": "T6Z809V4",
+    "objectID": "Q0PAPMJK",
     "categories": [
       {
         "id": 1,
@@ -6888,10 +8424,26 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -6912,7 +8464,7 @@
     "imageUrls": [
       "uploads/2018/10/15-1.png"
     ],
-    "objectID": "47RAKPYY",
+    "objectID": "HEHU92C2",
     "categories": [
       {
         "id": 1,
@@ -6931,10 +8483,26 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -6955,7 +8523,7 @@
     "imageUrls": [
       "uploads/2018/10/Cópia-de-15.png"
     ],
-    "objectID": "639H60G1",
+    "objectID": "BQX8CXZL",
     "categories": [
       {
         "id": 6,
@@ -6969,10 +8537,26 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -6993,7 +8577,7 @@
     "imageUrls": [
       "uploads/2018/10/Cópia-de-15-1.png"
     ],
-    "objectID": "L1CAB1X8",
+    "objectID": "LVRZJNM6",
     "categories": [
       {
         "id": 6,
@@ -7007,10 +8591,26 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -7046,7 +8646,7 @@
       "uploads/2018/11/Slide15.jpg",
       "uploads/2018/11/Slide16.jpg"
     ],
-    "objectID": "PN788B10",
+    "objectID": "LGTLV3HB",
     "categories": [
       {
         "id": 29,
@@ -7060,9 +8660,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 100,
@@ -7097,7 +8709,7 @@
       "uploads/2018/11/Slide13-2.jpg",
       "uploads/2018/11/Slide14-1.jpg"
     ],
-    "objectID": "X8627XKC",
+    "objectID": "T47XP78F",
     "categories": [
       {
         "id": 1,
@@ -7111,8 +8723,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 66,
@@ -7151,7 +8771,7 @@
       "uploads/2018/12/Slide17.jpg",
       "uploads/2018/12/Slide18.jpg"
     ],
-    "objectID": "7EKLZRYP",
+    "objectID": "Y97HPLNU",
     "categories": [
       {
         "id": 29,
@@ -7165,8 +8785,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 131,
@@ -7200,7 +8828,7 @@
       "uploads/2019/02/Slide12-4.jpg",
       "uploads/2019/02/Slide13-4.jpg"
     ],
-    "objectID": "KVJ42Q1B",
+    "objectID": "T7MPY8CA",
     "categories": [
       {
         "id": 29,
@@ -7214,10 +8842,26 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Número de slides": 29,
@@ -7263,7 +8907,7 @@
       "uploads/2019/02/Slide24-1.jpg",
       "uploads/2019/02/Slide25-1.jpg"
     ],
-    "objectID": "Z24R3L2T",
+    "objectID": "JPBPTZGX",
     "categories": [
       {
         "id": 29,
@@ -7277,9 +8921,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 118,
@@ -7324,7 +8980,7 @@
       "uploads/2019/02/Slide23-2.jpg",
       "uploads/2019/02/Slide24-2.jpg"
     ],
-    "objectID": "M6DWJNY8",
+    "objectID": "KQ3WQDVL",
     "categories": [
       {
         "id": 29,
@@ -7338,9 +8994,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 81,
@@ -7379,7 +9047,7 @@
       "uploads/2019/02/Slide17-1.jpg",
       "uploads/2019/02/Slide18-1.jpg"
     ],
-    "objectID": "ZJHD1NZA",
+    "objectID": "TGBTKM8W",
     "categories": [
       {
         "id": 29,
@@ -7393,9 +9061,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 73,
@@ -7441,7 +9121,7 @@
       "uploads/2019/02/Slide24.jpg",
       "uploads/2019/02/Slide25.jpg"
     ],
-    "objectID": "UM40M81M",
+    "objectID": "GCQ21783",
     "categories": [
       {
         "id": 29,
@@ -7455,9 +9135,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 288,
@@ -7493,7 +9185,7 @@
       "uploads/2019/02/Slide14-4.jpg",
       "uploads/2019/02/Slide15-4.jpg"
     ],
-    "objectID": "VHFFKZ8G",
+    "objectID": "W893TR98",
     "categories": [
       {
         "id": 3,
@@ -7517,10 +9209,26 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Número de slides": 49,
@@ -7546,7 +9254,7 @@
       "uploads/2019/02/Slide4-6.jpg",
       "uploads/2019/02/Slide5-6.jpg"
     ],
-    "objectID": "9H8A32KH",
+    "objectID": "KURJ27MF",
     "categories": [
       {
         "id": 1,
@@ -7565,8 +9273,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 12,
@@ -7603,7 +9319,7 @@
       "uploads/2019/03/Slide15.jpg",
       "uploads/2019/03/Slide16.jpg"
     ],
-    "objectID": "JGXPA6GQ",
+    "objectID": "ZCAP32QX",
     "categories": [
       {
         "id": 1,
@@ -7622,9 +9338,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 77,
@@ -7658,7 +9386,7 @@
       "uploads/2019/03/Slide15-1.jpg",
       "uploads/2019/03/Slide16-1.jpg"
     ],
-    "objectID": "JB7UD2JH",
+    "objectID": "3696H8UD",
     "categories": [
       {
         "id": 1,
@@ -7677,9 +9405,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 106,
@@ -7709,7 +9449,7 @@
       "uploads/2019/05/Slide8.jpg",
       "uploads/2019/05/Slide9.jpg"
     ],
-    "objectID": "XV387LEJ",
+    "objectID": "HALG0X0F",
     "categories": [
       {
         "id": 1,
@@ -7723,9 +9463,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 26,
@@ -7753,7 +9505,7 @@
       "uploads/2019/08/Slide6.jpg",
       "uploads/2019/08/Slide7.jpg"
     ],
-    "objectID": "HGAA0YDD",
+    "objectID": "6472183E",
     "categories": [
       {
         "id": 14,
@@ -7762,9 +9514,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 33,
@@ -7797,7 +9561,7 @@
       "uploads/2019/08/Slide11.jpg",
       "uploads/2019/08/Slide12.jpg"
     ],
-    "objectID": "WRLAM794",
+    "objectID": "761EXHF1",
     "categories": [
       {
         "id": 1,
@@ -7811,9 +9575,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 67,
@@ -7845,7 +9621,7 @@
       "uploads/2019/08/Slide10-1.jpg",
       "uploads/2019/08/Slide11-1.jpg"
     ],
-    "objectID": "QH2CYYQH",
+    "objectID": "ZKLVJTVA",
     "categories": [
       {
         "id": 30,
@@ -7859,9 +9635,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 50,
@@ -7896,7 +9684,7 @@
       "uploads/2019/09/Slide13.jpg",
       "uploads/2019/09/Slide14.jpg"
     ],
-    "objectID": "EHKLEC7Y",
+    "objectID": "WB1VPNFC",
     "categories": [
       {
         "id": 30,
@@ -7910,9 +9698,21 @@
       }
     ],
     "tags": [
-      "Acompanha Vídeos",
-      "Apresentações",
-      "Ensino Médio"
+      {
+        "id": 4,
+        "slug": "acompanha-videos",
+        "name": "Acompanha Vídeos"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      }
     ],
     "attributes": {
       "Número de slides": 61,
@@ -7947,7 +9747,7 @@
       "uploads/2019/09/Slide13-1.jpg",
       "uploads/2019/09/Slide14-1.jpg"
     ],
-    "objectID": "KV478F7F",
+    "objectID": "QFXZED48",
     "categories": [
       {
         "id": 30,
@@ -7961,8 +9761,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 52,
@@ -7996,7 +9804,7 @@
       "uploads/2019/09/Slide12-2.jpg",
       "uploads/2019/09/Slide13-2.jpg"
     ],
-    "objectID": "6THJ6CQV",
+    "objectID": "X67FKZBF",
     "categories": [
       {
         "id": 30,
@@ -8010,8 +9818,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 49,
@@ -8047,7 +9863,7 @@
       "uploads/2019/10/Slide14.jpg",
       "uploads/2019/10/Slide15.jpg"
     ],
-    "objectID": "9UXPLE4V",
+    "objectID": "EFCTDNQX",
     "categories": [
       {
         "id": 30,
@@ -8061,8 +9877,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 74,
@@ -8099,7 +9923,7 @@
       "uploads/2019/10/Slide15-1.jpg",
       "uploads/2019/10/Slide16.jpg"
     ],
-    "objectID": "PH73UWK6",
+    "objectID": "G2BVDTEC",
     "categories": [
       {
         "id": 30,
@@ -8118,9 +9942,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 78,
@@ -8154,7 +9990,7 @@
       "uploads/2019/10/Slide12-2.jpg",
       "uploads/2019/10/Slide13-2.jpg"
     ],
-    "objectID": "7BHB1N82",
+    "objectID": "1F6BUMW4",
     "categories": [
       {
         "id": 6,
@@ -8173,9 +10009,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 60,
@@ -8205,7 +10053,7 @@
       "uploads/2019/10/Slide8-4.jpg",
       "uploads/2019/10/Slide9-3.jpg"
     ],
-    "objectID": "T4HTXL2E",
+    "objectID": "ENEV0R43",
     "categories": [
       {
         "id": 6,
@@ -8214,9 +10062,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 34,
@@ -8249,7 +10109,7 @@
       "uploads/2019/11/Slide11-1.jpg",
       "uploads/2019/11/Slide12-1.jpg"
     ],
-    "objectID": "X610LBKN",
+    "objectID": "N1A0H97Q",
     "categories": [
       {
         "id": 2,
@@ -8263,9 +10123,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 63,
@@ -8299,7 +10171,7 @@
       "uploads/2020/01/Slide12-1.jpg",
       "uploads/2020/01/Slide13-1.jpg"
     ],
-    "objectID": "0JNKWYW9",
+    "objectID": "QC81C8D7",
     "categories": [
       {
         "id": 2,
@@ -8313,9 +10185,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 58,
@@ -8352,7 +10236,7 @@
       "uploads/2020/04/Slide15.jpg",
       "uploads/2020/04/Slide16.jpg"
     ],
-    "objectID": "KJBEJRQY",
+    "objectID": "P0CHLCUY",
     "categories": [
       {
         "id": 2,
@@ -8366,9 +10250,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 101,
@@ -8402,7 +10298,7 @@
       "uploads/2020/04/Slide12-1.jpg",
       "uploads/2020/04/Slide13-1.jpg"
     ],
-    "objectID": "6688B1N8",
+    "objectID": "ZBD8RKC7",
     "categories": [
       {
         "id": 2,
@@ -8416,9 +10312,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 50,
@@ -8455,7 +10363,7 @@
       "uploads/2020/05/Slide15.jpg",
       "uploads/2020/05/Slide16.jpg"
     ],
-    "objectID": "XVBCE9KV",
+    "objectID": "26EXA64U",
     "categories": [
       {
         "id": 2,
@@ -8469,9 +10377,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 94,
@@ -8508,7 +10428,7 @@
       "uploads/2020/06/Slide15.jpg",
       "uploads/2020/06/Slide16.jpg"
     ],
-    "objectID": "DVUGRLGP",
+    "objectID": "YRZTB1Z6",
     "categories": [
       {
         "id": 2,
@@ -8522,9 +10442,21 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 104,
@@ -8561,7 +10493,7 @@
       "uploads/2020/07/Slide15-1.jpg",
       "uploads/2020/07/Slide16-1.jpg"
     ],
-    "objectID": "AK6U8GLK",
+    "objectID": "60FB42M8",
     "categories": [
       {
         "id": 1,
@@ -8585,8 +10517,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 203,
@@ -8623,7 +10563,7 @@
       "uploads/2020/08/Slide15.jpg",
       "uploads/2020/08/Slide16.jpg"
     ],
-    "objectID": "CMMT9KFM",
+    "objectID": "JJ69L3H6",
     "categories": [
       {
         "id": 11,
@@ -8637,8 +10577,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 187,
@@ -8674,7 +10622,7 @@
       "uploads/2020/09/Slide14.jpg",
       "uploads/2020/09/Slide15.jpg"
     ],
-    "objectID": "U7YP07KA",
+    "objectID": "81UEUJX7",
     "categories": [
       {
         "id": 11,
@@ -8688,8 +10636,16 @@
       }
     ],
     "tags": [
-      "Apresentações",
-      "Ensino Superior"
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de slides": 69,
@@ -8715,7 +10671,7 @@
       "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_4-1.jpg",
       "uploads/2019/04/Fisiologia-de-órgãos-e-sistema-I_5-1.jpg"
     ],
-    "objectID": "F08FRZM8",
+    "objectID": "AKLZ6G4T",
     "categories": [
       {
         "id": 1,
@@ -8729,9 +10685,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Apostila em PDF": true,
@@ -8759,7 +10727,7 @@
       "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_6.jpg",
       "uploads/2019/05/Fisiologia-de-órgãos-e-sistema-II_7.jpg"
     ],
-    "objectID": "HDL6E0Q8",
+    "objectID": "D4X3RAGQ",
     "categories": [
       {
         "id": 1,
@@ -8778,9 +10746,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Apostila em PDF": true,
@@ -8805,7 +10785,7 @@
       "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_3.jpg",
       "uploads/2019/06/Fisiologia-de-órgãos-e-sistema-III_4.jpg"
     ],
-    "objectID": "ZCV3K2MC",
+    "objectID": "ZERBYRJY",
     "categories": [
       {
         "id": 1,
@@ -8819,9 +10799,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Apostila em PDF": true,
@@ -8843,7 +10835,7 @@
     "imageUrls": [
       "uploads/2019/07/Cópia-de-Cópia-de-152.png"
     ],
-    "objectID": "MUK4DDU0",
+    "objectID": "UE6J9289",
     "categories": [
       {
         "id": 3,
@@ -8872,10 +10864,26 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Apostila em PDF": true,
@@ -8901,7 +10909,7 @@
       "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_5.jpg",
       "uploads/2019/08/Fisiologia-de-órgãos-e-sistema-IV_6.jpg"
     ],
-    "objectID": "6MUTCXPJ",
+    "objectID": "0C7R0NC3",
     "categories": [
       {
         "id": 1,
@@ -8915,9 +10923,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Apostila em PDF": true,
@@ -8943,7 +10963,7 @@
       "uploads/2019/11/Quebra-do-equilíbrio-ambiental_4.jpg",
       "uploads/2019/11/Quebra-do-equilíbrio-ambiental_5.jpg"
     ],
-    "objectID": "9QMDZ912",
+    "objectID": "6VZ06M3Q",
     "categories": [
       {
         "id": 7,
@@ -8952,9 +10972,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de páginas": 39,
@@ -8976,7 +11008,7 @@
     "imageUrls": [
       "uploads/2020/04/Sistema-e-Apostila-Promo.png"
     ],
-    "objectID": "MFLH64E1",
+    "objectID": "9U1NR73V",
     "categories": [
       {
         "id": 3,
@@ -8995,11 +11027,31 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -9024,7 +11076,7 @@
       "uploads/2020/04/Nervoso-comparado-4.jpg",
       "uploads/2020/04/Nervoso-comparado-5.jpg"
     ],
-    "objectID": "LFMM2BL7",
+    "objectID": "7P24L61T",
     "categories": [
       {
         "id": 2,
@@ -9038,9 +11090,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de páginas": 35,
@@ -9067,7 +11131,7 @@
       "uploads/2020/04/Sensorial-comparado-5.jpg",
       "uploads/2020/04/Sensorial-comparado-6.jpg"
     ],
-    "objectID": "7XFMU4WB",
+    "objectID": "3CNP2EJV",
     "categories": [
       {
         "id": 2,
@@ -9081,9 +11145,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de páginas": 39,
@@ -9110,7 +11186,7 @@
       "uploads/2020/04/Excreção-comparada-5.jpg",
       "uploads/2020/04/Excreção-comparada-6.jpg"
     ],
-    "objectID": "AKMJ398T",
+    "objectID": "NJB11YFJ",
     "categories": [
       {
         "id": 2,
@@ -9124,9 +11200,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de páginas": 31,
@@ -9152,7 +11240,7 @@
       "uploads/2020/04/Sistema-circulatório-4.jpg",
       "uploads/2020/04/Sistema-circulatório-5.jpg"
     ],
-    "objectID": "PG3AKME2",
+    "objectID": "U29YB9QJ",
     "categories": [
       {
         "id": 2,
@@ -9166,9 +11254,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de páginas": 22,
@@ -9190,7 +11290,7 @@
     "imageUrls": [
       "uploads/2020/04/Cópia-de-Sistema-e-Apostila-Promo.png"
     ],
-    "objectID": "ZVHNFUQ3",
+    "objectID": "2CBC80C4",
     "categories": [
       {
         "id": 3,
@@ -9209,11 +11309,31 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -9234,7 +11354,7 @@
     "imageUrls": [
       "uploads/2020/04/Cópia-de-Cópia-de-Cópia-de-Sistema-e-Apostila-Promo.png"
     ],
-    "objectID": "MKR7P393",
+    "objectID": "JXJQZXGX",
     "categories": [
       {
         "id": 3,
@@ -9253,11 +11373,31 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -9278,7 +11418,7 @@
     "imageUrls": [
       "uploads/2020/04/Cópia-de-Cópia-de-Sistema-e-Apostila-Promo.png"
     ],
-    "objectID": "6U37NVZY",
+    "objectID": "P1Q14984",
     "categories": [
       {
         "id": 3,
@@ -9297,11 +11437,31 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Apresentações",
-      "Ensino Médio",
-      "Ensino Superior",
-      "Super Promoções"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 1,
+        "slug": "apresentacoes",
+        "name": "Apresentações"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      },
+      {
+        "id": 7,
+        "slug": "promocoes",
+        "name": "Super Promoções"
+      }
     ],
     "attributes": {
       "Anotações do apresentador": true,
@@ -9327,7 +11487,7 @@
       "uploads/2020/05/Sistema-respiratório-5.jpg",
       "uploads/2020/05/Sistema-respiratório-6.jpg"
     ],
-    "objectID": "PYF4VK9H",
+    "objectID": "FV3GU7KE",
     "categories": [
       {
         "id": 2,
@@ -9341,9 +11501,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de páginas": 38,
@@ -9370,7 +11542,7 @@
       "uploads/2020/06/Sistema-digestório-5.jpg",
       "uploads/2020/06/Sistema-digestório-6.jpg"
     ],
-    "objectID": "C0L12T8X",
+    "objectID": "37EMKLAY",
     "categories": [
       {
         "id": 2,
@@ -9384,9 +11556,21 @@
       }
     ],
     "tags": [
-      "Apostilas",
-      "Ensino Médio",
-      "Ensino Superior"
+      {
+        "id": 2,
+        "slug": "apostilas",
+        "name": "Apostilas"
+      },
+      {
+        "id": 5,
+        "slug": "ensino-medio",
+        "name": "Ensino Médio"
+      },
+      {
+        "id": 6,
+        "slug": "ensino-superior",
+        "name": "Ensino Superior"
+      }
     ],
     "attributes": {
       "Número de páginas": 41,

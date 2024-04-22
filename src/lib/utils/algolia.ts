@@ -1,14 +1,9 @@
 import algoliasearch from 'algoliasearch';
 import { PUBLIC_ALGOLIA_APP_ID, PUBLIC_ALGOLIA_SEARCH_KEY } from '$env/static/public';
 
-export interface FilterValue {
-	name: string;
-	slug: string;
-}
-
 export interface Filters {
-	categories: FilterValue[];
-	tags: FilterValue[];
+	categories: string[];
+	tags: string[];
 	prices: { min?: number; max?: number };
 }
 
@@ -52,10 +47,12 @@ export const searchProducts = async (query = '', filters: Filters) => {
 
 	// Create an array of facet filters based on the categories and tags arrays
 	const facetFilters: string[] = [
-		...filters.categories.map((category) => `categories.slug:${category.slug}`),
-		...filters.tags.map((tag) => `tags:${tag.name}`),
+		...filters.categories.map((category) => `categories.slug:${category}`),
+		...filters.tags.map((tag) => `tags.slug:${tag}`),
 		'published:true'
 	];
+
+	console.log('SEARCH:', filters);
 
 	// Perform separate searches for products with a discountPrice and products without a discountPrice
 	const [discountPriceResults, priceResults] = await Promise.all([
@@ -73,18 +70,29 @@ export const searchProducts = async (query = '', filters: Filters) => {
 
 	// Combine the results
 	const products = [...discountPriceResults.hits, ...priceResults.hits];
-	return products;
+
+	// Deduplicate the results
+	const uniqueProducts = [];
+	const productIds = new Set();
+	for (const product of products) {
+		if (!productIds.has(product.objectID)) {
+			productIds.add(product.objectID);
+			uniqueProducts.push(product);
+		}
+	}
+
+	return uniqueProducts;
 };
 
 export async function getFacetCounts(query = '') {
 	// Perform a search without a query
 	const result = await index.search(query, {
-		facets: ['categories.slug', 'tags']
+		facets: ['categories.slug', 'tags.slug']
 	});
 
 	// The facets property of the result contains the count of each category and tag
 	const categoryCounts = result.facets?.['categories.slug'];
-	const tagCounts = result.facets?.tags;
+	const tagCounts = result.facets?.['tags.slug'];
 
 	return { categoryCounts, tagCounts };
 }
@@ -99,8 +107,8 @@ export async function getFacetCountsWithFilters(query = '', filters: Filters) {
 
 	// Create an array of facet filters based on the categories and tags arrays
 	const facetFilters: string[] = [
-		...filters.categories.map((category) => `categories.slug:${category.slug}`),
-		...filters.tags.map((tag) => `tags:${tag.name}`),
+		...filters.categories.map((category) => `categories.slug:${category}`),
+		...filters.tags.map((tag) => `tags.slug:${tag}`),
 		'published:true'
 	];
 
@@ -108,12 +116,12 @@ export async function getFacetCountsWithFilters(query = '', filters: Filters) {
 	const result = await index.search(query, {
 		numericFilters: [priceFilter],
 		facetFilters: facetFilters,
-		facets: ['categories.slug', 'tags']
+		facets: ['categories.slug', 'tags.slug']
 	});
 
 	// The facets property of the result contains the count of each category and tag
 	const categoryCounts = result.facets?.['categories.slug'];
-	const tagCounts = result.facets?.tags;
+	const tagCounts = result.facets?.['tags.slug'];
 
 	return { categoryCounts, tagCounts };
 }

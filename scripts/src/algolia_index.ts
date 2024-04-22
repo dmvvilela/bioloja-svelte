@@ -93,7 +93,7 @@ for (const product of qproducts) {
 	// record.categories = record.categories.map((category: any) => category.name);
 
 	// Flatten tags into an array of names
-	record.tags = record.tags.map((tag: any) => tag.name);
+	// record.tags = record.tags.map((tag: any) => tag.name);
 
 	// Flatten attributes into an object with attribute names as keys and values as values
 	record.attributes = record.attributes.reduce((acc: any, attribute: any) => {
