@@ -5,6 +5,7 @@
 	import { showToast } from '$lib/utils/toast';
 	import type { Cart } from '../types';
 	import type { PageData } from './$types';
+	import { fade } from 'svelte/transition';
 
 	export let data: PageData;
 
@@ -133,7 +134,11 @@
 
 					<ul role="list" class="divide-y divide-gray-200 border-b border-t border-gray-200">
 						{#each cart.products as product}
-							<li class="flex py-1">
+							<li
+								in:fade={{ duration: 300, delay: 400 }}
+								out:fade={{ duration: 300 }}
+								class="flex py-1"
+							>
 								<div class="flex-shrink-0">
 									<img
 										src={getSlideImageUrl(product.imageUrls)}
