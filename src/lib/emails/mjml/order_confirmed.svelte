@@ -60,7 +60,7 @@
 <mj-section padding-top="8px">
 	<mj-column width="100%">
 		<mj-text>
-			<p style="padding-bottom: 8px">Agradecemos o seu pedido.</p>
+			<!-- <p style="padding-bottom: 8px">Agradecemos o seu pedido.</p> -->
 			<p style="padding-bottom: 8px">
 				Seu pedido foi recebido e está sendo processado. Os detalhes do pedido serão exibidos abaixo
 				para sua conferência:
