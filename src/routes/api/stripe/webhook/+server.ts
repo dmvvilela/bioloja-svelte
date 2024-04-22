@@ -7,14 +7,13 @@ import { eq } from 'drizzle-orm';
 import type { WebhookEvent } from '$lib/types/stripe';
 import type { RequestHandler } from './$types';
 import { sendTemplateEmail } from '$lib/server/mail';
+import { sendNotification } from '$lib/server/discord';
 
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
 export const POST: RequestHandler = async ({ request }) => {
 	const signature = request.headers.get('stripe-signature') || '';
 	const payload = await request.text();
-
-	console.log('handling webhook');
 
 	try {
 		const event = stripe.webhooks.constructEvent(
@@ -49,7 +48,7 @@ export const POST: RequestHandler = async ({ request }) => {
 				// Do nothing, we already handled it
 				return new Response();
 			case 'payment_intent.succeeded':
-				// If the order was boleto, this will update the order status
+				// Update order status for boleto and confirmation date for card as well
 				orderStatus = 'COMPLETED';
 				paymentConfirmedAt = new Date();
 
@@ -63,13 +62,12 @@ export const POST: RequestHandler = async ({ request }) => {
 		}
 
 		// Update the order status if needed
-		if (order.orderStatus != orderStatus) {
-			await db
-				.update(orders)
-				.set({ orderStatus, paymentConfirmedAt })
-				.where(eq(orders.paymentId, orders.paymentId));
-		}
+		await db
+			.update(orders)
+			.set({ orderStatus, paymentConfirmedAt })
+			.where(eq(orders.paymentId, paymentId));
 	} catch (err: any) {
+		await sendNotification(`Webhook Error: ${err.message}`);
 		fail(400, { error: `Webhook Error: ${err.message}` });
 	}
 
