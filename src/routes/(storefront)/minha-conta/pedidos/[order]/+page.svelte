@@ -93,7 +93,7 @@
 	</div>
 	<hr class="mt-4 mb-6" />
 	<p class="py-2 mb-2 text-xl font-semibold">Resumo</p>
-	<div class="bg-white rounded-lg p-4">
+	<div class="bg-white rounded-lg p-4 mb-6">
 		<h2 class="sr-only">Resumo do pedido</h2>
 		<h3 class="sr-only">Items</h3>
 		<div>
@@ -229,7 +229,7 @@
 	</div>
 
 	{#if order.orderStatus === 'COMPLETED'}
-		<hr class="mt-6 mb-8" />
+		<hr class="mb-8" />
 		<p class="py-2 text-xl font-semibold">Downloads</p>
 		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
 			<p class="text-gray-600">Disponíveis até {downloadLimitFormattedDate}.</p>

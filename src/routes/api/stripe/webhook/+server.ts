@@ -27,6 +27,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		let orderStatus: any;
 		let paymentConfirmedAt: any;
 
+		// Stripe webhooks arrives before order creation..
 		const order = (await db.select().from(orders).where(eq(orders.paymentId, paymentId)))[0];
 		if (!order) {
 			error(400, 'Order not found');
@@ -35,7 +36,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		// Handle the event
 		switch (event!.type) {
 			case 'payment_intent.payment_failed':
-				// Update the order, houston we have a problem
+				// Update the order, boleto might have failed.
 				orderStatus = 'CANCELLED';
 				paymentConfirmedAt = null;
 
@@ -45,10 +46,10 @@ export const POST: RequestHandler = async ({ request }) => {
 				});
 				break;
 			case 'payment_intent.requires_action':
-				// Do nothing, we already handled it
+				// Do nothing, we've already handled it
 				return new Response();
 			case 'payment_intent.succeeded':
-				// Update order status for boleto and confirmation date for card as well
+				// Update order status for boleto (card is already confirmed.)
 				orderStatus = 'COMPLETED';
 				paymentConfirmedAt = new Date();
 
@@ -61,14 +62,14 @@ export const POST: RequestHandler = async ({ request }) => {
 				console.error(`Unhandled event type ${event!.type}`);
 		}
 
-		// Update the order status if needed
+		// Update the order
 		await db
 			.update(orders)
 			.set({ orderStatus, paymentConfirmedAt })
 			.where(eq(orders.paymentId, paymentId));
 	} catch (err: any) {
-		await sendNotification(`Webhook Error: ${err.message}`);
-		fail(400, { error: `Webhook Error: ${err.message}` });
+		await sendNotification(`Webhook Error: ${err}`);
+		fail(400, { error: `Webhook Error: ${err}` });
 	}
 
 	// Return a 200 response to acknowledge receipt of the event

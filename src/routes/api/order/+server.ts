@@ -68,7 +68,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 		}
 
 		// TODO: Grab the cart and double-check values (and if belongs to the user since we removed that with guest cart)
-		// Create new order (address can only be grabbed on webhook)
+		// Create new order (and confirms if it is card cause webhook already arrived before order creation..)
 		const orderNumber = await createOrderId();
 		const returned = await db
 			.insert(orders)
@@ -82,6 +82,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 				userPhone: phone,
 				orderStatus,
 				paymentMethodTitle,
+				paymentConfirmedAt: orderStatus === 'COMPLETED' ? new Date() : null,
 				addressId,
 				boletoDetails: nextAction?.boleto_display_details,
 				couponCode: coupon?.code,

@@ -27,21 +27,26 @@
 	let processing = false;
 
 	const createPaymentIntent = async () => {
-		const response = await fetch('/api/stripe/intent', {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json'
-			},
-			body: JSON.stringify({ amount: cart.total })
-		});
+		try {
+			const response = await fetch('/api/stripe/intent', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify({ amount: cart.total })
+			});
 
-		const { clientSecret } = await response.json();
-		return clientSecret;
+			const { clientSecret } = await response.json();
+			return clientSecret;
+		} catch (err: any) {
+			console.error(err);
+			error = err.error;
+		}
 	};
 
 	const submit = async () => {
 		if (!isEmail(email) || name.length < 3 || phone.length < 8) {
-			contactError = 'Insira dados válidos.';
+			contactError = 'Verifique suas informações de contato.';
 			return;
 		} else {
 			contactError = null;
@@ -50,35 +55,42 @@
 		// Avoid processing duplicates
 		if (processing) return;
 		processing = true;
+		error = null;
 
 		// Confirm payment with stripe
 		// TODO: If check for erros is needed.. add idempotency key on backend and retry..
-		const result = await stripe.confirmPayment({
-			elements,
-			redirect: 'if_required'
-		});
-
-		if (result.error) {
-			// Payment failed, notify user
-			error = result.error;
-			processing = false;
-		} else {
-			// Payment succeeded. We create the order
-			const response = await fetch('/api/order', {
-				method: 'POST',
-				headers: {
-					'content-type': 'application/json'
-				},
-				body: JSON.stringify({ email, name, phone, cart, payment: result.paymentIntent })
+		try {
+			const result = await stripe.confirmPayment({
+				elements,
+				redirect: 'if_required'
 			});
 
-			const { orderNumber } = await response.json();
+			if (result.error) {
+				// Payment failed, notify user
+				error = result.error;
+				processing = false;
+			} else {
+				// Payment succeeded. We create the order
+				const response = await fetch('/api/order', {
+					method: 'POST',
+					headers: {
+						'content-type': 'application/json'
+					},
+					body: JSON.stringify({ email, name, phone, cart, payment: result.paymentIntent })
+				});
 
-			// Payment succeeded, redirect to order details page
-			await goto(`/pedido/confirmado?order=${orderNumber}`);
+				const { orderNumber } = await response.json();
 
-			// Cart should now be empty
-			invalidate('app:checkout');
+				// Payment succeeded, redirect to order details page
+				await goto(`/pedido/confirmado?order=${orderNumber}`);
+
+				// Cart should now be empty
+				invalidate('app:checkout');
+			}
+		} catch (err: any) {
+			console.error(err);
+			error = err.error;
+			processing = false;
 		}
 	};
 
@@ -240,8 +252,7 @@
 									{/if}
 								</button>
 								{#if error}
-									<!-- <p class="error">{error.message}</p> -->
-									<p class="mt-2 text-red-500">Verifique os erros acima.</p>
+									<p class="mt-2 text-red-500">{error.message}</p>
 								{/if}
 								{#if contactError}
 									<p class="mt-2 text-red-500">{contactError}</p>
