@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS "cart_items" (
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "carts" (
 	"id" text PRIMARY KEY NOT NULL,
-	"user_id" text NOT NULL,
+	"user_id" text,
 	"order_number" text,
 	"coupon_code" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS "categories" (
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "coupons" (
 	"code" text PRIMARY KEY NOT NULL,
-	"value" text NOT NULL,
+	"value" integer NOT NULL,
 	"type" "coupon_types" DEFAULT 'PERCENTAGE' NOT NULL,
 	"min_amount" integer,
 	"max_amount" integer,
@@ -91,9 +91,9 @@ CREATE TABLE IF NOT EXISTS "order_products" (
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "order_products_downloads" (
 	"id" serial PRIMARY KEY NOT NULL,
-	"order_products_order_number" text,
-	"order_products_product_id" integer,
-	"download_link" text NOT NULL,
+	"order_number" text NOT NULL,
+	"product_id" integer NOT NULL,
+	"link_name" text NOT NULL,
 	"downloaded_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
@@ -101,7 +101,9 @@ CREATE TABLE IF NOT EXISTS "orders" (
 	"order_number" text PRIMARY KEY NOT NULL,
 	"payment_id" text NOT NULL,
 	"payment_method_id" text NOT NULL,
+	"payment_confirmed_at" timestamp,
 	"user_id" text NOT NULL,
+	"user_email" text NOT NULL,
 	"user_name" text NOT NULL,
 	"user_phone" text NOT NULL,
 	"address_id" integer,
@@ -169,6 +171,13 @@ CREATE TABLE IF NOT EXISTS "sessions" (
 	"expires_at" timestamp with time zone NOT NULL
 );
 --> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "subscribers" (
+	"email" text PRIMARY KEY NOT NULL,
+	"from" text NOT NULL,
+	"subscribed_at" timestamp DEFAULT now() NOT NULL,
+	"unsubscribed_at" timestamp
+);
+--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "tags" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"slug" text NOT NULL,
@@ -198,8 +207,8 @@ CREATE INDEX IF NOT EXISTS "idx_categories_slug" ON "categories" ("slug");--> st
 CREATE INDEX IF NOT EXISTS "idx_coupons_code" ON "coupons" ("code");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_order_products_order_number" ON "order_products" ("order_number");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_order_products_product_id" ON "order_products" ("product_id");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "idx_order_products_downloads_order_number_product_id" ON "order_products_downloads" ("order_products_order_number","order_products_product_id");--> statement-breakpoint
-CREATE INDEX IF NOT EXISTS "idx_order_products_downloads_download_link" ON "order_products_downloads" ("download_link");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_order_products_downloads_link_name" ON "order_products_downloads" ("link_name");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "idx_order_products_downloads_product_id" ON "order_products_downloads" ("order_number","product_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_orders_user_id" ON "orders" ("user_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_orders_order_number" ON "orders" ("order_number");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "idx_orders_order_status" ON "orders" ("order_status");--> statement-breakpoint
@@ -264,7 +273,7 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- ALTER TABLE "order_products_downloads" ADD CONSTRAINT "order_products_reference" FOREIGN KEY ("order_products_order_number","order_products_product_id") REFERENCES "order_products"("order_number","product_id") ON DELETE no action ON UPDATE no action;
+ ALTER TABLE "order_products_downloads" ADD CONSTRAINT "order_products_reference" FOREIGN KEY ("order_number","product_id") REFERENCES "order_products"("order_number","product_id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

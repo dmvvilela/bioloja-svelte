@@ -1,1 +1,0 @@
-ALTER TABLE "orders" ALTER COLUMN "user_email" DROP DEFAULT;
