@@ -6,8 +6,14 @@ export const load: PageServerLoad = async ({ url }) => {
 	const template = url.searchParams.get('template') as string;
 
 	const email = await renderEmailBody(template, 'E-mail Preview', type, {
-		// This is type-checked!
-		prop: 'Test'
+		email: 'danielbsb2@gmail.com',
+		orderNumber: '12345',
+		orderDate: new Date(),
+		paymentMethodTitle: 'Boleto Bancário',
+		couponCode: 'NOVABIOLOJA',
+		discount: 1500,
+		subtotal: 10000,
+		total: 8500
 	});
 
 	return { html: email?.html, text: email?.text };

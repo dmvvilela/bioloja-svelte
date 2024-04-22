@@ -7,12 +7,14 @@
 	import { getLocalePrice, getSlideImageUrl, removeFromCart } from '$lib/utils/product';
 	import type { Cart } from '../../types';
 	import type { PageData } from './$types';
+	import { isEmail } from '$lib/utils/validation';
 
 	export let data: PageData;
 
 	$: cart = data.cart as Cart;
 
 	// Our form fields
+	let email = data.user?.email || '';
 	let name = '';
 	let phone = '';
 	let contactError: string | null = null;
@@ -38,8 +40,8 @@
 	};
 
 	const submit = async () => {
-		if (name.length < 3 || phone.length < 8) {
-			contactError = 'Insira um nome e um telefone válidos.';
+		if (!isEmail(email) || name.length < 3 || phone.length < 8) {
+			contactError = 'Insira dados válidos.';
 			return;
 		} else {
 			contactError = null;
@@ -67,7 +69,7 @@
 				headers: {
 					'content-type': 'application/json'
 				},
-				body: JSON.stringify({ name, phone, cart, payment: result.paymentIntent })
+				body: JSON.stringify({ email, name, phone, cart, payment: result.paymentIntent })
 			});
 
 			const { orderNumber } = await response.json();
@@ -112,8 +114,7 @@
 								id="email-address"
 								name="email-address"
 								autocomplete="email"
-								readonly
-								value={data.user?.email}
+								bind:value={email}
 								class="py-3 block w-full rounded-md border-gray-200 shadow-sm focus:border-bioloja-400 focus:ring-bioloja-400 disabled:bg-gray-200/80"
 							/>
 						</div>

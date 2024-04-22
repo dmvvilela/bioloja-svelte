@@ -201,6 +201,7 @@ export const orders = pgTable(
 		userId: text('user_id')
 			.notNull()
 			.references(() => users.id),
+		userEmail: text('user_email').notNull(),
 		userName: text('user_name').notNull(),
 		userPhone: text('user_phone').notNull(),
 		addressId: integer('address_id').references(() => addresses.id),

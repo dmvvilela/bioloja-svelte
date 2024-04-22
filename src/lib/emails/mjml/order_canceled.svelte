@@ -41,7 +41,7 @@
 <mj-section>
 	<mj-column width="66%">
 		<mj-text align="center" font-weight="500" padding="0px" font-size="24px">
-			Recebemos o seu pedido
+			Pedido cancelado
 		</mj-text>
 		<mj-divider border-width="2px" border-color="#616161" />
 	</mj-column>
@@ -50,14 +50,14 @@
 	<mj-column width="100%">
 		<mj-text>
 			<!-- <p style="padding-bottom: 8px">Agradecemos o seu pedido.</p> -->
+			<p style="padding-bottom: 8px">Seu pedido #{orderNumber} na Bioloja foi cancelado.</p>
 			<p style="padding-bottom: 8px">
-				Seu pedido foi recebido e está sendo processado. Os detalhes do pedido serão exibidos abaixo
-				para sua conferência:
+				Caso isso tenha sido um erro nos comunique que em breve responderemos.
 			</p>
 		</mj-text>
 	</mj-column>
 	<mj-column width="100%">
-		<mj-text color="#7895A3" font-size="18px" font-weight="bold"
+		<!-- <mj-text color="#7895A3" font-size="18px" font-weight="bold"
 			>Pedido #{orderNumber} ({date}):</mj-text
 		>
 		<mj-table padding-top="10px" padding-bottom="20px">
@@ -69,22 +69,14 @@
 				<th style="padding: 0 0 0 15px;">Total</th>
 			</tr>
 			<tr>
-				<td style="padding: 0 15px 0 0;">{paymentMethodTitle == 'card' ? 'Cartão' : 'Boleto'}</td>
-				<td style="padding: 0 15px;">{couponCode || '-'}</td>
+				<td style="padding: 0 15px 0 0;">{paymentMethodTitle}</td>
+				<td style="padding: 0 15px;">{couponCode}</td>
 				<td style="padding: 0 15px;">R$ {(subtotal / 100).toFixed(2).replace('.', ',')}</td>
 				<td style="padding: 0 15px;">R$ {(discount / 100).toFixed(2).replace('.', ',')}</td>
 				<td style="padding: 0 0 0 15px;">R$ {(total / 100).toFixed(2).replace('.', ',')}</td>
 			</tr>
 
-			<!-- {#each products as product (product.name)}
-				<tr>
-					<td style="padding: 0 15px 0 0;">{product.name}</td>
-					<td style="padding: 0 15px;">${product.price.toFixed(2)}</td>
-					<td style="padding: 0 15px;">{product.quantity}</td>
-					<td style="padding: 0 0 0 15px;">${(product.price * product.quantity).toFixed(2)}</td>
-				</tr>
-			{/each} -->
-		</mj-table>
+		</mj-table> -->
 		<!-- <mj-text color="#7895A3" font-size="18px" font-weight="bold">Endereço de cobrança</mj-text>
 		<mj-text color="#636363"
 			>{deliveryInfo.fullName}<br />{deliveryInfo.address.address}
@@ -108,13 +100,13 @@
 <mj-section>
 	<mj-column>
 		<mj-button
-			href="https://bioloja.bio.br/minha-conta/pedidos"
+			href="https://bioloja.bio.br"
 			font-size="16px"
 			font-weight="500"
 			background-color="#7895A3"
 			color="#fff"
 		>
-			Ver meus pedidos
+			Continuar comprando
 		</mj-button>
 	</mj-column>
 </mj-section>

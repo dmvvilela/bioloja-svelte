@@ -15,7 +15,7 @@ for (const user of exportedUsers) {
 		.values({
 			id: userId,
 			name: user['First Name'] + ' ' + user['Last Name'],
-			email: user['User Email'],
+			email: user['User Email'].toLowerCase(),
 			hashedPassword: user['User Pass'],
 			createdAt: new Date(user['User Registered'])
 		})

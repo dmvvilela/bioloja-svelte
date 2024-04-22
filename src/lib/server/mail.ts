@@ -21,9 +21,15 @@ export const templateNameToSubject = (template: string) => {
 		case 'welcome':
 		case 'sign_up':
 			return 'Bem-vindo(a) a Bioloja!';
-		case 'resetPassword':
+		case 'reset_password':
 			return 'Redefina sua senha';
-		case 'siteContact':
+		case 'order_confirmed':
+			return 'Seu pedido foi confirmado!';
+		case 'payment_approved':
+			return 'Pagamento aprovado';
+		case 'order_canceled':
+			return 'Pedido cancelado';
+		case 'site_contact':
 		default:
 			return '✔ Contato da Bioloja';
 	}

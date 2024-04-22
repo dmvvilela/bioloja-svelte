@@ -10,6 +10,7 @@ import { getLocalePrice } from '$lib/utils/product';
 import { eq } from 'drizzle-orm';
 import Stripe from 'stripe';
 import { STRIPE_SECRET_KEY } from '$env/static/private';
+import { sendTemplateEmail } from '$lib/server/mail';
 
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
@@ -19,7 +20,10 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 		error(401, { message: 'Usuário deslogado.' });
 	}
 
-	const { name, phone, cart, payment } = await request.json();
+	const { email, name, phone, cart, payment } = await request.json();
+	if (!email || !name || !phone || !cart || !payment) {
+		error(400, { message: 'Dados inválidos.' });
+	}
 
 	try {
 		const {
@@ -66,22 +70,26 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 		// TODO: Grab the cart and double-check values (and if belongs to the user since we removed that with guest cart)
 		// Create new order (address can only be grabbed on webhook)
 		const orderNumber = await createOrderId();
-		await db.insert(orders).values({
-			orderNumber,
-			paymentId,
-			paymentMethodId,
-			userId: user.id,
-			userName: name,
-			userPhone: phone,
-			orderStatus,
-			paymentMethodTitle,
-			addressId,
-			boletoDetails: nextAction?.boleto_display_details,
-			couponCode: coupon?.code,
-			cartDiscount: couponDiscount,
-			orderSubtotal: subtotal,
-			orderTotal: total
-		});
+		const returned = await db
+			.insert(orders)
+			.values({
+				orderNumber,
+				paymentId,
+				paymentMethodId,
+				userId: user.id,
+				userEmail: email,
+				userName: name,
+				userPhone: phone,
+				orderStatus,
+				paymentMethodTitle,
+				addressId,
+				boletoDetails: nextAction?.boleto_display_details,
+				couponCode: coupon?.code,
+				cartDiscount: couponDiscount,
+				orderSubtotal: subtotal,
+				orderTotal: total
+			})
+			.returning({ createdAt: orders.createdAt });
 
 		// Create order items
 		for (const product of products) {
@@ -101,6 +109,18 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 		// Update cart with new order number
 		await db.update(carts).set({ orderNumber }).where(eq(carts.id, cartId));
 
+		// Send user email and discord notification
+		await sendTemplateEmail(email, 'order_confirmed', 'mjml', {
+			orderNumber,
+			orderDate: returned[0].createdAt,
+			email,
+			paymentMethodTitle,
+			couponCode: coupon?.code,
+			discount: couponDiscount,
+			subtotal,
+			total
+		});
+
 		await sendNotification(
 			`Novo pedido #${orderNumber} na Bioloja de ${name}. Total: R$ ${getLocalePrice(
 				total
@@ -111,7 +131,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 		return json({ orderNumber });
 	} catch (err: any) {
 		await sendNotification(
-			`Erro no pedido. PaymentId: ${payment.id}, PaymentMethodId: ${payment.payment_method}, CartId: ${cart.cartId}, Amount: ${payment.amount}`
+			`Erro no pedido. PaymentId: ${payment.id}, PaymentMethodId: ${payment.payment_method}, CartId: ${cart.cartId}, Amount: ${payment.amount}. ${err.message}`
 		);
 		error(500, 'Ocorreu um erro. Estamos verificando o problema.');
 	}

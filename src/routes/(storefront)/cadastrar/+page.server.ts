@@ -16,8 +16,8 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: Actions = {
 	default: async ({ request, cookies, url, fetch }) => {
 		const formData = await request.formData();
-		const name = formData.get('name') as string;
-		const email = formData.get('email') as string;
+		const name = (formData.get('name') as string)?.trim();
+		const email = (formData.get('email') as string)?.trim().toLowerCase();
 		const password = formData.get('password') as string;
 		const confirm = formData.get('confirm') as string;
 

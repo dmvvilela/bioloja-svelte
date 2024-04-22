@@ -6,6 +6,7 @@ import { db } from '$lib/server/db/conn';
 import { eq } from 'drizzle-orm';
 import type { WebhookEvent } from '$lib/types/stripe';
 import type { RequestHandler } from './$types';
+import { sendTemplateEmail } from '$lib/server/mail';
 
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
@@ -36,6 +37,11 @@ export const POST: RequestHandler = async ({ request }) => {
 				// Update the order, houston we have a problem
 				orderStatus = 'CANCELLED';
 				paymentConfirmedAt = null;
+
+				// Send user email
+				await sendTemplateEmail(order.userEmail, 'order_canceled', 'mjml', {
+					orderNumber: order.orderNumber
+				});
 				break;
 			case 'payment_intent.requires_action':
 				// Do nothing, we already handled it
@@ -44,6 +50,11 @@ export const POST: RequestHandler = async ({ request }) => {
 				// If the order was boleto, this will update the order status
 				orderStatus = 'COMPLETED';
 				paymentConfirmedAt = new Date();
+
+				// Send user email
+				await sendTemplateEmail(order.userEmail, 'payment_approved', 'mjml', {
+					orderNumber: order.orderNumber
+				});
 				break;
 			default:
 				console.error(`Unhandled event type ${event!.type}`);

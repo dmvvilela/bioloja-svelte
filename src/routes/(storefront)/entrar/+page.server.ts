@@ -16,7 +16,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: Actions = {
 	default: async ({ request, cookies, url, fetch }) => {
 		const formData = await request.formData();
-		const email = formData.get('email') as string;
+		const email = (formData.get('email') as string)?.trim();
 		const password = formData.get('password') as string;
 
 		if (!isEmail(email) || !isPassword(password)) {
