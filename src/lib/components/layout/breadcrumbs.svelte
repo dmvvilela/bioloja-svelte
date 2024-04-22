@@ -1,3 +1,10 @@
+<script lang="ts">
+	export let paths: {
+		title: string;
+		url: string | null;
+	}[] = [];
+</script>
+
 <div class="py-4 flex items-center gap-3">
 	<a href="/" class="text-primary text-base">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -9,14 +16,22 @@
 			/>
 		</svg>
 	</a>
-	<span class="text-sm text-gray-400">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
-			<path
-				fill-rule="evenodd"
-				d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
-				clip-rule="evenodd"
-			/>
-		</svg>
-	</span>
-	<p class="text-gray-600 font-medium text-[15px]">Loja</p>
+
+	{#each paths as path}
+		<span class="text-sm text-gray-400">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				fill="currentColor"
+				class="w-3 h-3"
+			>
+				<path
+					fill-rule="evenodd"
+					d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+					clip-rule="evenodd"
+				/>
+			</svg>
+		</span>
+		<a href={path.url || '#'} class="text-gray-600 font-medium text-[15px]">{path.title}</a>
+	{/each}
 </div>
