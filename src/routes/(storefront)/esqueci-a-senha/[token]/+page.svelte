@@ -8,6 +8,11 @@
 	$: message = (form as any)?.message;
 </script>
 
+<svelte:head>
+	<title>Redefina sua senha - Bioloja</title>
+	<meta name="description" content="Confirme sua nova senha." />
+</svelte:head>
+
 <div class="flex min-h-full flex-col justify-center py-20 sm:px-6 lg:px-8 bg-gray-50">
 	<div class="sm:mx-auto sm:w-full sm:max-w-md">
 		<img class="mx-auto h-20 w-auto" src={logo} alt="Bioloja" />

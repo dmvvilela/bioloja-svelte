@@ -10,6 +10,11 @@
 	$: success = (form as any)?.success;
 </script>
 
+<svelte:head>
+	<title>Esqueci a Senha - Bioloja</title>
+	<meta name="description" content="Redefina sua senha." />
+</svelte:head>
+
 <div class="flex min-h-full flex-col justify-center py-16 sm:px-6 lg:px-8 bg-gray-50">
 	<div class="sm:mx-auto sm:w-full sm:max-w-md">
 		<img class="mx-auto h-20 w-auto" src={logo} alt="Bioloja" />

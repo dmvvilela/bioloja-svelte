@@ -77,6 +77,11 @@
 	const algoliaToProduct = (product: any) => algoliaToProductType(product);
 </script>
 
+<svelte:head>
+	<title>Todos os materiais - Bioloja</title>
+	<meta name="description" content="Pesquise por categorias, preços e outros filtros." />
+</svelte:head>
+
 <div>
 	<div>
 		<!-- mobile-menu -->

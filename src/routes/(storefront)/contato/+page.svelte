@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>Página de Contato</title>
+	<title>Página de Contato - Bioloja</title>
 	<meta name="description" content="Envie-nos uma mensagem." />
 </svelte:head>
 

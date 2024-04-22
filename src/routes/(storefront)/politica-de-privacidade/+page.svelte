@@ -1,3 +1,8 @@
+<svelte:head>
+	<title>Política de Privacidade - Bioloja</title>
+	<meta name="description" content="Saiba nossa Política de Privacidade." />
+</svelte:head>
+
 <div class="bg-white px-6 py-32 lg:px-8">
 	<div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
 		<p class="text-base font-semibold leading-7 text-primary">Saiba nossa</p>

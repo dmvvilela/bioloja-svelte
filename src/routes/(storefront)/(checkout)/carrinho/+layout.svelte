@@ -5,28 +5,21 @@
 	import { Toaster } from 'svelte-french-toast';
 	import '../../../../app.css';
 
-	const title = 'Bioloja - Carrinho';
-	const description = 'Finalize sua compra.';
+	const title = 'Carrinho - Bioloja';
+	const description = 'Veja os itens em seu carrinho e finalize sua compra.';
 </script>
 
-<!-- TODO: Fix this -->
 <svelte:head>
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<meta name="author" content="Prof. Dr. Ana Luisa Miranda-Vilela" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<!-- <meta
-		property="og:image"
-		content={'https://firebasestorage.googleapis.com/v0/b/anatomia-e-fisiologia-humanas.appspot.com/o/AFH_reduzida_principal.png?alt=media&token=3c661a73-463c-4fcd-a274-bc25a24cfdec'}
-	/> -->
+	<meta property="og:image" content={'https://bioimages.d2vsolutions.com/logo%2Ffull.jpg'} />
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:title" content={title} />
 	<meta property="twitter:description" content={description} />
-	<!-- <meta
-		property="twitter:image"
-		content={'https://firebasestorage.googleapis.com/v0/b/anatomia-e-fisiologia-humanas.appspot.com/o/AFH_reduzida_principal.png?alt=media&token=3c661a73-463c-4fcd-a274-bc25a24cfdec'}
-	/> -->
+	<meta property="twitter:image" content={'https://bioimages.d2vsolutions.com/logo%2Ffull.jpg'} />
 </svelte:head>
 
 <div class="relative">

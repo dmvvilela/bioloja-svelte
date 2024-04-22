@@ -5,8 +5,8 @@
 </script>
 
 <svelte:head>
-	<title>Pré-visualização de e-mails</title>
-	<meta name="description" content="Admin: Pré-visualizar e-mails." />
+	<title>Pré-visualização de E-mails - Admin Bioloja</title>
+	<meta name="description" content="Admin: Pré-visualize os templates de e-mails." />
 </svelte:head>
 
 <div class="flex items-center justify-center bg-gray-100 py-12">

@@ -8,6 +8,11 @@
 	const orders = data.orders;
 </script>
 
+<svelte:head>
+	<title>Pedidos - Bioloja</title>
+	<meta name="description" content="Confira os seus pedidos." />
+</svelte:head>
+
 <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow mt-3">
 	<div class="pt-4">
 		<h1 class="py-2 text-2xl font-semibold">Meus Pedidos</h1>

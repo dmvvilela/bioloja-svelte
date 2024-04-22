@@ -9,6 +9,11 @@
 	$: message = (form as any)?.message;
 </script>
 
+<svelte:head>
+	<title>Entrar - Bioloja</title>
+	<meta name="description" content="Entre com sua conta na Bioloja." />
+</svelte:head>
+
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8 bg-gray-50">
 	<div class="sm:mx-auto sm:w-full sm:max-w-md">
 		<img class="mx-auto h-20 w-auto" src={logo} alt="Bioloja" />

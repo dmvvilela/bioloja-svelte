@@ -1,4 +1,8 @@
-<!-- TODO: Add twitter and facebook links like old site? -->
+<svelte:head>
+	<title>Sobre Nós - Bioloja</title>
+	<meta name="description" content="Saiba um pouco mais sobre a nossa história e nossos autores." />
+</svelte:head>
+
 <div class="overflow-hidden bg-white px-6 py-16 lg:px-8 xl:py-36">
 	<div class="mx-auto max-w-max lg:max-w-7xl">
 		<div class="relative z-10 mb-8 md:mb-2 md:px-6">

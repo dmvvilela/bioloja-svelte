@@ -13,5 +13,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Checkout - Bioloja</title>
+	<meta name="description" content="Finalize seu pedido." />
+</svelte:head>
+
 <!-- Break out from main layout (but keep server data for cart as well) -->
 <slot />

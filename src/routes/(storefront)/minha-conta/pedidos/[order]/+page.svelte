@@ -78,6 +78,11 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Pedido #{data.order.orderNumber} - Bioloja</title>
+	<meta name="description" content="Confira os detalhes do seu pedido." />
+</svelte:head>
+
 <div class="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow mt-3">
 	<div class="pt-4">
 		<div class="flex items-baseline">

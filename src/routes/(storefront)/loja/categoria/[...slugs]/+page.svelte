@@ -16,6 +16,11 @@
 	$: currentPage = categoryData.pageNumber;
 </script>
 
+<svelte:head>
+	<title>{data.category} - Bioloja</title>
+	<meta name="description" content="Mostrando resultados para {data.category}" />
+</svelte:head>
+
 <div>
 	<div class="container mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
 		<div class="border-b border-gray-200 pb-10">

@@ -113,10 +113,15 @@
 		},
 		{
 			title: 'Produto',
-			url: null
+			url: data.product.slug
 		}
 	];
 </script>
+
+<svelte:head>
+	<title>{data.product.name} - Bioloja</title>
+	<meta name="description" content={data.product.short_description} />
+</svelte:head>
 
 <div class="bg-white">
 	<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8">

@@ -19,6 +19,11 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Pedido Confirmado - Bioloja</title>
+	<meta name="description" content="Seu pedido foi confirmado. Verifique aqui os detalhes." />
+</svelte:head>
+
 <div class="container mx-auto my-16">
 	<div class="mx-auto mb-14 py-4 text-center px-2 text-pretty">
 		<h1 class="text-5xl font-bold text-secondary">Agradecemos o seu pedido!</h1>

@@ -1,9 +1,8 @@
 <script lang="ts">
 	import '../../../../app.css';
 
-	const title = 'Bioloja - Materiais Didáticos de Biologia';
-	const description =
-		'Aulas, apostilas, exercícios e simulados de Biologia para os Ensinos Fundamental/Médio/Superior e o Enem. Tanto para professores quanto alunos.';
+	const title = 'Checkout - Bioloja';
+	const description = 'Finalize seu pedido.';
 </script>
 
 <svelte:head>
@@ -12,19 +11,11 @@
 	<meta name="author" content="Prof. Dr. Ana Luisa Miranda-Vilela" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<!-- <meta
-		property="og:image"
-		content={'https://firebasestorage.googleapis.com/v0/b/anatomia-e-fisiologia-humanas.appspot.com/o/AFH_reduzida_principal.png?alt=media&token=3c661a73-463c-4fcd-a274-bc25a24cfdec'}
-	/> -->
+	<meta property="og:image" content={'https://bioimages.d2vsolutions.com/logo%2Ffull.jpg'} />
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:title" content={title} />
 	<meta property="twitter:description" content={description} />
-	<!-- <meta
-		property="twitter:image"
-		content={'https://firebasestorage.googleapis.com/v0/b/anatomia-e-fisiologia-humanas.appspot.com/o/AFH_reduzida_principal.png?alt=media&token=3c661a73-463c-4fcd-a274-bc25a24cfdec'}
-	/> -->
-	<!-- https://kit.svelte.dev/docs/seo -->
-	<!-- A common pattern is to return SEO-related data from page load functions, then use it (as $page.data) in a <svelte:head> in your root layout. -->
+	<meta property="twitter:image" content={'https://bioimages.d2vsolutions.com/logo%2Ffull.jpg'} />
 </svelte:head>
 
 <div class="relative">

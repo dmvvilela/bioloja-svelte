@@ -48,6 +48,11 @@
 		path?.endsWith(menu.path) ? 'border-l-primary text-primary' : 'border-transparent';
 </script>
 
+<svelte:head>
+	<title>Minha Conta - Bioloja</title>
+	<meta name="description" content="Verifique os detalhes da sua conta." />
+</svelte:head>
+
 <div class="mx-4 max-w-screen-xl py-16 mb-10 md:mx-8 xl:mx-auto">
 	<h1 class="border-b py-6 text-4xl font-semibold">Minha Conta</h1>
 	<div class="grid grid-cols-8 pt-3 md:grid-cols-10">

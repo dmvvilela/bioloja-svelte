@@ -1,3 +1,11 @@
+<svelte:head>
+	<title>Dúvidas Frequentes - Bioloja</title>
+	<meta
+		name="description"
+		content="Tenha respostas para as perguntas frequentes, como método de entrega, como comprar e mais."
+	/>
+</svelte:head>
+
 <div class="bg-white">
 	<div class="mx-auto max-w-7xl divide-y divide-secondary/10 px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
 		<h2 class="text-4xl font-bold leading-10 tracking-tight text-secondary">
