@@ -73,9 +73,10 @@ export const load = (async ({ locals, depends }) => {
 		.flatMap((order: any) => {
 			return order.orderProducts.flatMap((product: any) => {
 				return product.downloadLinks.map((link: any) => {
-					const downloadCount = downloads.find(
-						(download) => download.productId === product.productId && download.name === link.name
-					)!.count;
+					const downloadCount =
+						downloads.find(
+							(download) => download.productId === product.productId && download.name === link.name
+						)?.count || 0;
 
 					const paymentConfirmedAt = new Date(order.paymentConfirmedAt);
 					const expirationDate = new Date(paymentConfirmedAt);

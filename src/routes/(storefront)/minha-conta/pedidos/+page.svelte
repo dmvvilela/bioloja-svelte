@@ -19,7 +19,7 @@
 		<p class="text-slate-600">Verifique seus pedidos anteriores.</p>
 	</div>
 	<hr class="mt-4 mb-8" />
-	{#if orders.length == 0}
+	{#if !orders?.length}
 		<div class="mb-8">
 			<p class="text-gray-600 text-sm mb-7 italic">Você ainda não realizou nenhum pedido.</p>
 			<a href="/loja">
@@ -29,8 +29,7 @@
 				>
 			</a>
 		</div>
-	{/if}
-	{#if orders.length > 0}
+	{:else if orders.length > 0}
 		<div class="overflow-x-auto mb-6">
 			<table class="table">
 				<thead>
