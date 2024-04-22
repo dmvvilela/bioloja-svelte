@@ -69,7 +69,7 @@
 			>
 		</form>
 
-		<div class="flex items-center space-x-6">
+		<div class="flex items-center space-x-6 pr-6 sm:pr-2">
 			<!-- <a
 				href="/wishlist"
 				class="text-center text-gray-700 hover:text-primary transition relative flex flex-col items-center"
@@ -222,9 +222,9 @@
 			</div>
 		</div>
 
-		<div class="flex items-center justify-between flex-grow pl-6 lg:pl-0 py-5">
+		<div class="flex items-center justify-between flex-grow pl-2 lg:pl-8 py-5">
 			<div class="items-center space-x-6 capitalize text-[15px] text-slate-200 flex">
-				<span class="md:ml-0 lg:hidden">
+				<!-- <span class="md:ml-0 lg:hidden">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -239,15 +239,15 @@
 							d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
 						/>
 					</svg>
-				</span>
-				<a href="/" class=" hover:text-white transition hidden lg:block">Início</a>
-				<a href="/loja" class=" hover:text-white transition">Loja</a>
-				<a href="/sobre-nos" class=" hover:text-white transition hidden md:block">Sobre Nós</a>
-				<a href="/faq" class=" hover:text-white transition hidden sm:block">Dúvidas</a>
-				<a href="/contato" class=" hover:text-white transition hidden md:block">Contato</a>
+				</span> -->
+				<a href="/" class="hover:text-white transition hidden lg:block">Início</a>
+				<a href="/loja" class="hover:text-white transition">Loja</a>
+				<a href="/sobre-nos" class="hover:text-white transition hidden md:block">Sobre Nós</a>
+				<a href="/faq" class="hover:text-white transition hidden sm:block">Dúvidas</a>
+				<a href="/contato" class="hover:text-white transition">Contato</a>
 			</div>
 			{#if isLoggedIn}
-				<div class="text-slate-200 font-medium md:text-[15px] pr-2 text-sm uppercase">
+				<div class="text-slate-200 font-medium md:text-[15px] pr-6 sm:pr-2 text-sm uppercase">
 					<button on:click={logOut} class="hover:text-white transition">Sair</button>
 				</div>
 			{/if}
