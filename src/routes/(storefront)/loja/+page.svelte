@@ -4,11 +4,13 @@
 	import { searchProducts, getFacetCountsWithFilters, type Filters } from '$lib/utils/algolia';
 	import { categories, tags } from '$lib/utils/data';
 	import { page } from '$app/stores';
-	import { afterNavigate } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import { algoliaToProductType } from '$lib/utils/product';
 	import promoImg from '$lib/images/promo/Compre-4-Leve-3.webp';
 	import MailingList from '$lib/components/layout/mailing_list.svelte';
 	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 
 	let checked = false;
 	const toggleMenu = () => (checked = !checked);
@@ -33,21 +35,37 @@
 		const { categoryCounts, tagCounts } = await getFacetCountsWithFilters(query, filters);
 		categoriesCounts = categoryCounts;
 		tagsCounts = tagCounts;
-
-		console.log(filters);
 	})();
 
-	afterNavigate(() => {
-		query = $page.url.searchParams.get('q') || '';
+	function updateURL(filters: any) {
+		const params = new URLSearchParams($page.url.searchParams.toString());
 
+		if (filters.categories.length > 0) {
+			params.set('cat', filters.categories.join(','));
+		}
+		if (filters.tags.length > 0) {
+			params.set('tag', filters.tags.join(','));
+		}
+
+		goto(`?${params.toString()}`, { replaceState: true });
+	}
+
+	$: browser && updateURL(filters);
+
+	afterNavigate(() => {
+		// Be able to keep the header input working even on this page.
+		query = $page.url.searchParams.get('q') || '';
+	});
+
+	onMount(() => {
 		const cat = $page.url.searchParams.get('cat');
 		const tag = $page.url.searchParams.get('tag');
 		const min = $page.url.searchParams.get('min');
 		const max = $page.url.searchParams.get('max');
 
 		filters = {
-			categories: cat ? [cat] : [],
-			tags: tag ? [tag] : [],
+			categories: cat ? cat.split(',') : [],
+			tags: tag ? tag.split(',') : [],
 			prices: {
 				min: min ? Number(min) : 0,
 				max: max ? Number(max) : 0

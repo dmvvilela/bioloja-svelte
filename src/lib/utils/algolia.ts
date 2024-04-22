@@ -52,8 +52,6 @@ export const searchProducts = async (query = '', filters: Filters) => {
 		'published:true'
 	];
 
-	console.log('SEARCH:', filters);
-
 	// Perform separate searches for products with a discountPrice and products without a discountPrice
 	const [discountPriceResults, priceResults] = await Promise.all([
 		index.search(query, {
