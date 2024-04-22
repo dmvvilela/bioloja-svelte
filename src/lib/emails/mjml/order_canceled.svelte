@@ -8,13 +8,13 @@
 	export let subtotal: number;
 	export let total: number;
 
-	const date = orderDate.toLocaleDateString('pt-BR', {
-		day: 'numeric',
-		month: 'long',
-		year: 'numeric',
-		hour: '2-digit',
-		minute: '2-digit'
-	});
+	// const date = orderDate.toLocaleDateString('pt-BR', {
+	// 	day: 'numeric',
+	// 	month: 'long',
+	// 	year: 'numeric',
+	// 	hour: '2-digit',
+	// 	minute: '2-digit'
+	// });
 </script>
 
 <mj-section padding="20px 0">

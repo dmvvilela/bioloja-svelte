@@ -14,6 +14,8 @@ export const POST: RequestHandler = async ({ request }) => {
 	const signature = request.headers.get('stripe-signature') || '';
 	const payload = await request.text();
 
+	console.log('handling webhook');
+
 	try {
 		const event = stripe.webhooks.constructEvent(
 			payload,
