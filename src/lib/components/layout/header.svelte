@@ -34,7 +34,10 @@
 			<img src={logo} alt="Logo" class="w-[11.5rem] mb-1" />
 		</a>
 
-		<div class="hidden lg:flex w-full max-w-xl relative items-center">
+		<form
+			class="hidden lg:flex w-full max-w-xl relative items-center"
+			on:submit|preventDefault={() => goto('/loja?q=' + query)}
+		>
 			<span class="absolute left-[14px] text-lg text-gray-400">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -61,12 +64,10 @@
 				bind:value={query}
 			/>
 			<button
-				on:click={() => goto('/loja?q=' + query)}
-				type="button"
 				class="bg-primary border border-primary tracking-[-0.02em] text-white px-8 py-3 rounded-r-md hover:bg-transparent hover:text-primary transition active:scale-95 hidden md:flex uppercase"
 				>Pesquisar</button
 			>
-		</div>
+		</form>
 
 		<div class="flex items-center space-x-6">
 			<!-- <a
