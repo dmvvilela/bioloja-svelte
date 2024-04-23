@@ -30,7 +30,8 @@ export const POST: RequestHandler = async ({ request }) => {
 		// Stripe webhooks arrives before order creation..
 		const order = (await db.select().from(orders).where(eq(orders.paymentId, paymentId)))[0];
 		if (!order) {
-			error(400, 'Order not found');
+			// error(400, 'Order not found');
+			return new Response(); // We get the webhook before the order is created, so there is no point to error it.
 		}
 
 		// Handle the event

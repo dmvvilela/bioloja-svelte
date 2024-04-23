@@ -110,7 +110,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 		// Update cart with new order number
 		await db.update(carts).set({ orderNumber }).where(eq(carts.id, cartId));
 
-		// Send user email and discord notification
+		// Send user emails
 		await sendTemplateEmail(email, 'order_confirmed', 'mjml', {
 			orderNumber,
 			orderDate: returned[0].createdAt,
@@ -122,6 +122,13 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 			total
 		});
 
+		if (orderStatus === 'COMPLETED') {
+			await sendTemplateEmail(email, 'payment_approved', 'mjml', {
+				orderNumber: orderNumber
+			});
+		}
+
+		// Send us discord notification
 		await sendNotification(
 			`Novo pedido #${orderNumber} na Bioloja de ${name}. Total: R$ ${getLocalePrice(
 				total
