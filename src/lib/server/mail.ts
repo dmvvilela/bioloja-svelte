@@ -26,9 +26,9 @@ export const templateNameToSubject = (template: string) => {
 		case 'order_confirmed':
 			return 'Seu pedido foi confirmado!';
 		case 'payment_approved':
-			return 'Pagamento aprovado';
+			return '[Bioloja] Pagamento aprovado';
 		case 'order_canceled':
-			return 'Pedido cancelado';
+			return '[Bioloja] Pedido cancelado';
 		case 'site_contact':
 		default:
 			return '✔ Contato da Bioloja';
