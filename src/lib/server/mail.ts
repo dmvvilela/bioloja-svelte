@@ -123,7 +123,12 @@ export const sendMail = async (
 				Charset: 'UTF-8',
 				Data: subject
 			}
-		}
+		},
+		...(Array.isArray(to)
+			? {
+					ConfigurationSetName: 'marketing_mails'
+			  }
+			: {})
 	};
 
 	return new AWS.SES({ apiVersion: '2010-12-01' }).sendEmail(options).promise();

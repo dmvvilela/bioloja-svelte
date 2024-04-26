@@ -1,9 +1,9 @@
 import { sendNotification } from '$lib/server/discord';
 import { fail } from '@sveltejs/kit';
-import type { Actions } from './$types';
 import { db } from '$lib/server/db/conn';
-import { subscribers } from '$lib/server/db/schema';
 import { eq } from 'drizzle-orm';
+import { subscribers } from '$lib/server/db/schema';
+import type { Actions } from './$types';
 
 export const actions = {
 	unsubscribe: async ({ request }) => {

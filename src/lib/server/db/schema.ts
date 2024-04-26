@@ -22,7 +22,7 @@ export type BoletoDisplayDetailsType = {
 };
 
 export const userRoles = pgEnum('user_roles', ['USER', 'EDITOR', 'ADMIN']);
-export const couponTypes = pgEnum('coupon_types', ['PERCENTAGE', 'FIXED_AMOUNT']); // change to FLAT??
+export const couponTypes = pgEnum('coupon_types', ['PERCENTAGE', 'FIXED_AMOUNT']);
 export const orderStatus = pgEnum('order_status', [
 	'COMPLETED',
 	'PAYMENT_PENDING',
@@ -360,6 +360,8 @@ export const cartItems = pgTable(
 export const subscribers = pgTable('subscribers', {
 	email: text('email').primaryKey(),
 	from: text('from').notNull(),
+	firstName: text('first_name'),
+	lastName: text('last_name'),
 	subscribedAt: timestamp('subscribed_at').notNull().defaultNow(),
 	unsubscribedAt: timestamp('unsubscribed_at')
 });
