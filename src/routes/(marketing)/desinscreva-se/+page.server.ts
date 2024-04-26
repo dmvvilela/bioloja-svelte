@@ -23,7 +23,7 @@ export const actions = {
 				return fail(400, { email, missing: true });
 			}
 
-			await sendNotification('Usuário descadastrado da lista de e-mails 😤');
+			await sendNotification('Usuário descadastrado da lista de e-mails 😕');
 		} catch (error) {
 			return fail(400, { email, message: 'Ocorreu um erro inesperado.' });
 		}
@@ -47,7 +47,7 @@ export const actions = {
 				return fail(400, { email, missing: true });
 			}
 
-			await sendNotification('Usuário recadastrado na lista de e-mails 😤');
+			await sendNotification('Usuário recadastrado na lista de e-mails 😎');
 		} catch (error) {
 			return fail(400, { email, message: 'Ocorreu um erro inesperado.' });
 		}
