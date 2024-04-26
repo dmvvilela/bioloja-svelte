@@ -14,7 +14,7 @@ export const load = (async ({ locals }) => {
 		await db.select({ role: users.role }).from(users).where(eq(users.id, locals.user.id))
 	)[0];
 	if (user.role !== 'ADMIN') {
-		redirect(403, '/');
+		redirect(307, '/');
 	}
 
 	return {};

@@ -18,6 +18,8 @@ AWS.config.update({ region: AWS_SES_REGION });
 
 export const templateNameToSubject = (template: string) => {
 	switch (template) {
+		case 'new_website':
+			return '[DESCONTO] Conheça a NOVA BIOLOJA!';
 		case 'welcome':
 		case 'sign_up':
 			return 'Bem-vindo(a) a Bioloja!';
@@ -126,7 +128,7 @@ export const sendMail = async (
 		},
 		...(Array.isArray(to)
 			? {
-					ConfigurationSetName: 'marketing_mails'
+					ConfigurationSetName: 'bulk_send'
 			  }
 			: {})
 	};
