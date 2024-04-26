@@ -13,8 +13,10 @@ export const POST: RequestHandler = async () => {
 	for (let i = 0; i < allSubscribers.length; i += 14) {
 		const emails = allSubscribers.slice(i, i + 14).map((subscriber) => subscriber.email);
 		await sendTemplateEmail(emails, 'new_website', 'svelte');
-		await delay(1100); // delay 1.1 second every 143 emails
+		console.log('Sending total: ', i + 1);
+		await delay(1100); // delay 1.1 second every 14 emails
 	}
+	console.log('All sent!');
 
 	return new Response();
 };

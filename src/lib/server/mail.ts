@@ -126,11 +126,11 @@ export const sendMail = async (
 				Data: subject
 			}
 		},
-		...(Array.isArray(to)
-			? {
-					ConfigurationSetName: 'bulk_send'
-			  }
-			: {})
+		// ...(Array.isArray(to)
+		// 	? {
+		ConfigurationSetName: 'bulk_send'
+		// 	  }
+		// 	: {})
 	};
 
 	return new AWS.SES({ apiVersion: '2010-12-01' }).sendEmail(options).promise();
