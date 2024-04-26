@@ -1,10 +1,15 @@
 import { db } from '$lib/server/db/conn';
 import { subscribers } from '$lib/server/db/schema';
 import { sendTemplateEmail } from '$lib/server/mail';
+import { isNull } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
 
+// TODO: Timing out on prod..
 export const POST: RequestHandler = async () => {
-	const allSubscribers = await db.select({ email: subscribers.email }).from(subscribers);
+	const allSubscribers = await db
+		.select({ email: subscribers.email })
+		.from(subscribers)
+		.where(isNull(subscribers.unsubscribedAt));
 
 	// Function to delay execution
 	const delay = (ms: number | undefined) => new Promise((resolve) => setTimeout(resolve, ms));
