@@ -244,7 +244,7 @@
 				<a href="/loja" class="hover:text-white transition">Loja</a>
 				<a href="/sobre-nos" class="hover:text-white transition hidden md:block">Sobre Nós</a>
 				<a href="/faq" class="hover:text-white transition hidden sm:block">Dúvidas</a>
-				<a href="/contato" class="hover:text-white transition">Contato</a>
+				<a href="/contato" class="hover:text-white transition hidden sm:block">Contato</a>
 			</div>
 			{#if isLoggedIn}
 				<div class="text-slate-200 font-medium md:text-[15px] pr-6 sm:pr-2 text-sm uppercase">
