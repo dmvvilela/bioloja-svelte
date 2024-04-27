@@ -1,13 +1,24 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	let processing = false;
+	$: type = $page.url.searchParams.get('type');
+	$: template = $page.url.searchParams.get('template');
+
+	let processing = true;
 
 	const sendTest = async () => {
 		await fetch('/api/email/test', {
-			method: 'POST'
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				type,
+				template
+			})
 		});
 	};
 

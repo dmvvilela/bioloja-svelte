@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import * as html2text from 'html-to-text';
+import React from 'react';
 import { render as renderMjmlEmail } from '$lib/utils/mail';
 import { render as renderSvelteEmail } from 'svelte-email';
+import { render as renderReactEmail } from '@react-email/render';
 import { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SES_REGION } from '$env/static/private';
 import AWS from 'aws-sdk';
-const modules = import.meta.glob('$lib/emails/*/*.svelte');
+import welcome from '$lib/emails/react/welcome';
+const modules = import.meta.glob('$lib/emails/*/*');
 const convert = html2text.convert;
 
 new AWS.Config({
@@ -38,44 +41,57 @@ export const templateNameToSubject = (template: string) => {
 };
 
 // Dynamically select the import function based on the template and type
-export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
-	const path = `/src/lib/emails/${type}/${template}.svelte`;
+export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte' | 'react') => {
+	const path = `/src/lib/emails/${type}/${template}.${type === 'react' ? 'tsx' : 'svelte'}`;
 	return (await (modules as any)[path]()).default;
 };
 
 export const renderEmailBody = async (
 	template: string,
 	subject: string,
-	type: 'mjml' | 'svelte',
+	type: 'mjml' | 'svelte' | 'react',
 	props?: Record<string, unknown>
 ) => {
 	try {
 		const templateComponent = await getTemplateComponent(template, type);
+		let html, text;
 
-		if (type === 'mjml') {
-			// Render the email template to html and text
-			// TODO: Use compile convert for performance on batch
-			const html = renderMjmlEmail(templateComponent, subject, props || {});
-			const text = convert(html, { preserveNewLines: true });
+		switch (type) {
+			case 'mjml':
+				// Render the email template to html and text
+				// TODO: Use compile convert for performance on batch
+				html = renderMjmlEmail(templateComponent, subject, props || {});
+				text = convert(html, { preserveNewLines: true });
+				break;
+			case 'svelte':
+				// Render the email template to html and text
+				html = renderSvelteEmail({
+					template: templateComponent,
+					props
+				});
 
-			return { html, text };
-		} else {
-			// Render the email template to html and text
-			const html = renderSvelteEmail({
-				template: templateComponent,
-				props
-			});
+				text = renderSvelteEmail({
+					template: templateComponent,
+					props,
+					options: {
+						plainText: true
+					}
+				});
+				break;
+			case 'react':
+				// eslint-disable-next-line no-case-declarations
+				const element = React.createElement(welcome, props as any);
+				html = renderReactEmail(element, {
+					// pretty: true
+				});
 
-			const text = renderSvelteEmail({
-				template: templateComponent,
-				props,
-				options: {
-					plainText: true
-				}
-			});
-
-			return { html, text };
+				text = renderReactEmail(element, { plainText: true });
+				break;
+			default:
+				throw new Error('Invalid type');
 		}
+
+		return { html, text };
 	} catch (e) {
 		console.error(e);
 		return null;
@@ -85,7 +101,7 @@ export const renderEmailBody = async (
 export const sendTemplateEmail = async (
 	to: string | string[],
 	template: string,
-	type: 'mjml' | 'svelte',
+	type: 'mjml' | 'svelte' | 'react',
 	props?: Record<string, unknown>
 ) => {
 	const subject = templateNameToSubject(template);
