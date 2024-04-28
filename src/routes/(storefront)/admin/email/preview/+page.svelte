@@ -7,6 +7,7 @@
 	$: type = $page.url.searchParams.get('type');
 	$: template = $page.url.searchParams.get('template');
 
+	// We maintain this disabled so we won't bulk send accidentally.
 	let processing = true;
 
 	const sendTest = async () => {

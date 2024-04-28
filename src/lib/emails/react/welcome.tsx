@@ -26,7 +26,7 @@ export const KoalaWelcomeEmail = ({ userFirstname }: KoalaWelcomeEmailProps) => 
 					src="https://bioimages.d2vsolutions.com/logo%2Ffull.jpg"
 					width="170"
 					height="50"
-					alt="Koala"
+					alt="Bioloja"
 					style={logo}
 				/>
 				<Text style={paragraph}>Hi {userFirstname},</Text>
