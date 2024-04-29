@@ -128,6 +128,7 @@
 			name: product.name,
 			image: images[0],
 			description: product.description,
+			category: product.category_names,
 			offers: {
 				'@type': 'Offer',
 				availability: 'http://schema.org/InStock',
