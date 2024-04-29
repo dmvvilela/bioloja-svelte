@@ -121,9 +121,31 @@
 <svelte:head>
 	<title>{data.product.name} - Bioloja</title>
 	<meta name="description" content={data.product.short_description} />
+	{@html `<script type="application/ld+json">${JSON.stringify(
+		{
+			'@context': 'http://schema.org/',
+			'@type': 'Product',
+			name: product.name,
+			image: images[0],
+			description: product.description,
+			offers: {
+				'@type': 'Offer',
+				availability: 'http://schema.org/InStock',
+				priceCurrency: 'BRL',
+				price: product.discount_price
+					? +(product.discount_price / 100).toFixed(2)
+					: +(product.price / 100).toFixed(2),
+				...(product.discount_expires_at && {
+					priceValidUntil: product.discount_expires_at.toISOString().split('T')[0]
+				})
+			}
+		},
+		null,
+		2
+	)}</script>`}
 </svelte:head>
 
-<div class="bg-white" itemscope itemtype="http://schema.org/Product">
+<div class="bg-white">
 	<div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-16 lg:max-w-7xl lg:px-8">
 		<Breadcrumbs {paths} />
 		<div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
@@ -133,7 +155,7 @@
 					<Splide bind:this={main} options={mainOptions}>
 						{#each images as image, i}
 							<SplideSlide>
-								<img src={image} alt="Main slide {i}" class="rounded" itemprop="image" />
+								<img src={image} alt="Main slide {i}" class="rounded" />
 							</SplideSlide>
 						{/each}
 					</Splide>
@@ -165,32 +187,18 @@
 
 			<!-- Product info -->
 			<div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0 mb-20">
-				<h1 class="text-3xl font-bold tracking-tight text-gray-900" itemprop="name">
+				<h1 class="text-3xl font-bold tracking-tight text-gray-900">
 					{product.name}
 				</h1>
 				<h2 class="mt-1 text-gray-400">{product.category_names.join(' | ')}</h2>
 
 				<div class="mt-3">
 					<h2 class="sr-only">Preço</h2>
-					<div
-						class="flex items-baseline mb-1 mt-4"
-						itemprop="offers"
-						itemscope
-						itemtype="http://schema.org/Offer"
-					>
-						<meta itemprop="priceCurrency" content="BRL" />
+					<div class="flex items-baseline mb-1 mt-4">
 						<p class="text-3xl text-primary font-semibold">
-							R$<span itemprop="price"
-								>{getLocalePrice(product.discount_price || product.price)}</span
-							>
+							R${getLocalePrice(product.discount_price || product.price)}
 						</p>
 						{#if product.discount_price}
-							{#if product.discount_expires_at}
-								<meta
-									itemprop="priceValidUntil"
-									content={product.discount_expires_at.toISOString().split('T')[0]}
-								/>
-							{/if}
 							<p class="text-base text-gray-400 line-through ml-2">
 								R${getLocalePrice(product.price)}
 							</p>
