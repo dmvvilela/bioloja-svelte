@@ -492,12 +492,12 @@
 						</a>
 					</div>
 
-					<!-- <div
+					<div
 						class="container bg-gradient-to-r from-accent to-secondary/80 text-white p-8 rounded-lg shadow-lg max-w-md mx-auto mt-8"
 					>
 						<div class="text-3xl font-bold mb-4">Oferta Especial!</div>
 						<div class="text-lg mb-4">
-							Receba <span class="text-yellow-400 font-bold">15% DESCONTO</span> em sua próxima compra!
+							Receba <span class="text-yellow-400 font-bold">10% DESCONTO</span> em sua próxima compra!
 						</div>
 						<div class="text-base mb-4">Utilize o código de cupom:</div>
 						<div
@@ -509,11 +509,11 @@
 								on:click={() => navigator.clipboard.writeText('NOVABIOLOJA')}>Copiar</button
 							>
 						</div>
-						<div class="text-sm mt-4">
+						<div class="text-xs mt-4">
 							<p>Válido até <span class="font-semibold">31 de Julho de 2024.</span></p>
-							<p>Termos e condições se aplicam.</p>
+							<!-- <p>Termos e condições se aplicam.</p> -->
 						</div>
-					</div> -->
+					</div>
 				</aside>
 
 				<!-- Product grid -->
