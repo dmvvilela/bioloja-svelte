@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@axiomhq/pino':
-        specifier: 1.0.0-rc.3
-        version: 1.0.0-rc.3
     devDependencies:
       '@aws-sdk/client-s3':
         specifier: ^3.569.0
@@ -18,6 +14,9 @@ importers:
       '@aws-sdk/s3-request-presigner':
         specifier: ^3.569.0
         version: 3.569.0
+      '@axiomhq/js':
+        specifier: 1.0.0-rc.3
+        version: 1.0.0-rc.3
       '@lucia-auth/adapter-drizzle':
         specifier: ^1.0.7
         version: 1.0.7(lucia@3.2.0)
@@ -406,10 +405,6 @@ packages:
 
   '@axiomhq/js@1.0.0-rc.3':
     resolution: {integrity: sha512-Zm10TczcMLounWqC42nMkXQ7XKLqjzLrd5ia022oBKDUZqAFVg2y9d1quQVNV4FlXyg9MKDdfMjpKQRmzEGaog==}
-    engines: {node: '>=16'}
-
-  '@axiomhq/pino@1.0.0-rc.3':
-    resolution: {integrity: sha512-iXH972+jBY4BYOVV1U511MfY6AuccWNAioepJVZOGvuzAk4yW/Q1sTuYS9cuYIdFI86hSKO91oHsm7Y+Jjy7bw==}
     engines: {node: '>=16'}
 
   '@babel/helper-string-parser@7.24.1':
@@ -4758,11 +4753,6 @@ snapshots:
     dependencies:
       fetch-retry: 6.0.0
       uuid: 8.3.2
-
-  '@axiomhq/pino@1.0.0-rc.3':
-    dependencies:
-      '@axiomhq/js': 1.0.0-rc.3
-      pino-abstract-transport: 1.2.0
 
   '@babel/helper-string-parser@7.24.1': {}
 
