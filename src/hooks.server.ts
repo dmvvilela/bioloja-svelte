@@ -54,4 +54,6 @@ const customHandleError = (async ({ error, event }) => {
 	};
 }) satisfies HandleServerError;
 
-export const handleError = dev ? customHandleError : Sentry.handleErrorWithSentry();
+export const handleError = dev
+	? customHandleError
+	: Sentry.handleErrorWithSentry(customHandleError);
