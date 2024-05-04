@@ -20,6 +20,7 @@
 	"devDependencies": {
 		"@aws-sdk/client-s3": "^3.556.0",
 		"@aws-sdk/s3-request-presigner": "^3.556.0",
+		"@axiomhq/pino": "1.0.0-rc.3",
 		"@lucia-auth/adapter-drizzle": "^1.0.7",
 		"@neondatabase/serverless": "^0.9.1",
 		"@react-email/components": "^0.0.16",
@@ -52,6 +53,8 @@
 		"mjml": "^4.15.3",
 		"nanoid": "^5.0.7",
 		"oslo": "^1.2.0",
+		"pino": "^9.0.0",
+		"pino-pretty": "^11.0.0",
 		"postcss": "^8.4.38",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.1",

@@ -1,7 +1,8 @@
 import { sequence } from '@sveltejs/kit/hooks';
-import * as Sentry from '@sentry/sveltekit';
 import { dev } from '$app/environment';
 import { lucia } from '$lib/server/auth/lucia';
+import logger from '$lib/server/logger';
+import * as Sentry from '@sentry/sveltekit';
 import type { Handle, HandleServerError } from '@sveltejs/kit';
 
 if (!dev) {
@@ -45,12 +46,14 @@ const customHandle = (async ({ event, resolve }) => {
 export const handle = dev ? customHandle : sequence(Sentry.sentryHandle(), customHandle);
 
 const customHandleError = (async ({ error, event }) => {
-	console.error(error);
+	logger.error(error);
 	return {
-		message: 'Whoops! Check handleError() on hooks.server.ts',
+		message: 'Whoops! Ocorreu um erro.. Estamos verificando.',
 		error,
 		event
 	};
 }) satisfies HandleServerError;
 
-export const handleError = dev ? customHandleError : Sentry.handleErrorWithSentry();
+export const handleError = dev
+	? customHandleError
+	: Sentry.handleErrorWithSentry(customHandleError);
