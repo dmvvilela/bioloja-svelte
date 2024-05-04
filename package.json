@@ -20,7 +20,6 @@
 	"devDependencies": {
 		"@aws-sdk/client-s3": "^3.569.0",
 		"@aws-sdk/s3-request-presigner": "^3.569.0",
-		"@axiomhq/pino": "1.0.0-rc.3",
 		"@lucia-auth/adapter-drizzle": "^1.0.7",
 		"@neondatabase/serverless": "^0.9.1",
 		"@react-email/components": "^0.0.16",
@@ -73,5 +72,8 @@
 		"vitest": "^1.6.0",
 		"zod": "^3.23.6"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@axiomhq/pino": "1.0.0-rc.3"
+	}
 }

@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@axiomhq/pino':
+        specifier: 1.0.0-rc.3
+        version: 1.0.0-rc.3
     devDependencies:
       '@aws-sdk/client-s3':
         specifier: ^3.569.0
@@ -14,9 +18,6 @@ importers:
       '@aws-sdk/s3-request-presigner':
         specifier: ^3.569.0
         version: 3.569.0
-      '@axiomhq/pino':
-        specifier: 1.0.0-rc.3
-        version: 1.0.0-rc.3
       '@lucia-auth/adapter-drizzle':
         specifier: ^1.0.7
         version: 1.0.7(lucia@3.2.0)
