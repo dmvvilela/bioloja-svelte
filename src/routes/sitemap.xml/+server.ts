@@ -83,7 +83,7 @@ ${routes
   <priority>0.40</priority>
 </url>
 <url>
-  <loc>https://bioloja.bio.br/termos-de-servico</loc>
+  <loc>https://bioloja.bio.br/termos-e-condicoes</loc>
   <lastmod>2023-03-24T18:28:52+00:00</lastmod>
   <priority>0.40</priority>
 </url>
