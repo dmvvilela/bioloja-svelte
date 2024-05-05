@@ -37,7 +37,14 @@ export const GET = (async () => {
 
 		routes.push(...urls);
 
-		return json(routes);
+		// Removing categories with no products to avoid soft 404 on google
+		const filtered = routes.filter(
+			(route) =>
+				!route.endsWith('/loja/categoria/patologia') &&
+				!route.endsWith('/loja/categoria/embriologia')
+		);
+
+		return json(filtered);
 	} catch (err) {
 		console.log(err);
 		return error(500, 'Ocorreu um erro ao buscar as rotas.');
