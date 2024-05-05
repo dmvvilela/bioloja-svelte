@@ -3,6 +3,7 @@ import { cartItems, carts } from '$lib/server/db/schema';
 import { error } from '@sveltejs/kit';
 import { eq, and, isNull, desc, sql } from 'drizzle-orm';
 import type { RequestHandler } from './$types';
+import logger from '$lib/server/logger';
 
 // Combine guest cart with user's cart.
 export const POST: RequestHandler = async ({ locals, cookies, fetch }) => {
@@ -97,7 +98,7 @@ export const POST: RequestHandler = async ({ locals, cookies, fetch }) => {
 
 		return new Response();
 	} catch (err: any) {
-		console.error(err);
+		await logger.error(err);
 		error(500, err.message);
 	}
 };

@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 import { STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET } from '$env/static/private';
-import { error, fail } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import { orders } from '$lib/server/db/schema';
 import { db } from '$lib/server/db/conn';
 import { eq } from 'drizzle-orm';
@@ -8,6 +8,7 @@ import type { WebhookEvent } from '$lib/types/stripe';
 import type { RequestHandler } from './$types';
 import { sendTemplateEmail } from '$lib/server/mail';
 import { sendNotification } from '$lib/server/discord';
+import logger from '$lib/server/logger';
 
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
@@ -60,7 +61,7 @@ export const POST: RequestHandler = async ({ request }) => {
 				});
 				break;
 			default:
-				console.error(`Unhandled event type ${event!.type}`);
+				throw new Error(`Unhandled event type ${event!.type}`);
 		}
 
 		// Update the order
@@ -69,8 +70,12 @@ export const POST: RequestHandler = async ({ request }) => {
 			.set({ orderStatus, paymentConfirmedAt })
 			.where(eq(orders.paymentId, paymentId));
 	} catch (err: any) {
-		await sendNotification(`Webhook Error: ${err}`);
-		fail(400, { error: `Webhook Error: ${err}` });
+		const message = `Webhook Error: ${err}`;
+
+		await sendNotification(message);
+		await logger.error(message);
+
+		fail(400, { error: message });
 	}
 
 	// Return a 200 response to acknowledge receipt of the event

@@ -2,6 +2,7 @@ import { customAlphabet } from 'nanoid';
 import { db } from './db/conn';
 import { orders } from './db/schema';
 import { eq } from 'drizzle-orm';
+import logger from './logger';
 
 const MAX_RETRIES = 5;
 
@@ -24,7 +25,7 @@ export const createOrderId = async () => {
 
 			if (id.length) continue;
 		} catch (err) {
-			console.error(err);
+			await logger.error(err);
 			throw new Error('An error ocurred checking IDs from DB');
 		}
 

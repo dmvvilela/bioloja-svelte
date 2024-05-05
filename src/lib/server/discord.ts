@@ -1,4 +1,5 @@
 import { PUBLIC_ENV } from '$env/static/public';
+import logger from './logger';
 
 export const sendNotification = (content: string) => {
 	if (PUBLIC_ENV === 'development') {
@@ -23,8 +24,8 @@ export const sendNotification = (content: string) => {
 		.then(() => {
 			return 'Discord notificado com sucesso';
 		})
-		.catch((e) => {
-			console.error(e);
+		.catch(async (e) => {
+			await logger.error(e);
 			return 'Ocorreu um erro. Tente novamente mais tarde.';
 		});
 };

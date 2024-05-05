@@ -8,6 +8,7 @@ import { render as renderReactEmail } from '@react-email/render';
 import { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SES_REGION } from '$env/static/private';
 import AWS from 'aws-sdk';
 import welcome from '$lib/emails/react/welcome';
+import logger from './logger';
 const modules = import.meta.glob('$lib/emails/*/*');
 const convert = html2text.convert;
 
@@ -92,8 +93,8 @@ export const renderEmailBody = async (
 		}
 
 		return { html, text };
-	} catch (e) {
-		console.error(e);
+	} catch (err) {
+		await logger.error(err);
 		return null;
 	}
 };

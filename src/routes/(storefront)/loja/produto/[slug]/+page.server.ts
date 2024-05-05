@@ -48,7 +48,7 @@ export const load = (async ({ params }) => {
 	).rows[0] as ProductWithCategories;
 
 	if (!product) {
-		logger.error('Product not found: ' + params.slug);
+		await logger.error('Product not found: ' + params.slug);
 		error(400, 'Produto não encontrado.');
 	}
 

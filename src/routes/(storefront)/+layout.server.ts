@@ -2,6 +2,7 @@ import { db } from '$lib/server/db/conn';
 import { cartItems, carts } from '$lib/server/db/schema';
 import { count, and, eq, isNull } from 'drizzle-orm';
 import type { LayoutServerLoad } from './$types';
+import logger from '$lib/server/logger';
 
 export const load: LayoutServerLoad = async ({ locals, cookies, depends }) => {
 	const user = locals.user;
@@ -37,8 +38,8 @@ export const load: LayoutServerLoad = async ({ locals, cookies, depends }) => {
 				}
 			}
 		}
-	} catch (e) {
-		console.error(e);
+	} catch (err) {
+		await logger.error(err);
 	}
 
 	return { user: locals.user, session: locals.session, cartItemsCount: itemsCount };
