@@ -98,7 +98,7 @@ export const POST: RequestHandler = async ({ locals, cookies, fetch }) => {
 
 		return new Response();
 	} catch (err: any) {
-		await logger.error(err);
+		await logger.error(err.message);
 		error(500, err.message);
 	}
 };

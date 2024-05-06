@@ -24,8 +24,8 @@ export const sendNotification = (content: string) => {
 		.then(() => {
 			return 'Discord notificado com sucesso';
 		})
-		.catch(async (e) => {
-			await logger.error(e);
+		.catch(async (err: any) => {
+			await logger.error(err.message);
 			return 'Ocorreu um erro. Tente novamente mais tarde.';
 		});
 };

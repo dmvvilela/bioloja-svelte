@@ -38,8 +38,8 @@ export const load: LayoutServerLoad = async ({ locals, cookies, depends }) => {
 				}
 			}
 		}
-	} catch (err) {
-		await logger.error(err);
+	} catch (err: any) {
+		await logger.error(err.message);
 	}
 
 	return { user: locals.user, session: locals.session, cartItemsCount: itemsCount };

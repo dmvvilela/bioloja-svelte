@@ -93,8 +93,8 @@ export const renderEmailBody = async (
 		}
 
 		return { html, text };
-	} catch (err) {
-		await logger.error(err);
+	} catch (err: any) {
+		await logger.error(err.message);
 		return null;
 	}
 };

@@ -45,8 +45,8 @@ const customHandle = (async ({ event, resolve }) => {
 
 export const handle = dev ? customHandle : sequence(Sentry.sentryHandle(), customHandle);
 
-const customHandleError = (async ({ error, event }) => {
-	await logger.error(error);
+const customHandleError = (async ({ error, event }: any) => {
+	await logger.error(error.message);
 	return {
 		message: 'Whoops! Ocorreu um erro.. Estamos verificando.',
 		error,

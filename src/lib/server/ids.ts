@@ -24,8 +24,8 @@ export const createOrderId = async () => {
 				.where(eq(orders.orderNumber, shortId));
 
 			if (id.length) continue;
-		} catch (err) {
-			await logger.error(err);
+		} catch (err: any) {
+			await logger.error(err.message);
 			throw new Error('An error ocurred checking IDs from DB');
 		}
 
