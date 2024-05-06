@@ -15,7 +15,7 @@ export const actions: Actions = {
 		}
 
 		try {
-			await sendTemplateEmail('contato@bioloja.bio.br', 'siteContact', 'svelte', {
+			await sendTemplateEmail('contato@bioloja.bio.br', 'site_contact', 'svelte', {
 				name,
 				email,
 				phone,

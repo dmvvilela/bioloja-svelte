@@ -41,7 +41,7 @@ export const actions: Actions = {
 		const verificationToken = await createPasswordResetToken(user.id);
 		const verificationLink = PUBLIC_BASE_URL + '/esqueci-a-senha/' + verificationToken;
 
-		await sendTemplateEmail(email, 'resetPassword', 'mjml', {
+		await sendTemplateEmail(email, 'reset_password', 'mjml', {
 			name: user.name,
 			verificationLink
 		});
