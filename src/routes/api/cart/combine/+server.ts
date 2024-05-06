@@ -73,7 +73,7 @@ export const POST: RequestHandler = async ({ locals, cookies, fetch }) => {
 			`)
 			).rows[0].subtotal;
 
-			// TODO: I mean, we could fetch both to see which is better.. but that sounds like too much for now..
+			// TODO: we could fetch both to see which is better.. but that sounds like too much for now..
 			try {
 				await fetch(`/api/cart/coupon`, {
 					method: 'POST',
@@ -99,6 +99,7 @@ export const POST: RequestHandler = async ({ locals, cookies, fetch }) => {
 		return new Response();
 	} catch (err: any) {
 		await logger.error(err.message);
+		await logger.error(`/api/cart/combine -> userId: ${user?.id}, guestCartId: ${guestCartId}`);
 		error(500, err.message);
 	}
 };
