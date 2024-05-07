@@ -40,6 +40,7 @@ export const actions: Actions = {
 			// Since protecting against this is non-trivial,
 			// it is crucial your implementation is protected against brute-force attacks with login throttling etc.
 			// If emails are public, you may outright tell the user that the email is invalid.
+			// TODO: Add rate limiting from upstash
 			return fail(400, {
 				email,
 				message: 'Credenciais inválidas'

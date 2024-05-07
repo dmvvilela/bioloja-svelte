@@ -46,7 +46,7 @@
 				>
 					<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 2xl:grid-cols-4 gap-6">
 						{#each categoryData.products as product}
-							<ProductCard {product} />
+							<ProductCard {product} itemListName="category products" />
 						{/each}
 					</div>
 				</div>

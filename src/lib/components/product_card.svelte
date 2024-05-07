@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { addToCart, getAllSlideImageUrls, getLocalePrice } from '$lib/utils/product';
+	import { trackEvent } from '$lib/utils/analytics';
 	import type { ProductType } from '$lib/types/product';
 	import '@splidejs/svelte-splide/css';
 
 	export let product: ProductType;
+	export let itemListName = '';
 
 	const images = getAllSlideImageUrls(product.imageUrls).slice(0, 5);
 
@@ -88,7 +90,26 @@
 				<span title={product.categoryName}>{product.categoryName}</span>
 			</h4>
 		</a>
-		<a href="/loja/produto/{product.productSlug}">
+		<a
+			href="/loja/produto/{product.productSlug}"
+			on:click={() =>
+				trackEvent('event', 'select_item', {
+					items: [
+						{
+							item_id: product.productId,
+							item_name: product.productName,
+							price: ((product.discountPrice || product.price) / 100).toFixed(2),
+							item_brand: product.productSlug,
+							item_category: product.parentCategoryName
+								? [product.categoryName, product.parentCategoryName]
+								: [product.categoryName]
+						}
+					],
+					item_list_name: itemListName,
+					item_list_id: itemListName,
+					currency: 'BRL'
+				})}
+		>
 			<h4
 				class="uppercase h-24 overflow-hidden leading-tight overflow-ellipsis font-semibold text-lg mb-2 text-gray-800 hover:text-primary transition"
 			>
@@ -183,7 +204,16 @@
 		</div>-->
 	</div>
 	<button
-		on:click={() => addToCart(product.productId)}
+		on:click={() =>
+			addToCart({
+				id: product.productId,
+				slug: product.productSlug,
+				name: product.productName,
+				categories: product.parentCategoryName
+					? [product.categoryName, product.parentCategoryName]
+					: [product.categoryName],
+				price: product.discountPrice || product.price
+			})}
 		class="btn btn-square w-full py-1.5 lg:py-2.5 text-center text-white bg-primary border border-primary rounded-b rounded-t-none hover:bg-transparent hover:text-primary transition flex justify-center items-center"
 	>
 		Adicionar

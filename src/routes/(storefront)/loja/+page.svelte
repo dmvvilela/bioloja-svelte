@@ -11,6 +11,8 @@
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
+	import { trackEvent } from '$lib/utils/analytics';
+	import toast from 'svelte-french-toast';
 
 	let checked = false;
 	const toggleMenu = () => (checked = !checked);
@@ -483,7 +485,20 @@
 					</div>
 
 					<div class="mx-auto mt-8 p-4 max-w-sm">
-						<a href="/loja/produto/promocao-leve-4-e-pague-3">
+						<a
+							href="/loja/produto/promocao-leve-4-e-pague-3"
+							on:click={() =>
+								trackEvent('event', 'select_promotion', {
+									promotions: [
+										{
+											promotion_id: 'promocao-leve-4-e-pague-3',
+											promotion_name: 'Promoção: Leve 4 e pague 3',
+											creative_slot: 'PRODUCT banner',
+											location_id: 'loja left sidebar'
+										}
+									]
+								})}
+						>
 							<img
 								src={promoImg}
 								alt="promotion-banner"
@@ -506,7 +521,22 @@
 							<span class="text-xl font-semibold tracking-tight">NOVABIOLOJA</span>
 							<button
 								class="btn btn-primary text-white px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-primary"
-								on:click={() => navigator.clipboard.writeText('NOVABIOLOJA')}>Copiar</button
+								on:click={() => {
+									trackEvent('event', 'select_promotion', {
+										promotions: [
+											{
+												promotion_id: 'coupon-code',
+												promotion_name: 'NOVABIOLOJA',
+												creative_slot: 'Click to copy coupon code',
+												location_id: 'loja left sidebar'
+											}
+										]
+									});
+
+									navigator.clipboard.writeText('NOVABIOLOJA');
+
+									toast.success('Código copiado!');
+								}}>Copiar</button
 							>
 						</div>
 						<div class="text-xs mt-4">
@@ -530,7 +560,7 @@
 						>
 							{#each products as algolia}
 								{@const product = algoliaToProduct(algolia)}
-								<ProductCard {product} />
+								<ProductCard {product} itemListName="store products" />
 							{/each}
 						</div>
 					</div>

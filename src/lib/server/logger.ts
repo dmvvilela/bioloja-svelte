@@ -3,6 +3,28 @@ import { dev } from '$app/environment';
 import { AXIOM_DATASET, AXIOM_ORG_ID, AXIOM_TOKEN } from '$env/static/private';
 import { Axiom } from '@axiomhq/js';
 
+// TODO: Add more stuff:
+// {
+// 	"level": 30,
+// 	"time": 1702064201458,
+// 	"msg": "successful login",
+// 	"pid": 817,
+// 	"hostname": "MacBook-Air-von-Lars.local"
+// }
+// logger.info(
+// 	{
+// 		usr: {
+// 			id: form.data.email
+// 		},
+// 		evt: {
+// 			category: 'authentication',
+// 			name: 'email',
+// 			outcome: 'success'
+// 		}
+// 	},
+// 	'successful login'
+// );
+
 const logLevels = ['trace', 'debug', 'info', 'warn', 'error', 'fatal', 'silent'];
 
 let logger: any;
@@ -26,8 +48,8 @@ if (dev) {
 	logger = Object.fromEntries(
 		logLevels.map((level) => [
 			level,
-			async (message: any) => {
-				axiom.ingest(AXIOM_DATASET, [{ level, message }]);
+			async (msg: any) => {
+				axiom.ingest(AXIOM_DATASET, [{ level, msg }]);
 				await axiom.flush();
 			}
 		])

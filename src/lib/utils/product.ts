@@ -2,6 +2,8 @@ import { invalidate } from '$app/navigation';
 import { PUBLIC_IMAGES_BUCKET_URL } from '$env/static/public';
 import { showToast } from '$lib/utils/toast';
 import type { AlgoliaProductType, ProductType } from '$lib/types/product';
+import type { CartItem } from '$lib/types/checkout';
+import { trackEvent } from './analytics';
 
 export const getImageUrl = (path: string) => PUBLIC_IMAGES_BUCKET_URL + path;
 
@@ -36,7 +38,14 @@ export const algoliaToProductType = (data: AlgoliaProductType): ProductType => {
 	};
 };
 
-export const addToCart = async (productId: number) => {
+export type AddToCartType = {
+	id: number;
+	name: string;
+	slug: string;
+	categories: string[];
+	price: number;
+};
+export const addToCart = async (product: AddToCartType) => {
 	showToast(
 		new Promise((resolve, reject) => {
 			(async () => {
@@ -45,7 +54,7 @@ export const addToCart = async (productId: number) => {
 					headers: {
 						'content-type': 'application/json'
 					},
-					body: JSON.stringify({ productId })
+					body: JSON.stringify({ productId: product.id })
 				});
 
 				const json = await response.json();
@@ -57,6 +66,23 @@ export const addToCart = async (productId: number) => {
 
 				// Refetch cart data (items count)
 				invalidate('layout:load');
+
+				const price = product.price / 100;
+				trackEvent('event', 'add_to_cart', {
+					currency: 'BRL',
+					value: price,
+					items: [
+						{
+							item_id: product.id.toString(),
+							item_name: product.name,
+							price: price.toFixed(2),
+							quantity: 1,
+							item_category: product.categories.join(','),
+							item_variant: product.slug
+						}
+					]
+				});
+
 				resolve(json);
 			})();
 		}),
@@ -68,7 +94,7 @@ export const addToCart = async (productId: number) => {
 	);
 };
 
-export const removeFromCart = async (productId: number) => {
+export const removeFromCart = async (product: CartItem) => {
 	showToast(
 		new Promise((resolve, reject) => {
 			(async () => {
@@ -77,7 +103,7 @@ export const removeFromCart = async (productId: number) => {
 					headers: {
 						'content-type': 'application/json'
 					},
-					body: JSON.stringify({ productId })
+					body: JSON.stringify({ productId: product.id })
 				});
 
 				const json = await response.json();
@@ -89,6 +115,24 @@ export const removeFromCart = async (productId: number) => {
 
 				// Refetch cart data - we can only remove on cart/checkout layout
 				invalidate('app:checkout');
+
+				const price = (product.discountPrice || product.price) / 100;
+				trackEvent('event', 'remove_from_cart', {
+					currency: 'BRL',
+					value: price,
+					items: [
+						{
+							item_id: product.id.toString(),
+							item_name: product.name,
+							price: price.toFixed(2),
+							quantity: 1,
+							item_category: product.categories.join(','),
+							item_variant: product.slug,
+							index: product.lineId
+						}
+					]
+				});
+
 				resolve(json);
 			})();
 		}),

@@ -14,6 +14,7 @@
 		Tag
 	} from '$lib/utils/types';
 	import type { ProductType } from '$lib/types/product';
+	import { categories } from '$lib/utils/data';
 
 	export let data: PageData;
 
@@ -268,7 +269,14 @@
 
 					<div class="mt-10 flex">
 						<button
-							on:click={() => addToCart(product.id)}
+							on:click={() =>
+								addToCart({
+									id: product.id,
+									slug: product.slug,
+									name: product.name,
+									categories: product.category_names,
+									price: product.discount_price || product.price
+								})}
 							type="button"
 							class="btn btn-primary btn-md flex max-w-xs flex-1 items-center justify-center glass bg-primary-focus text-base border border-primary text-white px-8 py-3 font-medium border-transparent sm:w-full rounded-md hover:shadow-lg"
 							>Adicionar <svg
@@ -376,7 +384,7 @@
 			</h2>
 			<div class="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 				{#each related as product}
-					<ProductCard {product} />
+					<ProductCard {product} itemListName="related products" />
 				{/each}
 			</div>
 		</div>

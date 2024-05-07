@@ -2,8 +2,8 @@ import { db } from '$lib/server/db/conn';
 import { cartItems, carts } from '$lib/server/db/schema';
 import { error } from '@sveltejs/kit';
 import { eq, and, isNull, desc, sql } from 'drizzle-orm';
-import type { RequestHandler } from './$types';
 import logger from '$lib/server/logger';
+import type { RequestHandler } from './$types';
 
 // Combine guest cart with user's cart.
 export const POST: RequestHandler = async ({ locals, cookies, fetch }) => {

@@ -5,9 +5,10 @@
 	import { PUBLIC_STRIPE_PUBLISHABLE_KEY } from '$env/static/public';
 	import { goto, invalidate } from '$app/navigation';
 	import { getLocalePrice, getSlideImageUrl, removeFromCart } from '$lib/utils/product';
-	import type { Cart } from '../../types';
-	import type { PageData } from './$types';
 	import { isEmail } from '$lib/utils/validation';
+	import { trackEvent } from '$lib/utils/analytics';
+	import type { Cart } from '$lib/types/checkout';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
 
@@ -86,6 +87,23 @@
 
 				// Cart should now be empty
 				invalidate('app:checkout');
+
+				trackEvent('event', 'purchase', {
+					transaction_id: result.paymentIntent.id,
+					currency: 'BRL',
+					tax: 0,
+					shipping: 0,
+					value: cart.total / 100,
+					items: cart.products.map((product) => ({
+						item_id: product.id,
+						item_name: product.name,
+						price: (product.price / 100).toFixed(2),
+						quantity: 1,
+						item_category: product.categories.join(','),
+						item_variant: product.slug,
+						index: product.lineId
+					}))
+				});
 			}
 		} catch (err: any) {
 			console.error(err);
@@ -104,6 +122,20 @@
 
 		stripe = await loadStripe(PUBLIC_STRIPE_PUBLISHABLE_KEY);
 		clientSecret = await createPaymentIntent();
+
+		trackEvent('event', 'begin_checkout', {
+			value: cart.total / 100,
+			currency: 'BRL',
+			items: cart.products.map((product) => ({
+				item_id: product.id,
+				item_name: product.name,
+				price: (product.price / 100).toFixed(2),
+				quantity: 1,
+				item_category: product.categories.join(','),
+				item_variant: product.slug,
+				index: product.lineId
+			}))
+		});
 	});
 </script>
 
@@ -299,7 +331,7 @@
 											<div class="tooltip" data-tip="Remover">
 												<button
 													type="button"
-													on:click={() => removeFromCart(product.id)}
+													on:click={() => removeFromCart(product)}
 													class="-m-2.5 flex items-center justify-center bg-white p-2.5 text-gray-400 hover:text-gray-500"
 												>
 													<span class="sr-only">Remover</span>

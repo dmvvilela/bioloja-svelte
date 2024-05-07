@@ -1,9 +1,23 @@
 <script lang="ts">
 	import banner from '$lib/images/banner-bg.jpg';
+	import { trackEvent } from '$lib/utils/analytics';
 </script>
 
 <div class="relative container mx-auto h-[362px] border-primary/20 border mb-16 overflow-hidden">
-	<a href="/loja?tag=apostilas">
+	<a
+		href="/loja?tag=apostilas"
+		on:click={() =>
+			trackEvent('event', 'select_promotion', {
+				promotions: [
+					{
+						promotion_id: 'banner-apostilas',
+						promotion_name: 'Exclusivo: 15% de desconto em apostilas e simulados',
+						creative_slot: 'TAG banner',
+						location_id: 'main promo banner'
+					}
+				]
+			})}
+	>
 		<img src={banner} alt="promo text" class="w-full h-full object-cover" />
 		<div
 			class="absolute -top-10 left-0 w-10/12 sm:w-8/12 md:w-6/12 lg:w-4/12 h-[560px] bg-slate-50 rounded-r-full flex items-center justify-center"

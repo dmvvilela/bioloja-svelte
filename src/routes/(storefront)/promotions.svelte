@@ -12,7 +12,7 @@
 		</h2>
 		<div class="flex flex-col m-8 sm:m-0 sm:grid grid-cols-2 lg:grid-cols-4 gap-6">
 			{#each promotions as promotion}
-				<ProductCard product={promotion} />
+				<ProductCard product={promotion} itemListName="promotion products" />
 			{/each}
 		</div>
 	</div>
