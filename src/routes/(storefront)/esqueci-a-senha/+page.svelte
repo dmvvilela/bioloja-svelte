@@ -1,6 +1,7 @@
 <script lang="ts">
 	import logo from '$lib/images/logo/icon.png';
 	import { enhance } from '$app/forms';
+	import { getRecaptchaToken } from '$lib/utils/recaptcha';
 	import type { ActionData } from '../$types';
 
 	export let form: ActionData;
@@ -27,7 +28,18 @@
 			<p class="text-gray-600 mb-6 text-sm">
 				Envie seu e-mail no campo abaixo para receber as instruções de redefinição de senha.
 			</p>
-			<form class="space-y-6" method="POST" use:enhance>
+			<form
+				class="space-y-6"
+				method="POST"
+				use:enhance={async ({ formData, cancel }) => {
+					const token = await getRecaptchaToken();
+					if (!token) {
+						cancel();
+					} else {
+						formData.append('token', token);
+					}
+				}}
+			>
 				<div>
 					<label for="email" class="block text-sm font-medium leading-6 text-secondary"
 						>E-mail</label

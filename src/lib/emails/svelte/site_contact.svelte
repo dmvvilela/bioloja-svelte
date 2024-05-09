@@ -60,7 +60,7 @@
 
 <Html lang="en">
 	<Head />
-	<Preview preview="Você recebeu uma mensagem do AFH." />
+	<Preview preview="Você recebeu uma mensagem da Bioloja." />
 	<Section style={main}>
 		<Container style={container}>
 			<Img
@@ -91,7 +91,7 @@
 					Número do pedido: {orderNumber}
 				</Text>
 			{/if}
-			<Text style={paragraph}><pre>{message}</pre></Text>
+			<Text style={paragraph}>{message}</Text>
 			<Hr style={hr} />
 			<Button pX={12} pY={12} style={button} href="https://bioloja.bio.br">Visitar o site</Button>
 			<!-- <Text style={footer}>Prof. Dr. Ana Luisa</Text> -->

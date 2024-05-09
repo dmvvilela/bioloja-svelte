@@ -7,6 +7,7 @@ import { PUBLIC_BASE_URL } from '$env/static/public';
 import { createPasswordResetToken } from '$lib/server/auth/reset';
 import type { Actions, PageServerLoad } from './$types';
 import { sendTemplateEmail } from '$lib/server/mail';
+import { verifyRecaptcha } from '$lib/server/recaptcha';
 
 function sleep(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
@@ -21,7 +22,13 @@ export const load: PageServerLoad = async ({ locals }) => {
 export const actions: Actions = {
 	default: async ({ request }) => {
 		const formData = await request.formData();
+		const token = formData.get('token') as string;
 		const email = formData.get('email') as string;
+
+		const verified = await verifyRecaptcha(token);
+		if (!verified) {
+			return { success: false, message: 'Falhou o desafio do reCaptcha' };
+		}
 
 		if (!isEmail(email)) {
 			return fail(400, {

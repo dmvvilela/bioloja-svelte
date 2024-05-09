@@ -1,13 +1,15 @@
 import type { Actions } from './$types';
 import { sendTemplateEmail } from '$lib/server/mail';
-import { verifyTurnstile } from '$lib/server/captcha';
+import { verifyRecaptcha } from '$lib/server/recaptcha';
 
 export const actions: Actions = {
 	default: async ({ request }) => {
-		const captcha = await verifyTurnstile(request);
-		if (!captcha) return { success: false, failedCaptcha: true };
-
 		const formData = await request.formData();
+		const token = formData.get('token') as string;
+
+		const verified = await verifyRecaptcha(token);
+		if (!verified) return { success: false, failedRecaptcha: true };
+
 		const name = formData.get('name') as string;
 		const email = formData.get('email') as string;
 		const phone = formData.get('phone') as string;
