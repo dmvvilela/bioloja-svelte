@@ -1,8 +1,12 @@
 import type { Actions } from './$types';
 import { sendTemplateEmail } from '$lib/server/mail';
+import { verifyTurnstile } from '$lib/server/captcha';
 
 export const actions: Actions = {
 	default: async ({ request }) => {
+		const captcha = await verifyTurnstile(request);
+		if (!captcha) return { success: false, failedCaptcha: true };
+
 		const formData = await request.formData();
 		const name = formData.get('name') as string;
 		const email = formData.get('email') as string;

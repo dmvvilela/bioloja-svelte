@@ -1,9 +1,9 @@
 import { invalidate } from '$app/navigation';
 import { PUBLIC_IMAGES_BUCKET_URL } from '$env/static/public';
 import { showToast } from '$lib/utils/toast';
+import { trackEvent } from './analytics';
 import type { AlgoliaProductType, ProductType } from '$lib/types/product';
 import type { CartItem } from '$lib/types/checkout';
-import { trackEvent } from './analytics';
 
 export const getImageUrl = (path: string) => PUBLIC_IMAGES_BUCKET_URL + path;
 

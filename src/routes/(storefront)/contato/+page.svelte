@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_TURNSTILE_KEY } from '$env/static/public';
 	import logo from '$lib/images/logo/full.png';
 	import type { ActionData } from './$types';
 
@@ -46,7 +47,7 @@
 			Caso possua alguma dúvida ou deseja resolver algum problema.
 		</p>
 		<div class="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
-			<form action="#" method="POST" class="lg:flex-auto">
+			<form method="POST" class="lg:flex-auto">
 				<div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 					<div>
 						<label for="name" class="block text-sm font-semibold leading-6 text-gray-900"
@@ -127,16 +128,23 @@
 						>Enviar</button
 					>
 				</div>
+				<div class="cf-turnstile mt-4" data-sitekey={PUBLIC_TURNSTILE_KEY} />
 				{#if form?.success == true}
 					<div class="mt-6">
 						<p class="mt-2 text-sm leading-5 text-gray-500">Obrigado por entrar em contato!</p>
 						<p class="mt-2 text-sm leading-5 text-gray-500">Em breve retornaremos.</p>
 					</div>
-				{/if}
-				{#if form?.success == false}
+				{:else if form?.success == false}
 					<div class="mt-6">
-						<p class="mt-2 text-sm leading-5 text-gray-500">Ocorreu um erro.</p>
-						<p class="mt-2 text-sm leading-5 text-gray-500">Tente novamente mais tarde.</p>
+						{#if form?.failedCaptcha}
+							<p class="mt-2 text-sm leading-5 text-gray-500">
+								Falhou o desafio do captcha. Se ainda estiver tendo problemas, envie um e-mail para
+								<a class="link" href="mailto:contato@bioloja.bio.br">contato@bioloja.bio.br</a>.
+							</p>
+						{:else}
+							<p class="mt-2 text-sm leading-5 text-gray-500">Ocorreu um erro.</p>
+							<p class="mt-2 text-sm leading-5 text-gray-500">Tente novamente mais tarde.</p>
+						{/if}
 					</div>
 				{/if}
 				<!-- <p class="mt-4 text-sm leading-6 text-gray-500">
