@@ -14,5 +14,5 @@ export const load: LayoutServerLoad = async ({ locals }) => {
 		error(500, 'User not found');
 	}
 
-	return { user: { id: user.id, name: user.name, email: user.email } };
+	return { user: { ...locals.user, id: user.id, name: user.name, email: user.email } };
 };

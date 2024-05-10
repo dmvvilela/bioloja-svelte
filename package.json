@@ -25,6 +25,7 @@
 		"@neondatabase/serverless": "^0.9.1",
 		"@react-email/components": "^0.0.16",
 		"@react-email/render": "^0.0.12",
+		"@react-email/tailwind": "^0.0.16",
 		"@sentry/sveltekit": "^7.113.0",
 		"@splidejs/svelte-splide": "^0.2.9",
 		"@stripe/stripe-js": "^3.3.0",
