@@ -11,8 +11,9 @@ import {
 } from '$lib/server/db/schema';
 import type { PageServerLoad } from './$types';
 import type { ProductWithCategories } from '$lib/utils/types';
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 import logger from '$lib/server/logger';
+import { searchProduct } from '$lib/utils/algolia';
 
 export const load = (async ({ params }) => {
 	// const product = (await db.select().from(products).where(eq(products.slug, params.slug)))[0];
@@ -48,8 +49,13 @@ export const load = (async ({ params }) => {
 	).rows[0] as ProductWithCategories;
 
 	if (!product) {
-		await logger.error('Product not found: ' + params.slug);
-		error(400, 'Produto não encontrado.');
+		const searched: any = await searchProduct(params.slug);
+		if (!searched.length) {
+			await logger.error('Product not found: ' + params.slug);
+			error(400, 'Produto não encontrado.');
+		}
+
+		redirect(301, `/loja/produto/${searched[0].slug}`);
 	}
 
 	const qtags = await db

@@ -29,11 +29,11 @@ export type AlgoliaProduct = {
 const client = algoliasearch(PUBLIC_ALGOLIA_APP_ID, PUBLIC_ALGOLIA_SEARCH_KEY);
 const index = client.initIndex('products');
 
-// export const search = async (query: string) => {
-// 	index.search(query).then(({ hits }) => {
-// 		console.log(hits);
-// 	});
-// };
+// TODO: Doesn't check if published (don't care for now..)
+export const searchProduct = async (query: string) => {
+	const { hits } = await index.search(query);
+	return hits;
+};
 
 // TODO: Paginate
 export const searchProducts = async (query = '', filters: Filters) => {
