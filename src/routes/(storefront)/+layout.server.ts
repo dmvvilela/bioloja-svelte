@@ -52,7 +52,7 @@ export const load: LayoutServerLoad = async ({ locals, cookies, depends }) => {
 	}
 
 	return {
-		user: { ...locals.user, role: userRole },
+		user: locals.user ? { ...locals.user, role: userRole } : locals.user,
 		session: locals.session,
 		cartItemsCount: itemsCount
 	};
