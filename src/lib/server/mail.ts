@@ -1,14 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import * as html2text from 'html-to-text';
-import React from 'react';
 import { render as renderMjmlEmail } from '$lib/utils/mail';
 import { render as renderSvelteEmail } from 'svelte-email';
-import { render as renderReactEmail } from '@react-email/render';
 import { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SES_REGION } from '$env/static/private';
 import AWS from 'aws-sdk';
-import welcome from '$lib/emails/react/welcome';
 import logger from './logger';
+
 const modules = import.meta.glob('$lib/emails/*/*');
 const convert = html2text.convert;
 
@@ -42,15 +40,15 @@ export const templateNameToSubject = (template: string) => {
 };
 
 // Dynamically select the import function based on the template and type
-export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte' | 'react') => {
-	const path = `/src/lib/emails/${type}/${template}.${type === 'react' ? 'tsx' : 'svelte'}`;
+export const getTemplateComponent = async (template: string, type: 'mjml' | 'svelte') => {
+	const path = `/src/lib/emails/${type}/${template}.svelte`;
 	return (await (modules as any)[path]()).default;
 };
 
 export const renderEmailBody = async (
 	template: string,
 	subject: string,
-	type: 'mjml' | 'svelte' | 'react',
+	type: 'mjml' | 'svelte',
 	props?: Record<string, unknown>
 ) => {
 	try {
@@ -79,15 +77,6 @@ export const renderEmailBody = async (
 					}
 				});
 				break;
-			case 'react':
-				// eslint-disable-next-line no-case-declarations
-				const element = React.createElement(welcome, props as any);
-				html = renderReactEmail(element, {
-					// pretty: true
-				});
-
-				text = renderReactEmail(element, { plainText: true });
-				break;
 			default:
 				throw new Error('Invalid type');
 		}
@@ -102,7 +91,7 @@ export const renderEmailBody = async (
 export const sendTemplateEmail = async (
 	to: string | string[],
 	template: string,
-	type: 'mjml' | 'svelte' | 'react',
+	type: 'mjml' | 'svelte',
 	props?: Record<string, unknown>
 ) => {
 	const subject = templateNameToSubject(template);

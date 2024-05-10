@@ -13,11 +13,5 @@ export const load: PageServerLoad = () => {
 		)
 		.filter((path) => path !== 'header');
 
-	const reactEmails = Object.keys(import.meta.glob('/src/lib/emails/react/**'))
-		.map(
-			(path) => path.slice(22, -4) // Trim `./` and `.react`
-		)
-		.filter((path) => path !== 'header');
-
-	return { svelteEmails, mjmlEmails, reactEmails };
+	return { svelteEmails, mjmlEmails };
 };

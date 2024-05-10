@@ -6,7 +6,9 @@ export const load: PageServerLoad = async ({ url }) => {
 	const template = url.searchParams.get('template') as string;
 
 	const email = await renderEmailBody(template, 'E-mail Preview', type, {
+		name: 'Daniel Vilela',
 		email: 'danielbsb2@gmail.com',
+		message: 'Test message',
 		orderNumber: '12345',
 		orderDate: new Date(),
 		paymentMethodTitle: 'Boleto Bancário',
