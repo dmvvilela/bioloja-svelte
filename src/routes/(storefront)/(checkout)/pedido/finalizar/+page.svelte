@@ -59,7 +59,7 @@
 		error = null;
 
 		// Confirm payment with stripe
-		// TODO: If check for erros is needed.. add idempotency key on backend and retry..
+		// TODO: If check for errors is needed.. add idempotency key on backend and retry..
 		try {
 			const result = await stripe.confirmPayment({
 				elements,
@@ -109,6 +109,14 @@
 			console.error(err);
 			error = err.error;
 			processing = false;
+
+			await fetch('/api/log', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify({ message: err.message, type: 'error', sendToDiscord: true })
+			});
 		}
 	};
 

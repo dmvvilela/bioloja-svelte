@@ -11,17 +11,22 @@ import { eq } from 'drizzle-orm';
 import Stripe from 'stripe';
 import { STRIPE_SECRET_KEY } from '$env/static/private';
 import { sendTemplateEmail } from '$lib/server/mail';
+import logger from '$lib/server/logger';
 
 const stripe = new Stripe(STRIPE_SECRET_KEY);
 
 export const POST: RequestHandler = async ({ locals, request }) => {
 	const user = locals.user;
 	if (!user) {
+		await logger.error('/api/order error: no user found');
 		error(401, { message: 'Usuário deslogado.' });
 	}
 
 	const { email, name, phone, cart, payment } = await request.json();
 	if (!email || !name || !phone || !cart || !payment) {
+		await logger.error(
+			`/api/order error: invalid data ~> ${email}, ${name}, ${phone}, ${cart}, ${payment}`
+		);
 		error(400, { message: 'Dados inválidos.' });
 	}
 
@@ -138,9 +143,9 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 		// Return order number for the application to redirect correctly.
 		return json({ orderNumber });
 	} catch (err: any) {
-		await sendNotification(
-			`Erro no pedido. PaymentId: ${payment.id}, PaymentMethodId: ${payment.payment_method}, CartId: ${cart.cartId}, Amount: ${payment.amount}. ${err.message}`
-		);
+		const message = `Erro no pedido. PaymentId: ${payment.id}, PaymentMethodId: ${payment.payment_method}, CartId: ${cart.cartId}, Amount: ${payment.amount}. ${err.message}`;
+		await logger.error(message);
+		await sendNotification(message);
 		error(500, 'Ocorreu um erro. Estamos verificando o problema.');
 	}
 };
