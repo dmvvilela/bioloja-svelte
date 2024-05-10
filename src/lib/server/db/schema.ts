@@ -322,6 +322,7 @@ export const carts = pgTable(
 	{
 		id: text('id').primaryKey(),
 		userId: text('user_id').references(() => users.id),
+		paymentId: text('payment_id'),
 		orderNumber: text('order_number').references(() => orders.orderNumber),
 		couponCode: text('coupon_code').references(() => coupons.code),
 		createdAt: timestamp('created_at').notNull().defaultNow(),

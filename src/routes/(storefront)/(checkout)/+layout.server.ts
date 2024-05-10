@@ -1,8 +1,8 @@
 import { db } from '$lib/server/db/conn';
 import { carts, cartItems, products, coupons } from '$lib/server/db/schema';
 import { sql, and, eq, isNull, desc } from 'drizzle-orm';
-import type { Cart } from './types';
 import type { LayoutServerLoad } from '../$types';
+import type { Cart } from '$lib/types/checkout';
 
 export const load = (async ({ locals, cookies, depends }) => {
 	const user = locals.user;
@@ -25,6 +25,7 @@ export const load = (async ({ locals, cookies, depends }) => {
 		cartId = cookies.get('cartId');
 	}
 
+	// TODO: Verify this
 	if (!cartId) {
 		return {
 			user: locals.user,
@@ -40,6 +41,7 @@ export const load = (async ({ locals, cookies, depends }) => {
 		await db
 			.select({
 				cartId: carts.id,
+				paymentId: carts.paymentId,
 				orderNumber: carts.orderNumber,
 				createdAt: carts.createdAt,
 				updatedAt: carts.updatedAt,
@@ -119,7 +121,7 @@ export const load = (async ({ locals, cookies, depends }) => {
 			coupon &&
 			!coupon.couponExpired &&
 			!coupon.couponUsed &&
-			!coupon.userCouponUsed &&
+			/* !userCouponUsed && */
 			(!coupon.minAmount || subtotal >= coupon!.minAmount) &&
 			(!coupon.maxAmount || subtotal <= coupon!.maxAmount)
 		) {

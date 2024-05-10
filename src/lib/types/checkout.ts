@@ -24,6 +24,7 @@ export type Cart = {
 	cartId: string;
 	userId: string | null;
 	userName: string | null;
+	paymentId?: string | null;
 	orderNumber?: string | null;
 	couponDiscount: number | null;
 	productsDiscount: number | null;

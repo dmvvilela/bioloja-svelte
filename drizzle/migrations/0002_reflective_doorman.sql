@@ -1,0 +1,1 @@
+ALTER TABLE "carts" ADD COLUMN "payment_id" text;

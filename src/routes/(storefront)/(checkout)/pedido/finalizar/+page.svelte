@@ -13,6 +13,7 @@
 	export let data: PageData;
 
 	$: cart = data.cart as Cart;
+	$: clientSecret = data.clientSecret;
 
 	// Our form fields
 	let email = data.user?.email || '';
@@ -22,28 +23,9 @@
 
 	// Stripe fields
 	let stripe: any = null;
-	let clientSecret: any = null;
 	let error: any = null;
 	let elements: any;
 	let processing = false;
-
-	const createPaymentIntent = async () => {
-		try {
-			const response = await fetch('/api/stripe/intent', {
-				method: 'POST',
-				headers: {
-					'content-type': 'application/json'
-				},
-				body: JSON.stringify({ amount: cart.total })
-			});
-
-			const { clientSecret } = await response.json();
-			return clientSecret;
-		} catch (err: any) {
-			console.error(err);
-			error = err.error;
-		}
-	};
 
 	const submit = async () => {
 		if (!isEmail(email) || name.length < 3 || phone.length < 8) {
@@ -129,7 +111,6 @@
 		name = cart.userName || '';
 
 		stripe = await loadStripe(PUBLIC_STRIPE_PUBLISHABLE_KEY);
-		clientSecret = await createPaymentIntent();
 
 		trackEvent('event', 'begin_checkout', {
 			value: cart.total / 100,

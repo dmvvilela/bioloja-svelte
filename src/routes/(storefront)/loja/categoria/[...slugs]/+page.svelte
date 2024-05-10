@@ -53,7 +53,7 @@
 			{/key}
 
 			<!-- <div
-				class="bg-gradient-to-r from-accent to-secondary/80 text-white p-8 rounded-lg shadow-lg max-w-md mt-8"
+				class="bg-gradient-to-r from-accent to-secondary/80 text-white p-8 rounded-lg shadow-lg max-w-md mt-8 mb-8"
 			>
 				<div class="text-3xl font-bold mb-4">Oferta Especial!</div>
 				<div class="text-lg mb-4">

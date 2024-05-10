@@ -15,6 +15,13 @@
       "when": 1714091648525,
       "tag": "0001_freezing_liz_osborn",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1715351551507,
+      "tag": "0002_reflective_doorman",
+      "breakpoints": true
     }
   ]
 }

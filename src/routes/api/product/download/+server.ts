@@ -3,6 +3,7 @@ import { error, fail, json } from '@sveltejs/kit';
 import { orderProductsDownloads, orders } from '$lib/server/db/schema';
 import { and, count, eq } from 'drizzle-orm';
 import { db } from '$lib/server/db/conn';
+import logger from '$lib/server/logger';
 import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ locals, request }) => {
@@ -66,6 +67,8 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 			productId,
 			linkName
 		});
+
+		await logger.info(`Download link requested for order ${orderNumber} and product ${productId}.`);
 
 		// Last thing cause the download link will expire.
 		const download = await getProductUrlDownloadLink(linkUrl);
