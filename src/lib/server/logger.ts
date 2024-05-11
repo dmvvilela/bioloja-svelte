@@ -3,15 +3,9 @@ import { dev } from '$app/environment';
 import { AXIOM_DATASET, AXIOM_ORG_ID, AXIOM_TOKEN } from '$env/static/private';
 import { Axiom } from '@axiomhq/js';
 
-// TODO: Add more stuff:
-// {
-// 	"level": 30,
-// 	"time": 1702064201458,
-// 	"msg": "successful login",
-// 	"pid": 817,
-// 	"hostname": "MacBook-Air-von-Lars.local"
-// }
+// Example usage:
 // logger.info(
+// 	'successful login',
 // 	{
 // 		usr: {
 // 			id: form.data.email
@@ -22,7 +16,6 @@ import { Axiom } from '@axiomhq/js';
 // 			outcome: 'success'
 // 		}
 // 	},
-// 	'successful login'
 // );
 
 const logLevels = ['trace', 'debug', 'info', 'warn', 'error', 'fatal', 'silent'];
@@ -48,8 +41,8 @@ if (dev) {
 	logger = Object.fromEntries(
 		logLevels.map((level) => [
 			level,
-			async (msg: any) => {
-				axiom.ingest(AXIOM_DATASET, [{ level, msg }]);
+			async (msg: any, data: object | undefined) => {
+				axiom.ingest(AXIOM_DATASET, [{ proj: 'bioloja', level, msg, ...data }]);
 				await axiom.flush();
 			}
 		])

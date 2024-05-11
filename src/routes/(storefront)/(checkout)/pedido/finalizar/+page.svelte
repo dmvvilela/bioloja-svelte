@@ -27,6 +27,46 @@
 	let elements: any;
 	let processing = false;
 
+	// const submitDirectly = async () => {
+	// 	const payment = {
+	// 		id: 'pi_3PEzjmJCLP6ZyyZ70FOGL4XH',
+	// 		payment_method: 'pm_1PEzkHJCLP6ZyyZ7ZZZihTeD',
+	// 		next_action: null,
+	// 		amount: cart.total,
+	// 		status: ''
+	// 	};
+	// 	const response = await fetch('/api/order', {
+	// 		method: 'POST',
+	// 		headers: {
+	// 			'content-type': 'application/json'
+	// 		},
+	// 		body: JSON.stringify({ email, name, phone, cart, payment })
+	// 	});
+
+	// 	const { orderNumber } = await response.json();
+	// 	console.log(orderNumber);
+
+	// 	await goto(`/pedido/confirmado?order=${orderNumber}`);
+	// 	invalidate('app:checkout');
+
+	// 	trackEvent('event', 'purchase', {
+	// 		transaction_id: payment.id,
+	// 		currency: 'BRL',
+	// 		tax: 0,
+	// 		shipping: 0,
+	// 		value: cart.total / 100,
+	// 		items: cart.products.map((product) => ({
+	// 			item_id: product.id,
+	// 			item_name: product.name,
+	// 			price: (product.price / 100).toFixed(2),
+	// 			quantity: 1,
+	// 			item_category: product.categories.join(','),
+	// 			item_variant: product.slug,
+	// 			index: product.lineId
+	// 		}))
+	// 	});
+	// };
+
 	const submit = async () => {
 		if (!isEmail(email) || name.length < 3 || phone.length < 8) {
 			contactError = 'Verifique suas informações de contato.';
@@ -132,6 +172,9 @@
 	<div class="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
 		<h2 class="sr-only">Checkout</h2>
 
+		<!-- <button on:click={submitDirectly} class="inline-flex items-center px-4 py-2 border"
+			>Submit Directly</button
+		> -->
 		<form class="lg:grid lg:grid-cols-2 lg:gap-x-10 xl:gap-x-12">
 			<div>
 				<!-- Contact Info -->
