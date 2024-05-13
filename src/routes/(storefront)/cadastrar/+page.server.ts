@@ -8,6 +8,7 @@ import { isEmail, isPassword } from '$lib/utils/validation';
 import { sendTemplateEmail } from '$lib/server/mail';
 import logger from '$lib/server/logger';
 import type { Actions, PageServerLoad } from './$types';
+import { sendNotification } from '$lib/server/discord';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	if (locals.user) {
@@ -59,8 +60,9 @@ export const actions: Actions = {
 			...sessionCookie.attributes
 		});
 
-		// Send sign-up mail
+		// Send sign-up mail and notification to us.
 		await sendTemplateEmail(email, 'sign_up', 'svelte', { name });
+		await sendNotification('Novo usuário cadastrado: ' + email);
 
 		// Combine guest cart with user's cart.
 		await fetch('/api/cart/combine', { method: 'POST' });
