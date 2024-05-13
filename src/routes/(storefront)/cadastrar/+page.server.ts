@@ -5,6 +5,8 @@ import { db } from '$lib/server/db/conn';
 import { users } from '$lib/server/db/schema';
 import { lucia } from '$lib/server/auth/lucia';
 import { isEmail, isPassword } from '$lib/utils/validation';
+import { sendTemplateEmail } from '$lib/server/mail';
+import logger from '$lib/server/logger';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
@@ -22,6 +24,9 @@ export const actions: Actions = {
 		const confirm = formData.get('confirm') as string;
 
 		if (name.length < 3 || !isEmail(email) || !isPassword(password) || password !== confirm) {
+			await logger.error(
+				`Sign-up error: ${name}, ${email}, ${!isPassword(password)}, ${password !== confirm}`
+			);
 			return fail(400, {
 				email,
 				message: 'Verifique seus dados e tente de novo.'
@@ -40,6 +45,7 @@ export const actions: Actions = {
 				hashedPassword
 			});
 		} catch (err) {
+			await logger.error('User already exists: ' + email);
 			return fail(400, {
 				email,
 				message: 'Usuário já cadastrado.'
@@ -52,6 +58,9 @@ export const actions: Actions = {
 			path: '.',
 			...sessionCookie.attributes
 		});
+
+		// Send sign-up mail
+		await sendTemplateEmail(email, 'sign_up', 'svelte', { name });
 
 		// Combine guest cart with user's cart.
 		await fetch('/api/cart/combine', { method: 'POST' });

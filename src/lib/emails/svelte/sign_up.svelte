@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Button, Container, Head, Hr, Html, Img, Preview, Section, Text } from 'svelte-email';
 
-	export let firstName: string;
+	export let name: string;
 
 	const fontFamily =
 		'-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
@@ -24,6 +24,7 @@
 		fontFamily,
 		fontSize: '26px',
 		textAlign: 'center',
+		color: '#7895A3',
 		textDecoration: 'underline',
 		textUnderlineOffset: '6px',
 		textDecorationThickness: '2px',
@@ -41,9 +42,9 @@
 
 	const button = {
 		fontFamily,
-		backgroundColor: '#FFA726',
+		backgroundColor: '#7895A3',
 		borderRadius: '3px',
-		color: '#000',
+		color: '#fff',
 		fontSize: '16px',
 		fontWeight: 500,
 		textDecoration: 'none',
@@ -65,7 +66,7 @@
 
 <Html lang="en">
 	<Head />
-	<Preview preview="Sua conta no AFH foi criada." />
+	<Preview preview="Sua conta na Bioloja foi criada." />
 	<Section style={main}>
 		<Container style={container}>
 			<Img
@@ -75,20 +76,16 @@
 				width="534"
 				height="244"
 			/>
-			<Text style={title}>Sua conta no AFH foi criada</Text>
-			<Text style={paragraph}>Olá {firstName},</Text>
+			<Text style={title}>Sua conta na Bioloja foi criada</Text>
+			<Text style={paragraph}>Olá {name},</Text>
 			<Text style={paragraph}>
-				Agora você já pode usufruir dos nossos serviços. Experimente assinar o <strong>AFH+</strong>
-				para ter acesso a exercícios exclusivos e materiais extras, além de ver o site sem anúncios.
+				Agora você já pode usufruir dos nossos serviços. Experimente procurar os materiais que
+				deseja com nossa busca avançada por filtros. Pesquise por nome, categoria, preços e muito
+				mais!
 			</Text>
-			<Button
-				pX={12}
-				pY={12}
-				style={button}
-				href="https://anatomiaefisiologiahumana.com.br/assinar"
+			<Button pX={12} pY={12} style={button} href="https://bioloja.bio.br/loja"
+				>Visitar a Loja</Button
 			>
-				Conheça o AFH+
-			</Button>
 			<Hr style={hr} />
 			<Text style={footer}>Prof. Dr. Ana Luisa Miranda-Vilela</Text>
 		</Container>

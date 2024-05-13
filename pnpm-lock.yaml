@@ -158,9 +158,6 @@ importers:
       vitest:
         specifier: ^1.6.0
         version: 1.6.0(@types/node@20.12.8)
-      zod:
-        specifier: ^3.23.6
-        version: 3.23.6
 
 packages:
 
