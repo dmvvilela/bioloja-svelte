@@ -69,8 +69,8 @@ export const actions: Actions = {
 
 		if (url.searchParams.has('redirectTo')) {
 			redirect(303, url.searchParams.get('redirectTo') as string);
+		} else {
+			redirect(302, '/');
 		}
-
-		redirect(302, '/');
 	}
 };
