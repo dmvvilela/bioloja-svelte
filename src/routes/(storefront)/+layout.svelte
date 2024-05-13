@@ -33,6 +33,7 @@
 	<meta property="twitter:title" content={title} />
 	<meta property="twitter:description" content={description} />
 	<meta property="twitter:image" content={'https://bioimages.d2vsolutions.com/logo%2Ffull.jpg'} />
+	<link rel="sitemap" href="/sitemap.xml" />
 </svelte:head>
 
 <div class="relative">
