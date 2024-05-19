@@ -46,7 +46,7 @@
 	<hr class="mt-4 mb-8" />
 	{#if !downloads?.length}
 		<div class="mb-8">
-			<p class="text-gray-600 text-sm mb-7 italic">Você ainda não realizou nenhum pedido.</p>
+			<p class="text-gray-600 text-sm mb-7 italic">Você não possui nenhum pedido recente.</p>
 			<a href="/loja">
 				<button
 					class="btn btn-primary btn-md glass bg-primary-focus text-base border border-primary text-white px-8 font-medium
