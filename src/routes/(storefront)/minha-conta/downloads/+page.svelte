@@ -90,6 +90,13 @@
 					{/each}
 				</tbody>
 			</table>
+			<div class="m-8">
+				<p class="text-gray-600 text-sm italic">
+					<em class="font-semibold">OBS:</em> A senha para abrir os materiais se encontra no arquivo
+					<span class="font-medium underline">LEIA-ME.txt</span>
+					contido no arquivo <span class="font-medium">.zip</span> de download.
+				</p>
+			</div>
 		</div>
 	{/if}
 </div>
