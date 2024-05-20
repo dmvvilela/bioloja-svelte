@@ -11,7 +11,7 @@
 		<div class="relative rounded-sm overflow-hidden group tracking-wider">
 			<img
 				src="{PUBLIC_SLIDES_BUCKET_URL}/Genética/Alterações cromossômicas estruturais/slides/slide1.jpg"
-				alt="category 1"
+				alt="categoria 1"
 				class="w-full"
 			/>
 			<a
@@ -23,7 +23,7 @@
 		<div class="relative rounded-sm overflow-hidden group">
 			<img
 				src="{PUBLIC_SLIDES_BUCKET_URL}/Ecologia/Conceitos e estimativas de biodiversidade/slides/slide1.jpg"
-				alt="category 1"
+				alt="categoria 2"
 				class="w-full"
 			/>
 			<a
@@ -35,7 +35,7 @@
 		<div class="relative rounded-sm overflow-hidden group">
 			<img
 				src="{PUBLIC_SLIDES_BUCKET_URL}/Microbiologia/Bactérias/slides/slide1.jpg"
-				alt="category 1"
+				alt="categoria 3"
 				class="w-full"
 			/>
 			<a
@@ -47,7 +47,7 @@
 		<div class="relative rounded-sm overflow-hidden group">
 			<img
 				src="{PUBLIC_SLIDES_BUCKET_URL}/Anatomia e Fisiologia Humanas/Sistema reprodutor/Sistema reprodutor feminino/slides/slide1.jpg"
-				alt="category 1"
+				alt="categoria 4"
 				class="w-full"
 			/>
 			<a
@@ -59,7 +59,7 @@
 		<div class="relative rounded-sm overflow-hidden group">
 			<img
 				src="{PUBLIC_SLIDES_BUCKET_URL}/Bioquímica/Química celular e nutrição 2_Carboidratos/slides/slide1.jpg"
-				alt="category 1"
+				alt="categoria 5"
 				class="w-full"
 			/>
 			<a
@@ -71,7 +71,7 @@
 		<div class="relative rounded-sm overflow-hidden group">
 			<img
 				src="{PUBLIC_SLIDES_BUCKET_URL}/Evolução/Conceitos e estimativas de biodiversidade/slides/slide1.jpg"
-				alt="category 1"
+				alt="categoria 6"
 				class="w-full"
 			/>
 			<a

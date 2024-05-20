@@ -18,32 +18,32 @@
 
 	let products = [
 		{
-			name: 'Promoção - 15% de desconto: Excreção Comparada   Apostila',
-			price: 6477,
-			discount_price: 5505,
-			image: 'uploads/2020/04/Cópia-de-Sistema-e-Apostila-Promo.png',
-			link: 'https://bioloja.bio.br/loja/produto/promocao-15porcento-de-desconto-excrecao-comparada-apostila'
+			name: 'Fisiologia vegetal I: absorção, condução, transpiração e nutrição mineral',
+			price: 2400,
+			discount_price: 1920,
+			image: 'uploads/2019/08/Slide1-2.jpg',
+			link: 'https://bioloja.bio.br/loja/produto/fisiologia-vegetal-i-absorcao-conducao-transpiracao-e-nutricao-mineral'
 		},
 		{
-			name: 'Apostila Excreção comparada',
-			price: 4650,
-			discount_price: 3953,
-			image: 'uploads/2020/04/Excreção-comparada-1.jpg',
-			link: 'https://bioloja.bio.br/loja/produto/apostila-excrecao-comparada'
+			name: 'Infecções sexualmente transmissíveis 4 (IST-4)',
+			price: 3370,
+			discount_price: 2700,
+			image: 'uploads/2019/02/Slide1-1.jpg',
+			link: 'https://bioloja.bio.br/loja/produto/infeccoes-sexualmente-transmissiveis-4-ist-4'
 		},
 		{
-			name: 'Fisiologia vegetal II (ensino médio) – Crescimento e desenvolvimento',
-			price: 2890,
-			discount_price: 2310,
-			image: 'uploads/2019/09/Slide1.jpg',
-			link: 'https://bioloja.bio.br/loja/produto/fisiologia-vegetal-ii-ensino-medio-crescimento-e-desenvolvimento'
+			name: 'Apostila Sistema nervoso comparado',
+			price: 5250,
+			discount_price: 4463,
+			image: 'uploads/2020/04/Nervoso-comparado-1.jpg',
+			link: 'https://bioloja.bio.br/loja/produto/apostila-sistema-nervoso-comparado'
 		},
 		{
-			name: 'Infecções sexualmente transmissíveis 2 (IST-2)',
-			price: 5080,
-			discount_price: 4060,
-			image: 'uploads/2019/02/Slide1-2.jpg',
-			link: 'https://bioloja.bio.br/loja/produto/infeccoes-sexualmente-transmissiveis-2-ist-2'
+			name: 'Hemostasia',
+			price: 1900,
+			discount_price: 1600,
+			image: 'uploads/2019/05/Slide1.jpg',
+			link: 'https://bioloja.bio.br/loja/produto/hemostasia'
 		}
 	];
 
