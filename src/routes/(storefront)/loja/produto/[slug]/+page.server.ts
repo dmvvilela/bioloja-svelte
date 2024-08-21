@@ -16,6 +16,11 @@ import logger from '$lib/server/logger';
 import { searchProduct } from '$lib/utils/algolia';
 
 export const load = (async ({ params }) => {
+	// If the search query ends with .css it means that bots are trying to find vulnerabilities
+	if (params.slug.endsWith('.css')) {
+		error(400, 'Produto não encontrado.');
+	}
+
 	// const product = (await db.select().from(products).where(eq(products.slug, params.slug)))[0];
 
 	// const product = (
@@ -52,7 +57,7 @@ export const load = (async ({ params }) => {
 		const searched: any = await searchProduct(params.slug);
 		if (!searched.length) {
 			await logger.error('Product not found: ' + params.slug);
-			error(400, 'Produto não encontrado.');
+			error(404, 'Produto não encontrado.');
 		}
 
 		redirect(301, `/loja/produto/${searched[0].slug}`);
