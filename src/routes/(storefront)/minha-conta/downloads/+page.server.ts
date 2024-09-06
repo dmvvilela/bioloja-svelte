@@ -67,7 +67,15 @@ export const load = (async ({ locals, depends }) => {
 				count: count()
 			})
 			.from(orderProductsDownloads)
-			.where(inArray(orderProductsDownloads.productId, productIds))
+			.where(
+				and(
+					inArray(orderProductsDownloads.productId, productIds),
+					inArray(
+						orderProductsDownloads.orderNumber,
+						completedOrders.map((order: any) => order.orderNumber)
+					)
+				)
+			)
 			.groupBy(orderProductsDownloads.linkName, orderProductsDownloads.productId);
 		// console.log(downloads);
 	}
