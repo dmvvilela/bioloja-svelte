@@ -89,9 +89,9 @@
 	];
 </script>
 
-<div class="min-h-screen bg-base-200">
+<div class="min-h-screen bg-gray-100">
 	<!-- Top Navigation -->
-	<div class="navbar bg-base-100 shadow-lg">
+	<div class="navbar bg-white shadow-lg">
 		<div class="max-w-7xl mx-auto flex flex-grow">
 			<div class="flex-1">
 				<!-- <a class="btn btn-ghost normal-case text-xl">DigitalStore</a> -->
@@ -99,11 +99,11 @@
 			</div>
 			<div class="flex-none">
 				<ul class="menu menu-horizontal px-1">
-					<li><a class="active">Dashboard</a></li>
-					<li><a>Products</a></li>
-					<li><a>Orders</a></li>
-					<li><a>Customers</a></li>
-					<li><a>Analytics</a></li>
+					<li><a href="/admin/dashboard" class="bg-primary text-white">Dashboard</a></li>
+					<li><a href="/admin/produtos">Produtos</a></li>
+					<li><a href="/admin/pedidos">Pedidos</a></li>
+					<li><a href="/admin/clientes">Clientes</a></li>
+					<li><a href="/admin/email">Emails</a></li>
 				</ul>
 			</div>
 		</div>
@@ -113,22 +113,22 @@
 	<div class="pt-8 pb-16 max-w-7xl mx-auto">
 		<!-- Metrics -->
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
-			<div class="stat bg-base-100 shadow">
+			<div class="stat bg-white shadow">
 				<div class="stat-title">Total Revenue</div>
 				<div class="stat-value">$45,231.89</div>
 				<div class="stat-desc text-success">↗︎ 20.1% from last month</div>
 			</div>
-			<div class="stat bg-base-100 shadow">
+			<div class="stat bg-white shadow">
 				<div class="stat-title">Orders</div>
 				<div class="stat-value">2,350</div>
 				<div class="stat-desc text-success">↗︎ 180.1% from last month</div>
 			</div>
-			<div class="stat bg-base-100 shadow">
+			<div class="stat bg-white shadow">
 				<div class="stat-title">New Customers</div>
 				<div class="stat-value">12,234</div>
 				<div class="stat-desc text-success">↗︎ 19% from last month</div>
 			</div>
-			<div class="stat bg-base-100 shadow">
+			<div class="stat bg-white shadow">
 				<div class="stat-title">Active Now</div>
 				<div class="stat-value">573</div>
 				<div class="stat-desc text-success">↗︎ 201 since last hour</div>
@@ -137,7 +137,7 @@
 
 		<!-- Charts -->
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-			<div class="card bg-base-100 shadow-xl">
+			<div class="card bg-white shadow-xl">
 				<div class="card-body">
 					<h2 class="card-title">Monthly Sales</h2>
 					<div class="h-64">
@@ -145,7 +145,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="card bg-base-100 shadow-xl">
+			<div class="card bg-white shadow-xl">
 				<div class="card-body">
 					<h2 class="card-title">Monthly Orders</h2>
 					<div class="h-64">
@@ -156,7 +156,7 @@
 		</div>
 
 		<!-- Coupon Usage -->
-		<div class="card bg-base-100 shadow-xl mb-8">
+		<div class="card bg-white shadow-xl mb-8">
 			<div class="card-body">
 				<h2 class="card-title mb-4">Coupon Usage</h2>
 				<div class="overflow-x-auto">
@@ -185,7 +185,7 @@
 		<!-- New Users and Email Subscribers -->
 		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 mb-8">
 			<!-- New Users Table -->
-			<div class="card bg-base-100 shadow-xl">
+			<div class="card bg-white shadow-xl">
 				<div class="card-body">
 					<h2 class="card-title mb-4">New Users</h2>
 					<div class="overflow-x-auto">
@@ -212,7 +212,7 @@
 			</div>
 
 			<!-- Email Subscribers Table -->
-			<div class="card bg-base-100 shadow-xl">
+			<div class="card bg-white shadow-xl">
 				<div class="card-body">
 					<h2 class="card-title mb-4">Email Subscribers</h2>
 					<div class="overflow-x-auto">
@@ -239,7 +239,7 @@
 
 		<!-- Recent Orders and Top Products -->
 		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-			<div class="card bg-base-100 shadow-xl">
+			<div class="card bg-white shadow-xl">
 				<div class="card-body">
 					<h2 class="card-title mb-4">Recent Orders</h2>
 					<div class="overflow-x-auto">
@@ -282,10 +282,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="card bg-base-100 shadow-xl">
+			<div class="card bg-white shadow-xl">
 				<div class="card-body">
 					<h2 class="card-title mb-4">Top Products</h2>
-					<ul class="menu bg-base-100 w-full rounded-box">
+					<ul class="menu bg-white w-full rounded-box">
 						<li>
 							<div class="flex justify-between items-center w-full">
 								<div>
