@@ -160,7 +160,7 @@
 			</a>
 			{#if isAdmin}
 				<a
-					href="/admin/email"
+					href="/admin"
 					class="text-center text-gray-700 hover:text-primary transition relative flex flex-col items-center"
 				>
 					<svg
