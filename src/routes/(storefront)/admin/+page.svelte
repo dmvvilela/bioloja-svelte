@@ -95,11 +95,11 @@
 		<div class="max-w-7xl mx-auto flex flex-grow">
 			<div class="flex-1">
 				<!-- <a class="btn btn-ghost normal-case text-xl">DigitalStore</a> -->
-				<h1 class="text-3xl font-bold p-2">Dashboard</h1>
+				<h1 class="text-3xl font-bold p-2">Visão Geral</h1>
 			</div>
 			<div class="flex-none">
 				<ul class="menu menu-horizontal px-1">
-					<li><a href="/admin/dashboard" class="bg-primary text-white">Dashboard</a></li>
+					<li><a href="/admin" class="bg-primary text-white">Dashboard</a></li>
 					<li><a href="/admin/produtos">Produtos</a></li>
 					<li><a href="/admin/pedidos">Pedidos</a></li>
 					<li><a href="/admin/clientes">Clientes</a></li>
