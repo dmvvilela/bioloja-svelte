@@ -16,8 +16,8 @@ import logger from '$lib/server/logger';
 import { searchProduct } from '$lib/utils/algolia';
 
 export const load = (async ({ params }) => {
-	// If the search query ends with .css it means that bots are trying to find vulnerabilities
-	if (params.slug.endsWith('.css')) {
+	// If the search query ends with .bullshit it means that bots are trying to find vulnerabilities
+	if (params.slug.endsWith('.css') || params.slug.endsWith('.php')) {
 		error(400, 'Produto não encontrado.');
 	}
 
